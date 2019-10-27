@@ -1,0 +1,36 @@
+[
+    {
+        "name": "东软集团",
+        "url": "https://www.neusoft.com/cn/",
+        "title": "访问主页",
+        "introduction": "软件如此美妙",
+        "avatar": "/medias/avatars/neusoft.svg"
+    },
+    {
+        "name": "内蒙古工业大学",
+        "url": "http://www.imut.edu.cn/",
+        "title": "访问主页",
+        "introduction": "塞北小清华",
+        "avatar": "/medias/avatars/imut.jpg"
+    },
+    {
+        "avatar": "/medias/avatars/hwsun.jpg",
+        "name": "洪卫の博客",
+        "introduction": "UESTC CVer",
+        "url": "http://sunhwee.com",
+        "title": "访问主页"
+    },{
+        "name": "Blinkfox",
+        "url": "https://blinkfox.github.io",
+        "title": "前去学习",
+        "introduction": "Matery power by 闪烁之狐",
+        "avatar": "https://blinkfox.github.io/medias/avatar.jpg"
+    }
+    ,{
+        "name": "Sanarous",
+        "url": "https://bestzuo.cn/",
+        "title": "前去学习",
+        "introduction": "大佬！",
+        "avatar": "https://gravatar.loli.net/avatar/48c8f1e79dd340e4b247820fee013082?size=80&d=https%3a%2f%2fgravatar.loli.net%2favatar%2f9e63c80900d106cbbec5a9f4ea433a3e.jpg%3fsize%3d80"
+    }
+]

@@ -1,0 +1,52 @@
+
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        <% if (page.prev) { %>
+        <div class="article col s12 m6" data-aos="fade-up">
+
+            <div class="article-badge left-badge ">
+
+
+                   
+                   <a href="<%- url_for(page.prev.path) %>" target="_blank">
+                    <strong class="article-nav-caption">前一篇</strong>
+                    &nbsp;<i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i>
+
+<div class="article-nav-title2">     <font color="#0e263f"><%-page.prev.title%></font></div>
+                    </a> 
+            
+            </div>
+        </div>
+        <% } else { %>
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge ">           
+                <i class="fa fa-dot-circle-o"></i>&nbsp;没有啦～
+            </div>      
+        </div>
+        <% } %>
+
+        <% if (page.next) { %>
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge " >
+
+
+                    <a href="<%- url_for(page.next.path) %>" target="_blank">
+<i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i>&nbsp;
+
+                   <strong class="article-nav-caption" >后一篇</strong>
+
+                                        <div class="article-nav-title"><font color="#0e263f"><%-page.next.title%></font></div>
+
+                    </a>  
+            </div>
+        </div>
+        <% } else { %>
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge ">
+                没有啦～ &nbsp;<i class="fa fa-dot-circle-o"></i>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</article>
