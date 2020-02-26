@@ -1,0 +1,1271 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="股票入门知识, 陈德强 ALaDing 内蒙古工业大学 机器人 东软 东软集团 嵌入式 自动驾驶 ADASIS">
+    <meta name="description" content="熟悉交易界面首先，我们现在可以自由交易的股票市场为沪深两市，而不能自由交易比如美股等。交易时间为周一到周五上午9：30到11：30，下午1：00到3：00，周末以及法定节假日休市。
+不管你用的什么软件，大概都会先是这个画面我们将这个界面分为">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>股票入门知识 | ALaDing</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+
+
+
+  <link rel="amphtml" href="https://purethought.cn/10606.html/amp/index.html">
+
+    
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+
+
+
+
+<body style="overflow-x:hidden">
+    <header id="navControl" class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ALaDing</span>
+                </a>
+            </div>
+            
+
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/dictionary" class="waves-effect waves-light">
+            
+            <i class="fa fa-book"></i>
+            
+            <span>字典</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>豆瓣</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-leaf"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-commenting"></i>
+            
+            <span>留言</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse">
+  <i class="fa fa-navicon" >
+     <b>导航 </b>
+  </i>
+</a>
+
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/dictionary" class="waves-effect waves-light">
+              
+                <i class="fa fa-book"></i>
+              
+              <span>字典</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/categories" class="waves-effect waves-light">
+                
+                  <i class="fa fa-bookmark"></i>
+                
+                <span>分类</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>编程笔记</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>文史哲理</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>投资理财</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>过程随笔</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>既有优化</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>安装教程</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-heart"></i>
+                
+                <span>豆瓣</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/books" >
+                    
+                      <i class="fa fa-book" style="margin-top: -20px;"></i>
+                    
+                    <span>书单</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/movies" >
+                    
+                      <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>电影</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/games" >
+                    
+                      <i class="fa fa-gamepad" style="margin-top: -20px;"></i>
+                    
+                    <span>游戏</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-leaf"></i>
+                
+                <span>关于</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/about" >
+                    
+                      <i class="fa fa-user" style="margin-top: -20px;"></i>
+                    
+                    <span>简介</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/galleries" >
+                    
+                      <i class="fa fa-camera" style="margin-top: -20px;"></i>
+                    
+                    <span>相册</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/friends" >
+                    
+                      <i class="fa fa-handshake-o" style="margin-top: -20px;"></i>
+                    
+                    <span>友链</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/log" >
+                    
+                      <i class="fa fa-pencil-square-o" style="margin-top: -20px;"></i>
+                    
+                    <span>日志</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/tags" >
+                    
+                      <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/archives" >
+                    
+                      <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fa-commenting"></i>
+              
+              <span>留言</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+
+            <i id="searchIcon" class="fa fa-search" title="搜索" >
+              <b>搜索 </b>
+            </i>
+
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ALaDing</div>
+        <div class="logo-desc">
+            
+            东软集团 | 内蒙古工业大学 | 嵌入式工程师 | ADAS
+            
+        </div>
+    </div>
+
+    
+
+
+ <ul class="menu-list mobile-menu-list">  <li class="m-nav-item">  <a href="/" class="waves-effect waves-light">  <i class="fa fa-fw fa-home"></i>  首页 </a>  </li>  <li class="m-nav-item">  <a href="/dictionary" class="waves-effect waves-light">  <i class="fa fa-fw fa-book"></i>  字典 </a>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-bookmark"></i>  分类 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>编程笔记</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>文史哲理</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>投资理财</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>过程随笔</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>既有优化</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>安装教程</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-heart"></i>  豆瓣 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/books" >  <i class="fa fa-book" style="left: 25px; position: absolute;"></i>  <span>书单</span> </a> </li>  <li> <a href="/movies" >  <i class="fa fa-film" style="left: 25px; position: absolute;"></i>  <span>电影</span> </a> </li>  <li> <a href="/games" >  <i class="fa fa-gamepad" style="left: 25px; position: absolute;"></i>  <span>游戏</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-leaf"></i>  关于 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/about" >  <i class="fa fa-user" style="left: 25px; position: absolute;"></i>  <span>简介</span> </a> </li>  <li> <a href="/galleries" >  <i class="fa fa-camera" style="left: 25px; position: absolute;"></i>  <span>相册</span> </a> </li>  <li> <a href="/friends" >  <i class="fa fa-handshake-o" style="left: 25px; position: absolute;"></i>  <span>友链</span> </a> </li>  <li> <a href="/log" >  <i class="fa fa-pencil-square-o" style="left: 25px; position: absolute;"></i>  <span>日志</span> </a> </li>  <li> <a href="/tags" >  <i class="fa fa-tags" style="left: 25px; position: absolute;"></i>  <span>标签</span> </a> </li>  <li> <a href="/archives" >  <i class="fa fa-archive" style="left: 25px; position: absolute;"></i>  <span>归档</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="/contact" class="waves-effect waves-light">  <i class="fa fa-fw fa-commenting"></i>  留言 </a>  </li>   <li><div class="divider"></div></li> <li> <a href="https://github.com/CdqPT" class="waves-effect waves-light" target="_blank"> <i class="fa fa-github-square fa-fw"></i>Fork Me </a> </li>  </ul>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #000;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/CdqPT" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blogcdq.oss-cn-beijing.aliyuncs.com/image/other/star.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        股票入门知识
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before  /*,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before */{
+        display: block;
+        content: "🔖";
+        position: absolute;
+        left: 50px;
+        /*color: #EE7942;*/
+        /*color: red;*/
+    }
+        @media only screen and (max-width: 992px) {
+    #articleContent h1::before{
+        display: block;
+        content: " ";
+    }
+}
+
+    /*修改滚动条样式为隐藏*/
+    #toc-content {
+        height: calc(105vh - 250px);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 320px;
+        height: 600px;
+    }
+    #hidden{
+        overflow: hidden;
+        width: 300px;    
+    }  
+
+    #articleContent :focus {
+        outline: none;
+    }
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+    .toc-widget {
+        padding-left: 20px;
+    }
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 40px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    #toc-content ol {
+        padding-left: 10px;
+    }
+    #toc-content ol li {
+        padding-left: 30px;
+    }
+    #toc-content .toc-link:hover {
+        color: black;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+    #toc-content .is-active-link {
+        color: red;
+    }
+    #toc-content .is-active-link::before {
+        background-color: red;
+    }
+    #floating-toc-btn {
+        position: fixed;
+        right: 0.6rem;
+        bottom: 6rem;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+        opacity: 0.5;
+    }
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/其他/" target="_blank">
+                                <span class="chip bg-color">其他</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/投资理财/" class="post-category" target="_blank">
+                                投资理财
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+
+               <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-pencil fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-01-30
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-refresh fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-02-17
+                </div>
+                
+
+                
+
+                
+                
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+            
+        </div>
+
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="熟悉交易界面"><a href="#熟悉交易界面" class="headerlink" title="熟悉交易界面"></a>熟悉交易界面</h1><p>首先，我们现在可以自由交易的股票市场为沪深两市，而不能自由交易比如美股等。交易时间为周一到周五上午9：30到11：30，下午1：00到3：00，周末以及法定节假日休市。</p>
+<p>不管你用的什么软件，大概都会先是这个画面<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130121605.png?x-oss-process=image/resize,m_lfit,h_450" alt><br>我们将这个界面分为四部分，分别为股票简称和代码、基本信息、K线图以及成交量。<br>1、股票简称就是股票的名字，需要注意的是股票简称可能和我们平时熟知的名称不同，比如B站股票简称为BILI（美股）而不是哔哩哔哩或者bilibili。股票的代码就相当于股票的身份证号。</p>
+<p>2、第二部分从左往右：<br>① 15.46 为目前该股票每股的市场价格，也就是你买入一股所需要支付的钱，每支股票一次至少交易100股=1手。注意15.46为市场价格而不是账面价值（账面价值=公司净利润/普通股数量），市场价格可能高于账面价值也可能低于账面价值。0.07为现在的价格减去平盘价（也就是昨收盘）的价格，这只股票昨日收盘价15.39，故15.46-15.39=0.07.0.45%为涨跌百分比，等于实际涨跌额除以平盘价。（15.46-15.39）/15.39=0.45%。<br>②高：表示当日开盘后波动时出现的最高价格。<br>③低：表示当日开盘后波动时出现的最低价格。<br>④开：表示当日开盘价格。<br>⑤换：换手率，也称“周转率”，指在一定时间内市场中股票转手买卖的频率，是反映股票流通性强弱的指标之一。换手率越高，表示股票流通性越强，市场越活跃。<br>⑥量: 量比,是衡量相对成交量的指标。它是指股市开市后平均每分钟的成交量与过去5个交易日平均每分钟成交量之比,即量比=（现成交总手数 / 现累计开市时间(分) ）/ 过去5日平均每分钟成交量。量比反映的是当前盘口的成交力度与最近五天的成交力度的差别，这个差别的值越大表明盘口成交越趋活跃。<br>⑦额：今日内外盘买卖均价成交的总金额。</p>
+<p>3、曲线图<br>①K线图又称蜡烛图。中间长方形部分为实体，实体上面的实线为上影线，实体下面的实线为下影线。红色实体下边界表示开盘价格，上边界表示收盘价格，收盘价格高于开盘价格为上涨。上影线顶端代表当日最高价格，下影线底端代表当日最低价格。绿色实体上边界表示开盘价格，下边界表示收盘价格，收盘价格低于开盘价格为下跌。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130122516.png?x-oss-process=image/resize,m_lfit,h_450" alt><br>②均线MA5（灰色线）：5日均线，数值是最近5日收盘价的平均值。但如果是在开盘状况下，前四天是取收盘价，而当天的数值取的就是当时的市场价格，所以此时数值可能一直在变化。同理MA10（紫色线）为10日均线，MA20（黄色线）为20日均线，MA30（蓝色线）为30日均线。</p>
+<p>4、成交量。<br>成交量为股票买卖双方达成交易的数量，是单边的，例如，某只股票成交量为十万股，这是表示以买卖双方意愿达成的，在计算时成交量是十万股，即：买方买进了十万股，同时卖方卖出十万股。成交量里面绿柱，红柱是随当日K线的变化而变化,也就是说日K线收红则成交量柱也为红,反之也是，但并不是说涨了就为红,而是收盘价高于开盘价为红,收盘价低于开盘价为绿。这同时可以反映出股票买卖的本质还是供求关系，买多于卖，供不应求时则股票价格上涨，卖多于买供过于求时股票价格下跌。接下来就是第二个常见界面<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130122726.png?x-oss-process=image/resize,m_lfit,h_450" alt><br>我们将这个界面分为三部分，分时图，分时图中成交量，以及分时详情。<br>①分时图（灰线）是股票的动态实时（即时）分时走势图。15.56为当日均价（黄线）。<br>②打开分时图成交量（每分钟一柱）时，图中三种颜色:红色表示成交量是价格上涨过程中成交的；绿色表示成交量是价格下跌过程中成交的；白色表示是价格不变过程中成交的量。越长表示这个价位交易量越大。量表示此时股票分时量，是指一分钟成交金额的总量。计算方法是成交手数<em>100</em>价格，将所有股票的成交量加起来就是一分钟的总成交量。现手：5表示此时有人买入5手即500股。ps：关于分时图成交量现在的几种说法（1 ）分时的红绿柱是由柱子所处的那一分钟最后一笔交易的方向决定的，买则为红，卖则为绿。（2 ）只要价格比上一分钟价格低，下面就显示为绿色，只要价格比上一分钟高，下方则为红色。（3 ）在一个价位上，主动挂单买入，或是先下买单买入，然后才卖家挂单或实时出货而成交的，一般会用红色线柱表示；白色的线柱，一般会出现在买、卖挂单和实时买、卖单为是同时成交的，也就是同一时间上正好有人在同一价位上买货和卖货;与红色立柱正好反之交易的，就是主动挂单卖出或实时出货在先，然后才有买家接货的，一般就会用绿色标。<br>③分时详情<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130124913.png?x-oss-process=image/resize,m_lfit,h_450" alt><br>i.五档显示买卖各五个价格。即：买1、买2、买3、买4、买5；卖1、卖2、卖3、卖4、卖5；也就是同一时间可以看到5个买盘价格和5个卖盘价格。未成交的最低卖价就是卖一，未成交的最高买价就是买一，其余类推。若你想买入股票，当你报价高于卖1，即高于15.45元的任何价位，就可即时成交，成交价是15.45元。如果你的报价是15.44元，那么你就跟其他报价15.44元买入的投资者一起排队等候。等到即市价格跌至15.44元，你才有机会成交。<br>ii.明细明细的含义是在某时以某个价格成交了几手，红色为买入，绿色为卖出。例如14：59  15.46  11 就是在14：59一位买家以15.46元/每股的价格买入11手。<br>iii.成交饼状图显示买卖比例。特大单、大单、中单和小单没有固定标准。一般而言，特大单和大单代表机构，中单和小单代表中小投资者。通常流通盘（股票能在二级市场进行交易的流通量）在1亿股以下的，500手算大单；流通盘在1亿到10亿之间的1000手以上算大单；流通盘在10亿股以上的3000手以上算大单。</p>
+<h1 id="股市术语"><a href="#股市术语" class="headerlink" title="股市术语"></a>股市术语</h1><p>1、内外盘<br>内盘：以买入价成交的交易，成交数量统计加入内盘。<br>外盘：以卖出价成交的交易。成交的数量量统计加入外盘。<br>内盘，外盘这两个数据大体可以用来判断买卖力量的强弱。若外盘数量大于内盘，则表现买方力量较强，若内盘数量大于外盘则说明卖方力量较强。<br>2、多头空头<br>多头：指投资者对股市看好，预计股价将会看涨，于是趁低价时买进股票，待股票上涨至某一价位时再卖出，以获取差额收益。<br>空头：空头是投资者和股票商认为现时股价虽然较高，但对股市前景看坏，预计股价将会下跌，于是把借来的股票或者是原有持仓及时卖出，待股价跌至某一价位时再买进，以获取差额收益。<br>3、涨停跌停<br>涨跌停板是证券管理部门为了防止过度的投机而采取的一种措施，是指一只个股每天的最大涨跌幅度不能超过前一交易日的百分比。普通的股票最大涨跌幅为前一交易日的10%。新股上市首日不设涨跌幅限制。<br>4、洗盘：投机者先把股价大幅度杀低，使大批小额股票投资者(散户)产生恐慌而抛售股票，然后再把股价抬高，以便乘机渔利。<br>5、回档：在股市上，股价呈不断上涨趋势，终因股价上涨速度过快而反转回跌到某一价位，这一调整现象称为回档。一般来说，股票的回档幅度要比上涨幅度小，通常是反转回跌到前一次上涨幅度的三分之一左右时又恢复原来上涨趋势。<br>6、反弹：在股市上，股价呈不断下跌趋势，终因股价下跌速度过快而反转回升到某一价位的调整现象称为反弹。一般来说，股票的反弹幅度要比下跌幅度小，通常是反弹到前一次下跌幅度的三分之一左右时，又恢复原来的下跌趋势。<br>7、跳空：指受强烈利多或利空消息刺激，股价开始大幅度跳动。跳空通常在股价大变动的开始或结束前出现。<br>8、补空：是空头买回以前卖出的股票的行为。<br>9、阻力线与支撑线阻力线：股市受利多信息的影响，股价上涨至某一价格时，做多头的认为有利可图，但实际却有大量卖出，使股价至此停止上升，甚至出现回跌。股市上一般将这种遇到阻力时的价位称为关卡，股价上升时的关卡称为阻力线。支撑线：股市受利空信息的影响，股价跌至某一价位时，做空头的认为有利可图，大量买进股票，使股价不再下跌，甚至出现回升趋势。股价下跌时的关卡称为支撑线。<br>10、在股票名称前冠以“ST”的股票表示该上市公司最近两年连续亏损，或亏损一年，但净资产跌破面值、公司经营过程中出现重大违法行为等情况之一，交易所对该公司股票交易进行特别处理。股票交易日涨跌幅限制5%。<br>11、金叉死叉黄金交叉(金叉)：指短期移动平均线向上穿过中期移动平均线或短期、中期移动平均线同时向上穿过长期移动平均线的走势图形，表示股价将继续上升。<br>死亡交叉(死叉)：指下降中的短期移动平均线由上而下穿过下降的长期移动平均线，这个时候支撑线被向下跌破，表示股价将继续下落。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130125435.png?x-oss-process=image/resize,m_lfit,h_450" alt></p>
+<p><strong>基本面:</strong><br>基本面包括宏观经济运行态势和上市公司基本情况。宏观经济运行态势反映出上市公司整体经营业绩，也为上市公司进一步的发展确定了背景，因此宏观经济与上市公司及相应的股票价格有密切的关系。上市公司的基本面包括财务状况、盈利状况、市场占有率、经营管理体制、人才构成等各个方面。基本面在长线投资方面的运用较多，基本面分析可以有以下步骤：了解该公司，多花时间，弄清楚这家公司的经营状况。以下是一些获得资料的途径:公司网站；财经网站和股票经纪提供的公司年度报告；新闻报道–有关技术革新和其它方面的发展情况；发展潜力、无形资产、实物资产和生产能力；与竞争对手相比，该公司的经营策略、市场份额如何；资产的账面价值；销售增长率；净资产收益率观察股价走势图；专家的分析；内幕消息(特别要留意这个，内幕消息有真也有假，所以哪怕得到内幕消息了也还是要研究一番，避免被套。)</p>
+<p><strong>技术面:</strong><br>技术面指反映介变化的技术指标、走势形态以及K线组合等。技术分析有三个前提假设，即市场行为包容一切信息；价格变化有一定的趋势或规律；历史会重演。由于认为市场行为包括了所有信息，那么对于宏观面、政策面等因素都可以忽略，而认为价格变化具有规律和历史会重演，就使得以历史交易数据判断未来趋势变得简单了。当然，它的也有基本的理论依据：道琼斯理论；斐波纳契反驰现象；埃利奥特氏波。 如果要从技术面分析，以下的内容是必须有的：  1、发现趋势——发现整体的趋势是炒股布局的根本依据；  2、支撑和阻力——支撑和阻力水准是图表中经受持续向上或向下压力的点。两者是可以相互转换的，如一旦支撑水准被打破，它就会转变成阻力。  3、线条和通道——趋势线在识别市场趋势方向方面是简单而实用的工具；  4、平均线——移动平均线的不足之一在于它们滞后于市场，因此并不一定能作为趋势转变的标志，无论使用5和20天的移动平均线，还是40和200天的移动平均线，买入信号通常在较短期平均线向上穿过较长期平均线时被查觉。与此相反，卖出信号会在较短期平均线向下穿过较长周期平均线时被提示。  牛市：牛市也称多头市场，指市场行情普通看涨，延续时间较长的大升市。 熊市：熊市也称空头市场，指行情普通看淡，延续时间相对较长的大跌市。  牛皮市：指在所考察交易日里，证券价格上升、下降的幅度很小，价格变化不大，市价像被钉住了似的，如牛皮之坚韧。  集合竞价：所谓集合竞价就是在当天还没有成交价的时候，根据前一天的收盘价和对当日股市的预测来输入股票价格，而在这段时间里输入计算机主机的所有价格都是平等的，不需要按照时间  优先和价格优先的原则交易，而是按最大成交量的原则来定出股票的价位，这个价位就被称为集合竞价的价位，而这个过程被称为集合竞价。  连续竞价：所谓连续竞价，即是指对申报的每一笔买卖委托。  零股交易：不到一个成交单位(1手=100股)的股票，如1股、10股，称为零股.在卖出股票时，可以用零股进行委托；但买进股票时不能以零股进行委托，最小单位是1手，即100股。  派息：股票前一日收盘价减去上市公司发放的股息称为派息。  含权：凡是有股票有权未送配的均称含权。  除权：除权是由于公司股本增加，每股股票所代表的企业实际价值(每股净资产)有所减少，需要在发生该事实之后从股票市场价格中剔除这部分因素，而形成的剔除行为。  填权：指除权后该股票价格出现上涨，将除权前后的价格落差部分完全补回的情形。  贴权：贴权是指在除权除息后的一段时间里，如果多数人不看好该股，交易市价低于除权(除息)基准价，即股价比除权除息前有所下降，则为贴权。  XR：证券名称前记上XR,表示该股已除权，购买这样的股票后将不再享有分红的权利。当股票名称前出现XR的字样时，表明当日是这只股票的除权日。  除息：除息由于公司股东分配红利，每股股票所代表的企业实际价值(每股净资产)有所减少，需要在发生该事实之后从股票市场价格中剔除这部分因素，而形成的剔除行为。  DR：证券代码前标上DR，表示除权除息，购买这样的股票不再享有送股派息的权利。  XD：证券代码前标上XD，表示股票除息，购买这样的股票后将不再享有派息的权利。 配股：配股是上市公司根据公司发展的需要，依据有关规定和相应程序，旨在向原股东进一步发行新股、筹集资金的行为。  分红配股：分红即是上市公司对股东的投资回报；配股是上市公司按照公司发展的需要，根据有关规定和相应程序，向原股东增发新股，进一步筹集资金的行为。  送红股：送红股是上市公司将本年的利润留在公司里，发放股票作为红利，从而将利润转化为股本。  转增股本：转增股本是指公司将资本公积转化为股本，转增股本并没有改变股东的权股益，但却增加了股本规模，因而客观结果与送红股相似。</p>
+<h1 id="A股、B股、H股、ST股、蓝筹股、红筹股、普通股"><a href="#A股、B股、H股、ST股、蓝筹股、红筹股、普通股" class="headerlink" title="A股、B股、H股、ST股、蓝筹股、红筹股、普通股"></a>A股、B股、H股、ST股、蓝筹股、红筹股、普通股</h1><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130130313.png?x-oss-process=image/resize,m_lfit,h_450" alt="股票的分类拓扑图"><br><strong>第一、按投资主体分</strong><br>国有股：指所有权代表国家投资的部门或者机构以国有资产向公司投资形式的股份。法人股：指企业法人或具有法人资格的事业单位和社会团体以其依法可经营的资产向公司非上市流通股权部分投资所形成的股份。社会公众股：指我国境内个人和机构，以其合法财产向公司可上市流通股权部分投资所形成的股份。</p>
+<p><strong>第二、按股票的上市地点和所面对的投资者分</strong><br>A股：人民币普通股票，它是由我国境内的公司发行，供境内机构、组织或个人（不含台、港、澳投资者）以人民币认购和交易的普通股股票。<br>B股：人民币特种股票，它是以人民币标明面值，以外币认购和买卖，在境内（上海、深圳）证券交易所上市交易的。它的投资人限于：外国的自然人、法人和其他组织，香港、澳门、台湾地区的自然人、法人和其他组织，定居在国外的中国公民。B股公司的注册地和上市地都在境内。只不过投资者在境外或在中国香港、澳门以及台湾地区。<br>H股：注册地在内地、上市地在香港的外资股。N股：在内地注册的股份有限公司，但在美国纽约发行并在纽约证券交易所上市交易的股票。<br>S股：在内地注册的股份有限公司，但在新加坡发行并在新加坡证券交易所上市交易的股票。<br>L股：在内地注册的股份有限公司，但在英国伦敦发行并在伦敦证券交易所上市交易的股票。</p>
+<p><strong>第三、按海外市场分</strong><br>蓝筹股：蓝筹股是指稳定的现金股利政策对公司现金流管理有较高的要求，通常将那些经营业绩较好，具有稳定且较高的现金股利支付的公司股票称为“蓝筹股”。蓝筹股多指长期稳定增长的、大型的、传统工业股及金融股。“蓝筹”一词源于西方赌场，在西方赌场中，有三种颜色的筹码、其中蓝色筹码最为值钱。<br>红筹股：这一概念诞生于90年代初期的香港股票市场。中华人民共和国在国际上有时被称为红色中国，相应地，香港和国际投资者把在境外注册、在香港上市的那些带有中国大陆概念的股票称为红筹股。</p>
+<p><strong>第四、按股票的基础分类分</strong><br>普通股：指的是在公司的经营管理和盈利及财产的分配上享有普通权利的股份，代表满足所有债权偿付要求及优先股东的收益权与求偿权要求后对企业盈利和剩余财产的索取权。它构成公司资本的基础，是股票的一种基本形式，也是发行量最大，最为重要的股票。目前在上海和深圳证券交易所上中交易的股票，都是普通股。<br>优先股：是相对于普通股而言的。主要指在利润分红及剩余财产分配的权利方面，优先于普通股。</p>
+<p><strong>第五、按公司状况分</strong><br>ST股：沪深交易所宣布，将对财务状况或其它状况出现异常的上市公司股票交易进行特别处理(Special treatment)，并在简称前冠以“ST”，因此这类股票称为ST股。<em>ST—公司经营连续三年亏损，退市预警。ST—-公司经营连续二年亏损，特别处理。S</em>ST–公司经营连续三年亏损，退市预警+还没有完成股改。SST—公司经营连续二年亏损，特别处理+还没有完成股改。S—-还没有完成股改。PT股：停止任何交易，价格清零，等待退市的股票。<br>PT 是英文Particular Transfer(特别转让）的缩写。依据《公司法》和《证券法》规定，上市公司出现连续三年亏损等情况，其股票将暂停上市。</p>
+<h1 id="分析方法"><a href="#分析方法" class="headerlink" title="分析方法"></a>分析方法</h1><p>分析方法先只介绍最基础的K线图分析，听过很多人说K线分析已经过时了，但是我觉得这类知识你可以不用，但是最基础的你不能不懂。看树的时候不能忘了看林，看山的时候不能忘了望岭。K线图这种图表源处于日本德川幕府时代，被当时日本米市的商人用来记录米市的行情与价格波动，后因其细腻独到的标画方式而被引入到股市及期货市场。由于用这种方法绘制出来的图表形状颇似一根根蜡烛，加上这些蜡烛有黑白之分，因而也叫阴阳线图表。放在我国，白=红，黑=绿。<br><strong>单一线形：</strong><br>1、长白线一根具有明显意义的长白线，其实体长度至少需要是前一天实体长度的三倍。一根长白线出现在低价区，可能是底部即将形成的信号。<br>2、长黑线高价区的长黑线代表顶部的信号。长黑线的实体长度必须明显大于先前的数根线形。如果开盘价位在前一根白线实体的下半部，有空头意义；如果开盘价位在前一根黑线实体的上半部，有多头的意义。<br>3、纺锤线实体很小的线形称为纺锤。代表市场正在丧失功能。如果发生在波段高点——尤其是急涨的走势之后——代表多头已经后继乏力，先前的涨势可能由此停顿。<br>4、十字线实体部分为直线。十字线如果发生在上升或下降趋势的成熟阶段，即代表变盘的征兆。在明确的上升趋势中，如果十字线发生在一根长白线之后，需要特别警惕，不论十字线位于长白线实体之上或之内。这代表市场的力量已经趋于不一致。十字线出现以后，我们应该等待一两个交易时段，观察行情的发展。十字线如果发生在行情的起涨阶段，形成顶部的机会不大；在大幅的下跌之后，十字线可能代表底部的讯号。墓碑十字：开/收盘价位于最低价。如果发生在高价区，交易者在此买进，犹如进入墓穴。<br>5、影线上影线长代表空头，下影线长代表多头。<br>6、高浪线上影线下影线都很长的线。代表多空胶着的状态。<br><strong>两根线所构成的形态</strong><br>1、锤子锤子的下影线很长，上影线不存在（或很短）实体很小而位于交易区间的上端。锤子是重要的反转信号，必须发生在大幅的下跌之后或严重的超卖情况中才有意义。<br>2、上吊上吊的形状与锤子的完全相同。后者是低档的买进信号，前者是高档的卖出信号。上吊是上升走势中的头部反转信号，锤子是下降走势中的底部反转信号。由于上吊当天具有多头的意味，所以必须经过空头的确认——观察隔天的收盘价，应该低于“上吊”的实体。<br>3、流星上影线长，实体小且位于下端。上影线具有空头的意味。锤子、上吊、流星都是反转信号。<br>4、乌云罩顶第一根是强劲的长白线，第二根线形仍残留些许的买盘力道而开高，但收盘价深入第一根白线的实体内（超过实体长度的50%），程度愈深，形态越具有空头意义。 乌云罩顶一旦形成，经常成为后续走势的压力。<br>5、贯穿形态贯穿是在下降趋势中由一根顺势的长黑线与一根反转的长白线所构成，后者的收盘价深入前者的实体内。贯穿可显示低档的强劲买盘。贯入黑线程度愈深，底部反转意义越明确。<br>6、吞噬形态多头吞噬发生在下降走势中，第二根白线的实体吃掉第一根黑线的实体。空头吞噬发生在上升走势中，第二根黑线的实体吃掉第一根白线的实体。最完美的吞噬来讲，第二根线形的实体完全吃掉第一根线形——包括影线在内。<br>7、最后的吞噬形态空头吞噬形态发生在上升走势之后，由一根长黑线吞噬前一根小白线。可是空头吞噬如果是发生在下降走势中，代表底部反转的多头信号。这种形态称为最后的吞噬底。最后的吞噬底完成后，如果隔天的收盘价超越黑线的收盘价，是由空转多的信号。多头吞噬发生在下降走势中，由一根长白线吞噬前一条小黑线。可是多头吞噬如果是发生在上升走势中，代表空头形态，成为最后的吞噬顶。最后的吞噬顶完成后，如果隔天的收盘价低于白线的收盘价，是由多转空的信号。日本人将最后的吞噬顶比作“双人殉情”，你因为最后吞噬的长白线而爱上市场，但你也和市场共赴黄泉。<br>8、母子母子由两根线形构成，第一根线形的实体很长，第二根线形的实体很短，并且小实体完全处于大实体之内。在下跌趋势中，母子代表下跌的力道已经耗尽。在上升趋势中，母子代表涨势难以继续挺进。<br>9、窗口窗口是价格走势中没有交易的价格缺口，上升窗口是指昨天的上影线低于今天的下影线，下降窗口是指昨天的下影线高于今天的上影线。窗口是一种持续形态，当它出现以后，市场将恢复先前的趋势，所以上升窗口是一种多头持续形态，下降窗口是一种空头持续形态。如果收盘价格封闭窗口，则先前的趋势应该结束。</p>
+<h1 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h1><p><code>股票：</code><br>股票（stock）是股份公司发行的所有权凭证，是股份公司为筹集资金而发行给各个股东作为持股凭证并借以取得股息和红利的一种有价证券。每股股票都代表股东对企业拥有一个基本单位的所有权。每家上市公司都会发行股票。</p>
+<p><code>基金：</code><br>股票型基金又称股票基金，是指投资于股票市场的基金。证券基金的种类很多。目前我国除股票基金外，还有债券基金、股票债券混合基金、货币市场基金等。<br>投资策略有价值型、成长型、平衡型。</p>
+<p><code>开盘：</code><br>股票开盘指每天股市开始交易。</p>
+<p><code>道琼斯指数：</code><br>道琼斯指数最早是在1884年由道琼斯公司的创始人查尔斯·亨利·道（Charles Henry Dow 1851-1902年）开始编制的一种算术平均股价指数。道琼斯指数是世界上历史最为悠久的股票指数，它的全称为股票价格平均指数。</p>
+<p><code>A股:</code><br>A股，即人民币普通股票，是由中国境内注册公司发行，在境内上市，以人民币标明面值，供境内机构、组织或个人（2013年4月1日起，境内港澳台居民可开立A股账户）以人民币认购和交易的普通股股票。</p>
+<h1 id="股票投资的风险和收益计算"><a href="#股票投资的风险和收益计算" class="headerlink" title="股票投资的风险和收益计算"></a>股票投资的风险和收益计算</h1><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130130800.png?x-oss-process=image/resize,m_lfit,h_450" alt><br>任何一种投资工具都有其风险与报酬。当然，报酬率越高者，风险性也较高。以一般保守的投资人最爱的定存来说，定存每年的报酬率大约都在5%以下，不过却少有风险。至于期货、房地产就属于高报酬高风险的投资工具了。买股票与银行储蓄存款及购买债券相比较，它是一种高风险行为，但同时它也能给人们带来更大的收益。</p>
+<p><strong>那么购买股票能带来哪些好处呢？</strong><br>由于现在人们投资股票的主要目的并非在于充当企业的股东，享有股东权利，所以购买股票的好处主要体现在以下几个方面:<br>（1）每年有可能得到上市公司回报，如分红利、送红股。<br>（2）能够在股票市场上交易，获取买卖价差收益。<br>（3）能够在上市公司业绩增长、经营规模扩大时享有股本扩张收益。这主要是通过上市公司的送股、资本公积金转增股本、配股等来实现。<br>（4）投资金额具弹性，相对于房地产与期货，投资股票并不需要太多资金。由于股票价位多样化，投资人可选择自己财力足可负担的股票介入。<br>（5）变现性佳。若投资人急需用钱，通常都能在当天卖出股票，则下下一个交易日便可以收到股款。 与房地产相比较，变现性较佳。 但目前中国股票市场上市公司越来越多，也出现了若干流动性不佳的股票，投资人在选择股票的时候，需多加注意。<br>（6）在通货膨胀时期，投资好的股票还能避免货币的贬值，有保值的作用。目前国内常见的投资工具包括：定存、股票、基金、债券、期货、房地产….等。这些投资工具各有其报酬与风险状况。</p>
+<h1 id="散户从哪四个方面研究绩优股"><a href="#散户从哪四个方面研究绩优股" class="headerlink" title="散户从哪四个方面研究绩优股"></a>散户从哪四个方面研究绩优股</h1><p>这几种标准都有各自的道理，但未免略显肤浅，考察一个上市公司的业绩如何，应当综合各个方面的情况，除上述几点外还应从以下四个方面研究：<br>1、财务状况。一个公司的财务状况主要涉及资本结构、偿债能力、盈利能力等几方面。<br>2、经营状况。一个业绩好的公司往往有着优良的产品质量、较大的市场占有率和较高的商业信誉。<br>3、管理水平。一个业绩好的公司必定有一个高水平的领导班子，有科学严谨的工作作风和管理办法。<br>4、给股东的回报。一个业绩好的公司每年都会给股东以优厚的回报，比如大比例送红股和派高额现金红利。<br>随着中国股市和投资者的日趋成熟，“投资于绩优、投资于高成长”已经成为市场共识。绩优股为什么受追捧呢?从理论上讲，买股票是为该上市公司出资，出资的目的明显是获取投资收益，而上市公司向股东提供投资回报的高低只能从其业绩(更直接地说是利润)状况来反映，业绩好说明其为股东提供的回报高，业绩差说明回报低，亏损说明投资者不仅得不到回报，还要用本钱去还债。因此，绩优股当然受市场欢迎。但有人会说，绩优股价格高、成本大。绩差股价格低、成本低，一旦有业绩上升，股价上升空间大。这个说法有道理，买股票就是买未来，绩差股业绩能有提高当然意味着股价上涨，投资者获利。但在大多数的交易时间里，上市公司将来的业绩水平是不可预期的。<br>投资者很难判断一个上市公司的业绩水平是否会有变化，这个时候绩优股与绩差股相比，安全性明显，尤其在趋势模糊的市道中，绩优股更显英雄本色。</p>
+<h1 id="股票买卖过程中手续费的计算"><a href="#股票买卖过程中手续费的计算" class="headerlink" title="股票买卖过程中手续费的计算"></a>股票买卖过程中手续费的计算</h1><p>新晋投资者在买股票时会发现，为什么刚买入股票价格还没波动受益立马变成负数。这里就有一个手续费如何计算的问题存在，那么下面我们就来讲解这个问题。</p>
+<p><strong>交易时收费项目主要有三个项目：印花税、过户费、券商佣金。</strong><br>印花税：这个税只在卖出股票的时候收取，收费方式为成交金额的千分之一，由国家进行征收。<br>过户费：这个只在买卖上海股票的时候收取，收费方式为成交股数的万分之零点二，不足一元按一元收取。而过户费只有在买入上证A股时才会收取。<br>佣金：与其他人成本最大的不同就在于交易佣金，佣金在不同券商区别较大，有万分之三的也有千分之一的，不足5元的按5元收取。故选择正确的券商进行开户或者跟券商进行佣金的协商是非常必要的。</p>
+<p><strong>举例说明：</strong>假设我在开户时的券商给出的佣金收费比例也是万分之三，2016年7月30日我以每股6元的价格，购入某A股股票，500股，8月5日时，因股价上涨至6.8元，我将此股票全部卖出，那么在此次交易过程中，一共交纳了多少手续费？计算过程如下：首先，购买时：印花税0元，过户费：500<em>0.02‰=0.01元，因为不足1元按照1元收取；券商佣金，因为3000</em>0.3‰=0.9元，严重小于5元，所以仍然按照5元计算，也就是说购买该股票交纳手续费1+5=6元；其次，卖出时：印花税=6.8<em>500</em>1‰=3.4元，过户费=500*0.02‰=0.01元，不足1元按照1元收取；券商佣金还是低于5元，仍然按照5元收取，即卖出时手续费需要交纳3.4+1+5=9.4元。 因此，在此交易过程中总共交纳的手续费为6+9.4=15.4元。</p>
+<h1 id="分时图上的白线与黄线的含义"><a href="#分时图上的白线与黄线的含义" class="headerlink" title="分时图上的白线与黄线的含义"></a>分时图上的白线与黄线的含义</h1><p><strong>个股分时图白线与黄线的含义</strong><br>1、黄线：表示该股的均价即平均价格，当天成交总金额除以成交总股数。<br>2、白线：表示该票实时成交的价格，即为准确的实盘价格。</p>
+<p><strong>大盘分时图白线与黄线的含义</strong><br>1、黄线：大盘不含加权的指标<br>2、白线：表示大盘加权指数，也就是说大盘的实际指数</p>
+<p><strong>大盘黄白线的另外一层含义</strong><br>当大盘下跌的时候，黄线在白线的上面，意思是中小盘股的跌幅小于大盘股的跌幅。反过来就是：中小盘股跌幅大于大盘股（权重股）。当大盘上涨的时候，黄线在白线的上面，意思是中小盘股涨幅大于大盘股的涨幅；反过来就是：大盘股的涨幅要大于中小盘股的涨幅。</p>
+<h1 id="股票类型"><a href="#股票类型" class="headerlink" title="股票类型"></a>股票类型</h1><p>6开头的代表着是在主板上市的股票，0开头的代表着是在深市上市的股票，3开头的代表着是在创业板上市的股票。对应就有三大指数，上证指数（000001），深证成指（399001），创业板指（399006），其中主板的股票由上海证券交易所监管，深市，和创业板的股票都由深圳证券交易所监管。</p>
+<p><strong>什么是大股，什么是小股？</strong><br>大股小股其实是根据流通值来定的，而不是总市值。为什么这个概念经常被提到，是因为这个流通盘大小决定主力机构的控盘难度，流通盘太大的股票，拉升，砸盘都需要很多的钱才能完成，而流通盘小的股票则要相对容易很多。像中国人保，总市值有4500多亿，但是在解禁之前，它的流通值才100亿多一点，这样就容易被游资拿来炒作。而且大机构一般青睐大盘股，因为他们资金规模大，如果在小盘股里面，稍微一拉，股价就容易飞涨，稍微一跌，就容易跌停，他们出货就非常困难。而游资就特别青睐小盘股。</p>
+<p>大盘股在涨的时候慢一些，而下跌的行情下则会相对抗跌一些。小盘股涨的时候很猛，下跌的情况下，跌得也猛。那按照什么标准来区分大盘股还是小盘股呢？这个其实并没有严格的标准，只是个人可以根据经验做一下区分，一般而言，上了100亿的流通值，大机构青睐的概率相对会高一些，而流通值100亿以下的，就算小盘股了。</p>
+<p><strong>什么是题材股？</strong><br>题材股就是指的这支股票的题材属性比较强，概念比较多。题材股在主板，深市，创业板里都有，而且题材股里面也并不都是小盘股，也会有一些大股。例如题材股二三四五，涉及到13个概念，流通值也达到了270多亿，算是题材里面的大股了。但是题材股，不论是大盘还是小盘，波动性都会比权重股要大。即使是大盘题材股，遇到暴跌行情的时候，依然还是不抗跌。</p>
+<p>不一定6开头的就是大盘股，0开头的都是小盘股，3开头的创业板里也有权重大股，这个主要看流通值大小。002开头的为中小板，普遍为流通盘偏小的股票。</p>
+<h1 id="指数成分股"><a href="#指数成分股" class="headerlink" title="指数成分股"></a>指数成分股</h1><p>指数的作用是为投资者提供一种风向标的参考。而指数是由指数成分股的股价走势，经过计算而得来，而能入选指数股的一般都是经过了筛选的，一般不会太差，所以选股的时候，优先选择指数成分股，再配合其他条件去筛选，是个不错的方法。指数股还有个好处是，有的时候遇到市场大跌，为了保证指数跌幅不要太大，会拉升指数股来保全指数。2017年翻倍走牛的股，很多出自于深证100成分股，例如海康威视，大族激光之类。</p>
+<p>A股有几个非常重要的指数，上证50，上证180，沪深 300，深证100，创业板 50，中创100 ，中证500，其中上证指数是跟上证50高度关联的，创业板指数其实就跟创业板50关联度大。而中证500则代表一些流通盘偏小的题材股。</p>
+<h1 id="均线怎么用"><a href="#均线怎么用" class="headerlink" title="均线怎么用"></a>均线怎么用</h1><p>均线其实就是指的股价某个时间周期内的平均值，主要是为了跟踪趋势。常用的均线有5线，10线，20线，30线，60线，120线，250线。其中这些均线又可以使用在日K线级别，周K线级别，年K线级别。如何用均线判断是否进入了趋势？在日K线级别看，当股票的均线呈现多头排列，5,10,20,30,60 均线开始从上到下排列，就可以认为该股票在走上涨趋势。原理是：股价上涨的时候，5日线是跟踪股价最紧密的，所以5日线会比其他均线涨得快，就会跑在前面，同理其他均线也一样，时间周期越久，涨得越慢，就越会在下面。当股票开始走上涨趋势时候该怎么操作？一般股价走上涨趋势时候，股价会沿着某条重要的均线上涨，我们就可以认为此条均线是趋势重要支撑力量，只要股价没有跌破此均线，我们可以放心持股。后续如果股价增量跌破这根均线，那就意味着趋势暂时终结，后续下跌幅度会变大，此时就可以带着利润卖出。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130133636.png?x-oss-process=image/resize,m_lfit,h_450" alt><br>反之，下跌趋势就反过来。5,10,20,30,60 均线开始从下往上排列，呈现出空头排列，就可以认为该股票在走下跌趋势，后续股价一直沿着某条均线走低，某一天突然增量突破这根重要均线，那么这个股票后续大概率会上涨一个波段空间。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130133720.png?x-oss-process=image/resize,m_lfit,h_450" alt></p>
+<h1 id="成交量为什么这么重要"><a href="#成交量为什么这么重要" class="headerlink" title="成交量为什么这么重要"></a>成交量为什么这么重要</h1><p>首先要明白一点，A股里股价的上涨，下跌都是由主力机构资金引导的，散户无法左右股价的走势。<br>而一旦主力机构资金交易活跃，那就会是大资金进行交易，就一定会放出量来。这里的成交量其实就是每天的成交额或者成交的总手数，代表着主力资金动态。量能变大，意味着主力资金交易活跃，而后续股价出现异动的概率就很高。而缩量就代表着主力资金活跃度不高，以散户交易为主，主力机构在看戏。<br>所以可以推论出这么一个逻辑：上涨的话，要增量才是健康的，代表着股价主要是由机构资金推动上涨。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130133853.png?x-oss-process=image/resize,m_lfit,h_450" alt><br>而下跌的话，要缩量才是比较好（踩踏式跌停除外），代表着机构资金没有出逃多少，而散户出逃厉害，这种情况强势股一般跌一个短线恐慌后，容易又给重新拉上去，借下跌完成一次洗盘（把散户吓得卖出持有的股票，而机构没有怎么卖）。例如下图二三四五，3月14,15号杀跌缩量，后续股价又被拉上去。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130133921.png?x-oss-process=image/resize,m_lfit,h_450" alt></p>
+<h1 id="估值的高低"><a href="#估值的高低" class="headerlink" title="估值的高低"></a>估值的高低</h1><p>前面说的都是偏技术类的基础知识，这里再说一个大家耳熟能详，且被广泛关注的财务基础知识—-估值。常规的一般就是看市盈率和市净率了，一般市盈率和市净率尽量低的，为低估。（市盈率）PE=股价/每股收益。也就是说，一个股票要么股价低，要么盈利能力强，都可以降低市盈率，那么相应这个股票就算低估类型了。（市净率）PB=股价/每股净资产。也就是说，如果一家企业，PB低，那么就可以说明这家公司要么股价低，要么净资产高，相应这个股票也算低估类型了。破净股有什么好处：简单说，就算是公司破产了，投资者们也能从清算中获得不低于股票价值的补偿。不过一般谁也不愿意走到那一步，只能用来说明估值比较低而已。这个两个财务指标只能参照一下，不能绝对的来衡量。不是说这两个指标低的股，以后就一定可以大涨。要主力机构认同它低估，那么它才是真的低估，毕竟股价上涨是靠主力机构来推动。</p>
+<h1 id="跟着国家政策走"><a href="#跟着国家政策走" class="headerlink" title="跟着国家政策走"></a>跟着国家政策走</h1><p>永远要跟着国家政策走，这样你也能率先享受国家政策带来的福利。2017年以前A股市场还是投机风格为主，大家主流的赚钱模式都还是靠炒小盘股，根本不看公司业绩。而2017年以来，国家提倡价值投资，所以聪明的人跟着政策走，提前布局那些行业龙头股，绩优股，2017年都赚得盆满钵满，而继续执迷于流通盘小，业绩差的股票的，很多人已经在高位套牢，动弹不得。有些就算是抓住了2019年一季度的这一波行情，也未必能解套。所以关注国家政策很重要，跟着国家政策走，才能抓住福利。</p>
+<h1 id="熊市，牛市须采取不同的交易模式"><a href="#熊市，牛市须采取不同的交易模式" class="headerlink" title="熊市，牛市须采取不同的交易模式"></a>熊市，牛市须采取不同的交易模式</h1><p>在熊市行情下，采用左侧交易模式，暴跌中分批买股，趋势走好之后开始分批卖出。在牛市行情下，采用右侧交易模式，涨幅不大的股票，好好捂住，静待上涨，趋势线持股。好好体会，坚决执行，效果显著。以上八点是我个人觉得非常重要且实用的基础知识，如果掌握得熟练可以帮助我们大大提高分析能力，从而提高操作的成功率，赚到更多的钱。股市里没有绝对的一说，我们能做的也就是抓住大概率事件来做出预判，后期不断的跟踪修正，从而尽可能的提高操作成功率，获取较高的投资回报。</p>
+<h1 id="分享一段我从2019年4月9号到4月23号，持股11个交易日，盈利20-的短线操作心路历程"><a href="#分享一段我从2019年4月9号到4月23号，持股11个交易日，盈利20-的短线操作心路历程" class="headerlink" title="分享一段我从2019年4月9号到4月23号，持股11个交易日，盈利20%的短线操作心路历程"></a>分享一段我从2019年4月9号到4月23号，持股11个交易日，盈利20%的短线操作心路历程</h1><p>先说一下19年大的环境：2019年目前沪指涨幅28.38%，创业板涨幅37.45%，一季度大部分股票都有较大的涨幅，不管是权重大股，还是题材小股，基本上都上涨了一轮。这时候继续去追热门强势股，由于获利盘大，如果行情到顶，那么很可能就成了接盘侠。如果去找那些相对滞涨的股，获利盘小，安全性就高得多了。<br><strong>选股：</strong>分析了上述逻辑，我就开始找低位滞涨股，打算做个短线。<br><strong>标准：</strong>①短期内没有涨幅很大②当天 -3% 到 +3% 内的股③同时技术面图形也不错的类型<br><strong>理由：</strong>①排除掉大涨大跌的一类，低位股最好是波动不太大的，更有爆发潜力。②技术图形不错，更加符合技术走势的需求。4月8号晚上找到目标股：002631（德尔未来）<br><strong>分析股票：</strong>① 从图形上涨斜率看，不是短期暴涨类型，涨幅不大。② 股价转强点在60周线，过了60周线后，涨幅依旧不大，有补涨需求。③ 日线看，技术图形走势健康，增量上涨，缩量下跌，快要跌到前期启动位置，有继续启动的可能。综合分析，此股符合选股逻辑，可以小仓验证选股逻辑是否正确。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130134541.png?x-oss-process=image/resize,m_lfit,h_450" alt><br>实际进展情况：<br>4月9号：临近收盘时候，买入小仓。<br>10号：股价没有什么大的波动，继续持股。<br>11号：开始上涨，小有盈利。最高点到 9.05，后续又下来，收上影线，成交量略微增量，第二天可能会跌。盈利不大，后悔没有做 T。<br>12号：果然开始下跌，好在是缩量下跌的，就再加了一点仓。<br>15号：创业板行情不好，压力明显。股价继续下跌，好在继续缩量，而且主力资金显示净流入，犹豫要不要继续加仓。无奈行情不太好，怕被带坑里，就没有加仓。<br>16号：缩量上涨2.46%，不健康的上涨。手痒又想卖了做T，好在主力资金是净流入的，还是忍住了，继续持股。<br>17号：继续缩量，基本没涨，主力资金略微净流入，继续持股。<br>18号：出现增量上涨，但是涨幅不大，主力资金净买入 2777 万，继续持股。<br>19号：开盘量比急剧放大，达到了10倍以上，平常才2倍左右，判断股价当天大概率会有大动作。准备加仓，但是资金流显示主力资金流出，有些犹豫，以为会大跌。又考虑到 16,17，18号进场的主力资金要盈利才会出，不至于傻到割肉离场，就继续持股。随后量比继续放大，主力资金反向流入，股价顺势上涨。中午出现石墨烯的消息，股价下午开盘后，直接封死涨停，封单超过120万，一直到收盘，封单还有几十万，但是量比依然很大，这样第二天的开盘不一定会高开了。当天主力资金是继续净流入的，还是试试看吧，继续持股。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130134717.png?x-oss-process=image/resize,m_lfit,h_450" alt><br>22号： 没想到开盘继续涨停，惊喜。但是封单只有6万多，量比147倍多，显然封单是不稳的。犹豫要不要出，涨停就被打开了。没出在高位，想继续持股看看，后来居然又封上涨停板了，封单虽然不很大，但是量比在持续减小，显示主力资金流入5600多万。此时心理也没底，但想着今天进的主力资金要获利出局，想第二天高开后，直接兑现走人，抱着侥幸的心理，就没有卖出。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130134806.png?x-oss-process=image/resize,m_lfit,h_450" alt><br>图23号： 侥幸中的高开并没有出现，直接低开了6个多点，完全出乎意料。随后看到股价有慢慢回升的迹象，就想继续再等等。后来盘中剧烈波动，振幅达到了9.54%，有点懵圈，也错过了高点机会卖出。终于在快收盘时候，以当天跌幅4个多点，选择清仓，盈利20个点走人。（其实卖完就有点后悔了，总感觉这像是洗盘，但是成交量确实放得太大，不确定性也很大）<br>24号：开盘量比继续很大，股价向下走了一点，暗自庆幸昨天卖对了，结果几分钟快速封涨停板。完全傻眼，都没时间上车，眼看着涨停。到收盘，封单接近4万，量比不足1倍，第二天应该会高开，但是已经跟我无关了。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200130134854.png?x-oss-process=image/resize,m_lfit,h_450" alt><br>复盘总结：<br>做得好的地方：选股逻辑基本正确，买入点把握也OK。<br>值得改进的地方：① 对于卖出时机的把握不到位，遇到大的波动，还是容易受情绪影响。由于不是一直盯盘，对于计划好的卖点，应采取挂单模式，便于第一时间成交。② 操作水平有待加强，加仓，减仓不够坚决，这个股的走势，操作恰当，收益40个点非常容易。（此股票仅供分享知识用，不作为投资推荐）结语：你可以分析到某支股票未来大概率会涨，但是能涨多少是你不能预测的，你只能通过后续的跟踪来判断，根据实际情况做出调整修正。所以整个操作流程是预测在前，跟踪确认在后，每做一步都需要有分析，有依据，而不是靠猜测。</p>
+<h1 id="战胜华尔街笔记"><a href="#战胜华尔街笔记" class="headerlink" title="战胜华尔街笔记"></a>战胜华尔街笔记</h1><p>这些是我们都应该牢记在心的，即使在洗澡时也要念念不忘，因为牢记这些格言能够防止犯下投资错误：<br>➣好公司经常每年提高分红。</p>
+<p>➣股票投资赔钱只需很短时间，但是赚钱却要花很长时间。</p>
+<p>➣股票投资并非赌博，但前提是你购买股票的依据是你认为公司经营很不错，而不是因为股价很不错。</p>
+<p>➣你能从股市上赚大钱，但也能在股市上赔大钱，这一点我们已经亲身体验。</p>
+<p>➣投资股票，务必牢记适当分散投资。</p>
+<p>➣你应该分散投资于几种不同的股票。因为在每5只你买的股票之中，可能会有1只表现非常好，有1只表现非常糟，另外3只表现一般。</p>
+<p>➣不要对1只股票固执己见，要保持一个开放的心胸。</p>
+<p>➣不要随便挑一只股票就算了，你得先研究再投资。</p>
+<p>➣买公用事业股很不错，因为分红相当丰厚，但是成长股才能让你赚大钱。</p>
+<p>➣仅仅根据1只股票股价已经下跌，并不能判断它不会进一步下跌。</p>
+<p>➣长期而言，买小公司股票更赚钱。</p>
+<p>➣不要只图股价便宜就买一只股票，买股票的前提应该是你十分了解这家公司。</p>
+<p>经过40年的投资生涯，投资者协会总结出了很多投资经验和教训，就像我在管理麦哲伦基金期间得到很多经验教训一样。其中一个投资经验是，如果你选择5家成长性公司股票，你会发现其中有3家公司的表现和你预想的差不多，有1家公司由于预想不到的麻烦表现非常令人失望，第5家公司却会给你出乎意料的惊喜，创造惊人的丰厚回报。既然你不可能事先知道哪种股票表现比预期的更好，哪种股票会比预想的更糟，所以投资组合中不要少于5种股票。投资者协会称之为“最少5只股票原则”。</p>
+<p>➣不要买太多股票，多了你就无法及时了解每一家公司的最新动态。</p>
+<p>➣定期投资。</p>
+<p>➣你应该确定两点：第一，公司的每股销售额和每股收益增长率是否令人满意；第二，股价是否合理。</p>
+<p>➣最好要认真研究分析公司的财务实力和债务结构，以确定万一出现几年经营糟糕的情况是否会妨碍公司的长期发展。</p>
+<p>➣买入或不买入一只股票的依据应该是，公司成长性是否符合你的要求以及股价是否合理。</p>
+<p>➣理解创造过去销售增长的因素，有助于你准确判断过去的销售增长率在未来能否继续保持下去。</p>
+<p>炒股和减肥一样，决定最终结果的不是头脑，而是毅力。<br>如果你买了股票基金，根本不必分析公司和追踪股市行情，这种情况下，你了解的信息越多，反而可能越有害。有些投资者，既不考虑经济形势未来发展好坏，也不关心股市未来涨跌如何，每天乐呵呵的，该干啥干啥，唯一做的就是有规律地定期投资买股票。另外一些投资者成天研究股市，试图寻找最佳投资时机，当他觉得对未来股价走势很有信心时就买入，当他觉得对未来股价走势很没有信心时就卖出。你猜猜，那些根本不关注股市走势只是定期买入的投资者，与那些天天研究股市走势判断最佳投资时机的投资者，谁的投资业绩会更好？也许你想不到，前者更高。</p>
+<p>参考链接：<br><a href="https://www.zhihu.com/question/37054230/answer/751972126" target="_blank" rel="noopener">https://www.zhihu.com/question/37054230/answer/751972126</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                 
+                 <hr/>
+                 
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn" rel="external nofollow noreferrer">陈德强</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn/10606.html">https://purethought.cn/10606.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://purethought.cn" target="_blank">陈德强</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+            </div>         
+        </div>
+    </div>
+    
+    <!-- 代码块功能依赖 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>    
+    <!-- 代码语言 -->   
+    <!-- <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script> -->          
+    <!-- 代码块复制 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>      
+    <!-- 代码块收缩 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge ">                  
+                <a href="/28124.html" target="_blank">                 
+                    <font color="#0e263f">
+                        <i class="fa  fa-hand-o-left"></i>
+                        组织机构和职责
+                    </font>                    
+                </a>          
+            </div>
+        </div>
+        
+
+
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge " >
+                <a href="/10495.html" target="_blank">
+                    <font color="#0e263f">
+                        中华人民共和国宪法
+                        <i class="fa  fa-hand-o-right"></i>
+                    </font>
+                 </a>  
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+    
+        <style>
+    #reward {
+        /*margin: 40px 0;*/
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.6rem;
+      
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+   <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red" >¥</a> 
+  
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-times"></i></a>
+            <h4 class="reward-title">您的赞赏就是我的动力^</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+    
+
+    
+        <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80Njk3Mi8yMzQ3Mw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+    
+   <!-- 
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '6190f09c0ffe658707b5',
+        clientSecret: '2798e16eeba573f49ce06d2da0595188699aac41',
+        repo: 'cdqpt.github.io',
+        owner: 'CdqPT',
+        admin: "CdqPT",
+        id: '2020-01-30T11-15-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+     -->
+
+    
+
+    
+
+    
+
+   <!-- <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script> -->
+
+</div>
+
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    
+        <div class="toc-widget">
+        
+            <div class="toc-title" ><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="hidden">
+                <div id="toc-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. --><!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large ">    
+        <i class="fa fa-th-large"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2'
+        });
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            i++;
+            $(this).attr('href', '#' + tocHeading + (i));
+            $(this).attr('navTo',  tocHeading + (i));    
+        });
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(0);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(100);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+</main>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+       <div class="col s12 m8 l8 copy-right">
+             
+               &copy;2018-2020 ALaDing
+               &nbsp;
+             Author:  <a href="https://purethought.cn/">陈德强 &nbsp  Email: 928277452@qq.com</a>
+
+            
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                       
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?147475454185ebcf440a27cc35e793ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CdqPT" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:928277452@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=928277452" class="tooltipped" data-tooltip="QQ联系我: 928277452" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+ 
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+   
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+
+</html>

@@ -1,0 +1,1803 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="库函数集合, 陈德强 ALaDing 内蒙古工业大学 机器人 东软 东软集团 嵌入式 自动驾驶 ADASIS">
+    <meta name="description" content="错误处理常用头文件tlpi_hdr.h/*************************************************************************\
+*                  Copyri">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>库函数集合 | ALaDing</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+
+
+
+  <link rel="amphtml" href="https://purethought.cn/2636.html/amp/index.html">
+
+    
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+
+
+
+
+<body style="overflow-x:hidden">
+    <header id="navControl" class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ALaDing</span>
+                </a>
+            </div>
+            
+
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/dictionary" class="waves-effect waves-light">
+            
+            <i class="fa fa-book"></i>
+            
+            <span>字典</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>豆瓣</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-leaf"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-commenting"></i>
+            
+            <span>留言</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse">
+  <i class="fa fa-navicon" >
+     <b>导航 </b>
+  </i>
+</a>
+
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/dictionary" class="waves-effect waves-light">
+              
+                <i class="fa fa-book"></i>
+              
+              <span>字典</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/categories" class="waves-effect waves-light">
+                
+                  <i class="fa fa-bookmark"></i>
+                
+                <span>分类</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>编程笔记</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>文史哲理</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>投资理财</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>过程随笔</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>既有优化</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>安装教程</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-heart"></i>
+                
+                <span>豆瓣</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/books" >
+                    
+                      <i class="fa fa-book" style="margin-top: -20px;"></i>
+                    
+                    <span>书单</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/movies" >
+                    
+                      <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>电影</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/games" >
+                    
+                      <i class="fa fa-gamepad" style="margin-top: -20px;"></i>
+                    
+                    <span>游戏</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-leaf"></i>
+                
+                <span>关于</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/about" >
+                    
+                      <i class="fa fa-user" style="margin-top: -20px;"></i>
+                    
+                    <span>简介</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/galleries" >
+                    
+                      <i class="fa fa-camera" style="margin-top: -20px;"></i>
+                    
+                    <span>相册</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/friends" >
+                    
+                      <i class="fa fa-handshake-o" style="margin-top: -20px;"></i>
+                    
+                    <span>友链</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/log" >
+                    
+                      <i class="fa fa-pencil-square-o" style="margin-top: -20px;"></i>
+                    
+                    <span>日志</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/tags" >
+                    
+                      <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/archives" >
+                    
+                      <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fa-commenting"></i>
+              
+              <span>留言</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+
+            <i id="searchIcon" class="fa fa-search" title="搜索" >
+              <b>搜索 </b>
+            </i>
+
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ALaDing</div>
+        <div class="logo-desc">
+            
+            东软集团 | 内蒙古工业大学 | 嵌入式工程师 | ADAS
+            
+        </div>
+    </div>
+
+    
+
+
+ <ul class="menu-list mobile-menu-list">  <li class="m-nav-item">  <a href="/" class="waves-effect waves-light">  <i class="fa fa-fw fa-home"></i>  首页 </a>  </li>  <li class="m-nav-item">  <a href="/dictionary" class="waves-effect waves-light">  <i class="fa fa-fw fa-book"></i>  字典 </a>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-bookmark"></i>  分类 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>编程笔记</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>文史哲理</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>投资理财</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>过程随笔</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>既有优化</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>安装教程</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-heart"></i>  豆瓣 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/books" >  <i class="fa fa-book" style="left: 25px; position: absolute;"></i>  <span>书单</span> </a> </li>  <li> <a href="/movies" >  <i class="fa fa-film" style="left: 25px; position: absolute;"></i>  <span>电影</span> </a> </li>  <li> <a href="/games" >  <i class="fa fa-gamepad" style="left: 25px; position: absolute;"></i>  <span>游戏</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-leaf"></i>  关于 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/about" >  <i class="fa fa-user" style="left: 25px; position: absolute;"></i>  <span>简介</span> </a> </li>  <li> <a href="/galleries" >  <i class="fa fa-camera" style="left: 25px; position: absolute;"></i>  <span>相册</span> </a> </li>  <li> <a href="/friends" >  <i class="fa fa-handshake-o" style="left: 25px; position: absolute;"></i>  <span>友链</span> </a> </li>  <li> <a href="/log" >  <i class="fa fa-pencil-square-o" style="left: 25px; position: absolute;"></i>  <span>日志</span> </a> </li>  <li> <a href="/tags" >  <i class="fa fa-tags" style="left: 25px; position: absolute;"></i>  <span>标签</span> </a> </li>  <li> <a href="/archives" >  <i class="fa fa-archive" style="left: 25px; position: absolute;"></i>  <span>归档</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="/contact" class="waves-effect waves-light">  <i class="fa fa-fw fa-commenting"></i>  留言 </a>  </li>   <li><div class="divider"></div></li> <li> <a href="https://github.com/CdqPT" class="waves-effect waves-light" target="_blank"> <i class="fa fa-github-square fa-fw"></i>Fork Me </a> </li>  </ul>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #000;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/CdqPT" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blogcdq.oss-cn-beijing.aliyuncs.com/image/other/star.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        库函数集合
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before  /*,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before */{
+        display: block;
+        content: "🔖";
+        position: absolute;
+        left: 50px;
+        /*color: #EE7942;*/
+        /*color: red;*/
+    }
+        @media only screen and (max-width: 992px) {
+    #articleContent h1::before{
+        display: block;
+        content: " ";
+    }
+}
+
+    /*修改滚动条样式为隐藏*/
+    #toc-content {
+        height: calc(105vh - 250px);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 320px;
+        height: 600px;
+    }
+    #hidden{
+        overflow: hidden;
+        width: 300px;    
+    }  
+
+    #articleContent :focus {
+        outline: none;
+    }
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+    .toc-widget {
+        padding-left: 20px;
+    }
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 40px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    #toc-content ol {
+        padding-left: 10px;
+    }
+    #toc-content ol li {
+        padding-left: 30px;
+    }
+    #toc-content .toc-link:hover {
+        color: black;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+    #toc-content .is-active-link {
+        color: red;
+    }
+    #toc-content .is-active-link::before {
+        background-color: red;
+    }
+    #floating-toc-btn {
+        position: fixed;
+        right: 0.6rem;
+        bottom: 6rem;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+        opacity: 0.5;
+    }
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/c/" target="_blank">
+                                <span class="chip bg-color">c</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/字典/" class="post-category" target="_blank">
+                                字典
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+
+               <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-pencil fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-02-15
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-refresh fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-02-15
+                </div>
+                
+
+                
+
+                
+                
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+            
+        </div>
+
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h1><h2 id="常用头文件"><a href="#常用头文件" class="headerlink" title="常用头文件"></a>常用头文件</h2><h3 id="tlpi-hdr-h"><a href="#tlpi-hdr-h" class="headerlink" title="tlpi_hdr.h"></a>tlpi_hdr.h</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*************************************************************************\
+*                  Copyright (C) Michael Kerrisk, 2019.                   *
+*                                                                         *
+* This program is free software. You may use, modify, and redistribute it *
+* under the terms of the GNU Lesser General Public License as published   *
+* by the Free Software Foundation, either version 3 or (at your option)   *
+* any later version. This program is distributed without any warranty.    *
+* See the files COPYING.lgpl-v3 and COPYING.gpl-v3 for details.           *
+\*************************************************************************/</span>
+
+<span class="token comment" spellcheck="true">/* tlpi_hdr.h
+
+   Standard header file used by nearly all of our example programs.
+*/</span>
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> TLPI_HDR_H</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> TLPI_HDR_H      </span><span class="token comment" spellcheck="true">/* Prevent accidental double inclusion */</span>
+
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h></span>  </span><span class="token comment" spellcheck="true">/* Type definitions used by many programs */</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span>      </span><span class="token comment" spellcheck="true">/* Standard I/O functions */</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span>     </span><span class="token comment" spellcheck="true">/* Prototypes of commonly used library functions,
+                           plus EXIT_SUCCESS and EXIT_FAILURE constants */</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span>     </span><span class="token comment" spellcheck="true">/* Prototypes for many system calls */</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;errno.h></span>      </span><span class="token comment" spellcheck="true">/* Declares errno and defines error constants */</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span>     </span><span class="token comment" spellcheck="true">/* Commonly used string-handling functions */</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdbool.h></span>    </span><span class="token comment" spellcheck="true">/* 'bool' type plus 'true' and 'false' constants */</span>
+
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"get_num.h"</span>    </span><span class="token comment" spellcheck="true">/* Declares our functions for handling numeric
+                           arguments (getInt(), getLong()) */</span>
+
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"error_functions.h"</span>  </span><span class="token comment" spellcheck="true">/* Declares our error-handling functions */</span>
+
+<span class="token comment" spellcheck="true">/* Unfortunately some UNIX implementations define FALSE and TRUE -
+   here we'll undefine them */</span>
+
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> TRUE</span>
+<span class="token macro property">#<span class="token directive keyword">undef</span> TRUE</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> FALSE</span>
+<span class="token macro property">#<span class="token directive keyword">undef</span> FALSE</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token punctuation">{</span> FALSE<span class="token punctuation">,</span> TRUE <span class="token punctuation">}</span> Boolean<span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">define</span> min(m,n) ((m) &lt; (n) ? (m) : (n))</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> max(m,n) ((m) > (n) ? (m) : (n))</span>
+
+<span class="token comment" spellcheck="true">/* Some systems don't define 'socklen_t' */</span>
+
+<span class="token macro property">#<span class="token directive keyword">if</span> defined(__sgi)</span>
+<span class="token keyword">typedef</span> <span class="token keyword">int</span> socklen_t<span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+
+<span class="token macro property">#<span class="token directive keyword">if</span> defined(__sun)</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;sys/file.h></span>           </span><span class="token comment" spellcheck="true">/* Has definition of FASYNC */</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+
+<span class="token macro property">#<span class="token directive keyword">if</span> ! defined(O_ASYNC) &amp;&amp; defined(FASYNC)</span>
+<span class="token comment" spellcheck="true">/* Some systems define FASYNC instead of O_ASYNC */</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> O_ASYNC FASYNC</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+
+<span class="token macro property">#<span class="token directive keyword">if</span> defined(MAP_ANON) &amp;&amp; ! defined(MAP_ANONYMOUS)</span>
+<span class="token comment" spellcheck="true">/* BSD derivatives usually have MAP_ANON, not MAP_ANONYMOUS */</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> MAP_ANONYMOUS MAP_ANON</span>
+
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+
+<span class="token macro property">#<span class="token directive keyword">if</span> ! defined(O_SYNC) &amp;&amp; defined(O_FSYNC)</span>
+<span class="token comment" spellcheck="true">/* Some implementations have O_FSYNC instead of O_SYNC */</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> O_SYNC O_FSYNC</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+
+<span class="token macro property">#<span class="token directive keyword">if</span> defined(__FreeBSD__)</span>
+
+<span class="token comment" spellcheck="true">/* FreeBSD uses these alternate names for fields in the sigval structure */</span>
+
+<span class="token macro property">#<span class="token directive keyword">define</span> sival_int sigval_int</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> sival_ptr sigval_ptr</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+
+<span class="token macro property">#<span class="token directive keyword">endif</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="错误诊断函数"><a href="#错误诊断函数" class="headerlink" title="错误诊断函数"></a>错误诊断函数</h2><p>使用errMsg()、errExit()、err_exit()以及errExitEN()函数，以诊断调用系统调用和库函数时所发生的错误。<br>函数errMsg()会在标准错误设备上打印消息。除了将一个终止换行符自动追加到输出字符串尾部以外，该函数的参数列表与printf()所用相同。errMsg()函数会打印出与当前errno值相对应的错误文本，其中包括了错误名（比如，EPERM）以及由strerror()返回的错误描述，外加由参数列表指定的格式化输出。</p>
+<p>errExit()函数的操作方式与errMsg()相似，只是还会以如下两种方式之一来终止程序。其一，调用exit()退出。其二，若将环境变量EF_DUMPCORE定义为非空字符串，则调用abort()退出，同时生成核心转储（core dump）文件，供调试器调试之用。</p>
+<h3 id="error-functions-h"><a href="#error-functions-h" class="headerlink" title="error_functions.h"></a>error_functions.h</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*************************************************************************\
+*                  Copyright (C) Michael Kerrisk, 2019.                   *
+*                                                                         *
+* This program is free software. You may use, modify, and redistribute it *
+* under the terms of the GNU Lesser General Public License as published   *
+* by the Free Software Foundation, either version 3 or (at your option)   *
+* any later version. This program is distributed without any warranty.    *
+* See the files COPYING.lgpl-v3 and COPYING.gpl-v3 for details.           *
+\*************************************************************************/</span>
+
+<span class="token comment" spellcheck="true">/* error_functions.h
+
+   Header file for error_functions.c.
+*/</span>
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> ERROR_FUNCTIONS_H</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> ERROR_FUNCTIONS_H</span>
+
+<span class="token comment" spellcheck="true">/* Error diagnostic routines */</span>
+
+<span class="token keyword">void</span> <span class="token function">errMsg</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> __GNUC__</span>
+
+    <span class="token comment" spellcheck="true">/* This macro stops 'gcc -Wall' complaining that "control reaches
+       end of non-void function" if we use the following functions to
+       terminate main() or some other non-void function. */</span>
+
+<span class="token macro property">#<span class="token directive keyword">define</span> NORETURN __attribute__ ((__noreturn__))</span>
+<span class="token macro property">#<span class="token directive keyword">else</span></span>
+<span class="token macro property">#<span class="token directive keyword">define</span> NORETURN</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+
+<span class="token keyword">void</span> <span class="token function">errExit</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> NORETURN <span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">err_exit</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> NORETURN <span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">errExitEN</span><span class="token punctuation">(</span><span class="token keyword">int</span> errnum<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> NORETURN <span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">fatal</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> NORETURN <span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">usageErr</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> NORETURN <span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">cmdLineErr</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> NORETURN <span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">endif</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="error-functions-c"><a href="#error-functions-c" class="headerlink" title="error_functions.c"></a>error_functions.c</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*************************************************************************\
+*                  Copyright (C) Michael Kerrisk, 2019.                   *
+*                                                                         *
+* This program is free software. You may use, modify, and redistribute it *
+* under the terms of the GNU Lesser General Public License as published   *
+* by the Free Software Foundation, either version 3 or (at your option)   *
+* any later version. This program is distributed without any warranty.    *
+* See the files COPYING.lgpl-v3 and COPYING.gpl-v3 for details.           *
+\*************************************************************************/</span>
+
+<span class="token comment" spellcheck="true">/* error_functions.c
+
+   Some standard error handling routines used by various programs.
+*/</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdarg.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"error_functions.h"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"tlpi_hdr.h"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"ename.c.inc"</span>          </span><span class="token comment" spellcheck="true">/* Defines ename and MAX_ENAME */</span>
+
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> __GNUC__                 </span><span class="token comment" spellcheck="true">/* Prevent 'gcc -Wall' complaining  */</span>
+<span class="token function">__attribute__</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>__noreturn__<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">/* if we call this function as last */</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span>                          </span><span class="token comment" spellcheck="true">/* statement in a non-void function */</span>
+<span class="token keyword">static</span> <span class="token keyword">void</span>
+<span class="token function">terminate</span><span class="token punctuation">(</span>Boolean useExit3<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>s<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/* Dump core if EF_DUMPCORE environment variable is defined and
+       is a nonempty string; otherwise call exit(3) or _exit(2),
+       depending on the value of 'useExit3'. */</span>
+
+    s <span class="token operator">=</span> <span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"EF_DUMPCORE"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>s <span class="token operator">!=</span> <span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">*</span>s <span class="token operator">!=</span> <span class="token string">'\0'</span><span class="token punctuation">)</span>
+        <span class="token function">abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>useExit3<span class="token punctuation">)</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span>EXIT_FAILURE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        <span class="token function">_exit</span><span class="token punctuation">(</span>EXIT_FAILURE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* Diagnose 'errno' error by:
+
+      * outputting a string containing the error name (if available
+        in 'ename' array) corresponding to the value in 'err', along
+        with the corresponding error message from strerror(), and
+
+      * outputting the caller-supplied error message specified in
+        'format' and 'ap'. */</span>
+
+<span class="token keyword">static</span> <span class="token keyword">void</span>
+<span class="token function">outputError</span><span class="token punctuation">(</span>Boolean useErr<span class="token punctuation">,</span> <span class="token keyword">int</span> err<span class="token punctuation">,</span> Boolean flushStdout<span class="token punctuation">,</span>
+        <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> va_list ap<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> BUF_SIZE 500</span>
+    <span class="token keyword">char</span> buf<span class="token punctuation">[</span>BUF_SIZE<span class="token punctuation">]</span><span class="token punctuation">,</span> userMsg<span class="token punctuation">[</span>BUF_SIZE<span class="token punctuation">]</span><span class="token punctuation">,</span> errText<span class="token punctuation">[</span>BUF_SIZE<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token function">vsnprintf</span><span class="token punctuation">(</span>userMsg<span class="token punctuation">,</span> BUF_SIZE<span class="token punctuation">,</span> format<span class="token punctuation">,</span> ap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>useErr<span class="token punctuation">)</span>
+        <span class="token function">snprintf</span><span class="token punctuation">(</span>errText<span class="token punctuation">,</span> BUF_SIZE<span class="token punctuation">,</span> <span class="token string">" [%s %s]"</span><span class="token punctuation">,</span>
+                <span class="token punctuation">(</span>err <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> err <span class="token operator">&lt;=</span> MAX_ENAME<span class="token punctuation">)</span> <span class="token operator">?</span>
+                ename<span class="token punctuation">[</span>err<span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token string">"?UNKNOWN?"</span><span class="token punctuation">,</span> <span class="token function">strerror</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        <span class="token function">snprintf</span><span class="token punctuation">(</span>errText<span class="token punctuation">,</span> BUF_SIZE<span class="token punctuation">,</span> <span class="token string">":"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">if</span> __GNUC__ >= 7</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> GCC diagnostic push</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> GCC diagnostic ignored "-Wformat-truncation"</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+    <span class="token function">snprintf</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span> BUF_SIZE<span class="token punctuation">,</span> <span class="token string">"ERROR%s %s\n"</span><span class="token punctuation">,</span> errText<span class="token punctuation">,</span> userMsg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">if</span> __GNUC__ >= 7</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> GCC diagnostic pop</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>flushStdout<span class="token punctuation">)</span>
+        <span class="token function">fflush</span><span class="token punctuation">(</span><span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">/* Flush any pending stdout */</span>
+    <span class="token function">fputs</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span> <span class="token constant">stderr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">fflush</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">/* In case stderr is not line-buffered */</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* Display error message including 'errno' diagnostic, and
+   return to caller */</span>
+
+<span class="token keyword">void</span>
+<span class="token function">errMsg</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    va_list argList<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> savedErrno<span class="token punctuation">;</span>
+
+    savedErrno <span class="token operator">=</span> errno<span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">/* In case we change it here */</span>
+
+    <span class="token function">va_start</span><span class="token punctuation">(</span>argList<span class="token punctuation">,</span> format<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">outputError</span><span class="token punctuation">(</span>TRUE<span class="token punctuation">,</span> errno<span class="token punctuation">,</span> TRUE<span class="token punctuation">,</span> format<span class="token punctuation">,</span> argList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">va_end</span><span class="token punctuation">(</span>argList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    errno <span class="token operator">=</span> savedErrno<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* Display error message including 'errno' diagnostic, and
+   terminate the process */</span>
+
+<span class="token keyword">void</span>
+<span class="token function">errExit</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    va_list argList<span class="token punctuation">;</span>
+
+    <span class="token function">va_start</span><span class="token punctuation">(</span>argList<span class="token punctuation">,</span> format<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">outputError</span><span class="token punctuation">(</span>TRUE<span class="token punctuation">,</span> errno<span class="token punctuation">,</span> TRUE<span class="token punctuation">,</span> format<span class="token punctuation">,</span> argList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">va_end</span><span class="token punctuation">(</span>argList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">terminate</span><span class="token punctuation">(</span>TRUE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* Display error message including 'errno' diagnostic, and
+   terminate the process by calling _exit().
+
+   The relationship between this function and errExit() is analogous
+   to that between _exit(2) and exit(3): unlike errExit(), this
+   function does not flush stdout and calls _exit(2) to terminate the
+   process (rather than exit(3), which would cause exit handlers to be
+   invoked).
+
+   These differences make this function especially useful in a library
+   function that creates a child process that must then terminate
+   because of an error: the child must terminate without flushing
+   stdio buffers that were partially filled by the caller and without
+   invoking exit handlers that were established by the caller. */</span>
+
+<span class="token keyword">void</span>
+<span class="token function">err_exit</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    va_list argList<span class="token punctuation">;</span>
+
+    <span class="token function">va_start</span><span class="token punctuation">(</span>argList<span class="token punctuation">,</span> format<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">outputError</span><span class="token punctuation">(</span>TRUE<span class="token punctuation">,</span> errno<span class="token punctuation">,</span> FALSE<span class="token punctuation">,</span> format<span class="token punctuation">,</span> argList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">va_end</span><span class="token punctuation">(</span>argList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">terminate</span><span class="token punctuation">(</span>FALSE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* The following function does the same as errExit(), but expects
+   the error number in 'errnum' */</span>
+
+<span class="token keyword">void</span>
+<span class="token function">errExitEN</span><span class="token punctuation">(</span><span class="token keyword">int</span> errnum<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    va_list argList<span class="token punctuation">;</span>
+
+    <span class="token function">va_start</span><span class="token punctuation">(</span>argList<span class="token punctuation">,</span> format<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">outputError</span><span class="token punctuation">(</span>TRUE<span class="token punctuation">,</span> errnum<span class="token punctuation">,</span> TRUE<span class="token punctuation">,</span> format<span class="token punctuation">,</span> argList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">va_end</span><span class="token punctuation">(</span>argList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">terminate</span><span class="token punctuation">(</span>TRUE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* Print an error message (without an 'errno' diagnostic) */</span>
+
+<span class="token keyword">void</span>
+<span class="token function">fatal</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    va_list argList<span class="token punctuation">;</span>
+
+    <span class="token function">va_start</span><span class="token punctuation">(</span>argList<span class="token punctuation">,</span> format<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">outputError</span><span class="token punctuation">(</span>FALSE<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> TRUE<span class="token punctuation">,</span> format<span class="token punctuation">,</span> argList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">va_end</span><span class="token punctuation">(</span>argList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">terminate</span><span class="token punctuation">(</span>TRUE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* Print a command usage error message and terminate the process */</span>
+
+<span class="token keyword">void</span>
+<span class="token function">usageErr</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    va_list argList<span class="token punctuation">;</span>
+
+    <span class="token function">fflush</span><span class="token punctuation">(</span><span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">/* Flush any pending stdout */</span>
+
+    <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">"Usage: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">va_start</span><span class="token punctuation">(</span>argList<span class="token punctuation">,</span> format<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">vfprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> format<span class="token punctuation">,</span> argList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">va_end</span><span class="token punctuation">(</span>argList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">fflush</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">/* In case stderr is not line-buffered */</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span>EXIT_FAILURE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* Diagnose an error in command-line arguments and
+   terminate the process */</span>
+
+<span class="token keyword">void</span>
+<span class="token function">cmdLineErr</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    va_list argList<span class="token punctuation">;</span>
+
+    <span class="token function">fflush</span><span class="token punctuation">(</span><span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">/* Flush any pending stdout */</span>
+
+    <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">"Command-line usage error: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">va_start</span><span class="token punctuation">(</span>argList<span class="token punctuation">,</span> format<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">vfprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> format<span class="token punctuation">,</span> argList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">va_end</span><span class="token punctuation">(</span>argList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">fflush</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">/* In case stderr is not line-buffered */</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span>EXIT_FAILURE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="错误码"><a href="#错误码" class="headerlink" title="错误码"></a>错误码</h2><h3 id="ename-c-inc"><a href="#ename-c-inc" class="headerlink" title="ename.c.inc"></a>ename.c.inc</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* ename.c.inc
+
+   Built on GNU/Linux x86_64 with glibc 2.30
+*/</span>
+<span class="token keyword">static</span> <span class="token keyword">char</span> <span class="token operator">*</span>ename<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/*   0 */</span> <span class="token string">""</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*   1 */</span> <span class="token string">"EPERM"</span><span class="token punctuation">,</span> <span class="token string">"ENOENT"</span><span class="token punctuation">,</span> <span class="token string">"ESRCH"</span><span class="token punctuation">,</span> <span class="token string">"EINTR"</span><span class="token punctuation">,</span> <span class="token string">"EIO"</span><span class="token punctuation">,</span> <span class="token string">"ENXIO"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*   7 */</span> <span class="token string">"E2BIG"</span><span class="token punctuation">,</span> <span class="token string">"ENOEXEC"</span><span class="token punctuation">,</span> <span class="token string">"EBADF"</span><span class="token punctuation">,</span> <span class="token string">"ECHILD"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  11 */</span> <span class="token string">"EAGAIN/EWOULDBLOCK"</span><span class="token punctuation">,</span> <span class="token string">"ENOMEM"</span><span class="token punctuation">,</span> <span class="token string">"EACCES"</span><span class="token punctuation">,</span> <span class="token string">"EFAULT"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  15 */</span> <span class="token string">"ENOTBLK"</span><span class="token punctuation">,</span> <span class="token string">"EBUSY"</span><span class="token punctuation">,</span> <span class="token string">"EEXIST"</span><span class="token punctuation">,</span> <span class="token string">"EXDEV"</span><span class="token punctuation">,</span> <span class="token string">"ENODEV"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  20 */</span> <span class="token string">"ENOTDIR"</span><span class="token punctuation">,</span> <span class="token string">"EISDIR"</span><span class="token punctuation">,</span> <span class="token string">"EINVAL"</span><span class="token punctuation">,</span> <span class="token string">"ENFILE"</span><span class="token punctuation">,</span> <span class="token string">"EMFILE"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  25 */</span> <span class="token string">"ENOTTY"</span><span class="token punctuation">,</span> <span class="token string">"ETXTBSY"</span><span class="token punctuation">,</span> <span class="token string">"EFBIG"</span><span class="token punctuation">,</span> <span class="token string">"ENOSPC"</span><span class="token punctuation">,</span> <span class="token string">"ESPIPE"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  30 */</span> <span class="token string">"EROFS"</span><span class="token punctuation">,</span> <span class="token string">"EMLINK"</span><span class="token punctuation">,</span> <span class="token string">"EPIPE"</span><span class="token punctuation">,</span> <span class="token string">"EDOM"</span><span class="token punctuation">,</span> <span class="token string">"ERANGE"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  35 */</span> <span class="token string">"EDEADLK/EDEADLOCK"</span><span class="token punctuation">,</span> <span class="token string">"ENAMETOOLONG"</span><span class="token punctuation">,</span> <span class="token string">"ENOLCK"</span><span class="token punctuation">,</span> <span class="token string">"ENOSYS"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  39 */</span> <span class="token string">"ENOTEMPTY"</span><span class="token punctuation">,</span> <span class="token string">"ELOOP"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">"ENOMSG"</span><span class="token punctuation">,</span> <span class="token string">"EIDRM"</span><span class="token punctuation">,</span> <span class="token string">"ECHRNG"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  45 */</span> <span class="token string">"EL2NSYNC"</span><span class="token punctuation">,</span> <span class="token string">"EL3HLT"</span><span class="token punctuation">,</span> <span class="token string">"EL3RST"</span><span class="token punctuation">,</span> <span class="token string">"ELNRNG"</span><span class="token punctuation">,</span> <span class="token string">"EUNATCH"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  50 */</span> <span class="token string">"ENOCSI"</span><span class="token punctuation">,</span> <span class="token string">"EL2HLT"</span><span class="token punctuation">,</span> <span class="token string">"EBADE"</span><span class="token punctuation">,</span> <span class="token string">"EBADR"</span><span class="token punctuation">,</span> <span class="token string">"EXFULL"</span><span class="token punctuation">,</span> <span class="token string">"ENOANO"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  56 */</span> <span class="token string">"EBADRQC"</span><span class="token punctuation">,</span> <span class="token string">"EBADSLT"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">"EBFONT"</span><span class="token punctuation">,</span> <span class="token string">"ENOSTR"</span><span class="token punctuation">,</span> <span class="token string">"ENODATA"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  62 */</span> <span class="token string">"ETIME"</span><span class="token punctuation">,</span> <span class="token string">"ENOSR"</span><span class="token punctuation">,</span> <span class="token string">"ENONET"</span><span class="token punctuation">,</span> <span class="token string">"ENOPKG"</span><span class="token punctuation">,</span> <span class="token string">"EREMOTE"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  67 */</span> <span class="token string">"ENOLINK"</span><span class="token punctuation">,</span> <span class="token string">"EADV"</span><span class="token punctuation">,</span> <span class="token string">"ESRMNT"</span><span class="token punctuation">,</span> <span class="token string">"ECOMM"</span><span class="token punctuation">,</span> <span class="token string">"EPROTO"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  72 */</span> <span class="token string">"EMULTIHOP"</span><span class="token punctuation">,</span> <span class="token string">"EDOTDOT"</span><span class="token punctuation">,</span> <span class="token string">"EBADMSG"</span><span class="token punctuation">,</span> <span class="token string">"EOVERFLOW"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  76 */</span> <span class="token string">"ENOTUNIQ"</span><span class="token punctuation">,</span> <span class="token string">"EBADFD"</span><span class="token punctuation">,</span> <span class="token string">"EREMCHG"</span><span class="token punctuation">,</span> <span class="token string">"ELIBACC"</span><span class="token punctuation">,</span> <span class="token string">"ELIBBAD"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  81 */</span> <span class="token string">"ELIBSCN"</span><span class="token punctuation">,</span> <span class="token string">"ELIBMAX"</span><span class="token punctuation">,</span> <span class="token string">"ELIBEXEC"</span><span class="token punctuation">,</span> <span class="token string">"EILSEQ"</span><span class="token punctuation">,</span> <span class="token string">"ERESTART"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  86 */</span> <span class="token string">"ESTRPIPE"</span><span class="token punctuation">,</span> <span class="token string">"EUSERS"</span><span class="token punctuation">,</span> <span class="token string">"ENOTSOCK"</span><span class="token punctuation">,</span> <span class="token string">"EDESTADDRREQ"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  90 */</span> <span class="token string">"EMSGSIZE"</span><span class="token punctuation">,</span> <span class="token string">"EPROTOTYPE"</span><span class="token punctuation">,</span> <span class="token string">"ENOPROTOOPT"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  93 */</span> <span class="token string">"EPROTONOSUPPORT"</span><span class="token punctuation">,</span> <span class="token string">"ESOCKTNOSUPPORT"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  95 */</span> <span class="token string">"EOPNOTSUPP/ENOTSUP"</span><span class="token punctuation">,</span> <span class="token string">"EPFNOSUPPORT"</span><span class="token punctuation">,</span> <span class="token string">"EAFNOSUPPORT"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/*  98 */</span> <span class="token string">"EADDRINUSE"</span><span class="token punctuation">,</span> <span class="token string">"EADDRNOTAVAIL"</span><span class="token punctuation">,</span> <span class="token string">"ENETDOWN"</span><span class="token punctuation">,</span> <span class="token string">"ENETUNREACH"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/* 102 */</span> <span class="token string">"ENETRESET"</span><span class="token punctuation">,</span> <span class="token string">"ECONNABORTED"</span><span class="token punctuation">,</span> <span class="token string">"ECONNRESET"</span><span class="token punctuation">,</span> <span class="token string">"ENOBUFS"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/* 106 */</span> <span class="token string">"EISCONN"</span><span class="token punctuation">,</span> <span class="token string">"ENOTCONN"</span><span class="token punctuation">,</span> <span class="token string">"ESHUTDOWN"</span><span class="token punctuation">,</span> <span class="token string">"ETOOMANYREFS"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/* 110 */</span> <span class="token string">"ETIMEDOUT"</span><span class="token punctuation">,</span> <span class="token string">"ECONNREFUSED"</span><span class="token punctuation">,</span> <span class="token string">"EHOSTDOWN"</span><span class="token punctuation">,</span> <span class="token string">"EHOSTUNREACH"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/* 114 */</span> <span class="token string">"EALREADY"</span><span class="token punctuation">,</span> <span class="token string">"EINPROGRESS"</span><span class="token punctuation">,</span> <span class="token string">"ESTALE"</span><span class="token punctuation">,</span> <span class="token string">"EUCLEAN"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/* 118 */</span> <span class="token string">"ENOTNAM"</span><span class="token punctuation">,</span> <span class="token string">"ENAVAIL"</span><span class="token punctuation">,</span> <span class="token string">"EISNAM"</span><span class="token punctuation">,</span> <span class="token string">"EREMOTEIO"</span><span class="token punctuation">,</span> <span class="token string">"EDQUOT"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/* 123 */</span> <span class="token string">"ENOMEDIUM"</span><span class="token punctuation">,</span> <span class="token string">"EMEDIUMTYPE"</span><span class="token punctuation">,</span> <span class="token string">"ECANCELED"</span><span class="token punctuation">,</span> <span class="token string">"ENOKEY"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/* 127 */</span> <span class="token string">"EKEYEXPIRED"</span><span class="token punctuation">,</span> <span class="token string">"EKEYREVOKED"</span><span class="token punctuation">,</span> <span class="token string">"EKEYREJECTED"</span><span class="token punctuation">,</span> 
+    <span class="token comment" spellcheck="true">/* 130 */</span> <span class="token string">"EOWNERDEAD"</span><span class="token punctuation">,</span> <span class="token string">"ENOTRECOVERABLE"</span><span class="token punctuation">,</span> <span class="token string">"ERFKILL"</span><span class="token punctuation">,</span> <span class="token string">"EHWPOISON"</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">define</span> MAX_ENAME 133</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="命令行处理函数"><a href="#命令行处理函数" class="headerlink" title="命令行处理函数"></a>命令行处理函数</h2><h3 id="get-num-h"><a href="#get-num-h" class="headerlink" title="get_num.h"></a>get_num.h</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*************************************************************************\
+*                  Copyright (C) Michael Kerrisk, 2019.                   *
+*                                                                         *
+* This program is free software. You may use, modify, and redistribute it *
+* under the terms of the GNU Lesser General Public License as published   *
+* by the Free Software Foundation, either version 3 or (at your option)   *
+* any later version. This program is distributed without any warranty.    *
+* See the files COPYING.lgpl-v3 and COPYING.gpl-v3 for details.           *
+\*************************************************************************/</span>
+
+<span class="token comment" spellcheck="true">/* get_num.h
+
+   Header file for get_num.c.
+*/</span>
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> GET_NUM_H</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> GET_NUM_H</span>
+
+<span class="token macro property">#<span class="token directive keyword">define</span> GN_NONNEG       01      </span><span class="token comment" spellcheck="true">/* Value must be >= 0 */</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> GN_GT_0         02      </span><span class="token comment" spellcheck="true">/* Value must be > 0 */</span>
+
+                                <span class="token comment" spellcheck="true">/* By default, integers are decimal */</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> GN_ANY_BASE   0100      </span><span class="token comment" spellcheck="true">/* Can use any base - like strtol(3) */</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> GN_BASE_8     0200      </span><span class="token comment" spellcheck="true">/* Value is expressed in octal */</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> GN_BASE_16    0400      </span><span class="token comment" spellcheck="true">/* Value is expressed in hexadecimal */</span>
+
+<span class="token keyword">long</span> <span class="token function">getLong</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>arg<span class="token punctuation">,</span> <span class="token keyword">int</span> flags<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">getInt</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>arg<span class="token punctuation">,</span> <span class="token keyword">int</span> flags<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">endif</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="get-num-c"><a href="#get-num-c" class="headerlink" title="get_num.c"></a>get_num.c</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*************************************************************************\
+*                  Copyright (C) Michael Kerrisk, 2019.                   *
+*                                                                         *
+* This program is free software. You may use, modify, and redistribute it *
+* under the terms of the GNU Lesser General Public License as published   *
+* by the Free Software Foundation, either version 3 or (at your option)   *
+* any later version. This program is distributed without any warranty.    *
+* See the files COPYING.lgpl-v3 and COPYING.gpl-v3 for details.           *
+\*************************************************************************/</span>
+
+<span class="token comment" spellcheck="true">/* get_num.c
+
+   Functions to process numeric command-line arguments.
+*/</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;limits.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;errno.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"get_num.h"</span></span>
+
+<span class="token comment" spellcheck="true">/* Print a diagnostic message that contains a function name ('fname'),
+   the value of a command-line argument ('arg'), the name of that
+   command-line argument ('name'), and a diagnostic error message ('msg'). */</span>
+
+<span class="token keyword">static</span> <span class="token keyword">void</span>
+<span class="token function">gnFail</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>fname<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>msg<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>arg<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">"%s error"</span><span class="token punctuation">,</span> fname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>name <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">" (in %s)"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">": %s\n"</span><span class="token punctuation">,</span> msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arg <span class="token operator">!=</span> <span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">*</span>arg <span class="token operator">!=</span> <span class="token string">'\0'</span><span class="token punctuation">)</span>
+        <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">"        offending text: %s\n"</span><span class="token punctuation">,</span> arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">exit</span><span class="token punctuation">(</span>EXIT_FAILURE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* Convert a numeric command-line argument ('arg') into a long integer,
+   returned as the function result. 'flags' is a bit mask of flags controlling
+   how the conversion is done and what diagnostic checks are performed on the
+   numeric result; see get_num.h for details.
+
+   'fname' is the name of our caller, and 'name' is the name associated with
+   the command-line argument 'arg'. 'fname' and 'name' are used to print a
+   diagnostic message in case an error is detected when processing 'arg'. */</span>
+
+<span class="token keyword">static</span> <span class="token keyword">long</span>
+<span class="token function">getNum</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>fname<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>arg<span class="token punctuation">,</span> <span class="token keyword">int</span> flags<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">long</span> res<span class="token punctuation">;</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>endptr<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> base<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arg <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">||</span> <span class="token operator">*</span>arg <span class="token operator">==</span> <span class="token string">'\0'</span><span class="token punctuation">)</span>
+        <span class="token function">gnFail</span><span class="token punctuation">(</span>fname<span class="token punctuation">,</span> <span class="token string">"null or empty string"</span><span class="token punctuation">,</span> arg<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    base <span class="token operator">=</span> <span class="token punctuation">(</span>flags <span class="token operator">&amp;</span> GN_ANY_BASE<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>flags <span class="token operator">&amp;</span> GN_BASE_8<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">8</span> <span class="token punctuation">:</span>
+                        <span class="token punctuation">(</span>flags <span class="token operator">&amp;</span> GN_BASE_16<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">16</span> <span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+    errno <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    res <span class="token operator">=</span> <span class="token function">strtol</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> <span class="token operator">&amp;</span>endptr<span class="token punctuation">,</span> base<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>errno <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token function">gnFail</span><span class="token punctuation">(</span>fname<span class="token punctuation">,</span> <span class="token string">"strtol() failed"</span><span class="token punctuation">,</span> arg<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span>endptr <span class="token operator">!=</span> <span class="token string">'\0'</span><span class="token punctuation">)</span>
+        <span class="token function">gnFail</span><span class="token punctuation">(</span>fname<span class="token punctuation">,</span> <span class="token string">"nonnumeric characters"</span><span class="token punctuation">,</span> arg<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>flags <span class="token operator">&amp;</span> GN_NONNEG<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> res <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token function">gnFail</span><span class="token punctuation">(</span>fname<span class="token punctuation">,</span> <span class="token string">"negative value not allowed"</span><span class="token punctuation">,</span> arg<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>flags <span class="token operator">&amp;</span> GN_GT_0<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> res <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token function">gnFail</span><span class="token punctuation">(</span>fname<span class="token punctuation">,</span> <span class="token string">"value must be > 0"</span><span class="token punctuation">,</span> arg<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* Convert a numeric command-line argument string to a long integer. See the
+   comments for getNum() for a description of the arguments to this function. */</span>
+
+<span class="token keyword">long</span>
+<span class="token function">getLong</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>arg<span class="token punctuation">,</span> <span class="token keyword">int</span> flags<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">getNum</span><span class="token punctuation">(</span><span class="token string">"getLong"</span><span class="token punctuation">,</span> arg<span class="token punctuation">,</span> flags<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* Convert a numeric command-line argument string to an integer. See the
+   comments for getNum() for a description of the arguments to this function. */</span>
+
+<span class="token keyword">int</span>
+<span class="token function">getInt</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>arg<span class="token punctuation">,</span> <span class="token keyword">int</span> flags<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">long</span> res<span class="token punctuation">;</span>
+
+    res <span class="token operator">=</span> <span class="token function">getNum</span><span class="token punctuation">(</span><span class="token string">"getInt"</span><span class="token punctuation">,</span> arg<span class="token punctuation">,</span> flags<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>res <span class="token operator">></span> INT_MAX <span class="token operator">||</span> res <span class="token operator">&lt;</span> INT_MIN<span class="token punctuation">)</span>
+        <span class="token function">gnFail</span><span class="token punctuation">(</span><span class="token string">"getInt"</span><span class="token punctuation">,</span> <span class="token string">"integer out of range"</span><span class="token punctuation">,</span> arg<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="可移植性函数"><a href="#可移植性函数" class="headerlink" title="可移植性函数"></a>可移植性函数</h2><h3 id="ALT-functions-c"><a href="#ALT-functions-c" class="headerlink" title="ALT_functions.c"></a>ALT_functions.c</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*************************************************************************\
+*                  Copyright (C) Michael Kerrisk, 2019.                   *
+*                                                                         *
+* This program is free software. You may use, modify, and redistribute it *
+* under the terms of the GNU Lesser General Public License as published   *
+* by the Free Software Foundation, either version 3 or (at your option)   *
+* any later version. This program is distributed without any warranty.    *
+* See the files COPYING.lgpl-v3 and COPYING.gpl-v3 for details.           *
+\*************************************************************************/</span>
+
+<span class="token comment" spellcheck="true">/* ALT_functions.c
+
+   Some library functions on Linux are not available on other UNIX
+   implementations. Below are some implementations (in some cases quite
+   minimal) of those functions used by our programs.
+
+   Each of these functions has a name of the form ALT_xxx() where xxx() is the
+   function being replaced. (#defines are used elsewhere to convert the
+   standard names into these alternate forms.)
+*/</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;fcntl.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"alt_functions.h"</span></span>
+
+<span class="token comment" spellcheck="true">/* A very minimal implementation of strsignal()... */</span>
+
+<span class="token macro property">#<span class="token directive keyword">define</span> BUF_SIZE 100</span>
+
+<span class="token keyword">char</span> <span class="token operator">*</span>
+<span class="token function">ALT_strsignal</span><span class="token punctuation">(</span><span class="token keyword">int</span> sig<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">static</span> <span class="token keyword">char</span> buf<span class="token punctuation">[</span>BUF_SIZE<span class="token punctuation">]</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">/* Not thread-safe */</span>
+
+    <span class="token function">snprintf</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span> BUF_SIZE<span class="token punctuation">,</span> <span class="token string">"SIG-%d"</span><span class="token punctuation">,</span> sig<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> buf<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* A very minimal implementation of hstrerror()... */</span>
+
+<span class="token keyword">char</span> <span class="token operator">*</span>
+<span class="token function">ALT_hstrerror</span><span class="token punctuation">(</span><span class="token keyword">int</span> err<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">static</span> <span class="token keyword">char</span> buf<span class="token punctuation">[</span>BUF_SIZE<span class="token punctuation">]</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">/* Not thread-safe */</span>
+
+    <span class="token function">snprintf</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span> BUF_SIZE<span class="token punctuation">,</span> <span class="token string">"hstrerror-%d"</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> buf<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* posix_openpt() is simple to implement */</span>
+
+<span class="token keyword">int</span>
+<span class="token function">ALT_posix_openpt</span><span class="token punctuation">(</span><span class="token keyword">int</span> flags<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"/dev/ptmx"</span><span class="token punctuation">,</span> flags<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="alt-functions-h"><a href="#alt-functions-h" class="headerlink" title="alt_functions.h"></a>alt_functions.h</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*************************************************************************\
+*                  Copyright (C) Michael Kerrisk, 2019.                   *
+*                                                                         *
+* This program is free software. You may use, modify, and redistribute it *
+* under the terms of the GNU Lesser General Public License as published   *
+* by the Free Software Foundation, either version 3 or (at your option)   *
+* any later version. This program is distributed without any warranty.    *
+* See the files COPYING.lgpl-v3 and COPYING.gpl-v3 for details.           *
+\*************************************************************************/</span>
+
+<span class="token comment" spellcheck="true">/* alt_functions.h
+
+   Header file for alt_functions.c.
+*/</span>
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> ALT_FUNCTIONS_H</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> ALT_FUNCTIONS_H         </span><span class="token comment" spellcheck="true">/* Prevent accidental double inclusion */</span>
+
+<span class="token macro property">#<span class="token directive keyword">if</span> defined(__osf__) || defined(__hpux) || defined(_AIX) || \
+        defined(__sgi) || defined(__APPLE__)</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> strsignal(sig) ALT_strsignal(sig)</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+<span class="token keyword">char</span> <span class="token operator">*</span><span class="token function">ALT_strsignal</span><span class="token punctuation">(</span><span class="token keyword">int</span> sig<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">if</span> defined(__hpux) || defined(__osf__)</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> hstrerror(err) ALT_hstrerror(err)</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+<span class="token keyword">char</span> <span class="token operator">*</span><span class="token function">ALT_hstrerror</span><span class="token punctuation">(</span><span class="token keyword">int</span> sig<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">if</span> defined(__hpux) || defined(__osf__)</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> posix_openpt(flags) ALT_posix_openpt(flags)</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+<span class="token keyword">int</span> <span class="token function">ALT_posix_openpt</span><span class="token punctuation">(</span><span class="token keyword">int</span> flags<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">endif</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                 
+                 <hr/>
+                 
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn" rel="external nofollow noreferrer">陈德强</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn/2636.html">https://purethought.cn/2636.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://purethought.cn" target="_blank">陈德强</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+            </div>         
+        </div>
+    </div>
+    
+    <!-- 代码块功能依赖 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>    
+    <!-- 代码语言 -->   
+    <!-- <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script> -->          
+    <!-- 代码块复制 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>      
+    <!-- 代码块收缩 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge ">                  
+                <a href="/1634.html" target="_blank">                 
+                    <font color="#0e263f">
+                        <i class="fa  fa-hand-o-left"></i>
+                        社交礼仪
+                    </font>                    
+                </a>          
+            </div>
+        </div>
+        
+
+
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge " >
+                <a href="/36855.html" target="_blank">
+                    <font color="#0e263f">
+                        巴菲特教你读财报
+                        <i class="fa  fa-hand-o-right"></i>
+                    </font>
+                 </a>  
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+    
+        <style>
+    #reward {
+        /*margin: 40px 0;*/
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.6rem;
+      
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+   <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red" >¥</a> 
+  
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-times"></i></a>
+            <h4 class="reward-title">您的赞赏就是我的动力^</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+    
+
+    
+        <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80Njk3Mi8yMzQ3Mw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+    
+   <!-- 
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '6190f09c0ffe658707b5',
+        clientSecret: '2798e16eeba573f49ce06d2da0595188699aac41',
+        repo: 'cdqpt.github.io',
+        owner: 'CdqPT',
+        admin: "CdqPT",
+        id: '2020-02-15T09-47-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+     -->
+
+    
+
+    
+
+    
+
+   <!-- <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script> -->
+
+</div>
+
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    
+        <div class="toc-widget">
+        
+            <div class="toc-title" ><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="hidden">
+                <div id="toc-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. --><!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large ">    
+        <i class="fa fa-th-large"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2'
+        });
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            i++;
+            $(this).attr('href', '#' + tocHeading + (i));
+            $(this).attr('navTo',  tocHeading + (i));    
+        });
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(0);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(100);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+</main>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+       <div class="col s12 m8 l8 copy-right">
+             
+               &copy;2018-2020 ALaDing
+               &nbsp;
+             Author:  <a href="https://purethought.cn/">陈德强 &nbsp  Email: 928277452@qq.com</a>
+
+            
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                       
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?147475454185ebcf440a27cc35e793ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CdqPT" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:928277452@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=928277452" class="tooltipped" data-tooltip="QQ联系我: 928277452" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+ 
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+   
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+
+</html>

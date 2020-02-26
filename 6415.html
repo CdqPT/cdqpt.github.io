@@ -1,0 +1,1780 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="cmake笔记, 陈德强 ALaDing 内蒙古工业大学 机器人 东软 东软集团 嵌入式 自动驾驶 ADASIS">
+    <meta name="description" content="CMakeCMake是一个跨平台的构建系统生成工具。它使用平台无关的CMake清单文件CMakeLists.txt来描述构建过程,可以产生标准的构建文件,如 Unix 的 Makefile 或Windows Visual C++ 的 pro">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>cmake笔记 | ALaDing</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+
+
+
+  <link rel="amphtml" href="https://purethought.cn/6415.html/amp/index.html">
+
+    
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+
+
+
+
+<body style="overflow-x:hidden">
+    <header id="navControl" class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ALaDing</span>
+                </a>
+            </div>
+            
+
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/dictionary" class="waves-effect waves-light">
+            
+            <i class="fa fa-book"></i>
+            
+            <span>字典</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>豆瓣</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-leaf"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-commenting"></i>
+            
+            <span>留言</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse">
+  <i class="fa fa-navicon" >
+     <b>导航 </b>
+  </i>
+</a>
+
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/dictionary" class="waves-effect waves-light">
+              
+                <i class="fa fa-book"></i>
+              
+              <span>字典</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/categories" class="waves-effect waves-light">
+                
+                  <i class="fa fa-bookmark"></i>
+                
+                <span>分类</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>编程笔记</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>文史哲理</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>投资理财</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>过程随笔</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>既有优化</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>安装教程</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-heart"></i>
+                
+                <span>豆瓣</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/books" >
+                    
+                      <i class="fa fa-book" style="margin-top: -20px;"></i>
+                    
+                    <span>书单</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/movies" >
+                    
+                      <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>电影</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/games" >
+                    
+                      <i class="fa fa-gamepad" style="margin-top: -20px;"></i>
+                    
+                    <span>游戏</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-leaf"></i>
+                
+                <span>关于</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/about" >
+                    
+                      <i class="fa fa-user" style="margin-top: -20px;"></i>
+                    
+                    <span>简介</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/galleries" >
+                    
+                      <i class="fa fa-camera" style="margin-top: -20px;"></i>
+                    
+                    <span>相册</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/friends" >
+                    
+                      <i class="fa fa-handshake-o" style="margin-top: -20px;"></i>
+                    
+                    <span>友链</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/log" >
+                    
+                      <i class="fa fa-pencil-square-o" style="margin-top: -20px;"></i>
+                    
+                    <span>日志</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/tags" >
+                    
+                      <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/archives" >
+                    
+                      <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fa-commenting"></i>
+              
+              <span>留言</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+
+            <i id="searchIcon" class="fa fa-search" title="搜索" >
+              <b>搜索 </b>
+            </i>
+
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ALaDing</div>
+        <div class="logo-desc">
+            
+            东软集团 | 内蒙古工业大学 | 嵌入式工程师 | ADAS
+            
+        </div>
+    </div>
+
+    
+
+
+ <ul class="menu-list mobile-menu-list">  <li class="m-nav-item">  <a href="/" class="waves-effect waves-light">  <i class="fa fa-fw fa-home"></i>  首页 </a>  </li>  <li class="m-nav-item">  <a href="/dictionary" class="waves-effect waves-light">  <i class="fa fa-fw fa-book"></i>  字典 </a>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-bookmark"></i>  分类 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>编程笔记</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>文史哲理</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>投资理财</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>过程随笔</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>既有优化</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>安装教程</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-heart"></i>  豆瓣 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/books" >  <i class="fa fa-book" style="left: 25px; position: absolute;"></i>  <span>书单</span> </a> </li>  <li> <a href="/movies" >  <i class="fa fa-film" style="left: 25px; position: absolute;"></i>  <span>电影</span> </a> </li>  <li> <a href="/games" >  <i class="fa fa-gamepad" style="left: 25px; position: absolute;"></i>  <span>游戏</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-leaf"></i>  关于 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/about" >  <i class="fa fa-user" style="left: 25px; position: absolute;"></i>  <span>简介</span> </a> </li>  <li> <a href="/galleries" >  <i class="fa fa-camera" style="left: 25px; position: absolute;"></i>  <span>相册</span> </a> </li>  <li> <a href="/friends" >  <i class="fa fa-handshake-o" style="left: 25px; position: absolute;"></i>  <span>友链</span> </a> </li>  <li> <a href="/log" >  <i class="fa fa-pencil-square-o" style="left: 25px; position: absolute;"></i>  <span>日志</span> </a> </li>  <li> <a href="/tags" >  <i class="fa fa-tags" style="left: 25px; position: absolute;"></i>  <span>标签</span> </a> </li>  <li> <a href="/archives" >  <i class="fa fa-archive" style="left: 25px; position: absolute;"></i>  <span>归档</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="/contact" class="waves-effect waves-light">  <i class="fa fa-fw fa-commenting"></i>  留言 </a>  </li>   <li><div class="divider"></div></li> <li> <a href="https://github.com/CdqPT" class="waves-effect waves-light" target="_blank"> <i class="fa fa-github-square fa-fw"></i>Fork Me </a> </li>  </ul>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #000;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/CdqPT" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blogcdq.oss-cn-beijing.aliyuncs.com/image/other/star.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        cmake笔记
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before  /*,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before */{
+        display: block;
+        content: "🔖";
+        position: absolute;
+        left: 50px;
+        /*color: #EE7942;*/
+        /*color: red;*/
+    }
+        @media only screen and (max-width: 992px) {
+    #articleContent h1::before{
+        display: block;
+        content: " ";
+    }
+}
+
+    /*修改滚动条样式为隐藏*/
+    #toc-content {
+        height: calc(105vh - 250px);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 320px;
+        height: 600px;
+    }
+    #hidden{
+        overflow: hidden;
+        width: 300px;    
+    }  
+
+    #articleContent :focus {
+        outline: none;
+    }
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+    .toc-widget {
+        padding-left: 20px;
+    }
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 40px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    #toc-content ol {
+        padding-left: 10px;
+    }
+    #toc-content ol li {
+        padding-left: 30px;
+    }
+    #toc-content .toc-link:hover {
+        color: black;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+    #toc-content .is-active-link {
+        color: red;
+    }
+    #toc-content .is-active-link::before {
+        background-color: red;
+    }
+    #floating-toc-btn {
+        position: fixed;
+        right: 0.6rem;
+        bottom: 6rem;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+        opacity: 0.5;
+    }
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/其他/" target="_blank">
+                                <span class="chip bg-color">其他</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/字典/" class="post-category" target="_blank">
+                                字典
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+
+               <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-pencil fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-12-12
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-refresh fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-02-25
+                </div>
+                
+
+                
+
+                
+                
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+            
+        </div>
+
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="CMake"><a href="#CMake" class="headerlink" title="CMake"></a>CMake</h1><p>CMake是一个跨平台的构建系统生成工具。它使用平台无关的CMake清单文件CMakeLists.txt来描述构建过程,可以产生标准的构建文件,如 Unix 的 Makefile 或Windows Visual C++ 的 projects/workspaces 。文件 CMakeLists.txt 需要手工编写,也可以通过编写脚本进行半自动的生成.</p>
+<p>了解CMake前需要先了解linux下源码编译流程：<a href="https://purethought.cn/28950.html">https://purethought.cn/28950.html</a></p>
+<blockquote>
+<p>在 linux 平台下使用 CMake 生成 Makefile 并编译的流程如下：<br>1.编写 CMake 配置文件 <code>CMakeLists.txt</code> 。<br>2.<code>cmake PATH</code> 生成makefile<br>3.<code>make</code> 编译源码。<br>4.<code>make install</code> 安装可执行程序。</p>
+</blockquote>
+<h1 id="安装CMake"><a href="#安装CMake" class="headerlink" title="安装CMake"></a>安装CMake</h1><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>安装cmake</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> apt <span class="token function">install</span> cmake<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>安装ccmake:</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> apt <span class="token function">install</span> cmake-curses-gui<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="Win"><a href="#Win" class="headerlink" title="Win"></a>Win</h2><p>安装包下载地址：<br><a href="https://cmake.org/download/" target="_blank" rel="noopener">https://cmake.org/download/</a></p>
+<h1 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h1><p>显示所有的选项和生成器：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">cmake --help<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在CMake 2.8.3平台上，CMake支持下列生成器：</p>
+<p>Borland Makefiles: 生成Borland makefile。<br>MSYS Makefiles: 生成MSYS makefile。</p>
+<p>生成的makefile用use /bin/sh作为它的shell。在运行CMake的机器上需要安装msys。<br>MinGW Makefiles: 生成供mingw32-make使用的make file。</p>
+<p>生成的makefile使用cmd.exe作为它的shell。生成它们不需要msys或者unix shell。<br>NMake Makefiles: 生成NMake makefile。<br>NMake Makefiles JOM: 生成JOM makefile。<br>Unix Makefiles: 生成标准的UNIX makefile。</p>
+<p>在构建树上生成分层的UNIX makefile。任何标准的UNIX风格的make程序都可以通过默认的make目标构建工程。生成的makefile也提供了install目标。<br>Visual Studio 10: 生成Visual Studio 10 工程文件。<br>Visual Studio 10 Win64: 生成Visual Studio 10 Win64 工程文件。<br>Visual Studio 6: 生成Visual Studio 6 工程文件。<br>Visual Studio 7: 生成Visual Studio .NET 2002 工程文件。<br>Visual Studio 7 .NET 2003: 生成Visual Studio .NET 2003工程文件。<br>Visual Studio 8 2005: 生成Visual Studio .NET 2005 工程文件。<br>Visual Studio 8 2005 Win64: 生成Visual Studio .NET 2005 Win64工程文件。<br>Visual Studio 9 2008: 生成Visual Studio 9 2008 工程文件。<br>Visual Studio 9 2008 Win64: 生成Visual Studio 9 2008 Win64工程文件。<br>Watcom WMake: 生成Watcom WMake makefiles。</p>
+<p>CodeBlocks - MinGW Makefiles: 生成CodeBlock工程文件。<br>在顶层目录以及每层子目录下为CodeBlocks生成工程文件，生成的CMakeList.txt的特点是都包含一个PROJECT()调用。除此之外还会在构建树上生成一套层次性的makefile。通过默认的make目标，正确的make程序可以构建这个工程。makefile还提供了install目标。</p>
+<p>CodeBlocks - NMake Makefiles: 生成CodeBlocks工程文件。<br>在顶层目录以及每层子目录下为CodeBlocks生成工程文件，生成的CMakeList.txt的特点是都包含一个PROJECT()调用。除此之外还会在构建树上生成一套层次性的makefile。通过默认的make目标，正确的make程序可以构建这个工程。makefile还提供了install目标。</p>
+<p>CodeBlocks - Unix Makefiles: 生成CodeBlocks工程文件。<br>在顶层目录以及每层子目录下为CodeBlocks生成工程文件，生成的CMakeList.txt的特点是都包含一个PROJECT()调用。除此之外还会在构建树上生成一套层次性的makefile。通过默认的make目标，正确的make程序可以构建这个工程。makefile还提供了install目标。</p>
+<p>Eclipse CDT4 - MinGW Makefiles: 生成Eclipse CDT 4.0 工程文件。<br>在顶层目录下为Eclipse生成工程文件。在运行源码外构建时，一个连接到顶层源码路径的资源文件会被创建。除此之外还会在构建树上生成一套层次性的makefile。通过默认的make目标，正确的make程序可以构建这个工程。makefile还提供了install目标。</p>
+<p>Eclipse CDT4 - NMake Makefiles: 生成Eclipse CDT 4.0 工程文件。<br>在顶层目录下为Eclipse生成工程文件。在运行源码外构建时，一个连接到顶层源码路径的资源文件会被创建。除此之外还会在构建树上生成一套层次性的makefile。通过默认的make目标，正确的make程序可以构建这个工程。makefile还提供了install目标。</p>
+<p>Eclipse CDT4 - Unix Makefiles: 生成Eclipse CDT 4.0 工程文件。<br>在顶层目录下为Eclipse生成工程文件。在运行源码外构建时，一个连接到顶层源码路径的资源文件会被创建。除此之外还会在构建树上生成一套层次性的makefile。通过默认的make目标，正确的make程序可以构建这个工程。makefile还提供了install目标。</p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="指定-cmake-的最小版本"><a href="#指定-cmake-的最小版本" class="headerlink" title="指定 cmake 的最小版本"></a>指定 cmake 的最小版本</h2><pre class="line-numbers language-bash"><code class="language-bash">cmake_minimum_required<span class="token punctuation">(</span>VERSION 3.4.1<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="设置项目名称"><a href="#设置项目名称" class="headerlink" title="设置项目名称"></a>设置项目名称</h2><pre class="line-numbers language-bash"><code class="language-bash">project<span class="token punctuation">(</span>demo<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="指定生成类型"><a href="#指定生成类型" class="headerlink" title="指定生成类型"></a>指定生成类型</h2><pre class="line-numbers language-bash"><code class="language-bash">add_executable<span class="token punctuation">(</span>demo demo.cpp<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 生成可执行文件</span>
+add_library<span class="token punctuation">(</span>common util.cpp<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 生成静态库</span>
+add_library<span class="token punctuation">(</span>common STATIC util.cpp<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 生成静态库</span>
+add_library<span class="token punctuation">(</span>common SHARED util.cpp<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 生成动态库或共享库</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在 <code>Linux</code> 下是：</p>
+<ul>
+<li>demo</li>
+<li>libcommon.a</li>
+<li>libcommon.so</li>
+</ul>
+<p>在 <code>Windows</code> 下是：</p>
+<ul>
+<li>demo.exe</li>
+<li>common.lib</li>
+<li>common.dll</li>
+</ul>
+<h2 id="指定编译包含的源文件"><a href="#指定编译包含的源文件" class="headerlink" title="指定编译包含的源文件"></a>指定编译包含的源文件</h2><p>aux_source_directory(dir VAR) 查找指定目录下所有的源代码文件并将列表存储在一个变量中。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#@1指定源文件</span>
+add_library<span class="token punctuation">(</span>demo demo.cpp test.cpp util.cpp<span class="token punctuation">)</span> 
+
+<span class="token comment" spellcheck="true">#@2自动添加所有源文件</span>
+aux_source_directory<span class="token punctuation">(</span>. SRC_LIST<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 搜索 当前目录下 的所有源文件，并储存到变量 SRC_LIST 中</span>
+add_library<span class="token punctuation">(</span>demo <span class="token variable">${SRC_LIST}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#@3自定义搜索规则</span>
+file<span class="token punctuation">(</span>GLOB SRC_LIST <span class="token string">"*.cpp"</span> <span class="token string">"protocol/*.cpp"</span><span class="token punctuation">)</span>
+add_library<span class="token punctuation">(</span>demo <span class="token variable">${SRC_LIST}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#or</span>
+file<span class="token punctuation">(</span>GLOB SRC_LIST <span class="token string">"*.cpp"</span><span class="token punctuation">)</span>
+file<span class="token punctuation">(</span>GLOB SRC_PROTOCOL_LIST <span class="token string">"protocol/*.cpp"</span><span class="token punctuation">)</span>
+add_library<span class="token punctuation">(</span>demo <span class="token variable">${SRC_LIST}</span> <span class="token variable">${SRC_PROTOCOL_LIST}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#or</span>
+aux_source_directory<span class="token punctuation">(</span>. SRC_LIST<span class="token punctuation">)</span>
+aux_source_directory<span class="token punctuation">(</span>protocol SRC_PROTOCOL_LIST<span class="token punctuation">)</span>
+add_library<span class="token punctuation">(</span>demo <span class="token variable">${SRC_LIST}</span> <span class="token variable">${SRC_PROTOCOL_LIST}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="查找指定的库文件"><a href="#查找指定的库文件" class="headerlink" title="查找指定的库文件"></a>查找指定的库文件</h2><p>find_library(VAR name path)查找到指定的预编译库，并将它的路径存储在变量中。<br>默认的搜索路径为 cmake 包含的系统库，因此如果是 NDK 的公共库只需要指定库的 name 即可。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">find_library<span class="token punctuation">(</span> <span class="token comment" spellcheck="true"># Sets the name of the path variable.</span>
+              log-lib
+
+              <span class="token comment" spellcheck="true"># Specifies the name of the NDK library that</span>
+              <span class="token comment" spellcheck="true"># you want CMake to locate.</span>
+              log <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="设置包含的目录"><a href="#设置包含的目录" class="headerlink" title="设置包含的目录"></a>设置包含的目录</h2><pre class="line-numbers language-bash"><code class="language-bash">include_directories<span class="token punctuation">(</span>
+    <span class="token variable">${CMAKE_CURRENT_SOURCE_DIR}</span>
+    <span class="token variable">${CMAKE_CURRENT_BINARY_DIR}</span>
+    <span class="token variable">${CMAKE_CURRENT_SOURCE_DIR}</span>/include
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Linux 下还可以通过如下方式设置包含的目录</p>
+<pre class="line-numbers language-bash"><code class="language-bash">set<span class="token punctuation">(</span>CMAKE_CXX_FLAGS <span class="token string">"<span class="token variable">${CMAKE_CXX_FLAGS}</span> -I<span class="token variable">${CMAKE_CURRENT_SOURCE_DIR}</span>"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="设置链接库搜索目录"><a href="#设置链接库搜索目录" class="headerlink" title="设置链接库搜索目录"></a>设置链接库搜索目录</h2><pre class="line-numbers language-bash"><code class="language-bash">link_directories<span class="token punctuation">(</span>
+    <span class="token variable">${CMAKE_CURRENT_SOURCE_DIR}</span>/libs
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Linux 下还可以通过如下方式设置包含的目录</p>
+<pre class="line-numbers language-bash"><code class="language-bash">set<span class="token punctuation">(</span>CMAKE_CXX_FLAGS <span class="token string">"<span class="token variable">${CMAKE_CXX_FLAGS}</span> -L<span class="token variable">${CMAKE_CURRENT_SOURCE_DIR}</span>/libs"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="设置-target-工程需要链接的库"><a href="#设置-target-工程需要链接的库" class="headerlink" title="设置 target 工程需要链接的库"></a>设置 target 工程需要链接的库</h2><pre class="line-numbers language-bash"><code class="language-bash">target_link_libraries<span class="token punctuation">(</span> <span class="token comment" spellcheck="true"># 目标库</span>
+                       demo
+
+                       <span class="token comment" spellcheck="true"># 目标库需要链接的库</span>
+                       <span class="token comment" spellcheck="true"># log-lib 是上面 find_library 指定的变量名</span>
+                       <span class="token variable">${log-lib}</span> <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在 Windows 下，系统会根据链接库目录，搜索xxx.lib 文件，Linux 下会搜索 xxx.so 或者 xxx.a 文件，如果都存在会优先链接动态库（so 后缀）。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#@1指定链接动态库或静态库</span>
+target_link_libraries<span class="token punctuation">(</span>demo libface.a<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 链接libface.a</span>
+target_link_libraries<span class="token punctuation">(</span>demo libface.so<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 链接libface.so</span>
+
+<span class="token comment" spellcheck="true">#@2指定全路径</span>
+target_link_libraries<span class="token punctuation">(</span>demo <span class="token variable">${CMAKE_CURRENT_SOURCE_DIR}</span>/libs/libface.a<span class="token punctuation">)</span>
+target_link_libraries<span class="token punctuation">(</span>demo <span class="token variable">${CMAKE_CURRENT_SOURCE_DIR}</span>/libs/libface.so<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#@3指定链接多个库</span>
+target_link_libraries<span class="token punctuation">(</span>demo
+    <span class="token variable">${CMAKE_CURRENT_SOURCE_DIR}</span>/libs/libface.a
+    boost_system.a
+    boost_thread
+    pthread<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="设置变量"><a href="#设置变量" class="headerlink" title="设置变量"></a>设置变量</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#@1set 直接设置变量的值</span>
+set<span class="token punctuation">(</span>SRC_LIST main.cpp test.cpp<span class="token punctuation">)</span>
+add_executable<span class="token punctuation">(</span>demo <span class="token variable">${SRC_LIST}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#@2set 追加设置变量的值</span>
+set<span class="token punctuation">(</span>SRC_LIST main.cpp<span class="token punctuation">)</span>
+set<span class="token punctuation">(</span>SRC_LIST <span class="token variable">${SRC_LIST}</span> test.cpp<span class="token punctuation">)</span>
+add_executable<span class="token punctuation">(</span>demo <span class="token variable">${SRC_LIST}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#@3list 追加或者删除变量的值</span>
+set<span class="token punctuation">(</span>SRC_LIST main.cpp<span class="token punctuation">)</span>
+list<span class="token punctuation">(</span>APPEND SRC_LIST test.cpp<span class="token punctuation">)</span>
+list<span class="token punctuation">(</span>REMOVE_ITEM SRC_LIST main.cpp<span class="token punctuation">)</span>
+add_executable<span class="token punctuation">(</span>demo <span class="token variable">${SRC_LIST}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="条件控制"><a href="#条件控制" class="headerlink" title="条件控制"></a>条件控制</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#@1逻辑判断和比较：</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>expression<span class="token punctuation">)</span>：expression 不为空（0,N,NO,OFF,FALSE,NOTFOUND）时为真
+<span class="token keyword">if</span> <span class="token punctuation">(</span>not exp<span class="token punctuation">)</span>：与上面相反
+<span class="token keyword">if</span> <span class="token punctuation">(</span>var1 AND var2<span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>var1 OR var2<span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>COMMAND cmd<span class="token punctuation">)</span>：如果 cmd 确实是命令并可调用为真
+<span class="token keyword">if</span> <span class="token punctuation">(</span>EXISTS dir<span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>EXISTS file<span class="token punctuation">)</span>：如果目录或文件存在为真
+<span class="token keyword">if</span> <span class="token punctuation">(</span>file1 IS_NEWER_THAN file2<span class="token punctuation">)</span>：当 file1 比 file2 新，或 file1/file2 中有一个不存在时为真，文件名需使用全路径
+<span class="token keyword">if</span> <span class="token punctuation">(</span>IS_DIRECTORY dir<span class="token punctuation">)</span>：当 <span class="token function">dir</span> 是目录时为真
+<span class="token keyword">if</span> <span class="token punctuation">(</span>DEFINED var<span class="token punctuation">)</span>：如果变量被定义为真
+<span class="token keyword">if</span> <span class="token punctuation">(</span>var MATCHES regex<span class="token punctuation">)</span>：给定的变量或者字符串能够匹配正则表达式 regex 时为真，此处 var 可以用 var 名，也可以用 <span class="token variable">${var}</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>string MATCHES regex<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#@2数字比较：</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>variable LESS number<span class="token punctuation">)</span>：LESS 小于
+<span class="token keyword">if</span> <span class="token punctuation">(</span>string LESS number<span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>variable GREATER number<span class="token punctuation">)</span>：GREATER 大于
+<span class="token keyword">if</span> <span class="token punctuation">(</span>string GREATER number<span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>variable EQUAL number<span class="token punctuation">)</span>：EQUAL 等于
+<span class="token keyword">if</span> <span class="token punctuation">(</span>string EQUAL number<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#@3</span>
+字母表顺序比较：
+<span class="token keyword">if</span> <span class="token punctuation">(</span>variable STRLESS string<span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>string STRLESS string<span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>variable STRGREATER string<span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>string STRGREATER string<span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>variable STREQUAL string<span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>string STREQUAL string<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#@4 while…endwhile</span>
+while<span class="token punctuation">(</span>condition<span class="token punctuation">)</span>
+    <span class="token punctuation">..</span>.
+endwhile<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#@5 foreach…endforeach</span>
+
+foreach<span class="token punctuation">(</span>loop_var RANGE start stop <span class="token punctuation">[</span>step<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">..</span>.
+endforeach<span class="token punctuation">(</span>loop_var<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><pre class="line-numbers language-bash"><code class="language-bash">message<span class="token punctuation">(</span><span class="token variable">${PROJECT_SOURCE_DIR}</span><span class="token punctuation">)</span>
+message<span class="token punctuation">(</span><span class="token string">"build with debug mode"</span><span class="token punctuation">)</span>
+message<span class="token punctuation">(</span>WARNING <span class="token string">"this is warnning message"</span><span class="token punctuation">)</span>
+message<span class="token punctuation">(</span>FATAL_ERROR <span class="token string">"this build has many error"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># FATAL_ERROR 会导致编译失败</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="包含其它-cmake-文件"><a href="#包含其它-cmake-文件" class="headerlink" title="包含其它 cmake 文件"></a>包含其它 cmake 文件</h2><pre class="line-numbers language-bash"><code class="language-bash">include<span class="token punctuation">(</span>./common.cmake<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 指定包含文件的全路径</span>
+include<span class="token punctuation">(</span>def<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 在搜索路径中搜索def.cmake文件</span>
+set<span class="token punctuation">(</span>CMAKE_MODULE_PATH <span class="token variable">${CMAKE_CURRENT_SOURCE_DIR}</span>/cmake<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 设置include的搜索路径</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="预定义变量"><a href="#预定义变量" class="headerlink" title="预定义变量"></a>预定义变量</h2><pre class="line-numbers language-bash"><code class="language-bash">PROJECT_SOURCE_DIR <span class="token comment" spellcheck="true">#工程的根目录</span>
+PROJECT_BINARY_DIR <span class="token comment" spellcheck="true">#运行 cmake 命令的目录，通常是 ${PROJECT_SOURCE_DIR}/build</span>
+PROJECT_NAME <span class="token comment" spellcheck="true">#返回通过 project 命令定义的项目名称</span>
+CMAKE_CURRENT_SOURCE_DIR <span class="token comment" spellcheck="true">#当前处理的 CMakeLists.txt 所在的路径</span>
+CMAKE_CURRENT_BINARY_DIR <span class="token comment" spellcheck="true">#target 编译目录</span>
+CMAKE_CURRENT_LIST_DIR <span class="token comment" spellcheck="true">#CMakeLists.txt 的完整路径</span>
+CMAKE_CURRENT_LIST_LINE <span class="token comment" spellcheck="true">#当前所在的行</span>
+CMAKE_MODULE_PATH <span class="token comment" spellcheck="true">#定义自己的 cmake 模块所在的路径，SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)，然后可以用INCLUDE命令来调用自己的模块</span>
+EXECUTABLE_OUTPUT_PATH <span class="token comment" spellcheck="true">#重新定义目标二进制可执行文件的存放位置</span>
+LIBRARY_OUTPUT_PATH <span class="token comment" spellcheck="true">#重新定义目标链接库文件的存放位置</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#使用环境变量</span>
+<span class="token variable">$ENV</span><span class="token punctuation">{</span>Name<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">#写入环境变量</span>
+set<span class="token punctuation">(</span>ENV<span class="token punctuation">{</span>Name<span class="token punctuation">}</span> value<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h2><pre class="line-numbers language-bash"><code class="language-bash">­CMAKE_MAJOR_VERSION <span class="token comment" spellcheck="true">#cmake 主版本号，比如 3.4.1 中的 3</span>
+­CMAKE_MINOR_VERSION <span class="token comment" spellcheck="true">#cmake 次版本号，比如 3.4.1 中的 4</span>
+­CMAKE_PATCH_VERSION <span class="token comment" spellcheck="true">#cmake 补丁等级，比如 3.4.1 中的 1</span>
+­CMAKE_SYSTEM <span class="token comment" spellcheck="true">#系统名称，比如 Linux-­2.6.22</span>
+­CMAKE_SYSTEM_NAME <span class="token comment" spellcheck="true">#不包含版本的系统名，比如 Linux</span>
+­CMAKE_SYSTEM_VERSION <span class="token comment" spellcheck="true">#系统版本，比如 2.6.22</span>
+­CMAKE_SYSTEM_PROCESSOR <span class="token comment" spellcheck="true">#处理器名称，比如 i686</span>
+­UNIX <span class="token comment" spellcheck="true">#在所有的类 UNIX 平台下该值为 TRUE，包括 OS X 和 cygwin</span>
+­WIN32 <span class="token comment" spellcheck="true">#在所有的 win32 平台下该值为 TRUE，包括 cygwin</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="主要开关选项"><a href="#主要开关选项" class="headerlink" title="主要开关选项"></a>主要开关选项</h2><pre class="line-numbers language-bash"><code class="language-bash">BUILD_SHARED_LIBS <span class="token comment" spellcheck="true">#这个开关用来控制默认的库编译方式，如果不进行设置，使用 add_library 又没有指定库类型的情况下，默认编译生成的库都是静态库。如果 set(BUILD_SHARED_LIBS ON) 后，默认生成的为动态库</span>
+CMAKE_C_FLAGS <span class="token comment" spellcheck="true">#设置 C 编译选项，也可以通过指令 add_definitions() 添加</span>
+CMAKE_CXX_FLAGS <span class="token comment" spellcheck="true">#设置 C++ 编译选项，也可以通过指令 add_definitions() 添加</span>
+
+add_definitions<span class="token punctuation">(</span>-DENABLE_DEBUG -DABC<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 参数之间用空格分隔</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="例程"><a href="#例程" class="headerlink" title="例程"></a>例程</h1><h2 id="单个源文件"><a href="#单个源文件" class="headerlink" title="单个源文件"></a>单个源文件</h2><p>单个源文件根本不需要makefile，直接就能编译，因为不需要链接其他代码。因此这里的目的是由浅入深的介绍cmake。<br>这是一个计算阶乘的文件。<br>main.cc</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token comment" spellcheck="true">/**
+ * power - Calculate the power of number.
+ * @param base: Base value.
+ * @param exponent: Exponent value.
+ *
+ * @return base raised to the power exponent.
+ */</span>
+<span class="token keyword">double</span> <span class="token function">power</span><span class="token punctuation">(</span><span class="token keyword">double</span> base<span class="token punctuation">,</span> <span class="token keyword">int</span> exponent<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> result <span class="token operator">=</span> base<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>exponent <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> exponent<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        result <span class="token operator">=</span> result <span class="token operator">*</span> base<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>argc <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Usage: %s base exponent \n"</span><span class="token punctuation">,</span> argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">double</span> base <span class="token operator">=</span> <span class="token function">atof</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> exponent <span class="token operator">=</span> <span class="token function">atoi</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">double</span> result <span class="token operator">=</span> <span class="token function">power</span><span class="token punctuation">(</span>base<span class="token punctuation">,</span> exponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%g ^ %d is %g\n"</span><span class="token punctuation">,</span> base<span class="token punctuation">,</span> exponent<span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>CMakeLists.txt</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># CMake 最低版本号要求</span>
+cmake_minimum_required <span class="token punctuation">(</span>VERSION 2.8<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 项目名称</span>
+project <span class="token punctuation">(</span>Demo1<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 指定生成目标,Demo为目标名称，main.cc为源文件名称</span>
+add_executable<span class="token punctuation">(</span>Demo main.cc<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>编译：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">cmake <span class="token keyword">.</span>
+<span class="token function">make</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>最后可得到 Demo1 可执行文件</p>
+<pre class="line-numbers language-bash"><code class="language-bash">./Demo1 5 4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>5 ^ 4 is 625</code></pre><h2 id="编译多文件多目录"><a href="#编译多文件多目录" class="headerlink" title="编译多文件多目录"></a>编译多文件多目录</h2><p>本小节对应的源代码所在目录：<a href="https://github.com/CdqPT/Demo/tree/master/cmake-demo/Demo3" target="_blank" rel="noopener">Demo3</a>。</p>
+<p>目录结构</p>
+<pre><code>./Demo3
+    |
+    +--- main.cc
+    |
+    +--- math/
+          |
+          +--- MathFunctions.cc
+          |
+          +--- MathFunctions.h</code></pre><p>对于这种情况，需要分别在项目根目录 Demo3 和 math 目录里各编写一个 CMakeLists.txt 文件。为了方便，我们可以先将 math 目录里的文件编译成静态库再由 main 函数调用。</p>
+<p>根目录中的 CMakeLists.txt ：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># CMake 最低版本号要求</span>
+cmake_minimum_required <span class="token punctuation">(</span>VERSION 2.8<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 项目信息</span>
+project <span class="token punctuation">(</span>Demo3<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 查找当前目录下的所有源文件</span>
+<span class="token comment" spellcheck="true"># 并将名称保存到 DIR_SRCS 变量</span>
+aux_source_directory<span class="token punctuation">(</span>. DIR_SRCS<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 添加 math 子目录</span>
+add_subdirectory<span class="token punctuation">(</span>math<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 指定生成目标 </span>
+add_executable<span class="token punctuation">(</span>Demo main.cc<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 添加链接库</span>
+target_link_libraries<span class="token punctuation">(</span>Demo MathFunctions<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>该文件添加了下面的内容: 第3行，使用命令 add_subdirectory 指明本项目包含一个子目录 math，这样 math 目录下的 CMakeLists.txt 文件和源代码也会被处理 。第6行，使用命令 target_link_libraries 指明可执行文件 main 需要连接一个名为 MathFunctions 的链接库 。</p>
+<p>子目录中的 CMakeLists.txt：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 查找当前目录下的所有源文件</span>
+<span class="token comment" spellcheck="true"># 并将名称保存到 DIR_LIB_SRCS 变量</span>
+aux_source_directory<span class="token punctuation">(</span>. DIR_LIB_SRCS<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 生成链接库</span>
+add_library <span class="token punctuation">(</span>MathFunctions <span class="token variable">${DIR_LIB_SRCS}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在该文件中使用命令 add_library 将 src 目录中的源文件编译为静态链接库。</p>
+<h2 id="设置可选库"><a href="#设置可选库" class="headerlink" title="设置可选库"></a>设置可选库</h2><p>例如，可以将 MathFunctions 库设为一个可选的库，如果该选项为 ON ，就使用该库定义的数学函数来进行运算。否则就调用标准库中的数学函数库。</p>
+<p>本节对应的源代码所在目录：<a href="https://github.com/CdqPT/Demo/tree/master/cmake-demo/Demo4" target="_blank" rel="noopener">Demo4</a>。<br>CMake 允许为项目增加编译选项，从而可以根据用户的环境和需求选择最合适的编译方案。<br>例如，可以将 MathFunctions 库设为一个可选的库，如果该选项为 ON ，就使用该库定义的数学函数来进行运算。否则就调用标准库中的数学函数库。</p>
+<h2 id="修改-CMakeLists-文件"><a href="#修改-CMakeLists-文件" class="headerlink" title="修改 CMakeLists 文件"></a>修改 CMakeLists 文件</h2><p>我们要做的第一步是在顶层的 CMakeLists.txt 文件中添加该选项：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># CMake 最低版本号要求</span>
+cmake_minimum_required <span class="token punctuation">(</span>VERSION 2.8<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 项目信息</span>
+project <span class="token punctuation">(</span>Demo4<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 加入一个配置头文件，用于处理 CMake 对源码的设置</span>
+configure_file <span class="token punctuation">(</span>
+  <span class="token string">"<span class="token variable">${PROJECT_SOURCE_DIR}</span>/config.h.in"</span>
+  <span class="token string">"<span class="token variable">${PROJECT_BINARY_DIR}</span>/config.h"</span>
+  <span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 是否使用自己的 MathFunctions 库</span>
+option <span class="token punctuation">(</span>USE_MYMATH
+       <span class="token string">"Use provided math implementation"</span> ON<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 是否加入 MathFunctions 库</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>USE_MYMATH<span class="token punctuation">)</span>
+  include_directories <span class="token punctuation">(</span><span class="token string">"<span class="token variable">${PROJECT_SOURCE_DIR}</span>/math"</span><span class="token punctuation">)</span>
+  add_subdirectory <span class="token punctuation">(</span>math<span class="token punctuation">)</span>  
+  <span class="token keyword">set</span> <span class="token punctuation">(</span>EXTRA_LIBS <span class="token variable">${EXTRA_LIBS}</span> MathFunctions<span class="token punctuation">)</span>
+endif <span class="token punctuation">(</span>USE_MYMATH<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 查找当前目录下的所有源文件</span>
+<span class="token comment" spellcheck="true"># 并将名称保存到 DIR_SRCS 变量</span>
+aux_source_directory<span class="token punctuation">(</span>. DIR_SRCS<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 指定生成目标</span>
+add_executable<span class="token punctuation">(</span>Demo <span class="token variable">${DIR_SRCS}</span><span class="token punctuation">)</span>
+target_link_libraries <span class="token punctuation">(</span>Demo  <span class="token variable">${EXTRA_LIBS}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其中：</p>
+<p>1.第7行的 configure_file 命令用于加入一个配置头文件 config.h ，这个文件由 CMake 从 config.h.in 生成，通过这样的机制，将可以通过预定义一些参数和变量来控制代码的生成。<br>2.第13行的 option 命令添加了一个 USE_MYMATH 选项，并且默认值为 ON 。<br>3.第17行根据 USE_MYMATH 变量的值来决定是否使用我们自己编写的 MathFunctions 库。</p>
+<h2 id="修改-main-cc-文件"><a href="#修改-main-cc-文件" class="headerlink" title="修改 main.cc 文件"></a>修改 main.cc 文件</h2><p>之后修改 main.cc 文件，让其根据 USE_MYMATH 的预定义值来决定是否调用标准库还是 MathFunctions 库：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#include </span>
+<span class="token comment" spellcheck="true">#include </span>
+<span class="token comment" spellcheck="true">#include "config.h"</span>
+<span class="token comment" spellcheck="true">#ifdef USE_MYMATH</span>
+  <span class="token comment" spellcheck="true">#include "math/MathFunctions.h"</span>
+<span class="token comment" spellcheck="true">#else</span>
+  <span class="token comment" spellcheck="true">#include </span>
+<span class="token comment" spellcheck="true">#endif</span>
+int main<span class="token punctuation">(</span>int argc, char *argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>argc <span class="token operator">&lt;</span> 3<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        printf<span class="token punctuation">(</span><span class="token string">"Usage: %s base exponent \n"</span>, argv<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> 1<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    double base <span class="token operator">=</span> atof<span class="token punctuation">(</span>argv<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    int exponent <span class="token operator">=</span> atoi<span class="token punctuation">(</span>argv<span class="token punctuation">[</span>2<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">#ifdef USE_MYMATH</span>
+    printf<span class="token punctuation">(</span><span class="token string">"Now we use our own Math library. \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    double result <span class="token operator">=</span> power<span class="token punctuation">(</span>base, exponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">#else</span>
+    printf<span class="token punctuation">(</span><span class="token string">"Now we use the standard library. \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    double result <span class="token operator">=</span> pow<span class="token punctuation">(</span>base, exponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">#endif</span>
+    printf<span class="token punctuation">(</span><span class="token string">"%g ^ %d is %g\n"</span>, base, exponent, result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="编写-config-h-in-文件"><a href="#编写-config-h-in-文件" class="headerlink" title="编写 config.h.in 文件"></a>编写 config.h.in 文件</h2><p>上面的程序值得注意的是第2行，这里引用了一个 config.h 文件，这个文件预定义了 USE_MYMATH 的值。但我们并不直接编写这个文件，为了方便从 CMakeLists.txt 中导入配置，我们编写一个 config.h.in 文件，内容如下：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#cmakedefine USE_MYMATH</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这样 CMake 会自动根据 CMakeLists 配置文件中的设置自动生成 config.h 文件。</p>
+<h2 id="编译项目"><a href="#编译项目" class="headerlink" title="编译项目"></a>编译项目</h2><p>现在编译一下这个项目，为了便于交互式的选择该变量的值，可以使用 ccmake 命令.</p>
+<pre class="line-numbers language-bash"><code class="language-bash">ccmake <span class="token keyword">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>从中可以找到刚刚定义的 USE_MYMATH 选项，按键盘的方向键可以在不同的选项窗口间跳转，按下 enter 键可以修改该选项。修改完成后可以按下 c 选项完成配置，之后再按 g 键确认生成 Makefile 。ccmake 的其他操作可以参考窗口下方给出的指令提示。</p>
+<p>我们可以试试分别将 USE_MYMATH 设为 ON 和 OFF 得到的结果：</p>
+<p>USE_MYMATH 为 ON<br>运行结果：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">./Demo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>Now we use our own MathFunctions library. 
+ 7 ^ 3 = 343.000000
+ 10 ^ 5 = 100000.000000
+ 2 ^ 10 = 1024.000000</code></pre><p>此时 config.h 的内容为：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">define</span> USE_MYMATH</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>USE_MYMATH 为 OFF<br>运行结果：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">./Demo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>Now we use the standard library. 
+ 7 ^ 3 = 343.000000
+ 10 ^ 5 = 100000.000000
+ 2 ^ 10 = 1024.000000</code></pre><p>此时 config.h 的内容为：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* #undef USE_MYMATH */</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="安装和测试"><a href="#安装和测试" class="headerlink" title="安装和测试"></a>安装和测试</h1><p>本节对应的源代码所在目录：<a href="https://github.com/CdqPT/Demo/tree/master/cmake-demo/Demo5" target="_blank" rel="noopener">Demo5</a>。</p>
+<p>CMake 也可以指定安装规则，以及添加测试。这两个功能分别可以通过在产生 Makefile 后使用 make install 和 make test 来执行。在以前的 GNU Makefile 里，你可能需要为此编写 install 和 test 两个伪目标和相应的规则，但在 CMake 里，这样的工作同样只需要简单的调用几条命令。</p>
+<h2 id="定制安装规则"><a href="#定制安装规则" class="headerlink" title="定制安装规则"></a>定制安装规则</h2><p>首先先在 math/CMakeLists.txt 文件里添加下面两行：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 指定 MathFunctions 库的安装路径</span>
+<span class="token function">install</span> <span class="token punctuation">(</span>TARGETS MathFunctions DESTINATION bin<span class="token punctuation">)</span>
+<span class="token function">install</span> <span class="token punctuation">(</span>FILES MathFunctions.h DESTINATION include<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>指明 MathFunctions 库的安装路径。之后同样修改根目录的 CMakeLists 文件，在末尾添加下面几行：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 指定安装路径</span>
+<span class="token function">install</span> <span class="token punctuation">(</span>TARGETS Demo DESTINATION bin<span class="token punctuation">)</span>
+<span class="token function">install</span> <span class="token punctuation">(</span>FILES <span class="token string">"<span class="token variable">${PROJECT_BINARY_DIR}</span>/config.h"</span>
+         DESTINATION include<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>通过上面的定制，生成的 Demo 文件和 MathFunctions 函数库 libMathFunctions.o 文件将会被复制到 /usr/local/bin 中，而 MathFunctions.h 和生成的 config.h 文件则会被复制到 /usr/local/include 中。我们可以验证一下:</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>ehome@xman Demo5<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>
+<span class="token punctuation">[</span> 50%<span class="token punctuation">]</span> Built target MathFunctions
+<span class="token punctuation">[</span>100%<span class="token punctuation">]</span> Built target Demo
+Install the project<span class="token punctuation">..</span>.
+-- Install configuration: <span class="token string">""</span>
+-- Installing: /usr/local/bin/Demo
+-- Installing: /usr/local/include/config.h
+-- Installing: /usr/local/bin/libMathFunctions.a
+-- Up-to-date: /usr/local/include/MathFunctions.h
+<span class="token punctuation">[</span>ehome@xman Demo5<span class="token punctuation">]</span>$ <span class="token function">ls</span> /usr/local/bin
+Demo  libMathFunctions.a
+<span class="token punctuation">[</span>ehome@xman Demo5<span class="token punctuation">]</span>$ <span class="token function">ls</span> /usr/local/include
+config.h  MathFunctions.h<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="添加测试"><a href="#添加测试" class="headerlink" title="添加测试"></a>添加测试</h2><p>添加测试同样很简单。CMake 提供了一个称为 CTest 的测试工具。我们要做的只是在项目根目录的 CMakeLists 文件中调用一系列的 add_test 命令。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 启用测试</span>
+enable_testing<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 测试程序是否成功运行</span>
+add_test <span class="token punctuation">(</span>test_run Demo 5 2<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 测试帮助信息是否可以正常提示</span>
+add_test <span class="token punctuation">(</span>test_usage Demo<span class="token punctuation">)</span>
+set_tests_properties <span class="token punctuation">(</span>test_usage
+  PROPERTIES PASS_REGULAR_EXPRESSION <span class="token string">"Usage: .* base exponent"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 测试 5 的平方</span>
+add_test <span class="token punctuation">(</span>test_5_2 Demo 5 2<span class="token punctuation">)</span>
+set_tests_properties <span class="token punctuation">(</span>test_5_2
+ PROPERTIES PASS_REGULAR_EXPRESSION <span class="token string">"is 25"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 测试 10 的 5 次方</span>
+add_test <span class="token punctuation">(</span>test_10_5 Demo 10 5<span class="token punctuation">)</span>
+set_tests_properties <span class="token punctuation">(</span>test_10_5
+ PROPERTIES PASS_REGULAR_EXPRESSION <span class="token string">"is 100000"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 测试 2 的 10 次方</span>
+add_test <span class="token punctuation">(</span>test_2_10 Demo 2 10<span class="token punctuation">)</span>
+set_tests_properties <span class="token punctuation">(</span>test_2_10
+ PROPERTIES PASS_REGULAR_EXPRESSION <span class="token string">"is 1024"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上面的代码包含了四个测试。第一个测试 test_run 用来测试程序是否成功运行并返回 0 值。剩下的三个测试分别用来测试 5 的 平方、10 的 5 次方、2 的 10 次方是否都能得到正确的结果。其中 PASS_REGULAR_EXPRESSION 用来测试输出是否包含后面跟着的字符串。</p>
+<p>让我们看看测试的结果：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>ehome@xman Demo5<span class="token punctuation">]</span>$ <span class="token function">make</span> <span class="token function">test</span>
+Running tests<span class="token punctuation">..</span>.
+Test project /home/ehome/Documents/programming/C/power/Demo5
+    Start 1: test_run
+1/4 Test <span class="token comment" spellcheck="true">#1: test_run .........................   Passed    0.00 sec</span>
+    Start 2: test_5_2
+2/4 Test <span class="token comment" spellcheck="true">#2: test_5_2 .........................   Passed    0.00 sec</span>
+    Start 3: test_10_5
+3/4 Test <span class="token comment" spellcheck="true">#3: test_10_5 ........................   Passed    0.00 sec</span>
+    Start 4: test_2_10
+4/4 Test <span class="token comment" spellcheck="true">#4: test_2_10 ........................   Passed    0.00 sec</span>
+100% tests passed, 0 tests failed out of 4
+Total Test <span class="token function">time</span> <span class="token punctuation">(</span>real<span class="token punctuation">)</span> <span class="token operator">=</span>   0.01 sec<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果要测试更多的输入数据，像上面那样一个个写测试用例未免太繁琐。这时可以通过编写宏来实现：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 定义一个宏，用来简化测试工作</span>
+macro <span class="token punctuation">(</span>do_test arg1 arg2 result<span class="token punctuation">)</span>
+  add_test <span class="token punctuation">(</span>test_<span class="token variable">${arg1}</span>_<span class="token variable">${arg2}</span> Demo <span class="token variable">${arg1}</span> <span class="token variable">${arg2}</span><span class="token punctuation">)</span>
+  set_tests_properties <span class="token punctuation">(</span>test_<span class="token variable">${arg1}</span>_<span class="token variable">${arg2}</span>
+    PROPERTIES PASS_REGULAR_EXPRESSION <span class="token variable">${result}</span><span class="token punctuation">)</span>
+endmacro <span class="token punctuation">(</span>do_test<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 使用该宏进行一系列的数据测试</span>
+do_test <span class="token punctuation">(</span>5 2 <span class="token string">"is 25"</span><span class="token punctuation">)</span>
+do_test <span class="token punctuation">(</span>10 5 <span class="token string">"is 100000"</span><span class="token punctuation">)</span>
+do_test <span class="token punctuation">(</span>2 10 <span class="token string">"is 1024"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>关于 CTest 的更详细的用法可以通过 man 1 ctest 参考 CTest 的文档。</p>
+<h1 id="支持-gdb"><a href="#支持-gdb" class="headerlink" title="支持 gdb"></a>支持 gdb</h1><p>让 CMake 支持 gdb 的设置也很容易，只需要指定 Debug 模式下开启 -g 选项：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">set<span class="token punctuation">(</span>CMAKE_BUILD_TYPE <span class="token string">"Debug"</span><span class="token punctuation">)</span>
+set<span class="token punctuation">(</span>CMAKE_CXX_FLAGS_DEBUG <span class="token string">"<span class="token variable">$ENV</span>{CXXFLAGS} -O0 -Wall -g -ggdb"</span><span class="token punctuation">)</span>
+set<span class="token punctuation">(</span>CMAKE_CXX_FLAGS_RELEASE <span class="token string">"<span class="token variable">$ENV</span>{CXXFLAGS} -O3 -Wall"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>之后可以直接对生成的程序使用 gdb 来调试。</p>
+<h1 id="添加环境检查"><a href="#添加环境检查" class="headerlink" title="添加环境检查"></a>添加环境检查</h1><p>本节对应的源代码所在目录：[Demo6[(<a href="https://github.com/CdqPT/Demo/tree/master/cmake-demo/Demo6)。" target="_blank" rel="noopener">https://github.com/CdqPT/Demo/tree/master/cmake-demo/Demo6)。</a></p>
+<p>有时候可能要对系统环境做点检查，例如要使用一个平台相关的特性的时候。在这个例子中，我们检查系统是否自带 pow 函数。如果带有 pow 函数，就使用它；否则使用我们定义的 power 函数。</p>
+<h2 id="添加-CheckFunctionExists-宏"><a href="#添加-CheckFunctionExists-宏" class="headerlink" title="添加 CheckFunctionExists 宏"></a>添加 CheckFunctionExists 宏</h2><p>首先在顶层 CMakeLists 文件中添加 CheckFunctionExists.cmake 宏，并调用 check_function_exists 命令测试链接器是否能够在链接阶段找到 pow 函数。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 检查系统是否支持 pow 函数</span>
+include <span class="token punctuation">(</span><span class="token variable">${CMAKE_ROOT}</span>/Modules/CheckFunctionExists.cmake<span class="token punctuation">)</span>
+check_function_exists <span class="token punctuation">(</span>pow HAVE_POW<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>将上面这段代码放在 configure_file 命令前。</p>
+<h2 id="预定义相关宏变量"><a href="#预定义相关宏变量" class="headerlink" title="预定义相关宏变量"></a>预定义相关宏变量</h2><p>接下来修改 config.h.in 文件，预定义相关的宏变量。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">// does the platform provide pow function?
+<span class="token comment" spellcheck="true">#cmakedefine HAVE_POW</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="在代码中使用宏和函数"><a href="#在代码中使用宏和函数" class="headerlink" title="在代码中使用宏和函数"></a>在代码中使用宏和函数</h2><p>最后一步是修改 main.cc ，在代码中使用宏和函数：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#ifdef HAVE_POW</span>
+    printf<span class="token punctuation">(</span><span class="token string">"Now we use the standard library. \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    double result <span class="token operator">=</span> pow<span class="token punctuation">(</span>base, exponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">#else</span>
+    printf<span class="token punctuation">(</span><span class="token string">"Now we use our own Math library. \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    double result <span class="token operator">=</span> power<span class="token punctuation">(</span>base, exponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">#endif</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="添加版本号"><a href="#添加版本号" class="headerlink" title="添加版本号"></a>添加版本号</h1><p>本节对应的源代码所在目录：<a href="https://github.com/CdqPT/Demo/tree/master/cmake-demo/Demo7" target="_blank" rel="noopener">Demo7</a>。<br>给项目添加和维护版本号是一个好习惯，这样有利于用户了解每个版本的维护情况，并及时了解当前所用的版本是否过时，或是否可能出现不兼容的情况。</p>
+<p>首先修改顶层 CMakeLists 文件，在 project 命令之后加入如下两行：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">set</span> <span class="token punctuation">(</span>Demo_VERSION_MAJOR 1<span class="token punctuation">)</span>
+<span class="token keyword">set</span> <span class="token punctuation">(</span>Demo_VERSION_MINOR 0<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>分别指定当前的项目的主版本号和副版本号。</p>
+<p>之后，为了在代码中获取版本信息，我们可以修改 config.h.in 文件，添加两个预定义变量：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">// the configured options and settings <span class="token keyword">for</span> Tutorial
+<span class="token comment" spellcheck="true">#define Demo_VERSION_MAJOR @Demo_VERSION_MAJOR@</span>
+<span class="token comment" spellcheck="true">#define Demo_VERSION_MINOR @Demo_VERSION_MINOR@</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>这样就可以直接在代码中打印版本信息了：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;math.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"config.h"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"math/MathFunctions.h"</span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>argc <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// print version info</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s Version %d.%d\n"</span><span class="token punctuation">,</span>
+            argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            Demo_VERSION_MAJOR<span class="token punctuation">,</span>
+            Demo_VERSION_MINOR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Usage: %s base exponent \n"</span><span class="token punctuation">,</span> argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">double</span> base <span class="token operator">=</span> <span class="token function">atof</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> exponent <span class="token operator">=</span> <span class="token function">atoi</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">if</span> defined (HAVE_POW)</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Now we use the standard library. \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">double</span> result <span class="token operator">=</span> <span class="token function">pow</span><span class="token punctuation">(</span>base<span class="token punctuation">,</span> exponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">else</span></span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Now we use our own Math library. \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">double</span> result <span class="token operator">=</span> <span class="token function">power</span><span class="token punctuation">(</span>base<span class="token punctuation">,</span> exponent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%g ^ %d is %g\n"</span><span class="token punctuation">,</span> base<span class="token punctuation">,</span> exponent<span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="生成安装包"><a href="#生成安装包" class="headerlink" title="生成安装包"></a>生成安装包</h1><p>本节对应的源代码所在目录：<a href="https://github.com/CdqPT/Demo/tree/master/cmake-demo/Demo8" target="_blank" rel="noopener">Demo8</a>。</p>
+<p>本节将学习如何配置生成各种平台上的安装包，包括二进制安装包和源码安装包。为了完成这个任务，我们需要用到 CPack ，它同样也是由 CMake 提供的一个工具，专门用于打包。</p>
+<p>首先在顶层的 CMakeLists.txt 文件尾部添加下面几行：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 构建一个 CPack 安装包</span>
+include <span class="token punctuation">(</span>InstallRequiredSystemLibraries<span class="token punctuation">)</span>
+<span class="token keyword">set</span> <span class="token punctuation">(</span>CPACK_RESOURCE_FILE_LICENSE
+  <span class="token string">"<span class="token variable">${CMAKE_CURRENT_SOURCE_DIR}</span>/License.txt"</span><span class="token punctuation">)</span>
+<span class="token keyword">set</span> <span class="token punctuation">(</span>CPACK_PACKAGE_VERSION_MAJOR <span class="token string">"<span class="token variable">${Demo_VERSION_MAJOR}</span>"</span><span class="token punctuation">)</span>
+<span class="token keyword">set</span> <span class="token punctuation">(</span>CPACK_PACKAGE_VERSION_MINOR <span class="token string">"<span class="token variable">${Demo_VERSION_MINOR}</span>"</span><span class="token punctuation">)</span>
+include <span class="token punctuation">(</span>CPack<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上面的代码做了以下几个工作：<br>1.导入 InstallRequiredSystemLibraries 模块，以便之后导入 CPack 模块；<br>2.设置一些 CPack 相关变量，包括版权信息和版本信息，其中版本信息用了上一节定义的版本号；<br>3.导入 CPack 模块。</p>
+<p>接下来的工作是像往常一样构建工程，并执行 cpack 命令。<br><code>生成二进制安装包：</code></p>
+<pre class="line-numbers language-bash"><code class="language-bash">cpack -C CPackConfig.cmake<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><code>生成源码安装包</code></p>
+<pre class="line-numbers language-bash"><code class="language-bash">cpack -C CPackSourceConfig.cmake<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>我们可以试一下。在生成项目后，执行 cpack -C CPackConfig.cmake 命令：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>ehome@xman Demo8<span class="token punctuation">]</span>$ cpack -C CPackSourceConfig.cmake
+CPack: Create package using STGZ
+CPack: Install projects
+CPack: - Run preinstall target for: Demo8
+CPack: - Install project: Demo8
+CPack: Create package
+CPack: - package: /home/ehome/Documents/programming/C/power/Demo8/Demo8-1.0.1-Linux.sh generated.
+CPack: Create package using TGZ
+CPack: Install projects
+CPack: - Run preinstall target for: Demo8
+CPack: - Install project: Demo8
+CPack: Create package
+CPack: - package: /home/ehome/Documents/programming/C/power/Demo8/Demo8-1.0.1-Linux.tar.gz generated.
+CPack: Create package using TZ
+CPack: Install projects
+CPack: - Run preinstall target for: Demo8
+CPack: - Install project: Demo8
+CPack: Create package
+CPack: - package: /home/ehome/Documents/programming/C/power/Demo8/Demo8-1.0.1-Linux.tar.Z generated.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>此时会在该目录下创建 3 个不同格式的二进制包文件：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>ehome@xman Demo8<span class="token punctuation">]</span>$ <span class="token function">ls</span> Demo8-*
+Demo8-1.0.1-Linux.sh  Demo8-1.0.1-Linux.tar.gz  Demo8-1.0.1-Linux.tar.Z<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>这 3 个二进制包文件所包含的内容是完全相同的。我们可以执行其中一个。此时会出现一个由 CPack 自动生成的交互式安装界面：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>ehome@xman Demo8<span class="token punctuation">]</span>$ sh Demo8-1.0.1-Linux.sh 
+Demo8 Installer Version: 1.0.1, Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> Humanity
+This is a self-extracting archive.
+The archive will be extracted to: /home/ehome/Documents/programming/C/power/Demo8
+If you want to stop extracting, please press <span class="token operator">&lt;</span>ctrl-C<span class="token operator">></span>.
+The MIT License <span class="token punctuation">(</span>MIT<span class="token punctuation">)</span>
+Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> 2013 Joseph Pan<span class="token punctuation">(</span>https://hahack.com<span class="token punctuation">)</span>
+Permission is hereby granted, <span class="token function">free</span> of charge, to any person obtaining a copy of
+this software and associated documentation files <span class="token punctuation">(</span>the <span class="token string">"Software"</span><span class="token punctuation">)</span>, to deal <span class="token keyword">in</span>
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to <span class="token keyword">do</span> so,
+subject to the following conditions:
+The above copyright notice and this permission notice shall be included <span class="token keyword">in</span> all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED <span class="token string">"AS IS"</span>, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Do you accept the license? <span class="token punctuation">[</span>yN<span class="token punctuation">]</span>: 
+y
+By default the Demo8 will be installed in:
+  <span class="token string">"/home/ehome/Documents/programming/C/power/Demo8/Demo8-1.0.1-Linux"</span>
+Do you want to include the subdirectory Demo8-1.0.1-Linux?
+Saying no will <span class="token function">install</span> in: <span class="token string">"/home/ehome/Documents/programming/C/power/Demo8"</span> <span class="token punctuation">[</span>Yn<span class="token punctuation">]</span>: 
+y
+Using target directory: /home/ehome/Documents/programming/C/power/Demo8/Demo8-1.0.1-Linux
+Extracting, please wait<span class="token punctuation">..</span>.
+Unpacking finished successfully<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>完成后提示安装到了 Demo8-1.0.1-Linux 子目录中，我们可以进去执行该程序：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>ehome@xman Demo8<span class="token punctuation">]</span>$ ./Demo8-1.0.1-Linux/bin/Demo 5 2
+Now we use our own Math library. 
+5 ^ 2 is 25<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>关于 CPack 的更详细的用法可以通过 man 1 cpack 参考 CPack 的文档。</p>
+<h1 id="将其他平台的项目迁移到-CMake"><a href="#将其他平台的项目迁移到-CMake" class="headerlink" title="将其他平台的项目迁移到 CMake"></a>将其他平台的项目迁移到 CMake</h1><p>CMake 可以很轻松地构建出在适合各个平台执行的工程环境。而如果当前的工程环境不是 CMake ，而是基于某个特定的平台，是否可以迁移到 CMake 呢？答案是可能的。下面针对几个常用的平台，列出了它们对应的迁移方案。</p>
+<p><code>autotools</code><br>am2cmake 可以将 autotools 系的项目转换到 CMake，这个工具的一个成功案例是 KDE 。<br>Alternative Automake2CMake 可以转换使用 automake 的 KDevelop 工程项目。<br>Converting autoconf tests</p>
+<p><code>qmake</code><br>qmake converter 可以转换使用 QT 的 qmake 的工程。</p>
+<p><code>Visual Studio</code><br>vcproj2cmake.rb 可以根据 Visual Studio 的工程文件（后缀名是 .vcproj 或 .vcxproj）生成 CMakeLists.txt 文件。<br>vcproj2cmake.ps1 vcproj2cmake 的 PowerShell 版本。<br>folders4cmake 根据 Visual Studio 项目文件生成相应的 “source_group” 信息，这些信息可以很方便的在 CMake 脚本中使用。支持 Visual Studio 9/10 工程文件。</p>
+<p><code>CMakeLists.txt 自动推导</code><br>gencmake 根据现有文件推导 CMakeLists.txt 文件。<br>CMakeListGenerator 应用一套文件和目录分析创建出完整的 CMakeLists.txt 文件。仅支持 Win32 平台。</p>
+<h1 id="debug-版和-release-版"><a href="#debug-版和-release-版" class="headerlink" title="debug 版和 release 版"></a>debug 版和 release 版</h1><p>在 Visual Studio 中我们可以生成 debug 版和 release 版的程序,使用 CMake 我们也可以达到上述效果。debug 版的项目生成的可执行文件需要有调试信息并且不需要进行优化,而 release 版的不需要调试信息但需要优化。这些特性在 gcc/g++中是通过编译时的参数来决定的,如果将优化程度调到最高需要设置参数-O3,最低是 -O0 即不做优化;添加调试信息的参数是 -g -ggdb,如果不添加这个参数,调试信息就不会被包含在生成的二进制文件中。 </p>
+<p>CMake 中有一个变量 CMAKE_BUILD_TYPE ,可以的取值是 Debug Release RelWithDebInfo 和 MinSizeRel。当这个变量值为 Debug 的时候,CMake 会使用变量 CMAKE_CXX_FLAGS_DEBUG 和 CMAKE_C_FLAGS_DEBUG 中的字符串作为编译选项生成 Makefile ,当这个变量值为 Release 的时候,工程会使用变量 CMAKE_CXX_FLAGS_RELEASE 和 CMAKE_C_FLAGS_RELEASE 选项生成 Makefile。</p>
+<h1 id="交叉编译"><a href="#交叉编译" class="headerlink" title="交叉编译"></a>交叉编译</h1><p>从理论上说，cmake根据cmakeList.txt可以一步构建出vs工程以及unix工程，</p>
+<p>在Win上使用的是GUI形式，分为三步，<br>1.配置<br>2.再配置？<br>3.生成（应该是make和make install的集合）<br>4.然后就可以使用VS打开工程了。</p>
+<p>在Linux上貌似很麻烦：<br>1.执行包含cmake命令的脚本文件，生成debug文件，这个貌似是构建目录,待确认；<br>2.在构建目录中执行make<br>3.在构建目录中执行make install，此时生成install目录；<br>4.使用QTCreater打开cmakeList.txt，设置Build中构建目录选择第1步的构建目录，设置Run中命令行参数以及第3步生成的安装目录。</p>
+<p>参考链接：<br><a href="https://blog.csdn.net/afei__/article/details/81201039" target="_blank" rel="noopener">https://blog.csdn.net/afei__/article/details/81201039</a><br><a href="https://www.hahack.com/codes/cmake/#" target="_blank" rel="noopener">https://www.hahack.com/codes/cmake/#</a><br><a href="https://blog.csdn.net/zhuiyunzhugang/article/details/88142908" target="_blank" rel="noopener">https://blog.csdn.net/zhuiyunzhugang/article/details/88142908</a><br><a href="https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70229799" target="_blank" rel="noopener">https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70229799</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                 
+                 <hr/>
+                 
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn" rel="external nofollow noreferrer">陈德强</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn/6415.html">https://purethought.cn/6415.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://purethought.cn" target="_blank">陈德强</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+            </div>         
+        </div>
+    </div>
+    
+    <!-- 代码块功能依赖 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>    
+    <!-- 代码语言 -->   
+    <!-- <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script> -->          
+    <!-- 代码块复制 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>      
+    <!-- 代码块收缩 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge ">                  
+                <a href="/54148.html" target="_blank">                 
+                    <font color="#0e263f">
+                        <i class="fa  fa-hand-o-left"></i>
+                        CAN总线笔记
+                    </font>                    
+                </a>          
+            </div>
+        </div>
+        
+
+
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge " >
+                <a href="/43788.html" target="_blank">
+                    <font color="#0e263f">
+                        交叉编译找不到QT
+                        <i class="fa  fa-hand-o-right"></i>
+                    </font>
+                 </a>  
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+    
+        <style>
+    #reward {
+        /*margin: 40px 0;*/
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.6rem;
+      
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+   <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red" >¥</a> 
+  
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-times"></i></a>
+            <h4 class="reward-title">您的赞赏就是我的动力^</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+    
+
+    
+        <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80Njk3Mi8yMzQ3Mw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+    
+   <!-- 
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '6190f09c0ffe658707b5',
+        clientSecret: '2798e16eeba573f49ce06d2da0595188699aac41',
+        repo: 'cdqpt.github.io',
+        owner: 'CdqPT',
+        admin: "CdqPT",
+        id: '2019-12-12T16-36-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+     -->
+
+    
+
+    
+
+    
+
+   <!-- <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script> -->
+
+</div>
+
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    
+        <div class="toc-widget">
+        
+            <div class="toc-title" ><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="hidden">
+                <div id="toc-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. --><!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large ">    
+        <i class="fa fa-th-large"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2'
+        });
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            i++;
+            $(this).attr('href', '#' + tocHeading + (i));
+            $(this).attr('navTo',  tocHeading + (i));    
+        });
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(0);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(100);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+</main>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+       <div class="col s12 m8 l8 copy-right">
+             
+               &copy;2018-2020 ALaDing
+               &nbsp;
+             Author:  <a href="https://purethought.cn/">陈德强 &nbsp  Email: 928277452@qq.com</a>
+
+            
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                       
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?147475454185ebcf440a27cc35e793ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CdqPT" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:928277452@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=928277452" class="tooltipped" data-tooltip="QQ联系我: 928277452" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+ 
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+   
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+
+</html>

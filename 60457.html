@@ -1,0 +1,1370 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Effective C++, 陈德强 ALaDing 内蒙古工业大学 机器人 东软 东软集团 嵌入式 自动驾驶 ADASIS">
+    <meta name="description" content="让自己习惯C++条款01：视C++为一个语言联邦可以将C++看作四部分组成，因为每个部分的思路都不同，分而治之效果更佳：1.C语言。C++仍以C为基础2.objected-oriented C++。面向对象编程，类、封装、继承、多态3.te">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Effective C++ | ALaDing</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+
+
+
+  <link rel="amphtml" href="https://purethought.cn/60457.html/amp/index.html">
+
+    
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+
+
+
+
+<body style="overflow-x:hidden">
+    <header id="navControl" class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ALaDing</span>
+                </a>
+            </div>
+            
+
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/dictionary" class="waves-effect waves-light">
+            
+            <i class="fa fa-book"></i>
+            
+            <span>字典</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>豆瓣</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-leaf"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-commenting"></i>
+            
+            <span>留言</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse">
+  <i class="fa fa-navicon" >
+     <b>导航 </b>
+  </i>
+</a>
+
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/dictionary" class="waves-effect waves-light">
+              
+                <i class="fa fa-book"></i>
+              
+              <span>字典</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/categories" class="waves-effect waves-light">
+                
+                  <i class="fa fa-bookmark"></i>
+                
+                <span>分类</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>编程笔记</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>文史哲理</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>投资理财</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>过程随笔</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>既有优化</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>安装教程</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-heart"></i>
+                
+                <span>豆瓣</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/books" >
+                    
+                      <i class="fa fa-book" style="margin-top: -20px;"></i>
+                    
+                    <span>书单</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/movies" >
+                    
+                      <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>电影</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/games" >
+                    
+                      <i class="fa fa-gamepad" style="margin-top: -20px;"></i>
+                    
+                    <span>游戏</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-leaf"></i>
+                
+                <span>关于</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/about" >
+                    
+                      <i class="fa fa-user" style="margin-top: -20px;"></i>
+                    
+                    <span>简介</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/galleries" >
+                    
+                      <i class="fa fa-camera" style="margin-top: -20px;"></i>
+                    
+                    <span>相册</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/friends" >
+                    
+                      <i class="fa fa-handshake-o" style="margin-top: -20px;"></i>
+                    
+                    <span>友链</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/log" >
+                    
+                      <i class="fa fa-pencil-square-o" style="margin-top: -20px;"></i>
+                    
+                    <span>日志</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/tags" >
+                    
+                      <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/archives" >
+                    
+                      <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fa-commenting"></i>
+              
+              <span>留言</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+
+            <i id="searchIcon" class="fa fa-search" title="搜索" >
+              <b>搜索 </b>
+            </i>
+
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ALaDing</div>
+        <div class="logo-desc">
+            
+            东软集团 | 内蒙古工业大学 | 嵌入式工程师 | ADAS
+            
+        </div>
+    </div>
+
+    
+
+
+ <ul class="menu-list mobile-menu-list">  <li class="m-nav-item">  <a href="/" class="waves-effect waves-light">  <i class="fa fa-fw fa-home"></i>  首页 </a>  </li>  <li class="m-nav-item">  <a href="/dictionary" class="waves-effect waves-light">  <i class="fa fa-fw fa-book"></i>  字典 </a>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-bookmark"></i>  分类 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>编程笔记</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>文史哲理</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>投资理财</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>过程随笔</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>既有优化</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>安装教程</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-heart"></i>  豆瓣 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/books" >  <i class="fa fa-book" style="left: 25px; position: absolute;"></i>  <span>书单</span> </a> </li>  <li> <a href="/movies" >  <i class="fa fa-film" style="left: 25px; position: absolute;"></i>  <span>电影</span> </a> </li>  <li> <a href="/games" >  <i class="fa fa-gamepad" style="left: 25px; position: absolute;"></i>  <span>游戏</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-leaf"></i>  关于 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/about" >  <i class="fa fa-user" style="left: 25px; position: absolute;"></i>  <span>简介</span> </a> </li>  <li> <a href="/galleries" >  <i class="fa fa-camera" style="left: 25px; position: absolute;"></i>  <span>相册</span> </a> </li>  <li> <a href="/friends" >  <i class="fa fa-handshake-o" style="left: 25px; position: absolute;"></i>  <span>友链</span> </a> </li>  <li> <a href="/log" >  <i class="fa fa-pencil-square-o" style="left: 25px; position: absolute;"></i>  <span>日志</span> </a> </li>  <li> <a href="/tags" >  <i class="fa fa-tags" style="left: 25px; position: absolute;"></i>  <span>标签</span> </a> </li>  <li> <a href="/archives" >  <i class="fa fa-archive" style="left: 25px; position: absolute;"></i>  <span>归档</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="/contact" class="waves-effect waves-light">  <i class="fa fa-fw fa-commenting"></i>  留言 </a>  </li>   <li><div class="divider"></div></li> <li> <a href="https://github.com/CdqPT" class="waves-effect waves-light" target="_blank"> <i class="fa fa-github-square fa-fw"></i>Fork Me </a> </li>  </ul>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #000;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/CdqPT" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blogcdq.oss-cn-beijing.aliyuncs.com/image/other/star.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Effective C++
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before  /*,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before */{
+        display: block;
+        content: "🔖";
+        position: absolute;
+        left: 50px;
+        /*color: #EE7942;*/
+        /*color: red;*/
+    }
+        @media only screen and (max-width: 992px) {
+    #articleContent h1::before{
+        display: block;
+        content: " ";
+    }
+}
+
+    /*修改滚动条样式为隐藏*/
+    #toc-content {
+        height: calc(105vh - 250px);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 320px;
+        height: 600px;
+    }
+    #hidden{
+        overflow: hidden;
+        width: 300px;    
+    }  
+
+    #articleContent :focus {
+        outline: none;
+    }
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+    .toc-widget {
+        padding-left: 20px;
+    }
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 40px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    #toc-content ol {
+        padding-left: 10px;
+    }
+    #toc-content ol li {
+        padding-left: 30px;
+    }
+    #toc-content .toc-link:hover {
+        color: black;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+    #toc-content .is-active-link {
+        color: red;
+    }
+    #toc-content .is-active-link::before {
+        background-color: red;
+    }
+    #floating-toc-btn {
+        position: fixed;
+        right: 0.6rem;
+        bottom: 6rem;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+        opacity: 0.5;
+    }
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CPlus/" target="_blank">
+                                <span class="chip bg-color">CPlus</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/字典/" class="post-category" target="_blank">
+                                字典
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+
+               <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-pencil fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-01-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-refresh fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-02-25
+                </div>
+                
+
+                
+
+                
+                
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+            
+        </div>
+
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="让自己习惯C"><a href="#让自己习惯C" class="headerlink" title="让自己习惯C++"></a>让自己习惯C++</h1><h2 id="条款01：视C-为一个语言联邦"><a href="#条款01：视C-为一个语言联邦" class="headerlink" title="条款01：视C++为一个语言联邦"></a>条款01：视C++为一个语言联邦</h2><p>可以将C++看作四部分组成，因为每个部分的思路都不同，分而治之效果更佳：<br>1.C语言。C++仍以C为基础<br>2.objected-oriented C++。面向对象编程，类、封装、继承、多态<br>3.template C++。C++泛型编程、模板元编程的基础<br>4.STL。容器、迭代器、算法</p>
+<p>通常，内置类型通过值传递比引用效率更高；<br>而自定义类型通过引用比值传递效率更高。</p>
+<h2 id="条款02：尽量以const、enum、inline替换-define"><a href="#条款02：尽量以const、enum、inline替换-define" class="headerlink" title="条款02：尽量以const、enum、inline替换 #define"></a>条款02：尽量以const、enum、inline替换 #define</h2><p><code>#define</code>最好只用于复杂变量名替换。</p>
+<h2 id="条款03：尽可能使用const"><a href="#条款03：尽可能使用const" class="headerlink" title="条款03：尽可能使用const"></a>条款03：尽可能使用const</h2><p>通常可以将const理解为只读权限。<br>使用const有以下好处：<br>1.让编译器参与帮助检测变量的权限。当使用了const声明变量后，就不必担心该变量被改变了，因为编译器会帮你检测；<br>2.让使用者明白。当参数中使用了const后，使用者会很容易知道这个参数是只读还是读写，这样就可以判断是入参还是出参了，如果不声明const，恐怕使用者都会进去看一眼。</p>
+<p>const可以批量设置变量属性，如一个结构体被声明为const，这时结构体内成员都将成为只读权限。如果此时结构体内某个成员需要可写属性，就可以使用<code>mutable</code>关键字来解除限制，使其永久可写。</p>
+<p>对于成员函数中使用后置const的行为,如<code>void printall() const</code>，主要是让使用者更有信心，证明这个函数只读不写。</p>
+<h2 id="条款04：确定对象被使用前已先被初始化"><a href="#条款04：确定对象被使用前已先被初始化" class="headerlink" title="条款04：确定对象被使用前已先被初始化"></a>条款04：确定对象被使用前已先被初始化</h2><p><strong>对于内置类型：</strong><br>全局变量如果初始化时没被赋值，则会被初始化为默认值；<br>局部变量一定要被初始化，不然其内部存放的是上一次存放过的值，然而该值是未知的。<br><strong>对于内置类型以外的类型：</strong><br>初始化的责任落在构造函数身上。<br>初始化构造函数时建议使用初始化列表而不是在其体内使用赋值语句。</p>
+<h1 id="构造-析构-赋值运算"><a href="#构造-析构-赋值运算" class="headerlink" title="构造/析构/赋值运算"></a>构造/析构/赋值运算</h1><h2 id="条款05：了解C-默默编写并调用哪些函数"><a href="#条款05：了解C-默默编写并调用哪些函数" class="headerlink" title="条款05：了解C++默默编写并调用哪些函数"></a>条款05：了解C++默默编写并调用哪些函数</h2><p>当没有声明时，编译器会自动为类创建默认构造函数、析构函数、复制构造函数和赋值运算符。</p>
+<h2 id="条款06：若不想使用编译器自动生成的函数，就该明确拒绝"><a href="#条款06：若不想使用编译器自动生成的函数，就该明确拒绝" class="headerlink" title="条款06：若不想使用编译器自动生成的函数，就该明确拒绝"></a>条款06：若不想使用编译器自动生成的函数，就该明确拒绝</h2><p>若不想使用编译器自动生成的函数，可将相应的成员函数申明为private并且不予实现。</p>
+<h2 id="条款07：为多态基类声明虚析构函数"><a href="#条款07：为多态基类声明虚析构函数" class="headerlink" title="条款07：为多态基类声明虚析构函数"></a>条款07：为多态基类声明虚析构函数</h2><p>如果一个类有任何虚函数，那么它就应该有虚析构函数。</p>
+<h2 id="条款08：别让异常逃离析构函数"><a href="#条款08：别让异常逃离析构函数" class="headerlink" title="条款08：别让异常逃离析构函数"></a>条款08：别让异常逃离析构函数</h2><p>析构函数不要抛出异常，如果析构函数中调用的函数可能抛出异常，析构函数应该捕捉并记录下来然后吞掉他（不传播）或结束程序。同时最好提供一个普通函数用来供用户执行可能异常的该操作。</p>
+<h2 id="条款09：绝不在构造和析构过程中调用虚函数"><a href="#条款09：绝不在构造和析构过程中调用虚函数" class="headerlink" title="条款09：绝不在构造和析构过程中调用虚函数"></a>条款09：绝不在构造和析构过程中调用虚函数</h2><p>在构造函数和析构函数中不要去调用虚函数，因为子类在构造/析构时，会调用父类的构造/析构函数，此时其中的虚函数是调用父类的实现，但这是父类的虚函数可能是纯虚函数，即使不是，也可能不符合你想要的目的（是父类的结果不是子类的结果）。<br>如果想调用父类的构造函数来做一些事情，替换做法是：在子类调用父类构造函数时，向上传递一个值给父类的构造函数。</p>
+<h2 id="条款10：令-operator-返回一个-this-引用"><a href="#条款10：令-operator-返回一个-this-引用" class="headerlink" title="条款10：令 operator= 返回一个*this 引用"></a>条款10：令 operator= 返回一个*this 引用</h2><p>注意这只是个协议，但建议遵守。因为该形式被内置类型和标准库类型共同遵守。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">TheClass<span class="token operator">&amp;</span> <span class="token keyword">operator</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> TheClass<span class="token operator">&amp;</span> rhs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="条款11：在-operator-中处理“自我赋值”"><a href="#条款11：在-operator-中处理“自我赋值”" class="headerlink" title="条款11：在 operator= 中处理“自我赋值”"></a>条款11：在 operator= 中处理“自我赋值”</h2><p>由于变量有别名的存在（多个指针或引用只想一个对象），所以可能出现自我赋值的情况。比如 <code>a[i] = a[j]</code>或 <code>*px=*py</code>,可能是同一个对象赋值。<br>一般的解决办法是先检测再赋值。</p>
+<h2 id="条款12：复制对象时勿忘其每一个成分"><a href="#条款12：复制对象时勿忘其每一个成分" class="headerlink" title="条款12：复制对象时勿忘其每一个成分"></a>条款12：复制对象时勿忘其每一个成分</h2><p>复制构造函数和赋值构造函数要确保复制了对象内的所有成员变量和所有基类成分，这意味着你如果自定义以上构造函数，那么每增加成员变量，都要同步修改以上构造函数，且要调用基类的相应构造函数。</p>
+<h1 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h1><h2 id="条款13：以对象管理资源"><a href="#条款13：以对象管理资源" class="headerlink" title="条款13：以对象管理资源"></a>条款13：以对象管理资源</h2><p>为了确保一个对象在初始化后能够最终有效被delete，最好使用shared_ptr和auto_ptr，而前者更好，因为是基于引用计数机制，可以在复制时保持两个指针都指向同一对象，且只有两个指针都销毁时才delete。</p>
+<p>这本书可能旧了，auto_ptr已经被废弃了。</p>
+<h2 id="条款14：在资源管理类中小心copying行为"><a href="#条款14：在资源管理类中小心copying行为" class="headerlink" title="条款14：在资源管理类中小心copying行为"></a>条款14：在资源管理类中小心copying行为</h2><p>如果对想要自行管理delete（或其他类似行为如上锁/解锁）的类处理复制问题，有以下方案，先创建自己的资源管理类，然后可选择：</p>
+<ul>
+<li>禁止复制，使用条款6的方法</li>
+<li>对复制的资源做引用计数（声明为shared_ptr），shared_ptr支持初始化时自定义删除函数（auto_ptr不支持，总是执行delete）</li>
+<li>做真正的深复制</li>
+<li>转移资源的拥有权，类似auto_ptr，只保持新对象拥有。</li>
+</ul>
+<h2 id="条款15：在资源管理类中提供对原始资源的访问"><a href="#条款15：在资源管理类中提供对原始资源的访问" class="headerlink" title="条款15：在资源管理类中提供对原始资源的访问"></a>条款15：在资源管理类中提供对原始资源的访问</h2><p>封装了资源管理类后，API有时候往往会要求直接使用其原始资源（作为参数的类型只能接受原始资源，不接受管理类指针），这时候就需要提供一个获取其原始资源的方法。有显式转换方法（如指针的-&gt;和(*)操作，也比如自制一个getXXX()函数），还有隐式转换方法（比如覆写XXX()取值函数）。显式操作比较安全，隐式操作比较方便（但容易被误用）。</p>
+<p>不明觉厉。</p>
+<h2 id="条款16：成对使用new和delete时要采取相同形式"><a href="#条款16：成对使用new和delete时要采取相同形式" class="headerlink" title="条款16：成对使用new和delete时要采取相同形式"></a>条款16：成对使用new和delete时要采取相同形式</h2><p>new 对应 delete。<br>new a[4] 对应 delete [] a。<br>两者的使用必须对应</p>
+<h2 id="条款17：以独立语句将newed对象置入智能指针"><a href="#条款17：以独立语句将newed对象置入智能指针" class="headerlink" title="条款17：以独立语句将newed对象置入智能指针"></a>条款17：以独立语句将newed对象置入智能指针</h2><p>如果有函数参数接收智能指针对象，那么该智能指针对象一定要在调用该函数前用独立语句去创建，否则在创建所指对象和用该对象绑定智能指针两个操作之间，可能插入一些操作（由于C++的独特性），这时候如果出异常，那么会造成创建的对象还没来得及用智能指针修饰，也就无法被自动回收了。</p>
+<p>不明觉厉。</p>
+<h1 id="设计与声明"><a href="#设计与声明" class="headerlink" title="设计与声明"></a>设计与声明</h1><h2 id="条款18：让接口容易被正确使用，不易被误用"><a href="#条款18：让接口容易被正确使用，不易被误用" class="headerlink" title="条款18：让接口容易被正确使用，不易被误用"></a>条款18：让接口容易被正确使用，不易被误用</h2><p>好的接口要容易被正确使用，不容易被误用，符合客户的直觉。</p>
+<ul>
+<li>促进正确使用的办法包括保持接口的一致性，既包括自定义接口之间的一致性，也包括与内置类型行为的相似一致性。</li>
+<li>阻止误用的办法包括建立新类型来限制该类型上的操作、束缚对象的值以及消除客户管理资源的责任，以此来作为接口的参数与返回类型。</li>
+<li>shared_ptr支持定制删除函数，所以可以很方便的实现上述问题，以及防范DLL问题。</li>
+</ul>
+<h2 id="条款19：设计class犹如设计type"><a href="#条款19：设计class犹如设计type" class="headerlink" title="条款19：设计class犹如设计type"></a>条款19：设计class犹如设计type</h2><p>在设计class时，要考虑一系列的问题，包括:</p>
+<ul>
+<li>对象的创建和销毁（构造、析构）</li>
+<li>对象的初始化与赋值（构造、赋值操作符）</li>
+<li>复制操作（复制构造）</li>
+<li>合法值（约束条件）</li>
+<li>继承体系（注意虚函数）</li>
+<li>支持的类型转换（显示转换、类型转换操作符）</li>
+<li>成员函数和成员变量的可见范围（public/protected/private）</li>
+<li>是否用模板就能实现？</li>
+</ul>
+<h2 id="条款20：宁以传递const引用替换传递值"><a href="#条款20：宁以传递const引用替换传递值" class="headerlink" title="条款20：宁以传递const引用替换传递值"></a>条款20：宁以传递const引用替换传递值</h2><p>尽量用 常量引用类型 来作为函数的参数类型，这通常比较高效，也可以解决基类参数类型被赋值子类时引起的内容切割问题。<br>但对于内置类型和STL的迭代器与函数对象，通常编译器会对其专门优化，直接传值类型往往比较恰当。</p>
+<h2 id="条款21：必须返回对象时，别妄想返回其引用"><a href="#条款21：必须返回对象时，别妄想返回其引用" class="headerlink" title="条款21：必须返回对象时，别妄想返回其引用"></a>条款21：必须返回对象时，别妄想返回其引用</h2><p>虽然函数参数最好用引用值，但函数返回值却不要随便去用引用，这回造成很多问题，比如引用的对象在函数结束后即被销毁，或是需要付出很多成本和代码来保证其不被销毁且不重复，这大概率没有必要，就返回一个值/对象就好了。</p>
+<h2 id="条款22：将成员变量声明为private"><a href="#条款22：将成员变量声明为private" class="headerlink" title="条款22：将成员变量声明为private"></a>条款22：将成员变量声明为private</h2><p>切记将成员变量声明为private，这可以保证客户访问数据的一致性、可以细微划分访问控制、允许约束条件获得保证，并提供类作者充分的实现弹性来修改对其的处理，因为这保证了“封装性”，作者可以改变实现和对成员变量的操作，而不改变客户的调用方式。<br>protected并不比public更加具有封装性，因为protected修饰的成员变量一旦修改，也会造成子类的大量修改。</p>
+<h2 id="条款23：宁以非成员、非友元替换成员函数"><a href="#条款23：宁以非成员、非友元替换成员函数" class="headerlink" title="条款23：宁以非成员、非友元替换成员函数"></a>条款23：宁以非成员、非友元替换成员函数</h2><p>宁可拿非成员非友元函数来替换成员函数。因为这种函数位于函数之外，不能访问类的private成员变量和函数，保证了封装性（没有增加可以看到内部数据的函数量），此外，这些函数只要位于同一个命名空间内，就可以被拆分为多个不同的头文件，客户可以按需引入头文件来获得这些函数，而类是无法拆分的（子类继承与此需求不同），因此这种做法有更好的扩充性。</p>
+<h2 id="条款24：若所有参数皆需类型转换，请为此采用非成员函数"><a href="#条款24：若所有参数皆需类型转换，请为此采用非成员函数" class="headerlink" title="条款24：若所有参数皆需类型转换，请为此采用非成员函数"></a>条款24：若所有参数皆需类型转换，请为此采用非成员函数</h2><p>如果你要为某个函数的所有参数（包括this所指对象本身）进行类型转换，那么该函数必须是个非成员函数。<br>举个例子，你想为一个有理数类实现乘法函数，支持与int类型的乘积，可以，因为传参int进去后会调用构造函数隐式转换为有理数类型，同时你想满足交换律，这时就会报错，因为int类型并没有一个函数用来支持你的有理数类做参数的乘法运算。解决方案是将该乘法运算函数作为一个非成员函数，传两个参数进去，这样不管你的int放在前面还是后面，都能作为参数被转换类型了。<br>但是，非成员函数不代表就一定成为友元函数，能够通过public函数调用完成功能的，就不该设为友元函数，避免权力过大造成麻烦。</p>
+<h2 id="条款25：考虑写出一个不抛异常的swap函数"><a href="#条款25：考虑写出一个不抛异常的swap函数" class="headerlink" title="条款25：考虑写出一个不抛异常的swap函数"></a>条款25：考虑写出一个不抛异常的swap函数</h2><p>由于swap函数如此重要，需要特别对他做出一些优化。<br>常规的swap是简单全复制三次对象进行交换（包括temp对象），如果效率足够就用常规版。<br>如果效率不够，那么给你的类提供一个成员函数swap，用来对那些复制效率低的成员变量（通常是指针）做交换。<br>然后，提供一个非成员函数的swap来调用这个成员函数，供别人调用置换。<br>对于类（非模板），为标准std::swap提供一个特定版本（swap是模板函数，可以特化）。<br>在使用swap时，记得 using std::swap，让编译器可以获取到标准swap或特化版本。编译器会自行从所有可能性中选择最优版本。</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="条款26：尽可能延后变量定义式的出现时间"><a href="#条款26：尽可能延后变量定义式的出现时间" class="headerlink" title="条款26：尽可能延后变量定义式的出现时间"></a>条款26：尽可能延后变量定义式的出现时间</h2><p>直到使用它时才进行定义。<br>但对于循环，定义在循环体前还是定义在循环体内，哪一个比较好呢？<br><strong>方法A：定义在循环体外</strong></p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">Widget w<span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    w<span class="token operator">=</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>方法A：定义在循环体内</strong></p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Widget <span class="token function">w</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>做法A:1个构造函数+1个析构函数+n个赋值操作；<br>做法B:n个构造函数+n个析构函数。</p>
+<p>除非<br>（1）你知道赋值成本比“构造+析构”成本低，<br>（2）你正在处理代码中效率高度敏感的部分，<br>否则你应该使用做法B。</p>
+<h2 id="条款27：尽量少做转型操作"><a href="#条款27：尽量少做转型操作" class="headerlink" title="条款27：尽量少做转型操作"></a>条款27：尽量少做转型操作</h2><p>尽量避免使用转型cast（包括C的类型转换和C++的四个新式转换函数），特别是注重效率的代码中避免用dynamic_casts。如果一定要用，试着考虑无需转型的替代设计，例如为基类添加一个什么也不做的衍生类使用的函数，避免在使用时需要将基类指针转型为子类指针。<br>如果一定要转型，试着将其隐藏于某个函数后，客户调用该函数而无需自己用转型。<br>宁可使用C++新式转型，也不用用C的旧式，因为新式的更容易被注意到，而且各自用途专一。</p>
+<h2 id="条款28：避免返回handles指向对象内部成分"><a href="#条款28：避免返回handles指向对象内部成分" class="headerlink" title="条款28：避免返回handles指向对象内部成分"></a>条款28：避免返回handles指向对象内部成分</h2><p>避免让外部可见的成员函数返回handles（包括引用、指针、迭代器）指向对象内部（更隐私的成员变量或函数），即使返回const修饰也有风险。这一方面降低了封装性，另一方面可能导致其指向的对象内部元素被修改或销毁。</p>
+<h2 id="条款29：为异常安全而努力是值得的"><a href="#条款29：为异常安全而努力是值得的" class="headerlink" title="条款29：为异常安全而努力是值得的"></a>条款29：为异常安全而努力是值得的</h2><p>异常安全函数是指即使发生异常也不会泄露资源或者导致数据结构破坏，分三种保证程度：基本保证、强烈保证和不抛异常型。<br>只有基本类型才确保了不抛异常型。对于我们自己设计的函数，往往想要提供强烈保证，即一旦发生异常，程序的整个状态会回到执行函数前的状态，实现方法一般用复制一个副本然后执行操作，全部成功后再替换原对象的方式来实现。但这一操作有时对时间和空间的消耗较大，适用性不强。这种情况下可以提供基本保证。<br>函数提供的保证程度通常最高只等于其所调用的各个函数中的保证的最弱者——木桶理论。</p>
+<h2 id="条款30：透彻了解inline的里里外外"><a href="#条款30：透彻了解inline的里里外外" class="headerlink" title="条款30：透彻了解inline的里里外外"></a>条款30：透彻了解inline的里里外外</h2><p>inline还真的和宏很像，用一个名称替换一段代码。<br>类声明中的带有实现的成员函数就是内联函数。一般用于返回私有值。</p>
+<p>只将inline用在小型、被频繁调用的函数身上。inline会带来体积增大的问题，此外，不要对构造函数、析构函数等使用inline，即使你自己在其中写的代码可能很少，编译器却会为他添加很多代码。<br>不要只因为模板函数出现在头文件，就将它们声明为inline，模板函数和inline并不是必须结对出现的。</p>
+<h2 id="条款31：将文件间的编译依存关系降至最低"><a href="#条款31：将文件间的编译依存关系降至最低" class="headerlink" title="条款31：将文件间的编译依存关系降至最低"></a>条款31：将文件间的编译依存关系降至最低</h2><p>为了增加编译速度，应该减少类文件之间的相互依存性（include），但是类内又常常使用到其他类，不得不相互依存，解决方案是：将类的声明和定义分开（不同的头文件），声明相互依存，而定义不相依存，这样当定义需要变更时，编译时不需要再因为依赖而全部编译。<br>基于此构想的两个手段是Handle classes和Interface classes。Handle classes是一个声明类，一个imp实现类，声明类中不涉及具体的定义，只有接口声明，在定义类中include声明类，而不是继承。而Interface classes是在接口类中提供纯虚函数，作为一个抽象基类，定义类作为其子类来实现具体的定义。</p>
+<h1 id="继承与面向对象设计"><a href="#继承与面向对象设计" class="headerlink" title="继承与面向对象设计"></a>继承与面向对象设计</h1><h2 id="条款32：确定你的public继承是is-a关系"><a href="#条款32：确定你的public继承是is-a关系" class="headerlink" title="条款32：确定你的public继承是is-a关系"></a>条款32：确定你的public继承是is-a关系</h2><p>public继承意味着 is-a 关系，也就是要求，适用于基类身上的每一件事情，是每一件，也一定适用于衍生类身上。有时候，直觉上满足这一条件的继承关系，可能并不一定，比如，企鹅是鸟，但并不会飞。</p>
+<h2 id="条款33：避免遮掩继承而来的名称"><a href="#条款33：避免遮掩继承而来的名称" class="headerlink" title="条款33：避免遮掩继承而来的名称"></a>条款33：避免遮掩继承而来的名称</h2><p>就如函数作用域内的变量会掩盖函数作用域外的同名变量一样。<br>衍生类中如果声明了与基类中同名的函数（无论是虚、非虚，还是其他形式），都会掩盖掉基类中的所有同名函数，注意，是所有，包括参数不同的重载函数，都会不再可见。此时再通过子类使用其基类中的重载函数（子类没有声明接收该参数的重载函数时），都会报错。<br>解决方案一是使用using声明式来在子类中声明父类的同名函数（重载函数不需要声明多个），此时父类的各重载函数就是子类可见的了。二是使用转交函数，即在子类函数的声明时进行定义，调用父类的某个具体的重载函数（此时由于在声明时定义，成为inline函数），此举可以只让需要的部分父类重载函数于子类可见。</p>
+<h2 id="条款34：区分接口继承和实现继承"><a href="#条款34：区分接口继承和实现继承" class="headerlink" title="条款34：区分接口继承和实现继承"></a>条款34：区分接口继承和实现继承</h2><p>Public继承由两部分组成：接口（interface）继承和实现（implementation）继承.</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Shape</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//纯虚函数</span>
+    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">const</span> std<span class="token operator">::</span>string<span class="token operator">&amp;</span> msg<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//非纯虚函数</span>
+    <span class="token keyword">int</span> <span class="token function">ObjectID</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//非虚函数</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Rectangle</span><span class="token operator">:</span><span class="token keyword">public</span> Shape<span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Ellipse</span><span class="token operator">:</span><span class="token keyword">public</span> Shape<span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上述代码中，类Shape是一个抽象类，因为draw()是纯虚函数，所以客户不能创建Shape的实体。<br>纯虚函数的作用是：让派生类只继承函数接口，而派生类必须提供实现；<br>非纯虚函数的作用是：让派生类继承函数接口，并提供给派生类默认的实现方法（实现继承），当派生类不打算复写方法时，将应用基类提供的默认方法；<br>非虚函数的作用是：派生类不能复写该函数。</p>
+<h2 id="条款35：考虑虚函数以外的其他选择"><a href="#条款35：考虑虚函数以外的其他选择" class="headerlink" title="条款35：考虑虚函数以外的其他选择"></a>条款35：考虑虚函数以外的其他选择</h2><p>虚函数（本质是希望子类的实现不同）的替代方案：</p>
+<ul>
+<li>用public的非虚函数来调用private的虚函数具体实现，非虚函数必须为子类继承且不得更改，所以它决定了何时调用以及调用前后的处理；虚函数实现可以在子类中覆写，从而实现多态。</li>
+<li>将虚函数替换为函数指针成员变量，这样可以对同一种子类对象赋予不同的函数实现，或者在运行时更改某对象对应的函数实现（添加一个set函数）。</li>
+<li>用tr1::function成员变量替换虚函数，从而允许包括函数指针在内的任何可调用物搭配一个兼容于需求的签名式。</li>
+<li>将虚函数也做成另一个继承体系类，然后在调用其的类中添加一个指针来指向其对象。</li>
+</ul>
+<p>本条款的启示为：为避免陷入面向对象设计路上因常规而形成的凹洞中，偶尔我们需要对着车轮猛推一把。这个世界还有其他许多道路，值得我们花时间加以研究。</p>
+<h2 id="条款36：绝不重新定义继承而来的非虚函数"><a href="#条款36：绝不重新定义继承而来的非虚函数" class="headerlink" title="条款36：绝不重新定义继承而来的非虚函数"></a>条款36：绝不重新定义继承而来的非虚函数</h2><p>不要重新定义继承而来的非虚函数，理论上，非虚函数的意义就在于父类和子类在该函数上保持一致的实现。</p>
+<h2 id="条款37：绝不重新定义继承而来的缺省参数值"><a href="#条款37：绝不重新定义继承而来的缺省参数值" class="headerlink" title="条款37：绝不重新定义继承而来的缺省参数值"></a>条款37：绝不重新定义继承而来的缺省参数值</h2><p>不要重新定义一个继承而来的函数（虚函数）的缺省参数的值（参数默认值），因为函数是动态绑定（调用指针指向的对象的函数实现），但参数默认值却是静态绑定（指针声明时的类型所设定的默认参数，比如基类设定的）。这会导致两者不对应，比如：<br><code>Base *p = new SubClass();</code></p>
+<h2 id="条款38：通过复合表示-has-a-或者“根据某物实现出”的关系"><a href="#条款38：通过复合表示-has-a-或者“根据某物实现出”的关系" class="headerlink" title="条款38：通过复合表示 has-a 或者“根据某物实现出”的关系"></a>条款38：通过复合表示 has-a 或者“根据某物实现出”的关系</h2><p>注意 has-a 和 is-a 的区分。如果是 is-a 的关系，可以用继承，但如果是 has-a 的关系，应该将一个类作为另一个类的成员变量来使用，以利用该类的能力，而不是去以继承它的方式使用。</p>
+<h2 id="条款39：明智而审慎地使用private继承"><a href="#条款39：明智而审慎地使用private继承" class="headerlink" title="条款39：明智而审慎地使用private继承"></a>条款39：明智而审慎地使用private继承</h2><p>Private继承意味着“根据某物实现出”，而不是 is-a 的关系。与上面的复合（has-a）很像，但比复合的级别低。当衍生类需要访问 protected 基类的成员，或需要重新定义继承而来的虚函数时，可以这么设计。<br>此外，private继承可以让空基类的空间最优化。</p>
+<h2 id="条款40：明智而审慎地使用多重继承"><a href="#条款40：明智而审慎地使用多重继承" class="headerlink" title="条款40：明智而审慎地使用多重继承"></a>条款40：明智而审慎地使用多重继承</h2><p>多重继承确实有正当使用场景，比如public继承某个接口类的接口（其接口依然是public的），private继承某个类的实现来协助实现（继承来的实现为private，只供自己用）。<br>虚继承会增加大小、速度、初始化（及赋值）复杂度等成本，如果虚基类不带任何数据，将是最具使用价值的情况。</p>
+<h1 id="模板与泛型编程"><a href="#模板与泛型编程" class="headerlink" title="模板与泛型编程"></a>模板与泛型编程</h1><h2 id="条款41：了解隐式接口和编译期多态"><a href="#条款41：了解隐式接口和编译期多态" class="headerlink" title="条款41：了解隐式接口和编译期多态"></a>条款41：了解隐式接口和编译期多态</h2><p>类和模板都支持接口和多态。<br>类的接口是显式定义的——函数签名。多态是通过虚函数在运行期体现的。<br>模板的接口是隐式的（由模板函数的实现代码所决定其模板对象需要支持哪些接口），多态通过模板具现化和函数重载解析在编译期体现，也就是编译期就可以赋予不同的对象于模板函数。</p>
+<h2 id="条款42：了解typename的双重意义"><a href="#条款42：了解typename的双重意义" class="headerlink" title="条款42：了解typename的双重意义"></a>条款42：了解typename的双重意义</h2><p>声明模板的参数时，前缀关键字 class 和 typename 可互换，功能相同。<br>对于嵌套从属类型名称（即依赖于模板参数类型的一个子类型，例如迭代器），必须用typename来修饰，但不能在模板类的基类列和初始化列表中修饰基类。</p>
+<h2 id="条款43：学习处理模板化基类内的名称"><a href="#条款43：学习处理模板化基类内的名称" class="headerlink" title="条款43：学习处理模板化基类内的名称"></a>条款43：学习处理模板化基类内的名称</h2><p>如果基类是模板类，那么衍生类直接调用基类的成员函数无法通过编译器，因为可能会有特化版的模板类针对某个类不声明该接口函数。<br>解决方法有：</p>
+<ul>
+<li>在调用动作前加上“this-&gt;”</li>
+<li>使用using声明式来在子类中声明基类的该接口</li>
+<li>明确指出被调用的函数位于基类：Base<template>::xxx();</template></li>
+<li>以上做法都是承诺被调用的函数一定会在各种特化基类中均声明。如果没有声明，还是会在运行期报错。</li>
+</ul>
+<h2 id="条款44：将与参数无关的代码抽离templates"><a href="#条款44：将与参数无关的代码抽离templates" class="headerlink" title="条款44：将与参数无关的代码抽离templates"></a>条款44：将与参数无关的代码抽离templates</h2><p>任何模板代码都不该与某个造成膨胀的参数产生相依关系：</p>
+<ul>
+<li>因非类型模板参数造成的代码膨胀（比如用尺寸做模板参数导致为不同尺寸的同一对象生成多份相同代码），往往可消除，做法是将该参数改为函数参数或者类成员变量，而不要放到模板的参数中。</li>
+<li>因类型参数造成的代码膨胀（比如int和long有相同的二进制表述，但作为模板参数会产生两份代码），往往可降低，做法是让带有完全相同二进制表述的具体类型共享实现码——使用唯一一份底层实现。</li>
+</ul>
+<h2 id="条款45：运用成员函数模板接受所有兼容类型"><a href="#条款45：运用成员函数模板接受所有兼容类型" class="headerlink" title="条款45：运用成员函数模板接受所有兼容类型"></a>条款45：运用成员函数模板接受所有兼容类型</h2><p>真实指针允许父类指针指向子类对象，如果想要让自制的智能指针也支持这种对象转换，那就需要特殊操作，因为一般的模板类（智能指针能指向多种对象，必然是模板类）只能以自身模板声明的类型来构造。<br>做法是声明一个泛化构造函数，也就是定义一个模板构造函数，接收模板参数，声明一个指向的真实对象指针，声明一个获取该对象指针的get函数，用该get函数放在初始化列表中来构造模板类。这样就能使用一种类型特化出的自制智能指针来构造另一种类型特化出的自制智能指针了。同时，在初始化列表中编译器会为你检查是否允许该类型转换（比如只允许子类往父类的转换，不能相反）。<br>虽然这种模板构造函数也能作为复制构造函数使用（用相同类型来构造即可），但编译器还是会当做你没有声明复制构造函数，从而为你创建一个，因此如果想要彻底控制行为，你还是需要自行声明你的复制构造函数和赋值构造函数。</p>
+<h2 id="条款46：需要类型转换时请为模板定义非成员函数"><a href="#条款46：需要类型转换时请为模板定义非成员函数" class="headerlink" title="条款46：需要类型转换时请为模板定义非成员函数"></a>条款46：需要类型转换时请为模板定义非成员函数</h2><p>模板类中的模板函数不支持隐式类型转换，如果你在调用时传了一个其他类型的变量，编译器无法帮你做类型转换，从而报错。<br>解决方案是将该模板函数定义为模板类内的友元模板函数，从而支持了参数的隐式转换。如果函数的功能比较简单，可以直接inline，如果比较复杂，可以调用一个类外的定义好的模板函数（此时，友元函数已经给参数做了类型转换，因此可以调用模板函数了）。</p>
+<h2 id="条款47：请使用traits-classes表现类型信息"><a href="#条款47：请使用traits-classes表现类型信息" class="headerlink" title="条款47：请使用traits classes表现类型信息"></a>条款47：请使用traits classes表现类型信息</h2><p>对于模板函数，可能对于接收参数的不同类型，有不同的实现。此时，可以提供一个traits class，其中包含了某一系列类型的类型信息（通常以枚举区分具体类型），然后，在该类中实现接收多种traits参数的重载工具函数，用来根据标识的不同类进行不同的具体函数操作。这使得该行为能在编译期就被区分。</p>
+<h2 id="条款48：认识模板元编程（TMP）"><a href="#条款48：认识模板元编程（TMP）" class="headerlink" title="条款48：认识模板元编程（TMP）"></a>条款48：认识模板元编程（TMP）</h2><p>TMP可将工作由运行期移往编译器，因而得以实现早期错误侦测和更高的执行效率。<br>实现方式以模板为基础，因为模板会在编译时确定，上一条款的traits classes就是一种TMP，依靠模板函数参数不同的重载来在编译器模拟if else（其在运行期才会判断）。<br>另一个例子是用模板来在编译器实现阶乘：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">unsigned</span> n<span class="token operator">></span>
+<span class="token keyword">struct</span> Factorial <span class="token punctuation">{</span>
+    <span class="token keyword">enum</span> <span class="token punctuation">{</span> value <span class="token operator">=</span> n <span class="token operator">*</span> Factorial<span class="token operator">&lt;</span>n<span class="token number">-1</span><span class="token operator">></span><span class="token operator">::</span>value <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token operator">></span>
+<span class="token keyword">struct</span> Factorial<span class="token operator">&lt;</span><span class="token number">0</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">enum</span> <span class="token punctuation">{</span> value <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>用模板来实现递归从而在编译器实现阶乘运算，用参数为0的特异化来做递归的终结。</p>
+<h1 id="定制-new-和-delete"><a href="#定制-new-和-delete" class="headerlink" title="定制 new 和 delete"></a>定制 new 和 delete</h1><h2 id="条款49：了解-new-handler-的行为"><a href="#条款49：了解-new-handler-的行为" class="headerlink" title="条款49：了解 new-handler 的行为"></a>条款49：了解 new-handler 的行为</h2><p>在对象new操作分配内存时，如果分配失败，默认会返回null（老编译器）或抛出bad_alloc 异常（新编译器）。<br>如果想要自定义分配失败的操作，可以调用 set_new_handler 函数来设置new_handler。<br>如果想要让类在构造时自动调用自定义的new_handler，并在构造结束后回到系统默认的new_handler 。可以继承一个声明了set_new_handler函数接口和包含设置与回归new_handler的new函数的模板类，然后让你的自定义类继承自你的类名所特化的该模板类，从而能够为每一个你的类做一个特化的new_handler函数。</p>
+<h2 id="条款50：了解new和delete的合理替换时机"><a href="#条款50：了解new和delete的合理替换时机" class="headerlink" title="条款50：了解new和delete的合理替换时机"></a>条款50：了解new和delete的合理替换时机</h2><p>有很多理由让你想要写个自定的new和delete，比如改善定制版的效能、对heap运用错误进行调试、收集heap使用信息等。也有许多商业或开源的内存分配器供你使用。</p>
+<h2 id="条款51：编写new和delete时需固守常规"><a href="#条款51：编写new和delete时需固守常规" class="headerlink" title="条款51：编写new和delete时需固守常规"></a>条款51：编写new和delete时需固守常规</h2><p>自定义的new应该内含一个无穷循环，在其中尝试分配内存，如果失败，就该调用new-handler以退出循环。同时它应该有能力处理0 bytes的申请（可以简单判断并改为1bytes）。Class专属版本还要处理衍生类的申请，不要直接调用基类的（大小不同），可以判断并转调普通的new函数。<br>自定义的delete应该可在收到null指针时不做任何事，Class专属版本还应该处理衍生类的申请，不要直接调用基类的（大小不同），可以判断并转调普通的delete函数。</p>
+<h2 id="条款52：写了-placement-new-也要写-placement-delete"><a href="#条款52：写了-placement-new-也要写-placement-delete" class="headerlink" title="条款52：写了 placement new 也要写 placement delete"></a>条款52：写了 placement new 也要写 placement delete</h2><p>如果你的new接收的参数除了必定有的size_t外还有其他，就是个placement new。delete类似。<br>当创建对象时，会先进行new，然后调用构造函数，如果构造出现异常，就需要delete，否则内存泄漏。如果用了placement new，那么编译器会寻找含有同样参数的placement delete，否则不会delete，因此必须成对写接收同样参数的placement new和placement delete。<br>同时，为了让用户主动使用delete时能进行正确操作，你需要同时定义一个普通形式的delete，来执行和placement delete同样的特殊实现。<br>你在类中声明placement new后，会掩盖C++提供的new函数，因此除非你确实不想用户使用默认的new，否则你需要确保它们还可用（条款33）。</p>
+<h1 id="杂项讨论"><a href="#杂项讨论" class="headerlink" title="杂项讨论"></a>杂项讨论</h1><h2 id="条款53：不要轻忽编译器的警告"><a href="#条款53：不要轻忽编译器的警告" class="headerlink" title="条款53：不要轻忽编译器的警告"></a>条款53：不要轻忽编译器的警告</h2><p>对于编译器编译时给出的警告信息，最好立即修复，避免后续调试半天来寻找编译器早就告知你的问题。</p>
+<h2 id="条款54：让自己熟悉包括TR1在内的标准程序库"><a href="#条款54：让自己熟悉包括TR1在内的标准程序库" class="headerlink" title="条款54：让自己熟悉包括TR1在内的标准程序库"></a>条款54：让自己熟悉包括TR1在内的标准程序库</h2><p>C++98的标准程序库有：</p>
+<ul>
+<li>STL</li>
+<li>Iostreams，包括cin、cout、cerr、clog等</li>
+<li>国际化支持</li>
+<li>数值处理</li>
+<li>异常阶层体系</li>
+<li>C89标准程序库</li>
+</ul>
+<p>而TR1是新的一系列组件，在std内的tr1命名空间中，比如：std::tr1::shared_ptr。它包含：</p>
+<ul>
+<li>智能指针，包括shared_ptr和weak_ptr。</li>
+<li>function：支持以函数签名（出参类型+入参类型）作为模板</li>
+<li>bind：绑定器</li>
+<li>无序hash表，用以实现无序的set、multiset、map、multimap</li>
+<li>正则表达式</li>
+<li>tuples：扩充pair，能持有任意个数的对象，类似python中的tuples。</li>
+<li>array：STL化的数组，支持begin和end，不过其大小固定，不适用动态内存。</li>
+<li>mem_fn</li>
+<li>reference_wrapper：让引用的行为更像对象，可以被容器持有。</li>
+<li>随机数生成工具：大大超越rand</li>
+<li>数学特殊函数：多种数学函数</li>
+<li>C99兼容扩充。</li>
+<li>type traits，使用见条款47，提供类型的编译期信息。</li>
+<li>result_of：是个模板，用来推到函数调用的返回类型。</li>
+</ul>
+<h2 id="条款55：让自己熟悉Boost"><a href="#条款55：让自己熟悉Boost" class="headerlink" title="条款55：让自己熟悉Boost"></a>条款55：让自己熟悉Boost</h2><p>Boost是一个程序库，其由C++标准委员会成员创设，可视为一个“可被加入标准C++的各种功能”的测试场，涵盖众多经过多轮复核的优质程序，如果想知道当前C++最高技术水平、想一瞥未来C++的可能长相？看看Boost[<a href="https://boost.org]吧。" target="_blank" rel="noopener">https://boost.org]吧。</a></p>
+<p>参考链接：<br><a href="https://www.jianshu.com/p/4661bd7b7593" target="_blank" rel="noopener">https://www.jianshu.com/p/4661bd7b7593</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                 
+                 <hr/>
+                 
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn" rel="external nofollow noreferrer">陈德强</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn/60457.html">https://purethought.cn/60457.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://purethought.cn" target="_blank">陈德强</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+            </div>         
+        </div>
+    </div>
+    
+    <!-- 代码块功能依赖 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>    
+    <!-- 代码语言 -->   
+    <!-- <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script> -->          
+    <!-- 代码块复制 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>      
+    <!-- 代码块收缩 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge ">                  
+                <a href="/2209.html" target="_blank">                 
+                    <font color="#0e263f">
+                        <i class="fa  fa-hand-o-left"></i>
+                        链接，装载与库
+                    </font>                    
+                </a>          
+            </div>
+        </div>
+        
+
+
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge " >
+                <a href="/25433.html" target="_blank">
+                    <font color="#0e263f">
+                        公路等级
+                        <i class="fa  fa-hand-o-right"></i>
+                    </font>
+                 </a>  
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+    
+        <style>
+    #reward {
+        /*margin: 40px 0;*/
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.6rem;
+      
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+   <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red" >¥</a> 
+  
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-times"></i></a>
+            <h4 class="reward-title">您的赞赏就是我的动力^</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+    
+
+    
+        <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80Njk3Mi8yMzQ3Mw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+    
+   <!-- 
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '6190f09c0ffe658707b5',
+        clientSecret: '2798e16eeba573f49ce06d2da0595188699aac41',
+        repo: 'cdqpt.github.io',
+        owner: 'CdqPT',
+        admin: "CdqPT",
+        id: '2020-01-20T19-28-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+     -->
+
+    
+
+    
+
+    
+
+   <!-- <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script> -->
+
+</div>
+
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    
+        <div class="toc-widget">
+        
+            <div class="toc-title" ><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="hidden">
+                <div id="toc-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. --><!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large ">    
+        <i class="fa fa-th-large"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2'
+        });
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            i++;
+            $(this).attr('href', '#' + tocHeading + (i));
+            $(this).attr('navTo',  tocHeading + (i));    
+        });
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(0);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(100);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+</main>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+       <div class="col s12 m8 l8 copy-right">
+             
+               &copy;2018-2020 ALaDing
+               &nbsp;
+             Author:  <a href="https://purethought.cn/">陈德强 &nbsp  Email: 928277452@qq.com</a>
+
+            
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                       
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?147475454185ebcf440a27cc35e793ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CdqPT" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:928277452@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=928277452" class="tooltipped" data-tooltip="QQ联系我: 928277452" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+ 
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+   
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+
+</html>

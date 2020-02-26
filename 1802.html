@@ -1,0 +1,1255 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="python开源库列表, 陈德强 ALaDing 内蒙古工业大学 机器人 东软 东软集团 嵌入式 自动驾驶 ADASIS">
+    <meta name="description" content="标准库Python标准库描述了 Python 语言的具体语法和语义，这份库参考则介绍了与 Python 一同发行的标准库。它还描述了通常包含在 Python 发行版中的一些可选组件。API手册：https://docs.python.org">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>python开源库列表 | ALaDing</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+
+
+
+  <link rel="amphtml" href="https://purethought.cn/1802.html/amp/index.html">
+
+    
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+
+
+
+
+<body style="overflow-x:hidden">
+    <header id="navControl" class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ALaDing</span>
+                </a>
+            </div>
+            
+
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/dictionary" class="waves-effect waves-light">
+            
+            <i class="fa fa-book"></i>
+            
+            <span>字典</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>豆瓣</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-leaf"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-commenting"></i>
+            
+            <span>留言</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse">
+  <i class="fa fa-navicon" >
+     <b>导航 </b>
+  </i>
+</a>
+
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/dictionary" class="waves-effect waves-light">
+              
+                <i class="fa fa-book"></i>
+              
+              <span>字典</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/categories" class="waves-effect waves-light">
+                
+                  <i class="fa fa-bookmark"></i>
+                
+                <span>分类</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>编程笔记</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>文史哲理</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>投资理财</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>过程随笔</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>既有优化</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>安装教程</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-heart"></i>
+                
+                <span>豆瓣</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/books" >
+                    
+                      <i class="fa fa-book" style="margin-top: -20px;"></i>
+                    
+                    <span>书单</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/movies" >
+                    
+                      <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>电影</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/games" >
+                    
+                      <i class="fa fa-gamepad" style="margin-top: -20px;"></i>
+                    
+                    <span>游戏</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-leaf"></i>
+                
+                <span>关于</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/about" >
+                    
+                      <i class="fa fa-user" style="margin-top: -20px;"></i>
+                    
+                    <span>简介</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/galleries" >
+                    
+                      <i class="fa fa-camera" style="margin-top: -20px;"></i>
+                    
+                    <span>相册</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/friends" >
+                    
+                      <i class="fa fa-handshake-o" style="margin-top: -20px;"></i>
+                    
+                    <span>友链</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/log" >
+                    
+                      <i class="fa fa-pencil-square-o" style="margin-top: -20px;"></i>
+                    
+                    <span>日志</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/tags" >
+                    
+                      <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/archives" >
+                    
+                      <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fa-commenting"></i>
+              
+              <span>留言</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+
+            <i id="searchIcon" class="fa fa-search" title="搜索" >
+              <b>搜索 </b>
+            </i>
+
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ALaDing</div>
+        <div class="logo-desc">
+            
+            东软集团 | 内蒙古工业大学 | 嵌入式工程师 | ADAS
+            
+        </div>
+    </div>
+
+    
+
+
+ <ul class="menu-list mobile-menu-list">  <li class="m-nav-item">  <a href="/" class="waves-effect waves-light">  <i class="fa fa-fw fa-home"></i>  首页 </a>  </li>  <li class="m-nav-item">  <a href="/dictionary" class="waves-effect waves-light">  <i class="fa fa-fw fa-book"></i>  字典 </a>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-bookmark"></i>  分类 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>编程笔记</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>文史哲理</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>投资理财</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>过程随笔</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>既有优化</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>安装教程</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-heart"></i>  豆瓣 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/books" >  <i class="fa fa-book" style="left: 25px; position: absolute;"></i>  <span>书单</span> </a> </li>  <li> <a href="/movies" >  <i class="fa fa-film" style="left: 25px; position: absolute;"></i>  <span>电影</span> </a> </li>  <li> <a href="/games" >  <i class="fa fa-gamepad" style="left: 25px; position: absolute;"></i>  <span>游戏</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-leaf"></i>  关于 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/about" >  <i class="fa fa-user" style="left: 25px; position: absolute;"></i>  <span>简介</span> </a> </li>  <li> <a href="/galleries" >  <i class="fa fa-camera" style="left: 25px; position: absolute;"></i>  <span>相册</span> </a> </li>  <li> <a href="/friends" >  <i class="fa fa-handshake-o" style="left: 25px; position: absolute;"></i>  <span>友链</span> </a> </li>  <li> <a href="/log" >  <i class="fa fa-pencil-square-o" style="left: 25px; position: absolute;"></i>  <span>日志</span> </a> </li>  <li> <a href="/tags" >  <i class="fa fa-tags" style="left: 25px; position: absolute;"></i>  <span>标签</span> </a> </li>  <li> <a href="/archives" >  <i class="fa fa-archive" style="left: 25px; position: absolute;"></i>  <span>归档</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="/contact" class="waves-effect waves-light">  <i class="fa fa-fw fa-commenting"></i>  留言 </a>  </li>   <li><div class="divider"></div></li> <li> <a href="https://github.com/CdqPT" class="waves-effect waves-light" target="_blank"> <i class="fa fa-github-square fa-fw"></i>Fork Me </a> </li>  </ul>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #000;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/CdqPT" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blogcdq.oss-cn-beijing.aliyuncs.com/image/other/star.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        python开源库列表
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before  /*,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before */{
+        display: block;
+        content: "🔖";
+        position: absolute;
+        left: 50px;
+        /*color: #EE7942;*/
+        /*color: red;*/
+    }
+        @media only screen and (max-width: 992px) {
+    #articleContent h1::before{
+        display: block;
+        content: " ";
+    }
+}
+
+    /*修改滚动条样式为隐藏*/
+    #toc-content {
+        height: calc(105vh - 250px);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 320px;
+        height: 600px;
+    }
+    #hidden{
+        overflow: hidden;
+        width: 300px;    
+    }  
+
+    #articleContent :focus {
+        outline: none;
+    }
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+    .toc-widget {
+        padding-left: 20px;
+    }
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 40px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    #toc-content ol {
+        padding-left: 10px;
+    }
+    #toc-content ol li {
+        padding-left: 30px;
+    }
+    #toc-content .toc-link:hover {
+        color: black;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+    #toc-content .is-active-link {
+        color: red;
+    }
+    #toc-content .is-active-link::before {
+        background-color: red;
+    }
+    #floating-toc-btn {
+        position: fixed;
+        right: 0.6rem;
+        bottom: 6rem;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+        opacity: 0.5;
+    }
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/other/" target="_blank">
+                                <span class="chip bg-color">other</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/字典/" class="post-category" target="_blank">
+                                字典
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+
+               <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-pencil fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-01-13
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-refresh fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-01-13
+                </div>
+                
+
+                
+
+                
+                
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+            
+        </div>
+
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h1><p>Python标准库描述了 Python 语言的具体语法和语义，这份库参考则介绍了与 Python 一同发行的标准库。它还描述了通常包含在 Python 发行版中的一些可选组件。<br>API手册：<a href="https://docs.python.org/zh-cn/3.7/library/index.html" target="_blank" rel="noopener">https://docs.python.org/zh-cn/3.7/library/index.html</a></p>
+<h1 id="数值计算"><a href="#数值计算" class="headerlink" title="数值计算"></a>数值计算</h1><h2 id="numpy"><a href="#numpy" class="headerlink" title="numpy"></a>numpy</h2><p>支持多维数组与矩阵运算，也针对数组运算提供大量的数学函数库。通常与SciPy和Matplotlib一起使用，支持比Python更多种类的数值类型，其中定义的最重要的对象是称为ndarray的n维数组类型，用于描述相同类型的元素集合，可以使用基于0的索引访问集合中元素。<br>下载地址：<a href="https://www.scipy.org/" target="_blank" rel="noopener">https://www.scipy.org/</a><br>API手册：<a href="https://www.numpy.org.cn/reference/" target="_blank" rel="noopener">https://www.numpy.org.cn/reference/</a></p>
+<h2 id="SciPy"><a href="#SciPy" class="headerlink" title="SciPy"></a>SciPy</h2><p>在NumPy库的基础上增加了众多的数学、科学及工程计算中常用的库函数,如线性代数、常微分方程数值求解、信号处理、图像处理、稀疏矩阵等，可进行插值处理、信号滤波，以及使用C语言加速计算。<br>下载地址及API手册：<a href="https://www.scipy.org/" target="_blank" rel="noopener">https://www.scipy.org/</a></p>
+<h2 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h2><p>基于NumPy的一种工具，为解决数据分析任务而生。纳入大量库和一些标准的数据模型，提供高效地操作大型数据集所需的工具及大量的能快速便捷处理数据的函数和方法，为时间序列分析提供很好的支持，提供多种数据结构，如Series、Time-Series、DataFrame和Panel。<br>下载地址及API手册：<a href="https://www.scipy.org/" target="_blank" rel="noopener">https://www.scipy.org/</a></p>
+<h1 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h1><h2 id="Matplotlib"><a href="#Matplotlib" class="headerlink" title="Matplotlib"></a>Matplotlib</h2><p>第一个Python可视化库，有许多别的程序库都是建立在其基础上或者直接调用该库，可以很方便地得到数据的大致信息，功能非常强大，但也非常复杂。<br>下载地址及API手册：<a href="https://www.scipy.org/" target="_blank" rel="noopener">https://www.scipy.org/</a><br>总结：<a href="https://purethought.cn/60743.html">https://purethought.cn/60743.html</a></p>
+<h2 id="Seaborn"><a href="#Seaborn" class="headerlink" title="Seaborn"></a>Seaborn</h2><p>利用了Matplotlib，用简洁的代码来制作好看的图表。与Matplotlib最大的区别为默认绘图风格和色彩搭配都具有现代美感。</p>
+<h2 id="ggplot"><a href="#ggplot" class="headerlink" title="ggplot"></a>ggplot</h2><p>基于R的一个作图库ggplot2，同时利用了源于《图像语法》（The Grammar of Graphics）中的概念，允许叠加不同的图层来完成一幅图，并不适用于制作非常个性化的图像，为操作的简洁度而牺牲了图像的复杂度。</p>
+<h2 id="Bokeh"><a href="#Bokeh" class="headerlink" title="Bokeh"></a>Bokeh</h2><p>跟ggplot一样，Bokeh也基于《图形语法》的概念。与ggplot不同之处为它完全基于Python而不是从R处引用。长处在于能用于制作可交互、可直接用于网络的图表。图表可以输出为JSON对象、HTML文档或者可交互的网络应用。</p>
+<p>Bokeh也支持数据流和实时数据，为不同的用户提供了3种控制水平：<br>-最高的控制水平用于快速制图，主要用于制作常用图像；<br>-中等控制水平与Matplotlib一样允许开发人员控制图像的基本元素（例如分布图中的点）；<br>-最低的控制水平主要面向开发人员和软件工程师。没有默认值，需要定义图表的每一个元素。</p>
+<h2 id="Plotly"><a href="#Plotly" class="headerlink" title="Plotly"></a>Plotly</h2><p>可以通过Python notebook使用，与Bokeh一样致力于交互图表的制作，但提供在别的库中几乎没有的几种图表类型，如等值线图、树形图和三维图表。</p>
+<h2 id="pygal"><a href="#pygal" class="headerlink" title="pygal"></a>pygal</h2><p>与Bokeh和Plotly一样，提供可直接嵌入网络浏览器的可交互图像。与其他两者的主要区别在于可将图表输出为SVG格式，所有的图表都被封装成方法，且默认的风格也很漂亮，用几行代码就可以很容易地制作出漂亮的图表。</p>
+<h2 id="geoplotlib"><a href="#geoplotlib" class="headerlink" title="geoplotlib"></a>geoplotlib</h2><p>用于制作地图和地理相关数据的工具箱。可用来制作多种地图，比如等值区域图、热度图、点密度图。必须安装Pyglet（一个面向对象编程接口）方可使用。</p>
+<h2 id="missingno"><a href="#missingno" class="headerlink" title="missingno"></a>missingno</h2><p>用图像的方式快速评估数据缺失的情况，可根据数据的完整度对数据进行排序或过滤，或者根据热度图或树状图对数据进行修正。</p>
+<h1 id="Web开发"><a href="#Web开发" class="headerlink" title="Web开发"></a>Web开发</h1><h2 id="Django"><a href="#Django" class="headerlink" title="Django"></a>Django</h2><p>一个高级的Python Web框架，支持快速开发，提供从模板引擎到ORM所需的一切东西，使用该库构建App时，必须遵循Django的方式。</p>
+<h2 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h2><p>一个套接字通讯底层库，用于在服务器和客户端间建立TCP或UDP连接，通过连接发送请求与响应。</p>
+<h2 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h2><p>一个基于Werkzeug、Jinja 2的Python轻量级框架（microframework），默认配备Jinja模板引擎，也包含其他模板引擎或ORM供选择，适合用来编写API服务（RESTful rervices）。</p>
+<h2 id="Twisted"><a href="#Twisted" class="headerlink" title="Twisted"></a>Twisted</h2><p>一个使用Python实现的基于事件驱动的网络引擎框架，建立在deferred object之上，一个通过异步架构实现的高性能的引擎，不适用于编写常规的Web Apps，更适用于底层网络。</p>
+<h2 id="Tornado"><a href="#Tornado" class="headerlink" title="Tornado"></a>Tornado</h2><p>一个由FriendFeed开发的Python Web框架和异步网络库，采用非阻塞网络I/O模型，可以处理数以千计的网络连接。对于long polling、WebSockets和其他需要长时间实时连接的Apps，Tornado是一个理想的Web框架，它介于Django和Flask之间，能很好地处理C10K问题。</p>
+<h1 id="数据库管理"><a href="#数据库管理" class="headerlink" title="数据库管理"></a>数据库管理</h1><h2 id="MySQL-python"><a href="#MySQL-python" class="headerlink" title="MySQL-python"></a>MySQL-python</h2><p>又称MySQLdb，是Python连接MySQL最流行的一个驱动，很多框架也基于此库进行开发。只支持Python 2.x，且安装时有许多前置条件。由于该库基于C语言开发，在Windows平台上的安装非常不友好，经常出现失败的情况，现在基本不推荐使用，取代品为衍生版本。</p>
+<h2 id="mysqlclient"><a href="#mysqlclient" class="headerlink" title="mysqlclient"></a>mysqlclient</h2><p>完全兼容MySQLdb，同时支持Python 3.x，是Django ORM的依赖工具，可使用原生SQL来操作数据库，安装方式与MySQLdb一致。</p>
+<h2 id="PyMySQL"><a href="#PyMySQL" class="headerlink" title="PyMySQL"></a>PyMySQL</h2><p>纯Python实现的驱动，速度比MySQLdb慢，最大的特点为安装方式简洁，同时也兼容MySQL-python。</p>
+<h2 id="SQLAlchemy"><a href="#SQLAlchemy" class="headerlink" title="SQLAlchemy"></a>SQLAlchemy</h2><p>一种既支持原生SQL，又支持ORM的工具。ORM是Python对象与数据库关系表的一种映射关系，可有效提高写代码的速度，同时兼容多种数据库系统，如SQLite、MySQL、PostgreSQL，代价为性能上的一些损失。</p>
+<h1 id="自动化运维"><a href="#自动化运维" class="headerlink" title="自动化运维"></a>自动化运维</h1><h2 id="jumpsever跳板机"><a href="#jumpsever跳板机" class="headerlink" title="jumpsever跳板机"></a>jumpsever跳板机</h2><p>一种由Python编写的开源跳板机（堡垒机）系统，实现了跳板机的基本功能，包含认证、授权和审计，集成了Ansible、批量命令等。</p>
+<p>支持WebTerminal Bootstrap编写，界面美观，自动收集硬件信息，支持录像回放、命令搜索、实时监控、批量上传下载等功能，基于SSH协议进行管理，客户端无须安装agent。主要用于解决可视化安全管理，因完全开源，容易再次开发。</p>
+<h2 id="Magedu分布式监控系统"><a href="#Magedu分布式监控系统" class="headerlink" title="Magedu分布式监控系统"></a>Magedu分布式监控系统</h2><p>一种用Python开发的自动化监控系统，可监控常用系统服务、应用、网络设备，可在一台主机上监控多个不同服务，不同服务的监控间隔可以不同，同一个服务在不同主机上的监控间隔、报警阈值可以不同，并提供数据可视化界面。</p>
+<h2 id="Magedu的CMDB"><a href="#Magedu的CMDB" class="headerlink" title="Magedu的CMDB"></a>Magedu的CMDB</h2><p>一种用Python开发的硬件管理系统，包含采集硬件数据、API、页面管理3部分功能，主要用于自动化管理笔记本、路由器等常见设备的日常使用。由服务器的客户端采集硬件数据，将硬件信息发送至API，API负责将获取的数据保存至数据库中，后台管理程序负责对服务器信息进行配置和展示。</p>
+<h2 id="任务调度系统"><a href="#任务调度系统" class="headerlink" title="任务调度系统"></a>任务调度系统</h2><p>一种由Python开发的任务调度系统，主要用于自动化地将一个服务进程分布到其他多个机器的多个进程中，一个服务进程可作为调度者依靠网络通信完成这一工作。</p>
+<h2 id="Python运维流程系统"><a href="#Python运维流程系统" class="headerlink" title="Python运维流程系统"></a>Python运维流程系统</h2><p>一种使用Python语言编写的调度和监控工作流的平台，内部用于创建、监控和调整数据管道。允许工作流开发人员轻松创建、维护和周期性地调度运行工作流，包括了如数据存储、增长分析、Email发送、A/B测试等诸多跨多部门的用例。</p>
+<h1 id="GUI编程"><a href="#GUI编程" class="headerlink" title="GUI编程"></a>GUI编程</h1><h2 id="Tkinter"><a href="#Tkinter" class="headerlink" title="Tkinter"></a>Tkinter</h2><p>一个Python的标准GUI库，可以快速地创建GUI应用程序，可以在大多数的UNIX平台下使用，同样可以应用在Windows和Macintosh系统中，Tkinter 8.0的后续版本可以实现本地窗口风格，并良好地运行在绝大多数平台中。</p>
+<h2 id="wxPython"><a href="#wxPython" class="headerlink" title="wxPython"></a>wxPython</h2><p>一款开源软件跨平台GUI库wxWidgets的Python封装和Python模块，是Python语言的一套优秀的GUI图形库，允许程序员很方便地创建完整的、功能健全的GUI用户界面。</p>
+<h2 id="PyQt"><a href="#PyQt" class="headerlink" title="PyQt"></a>PyQt</h2><p>一个创建GUI应用程序的工具库，是Python编程语言和Qt的成功融合，可以运行在所有主要操作系统上，包括UNIX、Windows和Mac。PyQt采用双许可证，开发人员可以选择GPL和商业许可，从PyQt的版本4开始，GPL许可证可用于所有支持的平台。</p>
+<h2 id="PySide"><a href="#PySide" class="headerlink" title="PySide"></a>PySide</h2><p>一个跨平台的应用程式框架Qt的Python绑定版本，提供与PyQt类似的功能，并相容API，但与PyQt不同处为其使用LGPL授权。</p>
+<h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="Scikit-Learn"><a href="#Scikit-Learn" class="headerlink" title="Scikit-Learn"></a>Scikit-Learn</h2><p>Scikit-Learn基于NumPy和SciPy，是专门为机器学习建造的一个Python模块，提供了大量用于数据挖掘和分析的工具，包括数据预处理、交叉验证、算法与可视化算法等一系列接口。<br>Sklearn的基本功能可分为6个部分：分类,回归,聚类,数据降维,模型选择,数据预处理.<br>其中集成了大量分类、回归和聚类的算法，包括支持向量机、逻辑回归、朴素贝叶斯、随机森林、Gradient Boosting、K-means和DBSCAN等。</p>
+<h2 id="Orange3"><a href="#Orange3" class="headerlink" title="Orange3"></a>Orange3</h2><p>Orange3是一个基于组件的数据挖掘和机器学习软件套装，支持Python进行脚本开发。它包含一系列的数据可视化、检索、预处理和建模技术，具有一个良好的用户界面，同时也可以作为Python的一个模块使用。<br>用户可通过数据可视化进行数据分析，包括统计分布图、柱状图、散点图，以及更深层次的决策树、分层聚簇、热点图、MDS（多维度分析）、线性预测等，并可使用Orange自带的各类附加功能组件进行NLP、文本挖掘、构建网络分析、推断高频数据集和关联规则数据分析。</p>
+<h2 id="XGBoost"><a href="#XGBoost" class="headerlink" title="XGBoost"></a>XGBoost</h2><p>XGBoost是专注于梯度提升算法的机器学习函数库，因其优良的学习效果及高效的训练速度而获得广泛的关注。XGBoost支持并行处理，比起同样实现了梯度提升算法的Scikit-Learn库，其性能提升10倍以上。XGBoost可以处理回归、分类和排序等多种任务。</p>
+<h2 id="NuPIC"><a href="#NuPIC" class="headerlink" title="NuPIC"></a>NuPIC</h2><p>NuPIC是专注于时间序列的一个机器学习平台，其核心算法为HTM算法，相比于深度学习，其更为接近人类大脑的运行结构。HTM算法的理论依据主要是人脑中处理高级认知功能的新皮质部分的运作原理。NuPIC可用于预测及异常检测，适用面非常广，仅要求输入时间序列即可。</p>
+<h2 id="Milk"><a href="#Milk" class="headerlink" title="Milk"></a>Milk</h2><p>Milk（Machine Learning Toolkit）是Python中的一个机器学习工具包。<br>Milk注重提升运行速度与降低内存占用，因此大部分对性能敏感的代码都是使用C++编写的，为了便利性在此基础上提供Python接口。重点提供监督分类方法，如SVMs、KNN、随机森林和决策树，也支持无监督学习算法，如K-means和密切关系传播。</p>
+<h1 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h1><h2 id="Caffe"><a href="#Caffe" class="headerlink" title="Caffe"></a>Caffe</h2><p>Caffe（Convolutional Architecture for Fast Feature Embedding）是一个以表达式、速度和模块化为核心的深度学习框架，具备清晰、可读性高和快速的特性，在视频、图像处理方面应用较多。<br>Caffe中的网络结构与优化都以配置文件形式定义，容易上手，无须通过代码构建网络；网络训练速度快，能够训练大型数据集与State-of-the-art的模型；模块化的组件可以方便地拓展到新的模型与学习任务上。</p>
+<h2 id="Theano"><a href="#Theano" class="headerlink" title="Theano"></a>Theano</h2><p>Theano诞生于2008年，是一个高性能的符号计算及深度学习库，被认为是深度学习库的始祖之一，也被认为是深度学习研究和应用的重要标准之一。其核心是一个数学表达式的编译器，专门为处理大规模神经网络训练的计算而设计。</p>
+<p>Theano很好地整合了NumPy，可以直接使用NumPy的ndarray，使得API接口学习成本大为降低；其计算稳定性好，可以精准地计算输出值很小的函数，如log(1+x)；可动态地生成C或者CUDA代码，用来编译成高效的机器代码。</p>
+<h2 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h2><p>TensorFlow是相对高阶的机器学习库，其核心代码使用C++编写，并支持自动求导，使得用户可以方便地设计神经网络结构，不需要亲自编写C++或CUDA代码，也无须通过反向传播求解梯度。由于底层使用C++语言编写，运行效率得到了保证，并简化了线上部署的复杂度。<br>38个常用Python库：数值计算、可视化、机器学习等8大领域都有了</p>
+<p>除了核心代码的C++接口以外，TensorFlow还有官方的Python、Go和Java接口以外，用户可以在一个硬件配置较好的机器中用Python进行实验，并在资源比较紧张的嵌入式环境或需要低延迟的环境中用C++部署模型。</p>
+<p>TensorFlow不只局限于神经网络，其数据流式图还支持非常自由的算法表达，也可以轻松实现深度学习以外的机器学习算法。</p>
+<h2 id="Keras"><a href="#Keras" class="headerlink" title="Keras"></a>Keras</h2><p>Keras是一个高度模块化的神经网络库，使用Python实现，并可以同时运行在TensorFlow和Theano上。</p>
+<p>Keras专精于深度学习，其提供了到目前为止最方便的API，用户仅需将高级的模块拼在一起便可设计神经网络，大大降低了编程开销（code overhead）与理解开销（cognitive overhead）。</p>
+<p>Keras同时支持卷积网络和循环网络，支持级联的模型或任意的图结构的模型，从CPU上计算切换到GPU加速无须任何代码的改动。简化了编程的复杂度的同时，在性能上丝毫不逊色于TensorFlow和Theano。</p>
+<p>参考链接：<br><a href="https://www.toutiao.com/i6751701674684842500/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=2&amp;from=groupmessage&amp;timestamp=1578613876&amp;app=news_article&amp;utm_source=weixin&amp;utm_medium=toutiao_android&amp;req_id=2020011007511501001404116115466A24&amp;group_id=6751701674684842500&amp;pbid=6780110523431552519" target="_blank" rel="noopener">https://www.toutiao.com/i6751701674684842500/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=2&amp;from=groupmessage&amp;timestamp=1578613876&amp;app=news_article&amp;utm_source=weixin&amp;utm_medium=toutiao_android&amp;req_id=2020011007511501001404116115466A24&amp;group_id=6751701674684842500&amp;pbid=6780110523431552519</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                 
+                 <hr/>
+                 
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn" rel="external nofollow noreferrer">陈德强</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn/1802.html">https://purethought.cn/1802.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://purethought.cn" target="_blank">陈德强</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+            </div>         
+        </div>
+    </div>
+    
+    <!-- 代码块功能依赖 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>    
+    <!-- 代码语言 -->   
+    <!-- <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script> -->          
+    <!-- 代码块复制 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>      
+    <!-- 代码块收缩 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge ">                  
+                <a href="/62624.html" target="_blank">                 
+                    <font color="#0e263f">
+                        <i class="fa  fa-hand-o-left"></i>
+                        ADAS笔记
+                    </font>                    
+                </a>          
+            </div>
+        </div>
+        
+
+
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge " >
+                <a href="/4419.html" target="_blank">
+                    <font color="#0e263f">
+                        什么是.Xauthority文件？
+                        <i class="fa  fa-hand-o-right"></i>
+                    </font>
+                 </a>  
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+    
+        <style>
+    #reward {
+        /*margin: 40px 0;*/
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.6rem;
+      
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+   <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red" >¥</a> 
+  
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-times"></i></a>
+            <h4 class="reward-title">您的赞赏就是我的动力^</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+    
+
+    
+        <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80Njk3Mi8yMzQ3Mw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+    
+   <!-- 
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '6190f09c0ffe658707b5',
+        clientSecret: '2798e16eeba573f49ce06d2da0595188699aac41',
+        repo: 'cdqpt.github.io',
+        owner: 'CdqPT',
+        admin: "CdqPT",
+        id: '2020-01-13T20-20-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+     -->
+
+    
+
+    
+
+    
+
+   <!-- <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script> -->
+
+</div>
+
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    
+        <div class="toc-widget">
+        
+            <div class="toc-title" ><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="hidden">
+                <div id="toc-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. --><!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large ">    
+        <i class="fa fa-th-large"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2'
+        });
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            i++;
+            $(this).attr('href', '#' + tocHeading + (i));
+            $(this).attr('navTo',  tocHeading + (i));    
+        });
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(0);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(100);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+</main>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+       <div class="col s12 m8 l8 copy-right">
+             
+               &copy;2018-2020 ALaDing
+               &nbsp;
+             Author:  <a href="https://purethought.cn/">陈德强 &nbsp  Email: 928277452@qq.com</a>
+
+            
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                       
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?147475454185ebcf440a27cc35e793ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CdqPT" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:928277452@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=928277452" class="tooltipped" data-tooltip="QQ联系我: 928277452" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+ 
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+   
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+
+</html>

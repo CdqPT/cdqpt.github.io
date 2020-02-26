@@ -1,0 +1,1791 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="shell脚本, 陈德强 ALaDing 内蒙古工业大学 机器人 东软 东软集团 嵌入式 自动驾驶 ADASIS">
+    <meta name="description" content="Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。
+HelloW">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>shell脚本 | ALaDing</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+
+
+
+  <link rel="amphtml" href="https://purethought.cn/40027.html/amp/index.html">
+
+    
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+
+
+
+
+<body style="overflow-x:hidden">
+    <header id="navControl" class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ALaDing</span>
+                </a>
+            </div>
+            
+
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/dictionary" class="waves-effect waves-light">
+            
+            <i class="fa fa-book"></i>
+            
+            <span>字典</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>豆瓣</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-leaf"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-commenting"></i>
+            
+            <span>留言</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse">
+  <i class="fa fa-navicon" >
+     <b>导航 </b>
+  </i>
+</a>
+
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/dictionary" class="waves-effect waves-light">
+              
+                <i class="fa fa-book"></i>
+              
+              <span>字典</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/categories" class="waves-effect waves-light">
+                
+                  <i class="fa fa-bookmark"></i>
+                
+                <span>分类</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>编程笔记</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>文史哲理</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>投资理财</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>过程随笔</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>既有优化</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>安装教程</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-heart"></i>
+                
+                <span>豆瓣</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/books" >
+                    
+                      <i class="fa fa-book" style="margin-top: -20px;"></i>
+                    
+                    <span>书单</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/movies" >
+                    
+                      <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>电影</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/games" >
+                    
+                      <i class="fa fa-gamepad" style="margin-top: -20px;"></i>
+                    
+                    <span>游戏</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-leaf"></i>
+                
+                <span>关于</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/about" >
+                    
+                      <i class="fa fa-user" style="margin-top: -20px;"></i>
+                    
+                    <span>简介</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/galleries" >
+                    
+                      <i class="fa fa-camera" style="margin-top: -20px;"></i>
+                    
+                    <span>相册</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/friends" >
+                    
+                      <i class="fa fa-handshake-o" style="margin-top: -20px;"></i>
+                    
+                    <span>友链</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/log" >
+                    
+                      <i class="fa fa-pencil-square-o" style="margin-top: -20px;"></i>
+                    
+                    <span>日志</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/tags" >
+                    
+                      <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/archives" >
+                    
+                      <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fa-commenting"></i>
+              
+              <span>留言</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+
+            <i id="searchIcon" class="fa fa-search" title="搜索" >
+              <b>搜索 </b>
+            </i>
+
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ALaDing</div>
+        <div class="logo-desc">
+            
+            东软集团 | 内蒙古工业大学 | 嵌入式工程师 | ADAS
+            
+        </div>
+    </div>
+
+    
+
+
+ <ul class="menu-list mobile-menu-list">  <li class="m-nav-item">  <a href="/" class="waves-effect waves-light">  <i class="fa fa-fw fa-home"></i>  首页 </a>  </li>  <li class="m-nav-item">  <a href="/dictionary" class="waves-effect waves-light">  <i class="fa fa-fw fa-book"></i>  字典 </a>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-bookmark"></i>  分类 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>编程笔记</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>文史哲理</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>投资理财</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>过程随笔</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>既有优化</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>安装教程</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-heart"></i>  豆瓣 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/books" >  <i class="fa fa-book" style="left: 25px; position: absolute;"></i>  <span>书单</span> </a> </li>  <li> <a href="/movies" >  <i class="fa fa-film" style="left: 25px; position: absolute;"></i>  <span>电影</span> </a> </li>  <li> <a href="/games" >  <i class="fa fa-gamepad" style="left: 25px; position: absolute;"></i>  <span>游戏</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-leaf"></i>  关于 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/about" >  <i class="fa fa-user" style="left: 25px; position: absolute;"></i>  <span>简介</span> </a> </li>  <li> <a href="/galleries" >  <i class="fa fa-camera" style="left: 25px; position: absolute;"></i>  <span>相册</span> </a> </li>  <li> <a href="/friends" >  <i class="fa fa-handshake-o" style="left: 25px; position: absolute;"></i>  <span>友链</span> </a> </li>  <li> <a href="/log" >  <i class="fa fa-pencil-square-o" style="left: 25px; position: absolute;"></i>  <span>日志</span> </a> </li>  <li> <a href="/tags" >  <i class="fa fa-tags" style="left: 25px; position: absolute;"></i>  <span>标签</span> </a> </li>  <li> <a href="/archives" >  <i class="fa fa-archive" style="left: 25px; position: absolute;"></i>  <span>归档</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="/contact" class="waves-effect waves-light">  <i class="fa fa-fw fa-commenting"></i>  留言 </a>  </li>   <li><div class="divider"></div></li> <li> <a href="https://github.com/CdqPT" class="waves-effect waves-light" target="_blank"> <i class="fa fa-github-square fa-fw"></i>Fork Me </a> </li>  </ul>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #000;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/CdqPT" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blogcdq.oss-cn-beijing.aliyuncs.com/image/other/star.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        shell脚本
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before  /*,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before */{
+        display: block;
+        content: "🔖";
+        position: absolute;
+        left: 50px;
+        /*color: #EE7942;*/
+        /*color: red;*/
+    }
+        @media only screen and (max-width: 992px) {
+    #articleContent h1::before{
+        display: block;
+        content: " ";
+    }
+}
+
+    /*修改滚动条样式为隐藏*/
+    #toc-content {
+        height: calc(105vh - 250px);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 320px;
+        height: 600px;
+    }
+    #hidden{
+        overflow: hidden;
+        width: 300px;    
+    }  
+
+    #articleContent :focus {
+        outline: none;
+    }
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+    .toc-widget {
+        padding-left: 20px;
+    }
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 40px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    #toc-content ol {
+        padding-left: 10px;
+    }
+    #toc-content ol li {
+        padding-left: 30px;
+    }
+    #toc-content .toc-link:hover {
+        color: black;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+    #toc-content .is-active-link {
+        color: red;
+    }
+    #toc-content .is-active-link::before {
+        background-color: red;
+    }
+    #floating-toc-btn {
+        position: fixed;
+        right: 0.6rem;
+        bottom: 6rem;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+        opacity: 0.5;
+    }
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/linux/" target="_blank">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/字典/" class="post-category" target="_blank">
+                                字典
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+
+               <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-pencil fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-11-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-refresh fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-12-24
+                </div>
+                
+
+                
+
+                
+                
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+            
+        </div>
+
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。</p>
+<h1 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h1><p>text.sh</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token keyword">echo</span> <span class="token string">"Hello World !"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">chmod</span> +x ./test.sh  <span class="token comment" spellcheck="true">#使脚本具有执行权限</span>
+./test.sh  <span class="token comment" spellcheck="true">#执行脚本</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>Hello World !</code></pre><p><code>#!</code> 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种 Shell。<br><code>echo</code> 命令用于向窗口输出文本。<br>也可以直接指定解释器</p>
+<pre class="line-numbers language-bash"><code class="language-bash">/bin/sh test.sh
+/bin/php test.php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>这时文件内的<code>#!/bin/bash</code>就不会生效了.</p>
+<div class="uk-alert uk-alert-warning"><i class="fa fa-exclamation-circle"></i> &nbsp;&nbsp;sh和./的区别！<br><br>
+sh指定使用shell解释器执行程序<br>
+./执行文件内的`#!`脚本，如果不指定，则默认执行shell.</div>
+
+<br>
+
+<h1 id="变量操作"><a href="#变量操作" class="headerlink" title="变量操作"></a>变量操作</h1><h2 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h2><pre class="line-numbers language-bash"><code class="language-bash">your_name<span class="token operator">=</span><span class="token string">"runoob.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h2><p>使用变量需要,只需要在变量前加<code>$</code>符号,<code>{}</code>可以加也可以不加.</p>
+<pre class="line-numbers language-bash"><code class="language-bash">your_name<span class="token operator">=</span><span class="token string">"qinjx"</span>
+<span class="token keyword">echo</span> <span class="token variable">$your_name</span>
+<span class="token keyword">echo</span> <span class="token variable">${your_name}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="只读变量"><a href="#只读变量" class="headerlink" title="只读变量"></a>只读变量</h2><p>使用 readonly 命令可以将变量定义为只读变量，只读变量的值不能被改变。<br>相当于C语言中的 常量</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">readonly</span> myUrl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="删除变量"><a href="#删除变量" class="headerlink" title="删除变量"></a>删除变量</h2><p>使用 <code>unset</code> 命令可以删除变量。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">unset variable_name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>变量被删除后不能再次使用。unset 命令不能删除只读变量。</p>
+<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><blockquote>
+<p>运行shell时，会同时存在三种变量：<br><strong>局部变量</strong> 局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量。<br><strong>环境变量</strong> 所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量。<br><strong>shell变量</strong> shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行</p>
+</blockquote>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="定义字符串"><a href="#定义字符串" class="headerlink" title="定义字符串"></a>定义字符串</h2><p>字符串可以用单引号，也可以用双引号，也可以不用引号。<br>单引号可以原样输出,双引号可以使用变量,转义字符,字符串拼接等.<br>单引号:</p>
+<pre class="line-numbers language-bash"><code class="language-bash">str<span class="token operator">=</span><span class="token string">'this is a string'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>双引号:</p>
+<pre class="line-numbers language-bash"><code class="language-bash">your_name<span class="token operator">=</span><span class="token string">"runoob"</span>
+greeting<span class="token operator">=</span><span class="token string">"hello, "</span><span class="token variable">$your_name</span><span class="token string">" !"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h2><pre class="line-numbers language-bash"><code class="language-bash">string<span class="token operator">=</span><span class="token string">"abcd"</span>
+<span class="token keyword">echo</span> <span class="token variable">${#string}</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>4</code></pre><h2 id="截取字符串"><a href="#截取字符串" class="headerlink" title="截取字符串"></a>截取字符串</h2><p>从字符串第 2 个字符开始截取 4 个字符：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">string<span class="token operator">=</span><span class="token string">"runoob is a great site"</span>
+<span class="token keyword">echo</span> <span class="token variable">${string:1:4}</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>unoo</code></pre><h2 id="查找字符串"><a href="#查找字符串" class="headerlink" title="查找字符串"></a>查找字符串</h2><p>查找字符 i 或 o 的位置(哪个字母先出现就计算哪个)：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">string<span class="token operator">=</span><span class="token string">"runoob is a great site"</span>
+<span class="token keyword">echo</span> `expr index <span class="token string">"<span class="token variable">$string</span>"</span> io`  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>4</code></pre><h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>bash支持一维数组（不支持多维数组），并且没有限定数组的大小。<br>类似于 C 语言，数组元素的下标由 0 开始编号。获取数组中的元素要利用下标，下标可以是整数或算术表达式，其值应大于或等于 0。 </p>
+<h2 id="定义数组"><a href="#定义数组" class="headerlink" title="定义数组"></a>定义数组</h2><pre class="line-numbers language-bash"><code class="language-bash">array_name<span class="token operator">=</span><span class="token punctuation">(</span>value0 value1 value2 value3<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="读取数组"><a href="#读取数组" class="headerlink" title="读取数组"></a>读取数组</h2><p>使用下标,获取单个元素:</p>
+<pre class="line-numbers language-bash"><code class="language-bash">valuen<span class="token operator">=</span><span class="token variable">${array_name[n]}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>使用 <code>@</code> ,获取全部元素:</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">echo</span> <span class="token variable">${array_name[@]}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="获取数组长度"><a href="#获取数组长度" class="headerlink" title="获取数组长度"></a>获取数组长度</h2><p>获取数组长度的方法与获取字符串长度的方法相同:</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 取得数组元素的个数</span>
+length<span class="token operator">=</span><span class="token variable">${#array_name[@]}</span>
+<span class="token comment" spellcheck="true"># 或者</span>
+length<span class="token operator">=</span><span class="token variable">${#array_name[*]}</span>
+<span class="token comment" spellcheck="true"># 取得数组单个元素的长度</span>
+lengthn<span class="token operator">=</span><span class="token variable">${#array_name[n]}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><h2 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h2><p>以 <code>#</code> 开头的行就是注释，会被解释器忽略。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 这是一个注释</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h2><pre class="line-numbers language-bash"><code class="language-bash">:<span class="token operator">&lt;&lt;</span><span class="token string">EOF
+注释内容...
+注释内容...
+注释内容...
+EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>EOF 也可以使用其他符号:</p>
+<pre class="line-numbers language-bash"><code class="language-bash">:<span class="token operator">&lt;&lt;</span><span class="token string">'
+注释内容...
+注释内容...
+注释内容...
+'</span>
+
+:<span class="token operator">&lt;&lt;</span><span class="token operator">!</span>
+注释内容<span class="token punctuation">..</span>.
+注释内容<span class="token punctuation">..</span>.
+注释内容<span class="token punctuation">..</span>.
+<span class="token operator">!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h1><p>我们可以在执行 Shell 脚本时，向脚本传递参数，脚本内获取参数的格式为：$n。n 代表一个数字，1 为执行脚本的第一个参数，2 为执行脚本的第二个参数，以此类推……<br>栗子1：<br>test.sh</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token keyword">echo</span> <span class="token string">"Shell 传递参数实例！"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"执行的文件名：<span class="token variable">$0</span>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"第一个参数为：<span class="token variable">$1</span>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"第二个参数为：<span class="token variable">$2</span>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"第三个参数为：<span class="token variable">$3</span>"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>运行</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">chmod</span> +x test.sh 
+./test.sh 1 2 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>Shell 传递参数实例！
+执行的文件名：./test.sh
+第一个参数为：1
+第二个参数为：2
+第三个参数为：3</code></pre><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$#</td>
+<td align="center">传递到脚本的参数个数</td>
+</tr>
+<tr>
+<td align="center">$*</td>
+<td align="center">以一个单字符串显示所有向脚本传递的参数。<br>如”$*”用「”」括起来的情况、以”$1 $2 … $n”的形式输出所有参数。</td>
+</tr>
+<tr>
+<td align="center">$$</td>
+<td align="center">脚本运行的当前进程ID号</td>
+</tr>
+<tr>
+<td align="center">$!</td>
+<td align="center">后台运行的最后一个进程的ID号</td>
+</tr>
+<tr>
+<td align="center">$@</td>
+<td align="center">与$*相同，但是使用时加引号，并在引号中返回每个参数。<br>如”$@”用「”」括起来的情况、以”$1” “$2” … “$n” 的形式输出所有参数。</td>
+</tr>
+<tr>
+<td align="center">$-</td>
+<td align="center">显示Shell使用的当前选项，与set命令功能相同。</td>
+</tr>
+<tr>
+<td align="center">$?</td>
+<td align="center">显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。</td>
+</tr>
+</tbody></table>
+<p>栗子２：<br>test.sh</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token keyword">echo</span> <span class="token string">"Shell 传递参数实例！"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"第一个参数为：<span class="token variable">$1</span>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"参数个数为：<span class="token variable">$#</span>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"传递的参数作为一个字符串显示：<span class="token variable">$*</span>"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>运行</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">chmod</span> +x test.sh 
+$ ./test.sh 1 2 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>Shell 传递参数实例！
+第一个参数为：1
+参数个数为：3
+传递的参数作为一个字符串显示：1 2 3</code></pre><blockquote>
+<p>$* 与 $@ 区别：<br><strong>相同点：</strong>都是引用所有参数。<br><strong>不同点：</strong>只有在双引号中体现出来。假设在脚本运行时写了三个参数 1、2、3，，则 “ * “ 等价于 “1 2 3”（传递了一个参数），而 “@” 等价于 “1” “2” “3”（传递了三个参数）。</p>
+</blockquote>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="expr"><a href="#expr" class="headerlink" title="expr"></a>expr</h2><blockquote>
+<p>Shell 和其他编程语言一样，支持多种运算符，包括：</p>
+<ul>
+<li>算数运算符</li>
+<li>关系运算符</li>
+<li>布尔运算符</li>
+<li>字符串运算符</li>
+<li>文件测试运算符</li>
+</ul>
+</blockquote>
+<p>原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，expr 最常用。<br><code>expr</code> 是一款表达式计算工具，使用它能完成表达式的求值操作。<br>test.sh</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+val<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">expr</span> 2 + 2<span class="token variable">`</span></span>
+<span class="token keyword">echo</span> <span class="token string">"两数之和为 : <span class="token variable">$val</span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">./test.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>4</code></pre><p><strong>两点注意：</strong><br>表达式和运算符之间要有空格，例如 2+2 是不对的，必须写成 2 + 2，这与我们熟悉的大多数编程语言不一样。<br>完整的表达式要被 <code></code> 包含，注意这个字符不是常用的单引号，在 Esc 键下边。</p>
+<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">说明</th>
+<th align="center">举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+</td>
+<td align="center">加法</td>
+<td align="center">`expr $a + $b` 结果为 30。</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">减法</td>
+<td align="center">`expr $a - $b` 结果为 -10。</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">乘法</td>
+<td align="center">`expr $a * $b` 结果为  200。</td>
+</tr>
+<tr>
+<td align="center">/</td>
+<td align="center">除法</td>
+<td align="center">`expr $b / $a` 结果为 2。</td>
+</tr>
+<tr>
+<td align="center">%</td>
+<td align="center">取余</td>
+<td align="center">`expr $b % $a` 结果为 0。</td>
+</tr>
+<tr>
+<td align="center">=</td>
+<td align="center">赋值</td>
+<td align="center">a=$b 将把变量 b 的值赋给 a。</td>
+</tr>
+<tr>
+<td align="center">==</td>
+<td align="center">相等</td>
+<td align="center">用于比较两个数字，相同则返回 true。     <br>[ $a == $b ] 返回 false。</td>
+</tr>
+<tr>
+<td align="center">!=</td>
+<td align="center">不相等</td>
+<td align="center">用于比较两个数字，不相同则返回 true。 <br>    [ $a != $b ] 返回 true。</td>
+</tr>
+</tbody></table>
+<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><p>关系运算符只支持数字，不支持字符串，除非字符串的值是数字。<br>下表列出了常用的关系运算符，假定变量 a 为 10，变量 b 为 20：</p>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">说明</th>
+<th align="center">举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-eq</td>
+<td align="center">检测两个数是否相等，相等返回 true。</td>
+<td align="center">[ $a -eq $b ] 返回 false。</td>
+</tr>
+<tr>
+<td align="center">-ne</td>
+<td align="center">检测两个数是否不相等，不相等返回 true。</td>
+<td align="center">[ $a -ne $b ] 返回 true。</td>
+</tr>
+<tr>
+<td align="center">-gt</td>
+<td align="center">检测左边的数是否大于右边的，如果是，则返回 true。</td>
+<td align="center">[ $a -gt $b ] 返回 false。</td>
+</tr>
+<tr>
+<td align="center">-lt</td>
+<td align="center">检测左边的数是否小于右边的，如果是，则返回 true。</td>
+<td align="center">[ $a -lt $b ] 返回 true。</td>
+</tr>
+<tr>
+<td align="center">-ge</td>
+<td align="center">检测左边的数是否大于等于右边的，如果是，则返回 true。</td>
+<td align="center">[ $a -ge $b ] 返回 false。</td>
+</tr>
+<tr>
+<td align="center">-le</td>
+<td align="center">检测左边的数是否小于等于右边的，如果是，则返回 true。</td>
+<td align="center">[ $a -le $b ] 返回 true。</td>
+</tr>
+</tbody></table>
+<h2 id="布尔运算符"><a href="#布尔运算符" class="headerlink" title="布尔运算符"></a>布尔运算符</h2><p>下表列出了常用的布尔运算符，假定变量 a 为 10，变量 b 为 20：</p>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">说明</th>
+<th align="center">举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">!</td>
+<td align="center">非运算，表达式为 true 则返回 false，否则返回 true。</td>
+<td align="center">[ ! false ] 返回 true。</td>
+</tr>
+<tr>
+<td align="center">-o</td>
+<td align="center">或运算，有一个表达式为 true 则返回 true。</td>
+<td align="center">[ $a -lt 20 -o $b -gt 100 ] 返回 true。</td>
+</tr>
+<tr>
+<td align="center">-a</td>
+<td align="center">与运算，两个表达式都为 true 才返回 true。</td>
+<td align="center">[ $a -lt 20 -a $b -gt 100 ] 返回 false。</td>
+</tr>
+</tbody></table>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p>以下介绍 Shell 的逻辑运算符，假定变量 a 为 10，变量 b 为 20:</p>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">说明</th>
+<th align="center">举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&amp;&amp;</td>
+<td align="center">逻辑的 AND</td>
+<td align="center">[[ $a -lt 100 &amp;&amp; $b -gt 100 ]] 返回 false</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">逻辑的 OR</td>
+</tr>
+</tbody></table>
+<p>有时候，下一条命令依赖前一条命令是否执行成功。命令之间使用 &amp;&amp; 连接，实现逻辑与的功能。<br>命令之间使用 || 连接，实现逻辑或的功能。只有在 || 左边的命令返回假（命令返回值 $? == 1），|| 右边的命令才会被执行。这和 c 语言中的逻辑或语法功能相同，即实现短路逻辑或操作。</p>
+<h2 id="命令组合"><a href="#命令组合" class="headerlink" title="命令组合"></a>命令组合</h2><p><code>| 运算符</code><br>管道符号，是unix一个很强大的功能,符号为一条竖线:”|”。<br>他的功能是把第一个命令command 1执行的结果作为command2的输入传给command 2，例如:</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">ls</span> -s<span class="token operator">|</span><span class="token function">sort</span> -nr <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>-s 是file size，-n是numeric-sort，-r是reverse，反转<br>该命令列出当前目录中的文档(含size)，并把输出送给sort命令作为输入，sort命令按数字递减的顺序把ls的输出排序。<br><code>() （命令组合）</code></p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">(</span>command1<span class="token punctuation">;</span>command2<span class="token punctuation">[</span><span class="token punctuation">;</span>command3<span class="token punctuation">..</span>.<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>() 表示在当前 shell 中将多个命令作为一个整体执行。需要注意的是，使用 () 括起来的命令在执行前面都不会切换当前工作目录，也就是说命令组合都是在当前工作目录下被执行的，尽管命令中有切换目录的命令。<br><code>{} 运算符</code></p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">{</span> command1<span class="token punctuation">;</span>command2<span class="token punctuation">;</span>command3… <span class="token punctuation">}</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>{} 内命令在当前命令行执行，（）内命令在新命令行中执行。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">A<span class="token operator">=</span>1<span class="token punctuation">;</span><span class="token keyword">echo</span> <span class="token variable">$A</span><span class="token punctuation">;</span><span class="token punctuation">{</span> A<span class="token operator">=</span>2<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">echo</span> <span class="token variable">$A</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>1
+2</code></pre><pre class="line-numbers language-bash"><code class="language-bash">A<span class="token operator">=</span>1<span class="token punctuation">;</span><span class="token keyword">echo</span> <span class="token variable">$A</span><span class="token punctuation">;</span><span class="token punctuation">(</span> A<span class="token operator">=</span>2<span class="token punctuation">;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">echo</span> <span class="token variable">$A</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>1
+1</code></pre><pre class="line-numbers language-bash"><code class="language-bash">A<span class="token operator">=</span>1<span class="token punctuation">;</span><span class="token keyword">echo</span> <span class="token variable">$A</span><span class="token punctuation">;</span><span class="token punctuation">(</span> A<span class="token operator">=</span>2<span class="token punctuation">;</span><span class="token keyword">echo</span> <span class="token variable">$A</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">echo</span> <span class="token variable">$A</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>1
+2
+1</code></pre><h2 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h2><p>下表列出了常用的字符串运算符，假定变量 a 为 “abc”，变量 b 为 “efg”：</p>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">说明</th>
+<th align="center">举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">=</td>
+<td align="center">检测两个字符串是否相等，相等返回 true。</td>
+<td align="center">[ $a = $b ] 返回 false。</td>
+</tr>
+<tr>
+<td align="center">!=</td>
+<td align="center">检测两个字符串是否相等，不相等返回 true。</td>
+<td align="center">[ $a != $b ] 返回 true。</td>
+</tr>
+<tr>
+<td align="center">-z</td>
+<td align="center">检测字符串长度是否为0，为0返回 true。</td>
+<td align="center">[ -z $a ] 返回 false。</td>
+</tr>
+<tr>
+<td align="center">-n</td>
+<td align="center">检测字符串长度是否为0，不为0返回 true。</td>
+<td align="center">[ -n “$a” ] 返回 true。</td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td align="center">检测字符串是否为空，不为空返回 true。</td>
+<td align="center">[ $a ] 返回 true。</td>
+</tr>
+</tbody></table>
+<h2 id="文件测试运算符"><a href="#文件测试运算符" class="headerlink" title="文件测试运算符"></a>文件测试运算符</h2><p>文件测试运算符用于检测 Unix 文件的各种属性。<br>属性检测描述如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">说明</th>
+<th align="center">举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-b file</td>
+<td align="center">检测文件是否是块设备文件，如果是，则返回 true。</td>
+<td align="center">[ -b $file ] 返回 false。</td>
+</tr>
+<tr>
+<td align="center">-c file</td>
+<td align="center">检测文件是否是字符设备文件，如果是，则返回 true。</td>
+<td align="center">[ -c $file ] 返回 false。</td>
+</tr>
+<tr>
+<td align="center">-d file</td>
+<td align="center">检测文件是否是目录，如果是，则返回 true。</td>
+<td align="center">[ -d $file ] 返回 false。</td>
+</tr>
+<tr>
+<td align="center">-f file</td>
+<td align="center">检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。</td>
+<td align="center">[ -f $file ] 返回 true。</td>
+</tr>
+<tr>
+<td align="center">-g file</td>
+<td align="center">检测文件是否设置了 SGID 位，如果是，则返回 true。</td>
+<td align="center">[ -g $file ] 返回 false。</td>
+</tr>
+<tr>
+<td align="center">-k file</td>
+<td align="center">检测文件是否设置了粘着位(Sticky Bit)，如果是，则返回 true。</td>
+<td align="center">[ -k $file ] 返回 false。</td>
+</tr>
+<tr>
+<td align="center">-p file</td>
+<td align="center">检测文件是否是有名管道，如果是，则返回 true。</td>
+<td align="center">[ -p $file ] 返回 false。</td>
+</tr>
+<tr>
+<td align="center">-u file</td>
+<td align="center">检测文件是否设置了 SUID 位，如果是，则返回 true。</td>
+<td align="center">[ -u $file ] 返回 false。</td>
+</tr>
+<tr>
+<td align="center">-r file</td>
+<td align="center">检测文件是否可读，如果是，则返回 true。</td>
+<td align="center">[ -r $file ] 返回 true。</td>
+</tr>
+<tr>
+<td align="center">-w file</td>
+<td align="center">检测文件是否可写，如果是，则返回 true。</td>
+<td align="center">[ -w $file ] 返回 true。</td>
+</tr>
+<tr>
+<td align="center">-x file</td>
+<td align="center">检测文件是否可执行，如果是，则返回 true。</td>
+<td align="center">[ -x $file ] 返回 true。</td>
+</tr>
+<tr>
+<td align="center">-s file</td>
+<td align="center">检测文件是否为空（文件大小是否大于0），不为空返回 true。</td>
+<td align="center">[ -s $file ] 返回 true。</td>
+</tr>
+<tr>
+<td align="center">-e file</td>
+<td align="center">检测文件（包括目录）是否存在，如果是，则返回 true。</td>
+<td align="center">[ -e $file ] 返回 true。</td>
+</tr>
+</tbody></table>
+<h1 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h1><p>用于输出.</p>
+<h2 id="显示字符串"><a href="#显示字符串" class="headerlink" title="显示字符串"></a>显示字符串</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">echo</span> <span class="token string">"It is a test"</span>
+<span class="token keyword">echo</span> It is a <span class="token function">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>It is a test
+It is a test</code></pre><h2 id="显示转义字符"><a href="#显示转义字符" class="headerlink" title="显示转义字符"></a>显示转义字符</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">echo</span> <span class="token string">"\"It is a test\""</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>&quot;It is a test&quot;</code></pre><h2 id="显示变量"><a href="#显示变量" class="headerlink" title="显示变量"></a>显示变量</h2><p>test.sh</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/sh</span>
+<span class="token function">read</span> name 
+<span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$name</span> It is a test"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">sh test.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>OK                     #标准输入
+OK It is a test        #输出</code></pre><h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">echo</span> -e <span class="token string">"OK! \n"</span> <span class="token comment" spellcheck="true"># -e 开启转义</span>
+<span class="token keyword">echo</span> <span class="token string">"It is a test"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>OK!
+
+It is a test</code></pre><h2 id="不换行"><a href="#不换行" class="headerlink" title="不换行"></a>不换行</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/sh</span>
+<span class="token keyword">echo</span> -e <span class="token string">"OK! \c"</span> <span class="token comment" spellcheck="true"># -e 开启转义 \c 不换行</span>
+<span class="token keyword">echo</span> <span class="token string">"It is a test"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre><code>OK! It is a test</code></pre><h2 id="显示结果定向至文件"><a href="#显示结果定向至文件" class="headerlink" title="显示结果定向至文件"></a>显示结果定向至文件</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">echo</span> <span class="token string">"It is a test"</span> <span class="token operator">></span> myfile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="原样输出字符串"><a href="#原样输出字符串" class="headerlink" title="原样输出字符串"></a>原样输出字符串</h2><p>不进行转义或取变量(用单引号)</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">echo</span> <span class="token string">'<span class="token variable">$name</span>\"'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>$name\&quot;</code></pre><h2 id="显示命令执行结果"><a href="#显示命令执行结果" class="headerlink" title="显示命令执行结果"></a>显示命令执行结果</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">echo</span> <span class="token variable"><span class="token variable">`</span><span class="token function">date</span><span class="token variable">`</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>结果将显示当前日期</p>
+<pre><code>Thu Jul 24 10:08:46 CST 2014</code></pre><h1 id="printf"><a href="#printf" class="headerlink" title="printf"></a>printf</h1><p>printf 命令模仿 C 程序库（library）里的 printf() 程序。<br>printf 由 POSIX 标准所定义，因此使用 printf 的脚本比使用 echo 移植性好。<br>printf 使用引用文本或空格分隔的参数，外面可以在 printf 中使用格式化字符串，还可以制定字符串的宽度、左右对齐方式等。默认 printf 不会像 echo 自动添加换行符，我们可以手动添加 \n。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token function">printf</span> <span class="token string">"%-10s %-8s %-4s\n"</span> 姓名 性别 体重kg  
+<span class="token function">printf</span> <span class="token string">"%-10s %-8s %-4.2f\n"</span> 郭靖 男 66.1234 
+<span class="token function">printf</span> <span class="token string">"%-10s %-8s %-4.2f\n"</span> 杨过 男 48.6543 
+<span class="token function">printf</span> <span class="token string">"%-10s %-8s %-4.2f\n"</span> 郭芙 女 47.9876 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>姓名     性别   体重kg
+郭靖     男      66.12
+杨过     男      48.65
+郭芙     女      47.99</code></pre><p>%s %c %d %f都是格式替代符<br>%-10s 指一个宽度为10个字符（-表示左对齐，没有则表示右对齐），任何字符都会被显示在10个字符宽的字符内，如果不足则自动以空格填充，超过也会将内容全部显示出来。<br>%-4.2f 指格式化为小数，其中.2指保留2位小数。</p>
+<h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><p>Shell中的 test 命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试。</p>
+<h2 id="数值测试"><a href="#数值测试" class="headerlink" title="数值测试"></a>数值测试</h2><pre class="line-numbers language-bash"><code class="language-bash">num1<span class="token operator">=</span>100
+num2<span class="token operator">=</span>100
+<span class="token keyword">if</span> <span class="token function">test</span> $<span class="token punctuation">[</span>num1<span class="token punctuation">]</span> -eq $<span class="token punctuation">[</span>num2<span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">'两个数相等！'</span>
+<span class="token keyword">else</span>
+    <span class="token keyword">echo</span> <span class="token string">'两个数不相等！'</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>两个数相等！</code></pre><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-eq</td>
+<td align="center">等于则为真</td>
+</tr>
+<tr>
+<td align="left">-ne</td>
+<td align="center">不等于则为真</td>
+</tr>
+<tr>
+<td align="left">-gt</td>
+<td align="center">大于则为真</td>
+</tr>
+<tr>
+<td align="left">-ge</td>
+<td align="center">大于等于则为真</td>
+</tr>
+<tr>
+<td align="left">-lt</td>
+<td align="center">小于则为真</td>
+</tr>
+<tr>
+<td align="left">-le</td>
+<td align="center">小于等于则为真</td>
+</tr>
+</tbody></table>
+<h2 id="字符串测试"><a href="#字符串测试" class="headerlink" title="字符串测试"></a>字符串测试</h2><pre class="line-numbers language-bash"><code class="language-bash">num1<span class="token operator">=</span><span class="token string">"ru1noob"</span>
+num2<span class="token operator">=</span><span class="token string">"runoob"</span>
+<span class="token keyword">if</span> <span class="token function">test</span> <span class="token variable">$num1</span> <span class="token operator">=</span> <span class="token variable">$num2</span>
+<span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">'两个字符串相等!'</span>
+<span class="token keyword">else</span>
+    <span class="token keyword">echo</span> <span class="token string">'两个字符串不相等!'</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>两个字符串不相等!</code></pre><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">=</td>
+<td align="center">等于则为真</td>
+</tr>
+<tr>
+<td align="left">!=</td>
+<td align="center">不相等则为真</td>
+</tr>
+<tr>
+<td align="left">-z 字符串</td>
+<td align="center">字符串的长度为零则为真</td>
+</tr>
+<tr>
+<td align="left">-n 字符串</td>
+<td align="center">字符串的长度不为零则为真</td>
+</tr>
+</tbody></table>
+<h2 id="文件测试"><a href="#文件测试" class="headerlink" title="文件测试"></a>文件测试</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /bin
+<span class="token keyword">if</span> <span class="token function">test</span> -e ./bash
+<span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">'文件已存在!'</span>
+<span class="token keyword">else</span>
+    <span class="token keyword">echo</span> <span class="token string">'文件不存在!'</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>文件已存在!</code></pre><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-e 文件名</td>
+<td align="center">如果文件存在则为真</td>
+</tr>
+<tr>
+<td align="left">-r 文件名</td>
+<td align="center">如果文件存在且可读则为真</td>
+</tr>
+<tr>
+<td align="left">-w 文件名</td>
+<td align="center">如果文件存在且可写则为真</td>
+</tr>
+<tr>
+<td align="left">-x 文件名</td>
+<td align="center">如果文件存在且可执行则为真</td>
+</tr>
+<tr>
+<td align="left">-s 文件名</td>
+<td align="center">如果文件存在且至少有一个字符则为真</td>
+</tr>
+<tr>
+<td align="left">-d 文件名</td>
+<td align="center">如果文件存在且为目录则为真</td>
+</tr>
+<tr>
+<td align="left">-f 文件名</td>
+<td align="center">如果文件存在且为普通文件则为真</td>
+</tr>
+<tr>
+<td align="left">-c 文件名</td>
+<td align="center">如果文件存在且为字符型特殊文件则为真</td>
+</tr>
+<tr>
+<td align="left">-b 文件名</td>
+<td align="center">如果文件存在且为块特殊文件则为真</td>
+</tr>
+</tbody></table>
+<p>另外，Shell还提供了与( -a )、或( -o )、非( ! )三个逻辑操作符用于将测试条件连接起来，其优先级为：”!”最高，”-a”次之，”-o”最低。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /bin
+<span class="token keyword">if</span> <span class="token function">test</span> -e ./notFile -o -e ./bash
+<span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">'至少有一个文件存在!'</span>
+<span class="token keyword">else</span>
+    <span class="token keyword">echo</span> <span class="token string">'两个文件都不存在'</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>至少有一个文件存在!</code></pre><h1 id="双击执行"><a href="#双击执行" class="headerlink" title="双击执行"></a>双击执行</h1><p>进入文件管理器，点击Preference -&gt; Behavior -&gt; Excutable Text Files -&gt; Run Excutable text Files when you are opened</p>
+<p>参考链接：<br><a href="https://www.runoob.com/linux/linux-shell.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-shell.html</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                 
+                 <hr/>
+                 
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn" rel="external nofollow noreferrer">陈德强</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn/40027.html">https://purethought.cn/40027.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://purethought.cn" target="_blank">陈德强</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+            </div>         
+        </div>
+    </div>
+    
+    <!-- 代码块功能依赖 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>    
+    <!-- 代码语言 -->   
+    <!-- <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script> -->          
+    <!-- 代码块复制 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>      
+    <!-- 代码块收缩 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge ">                  
+                <a href="/43091.html" target="_blank">                 
+                    <font color="#0e263f">
+                        <i class="fa  fa-hand-o-left"></i>
+                        Mac连接Linux
+                    </font>                    
+                </a>          
+            </div>
+        </div>
+        
+
+
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge " >
+                <a href="/36922.html" target="_blank">
+                    <font color="#0e263f">
+                        视频画中画教程
+                        <i class="fa  fa-hand-o-right"></i>
+                    </font>
+                 </a>  
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+    
+        <style>
+    #reward {
+        /*margin: 40px 0;*/
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.6rem;
+      
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+   <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red" >¥</a> 
+  
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-times"></i></a>
+            <h4 class="reward-title">您的赞赏就是我的动力^</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+    
+
+    
+        <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80Njk3Mi8yMzQ3Mw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+    
+   <!-- 
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '6190f09c0ffe658707b5',
+        clientSecret: '2798e16eeba573f49ce06d2da0595188699aac41',
+        repo: 'cdqpt.github.io',
+        owner: 'CdqPT',
+        admin: "CdqPT",
+        id: '2019-11-23T12-05-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+     -->
+
+    
+
+    
+
+    
+
+   <!-- <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script> -->
+
+</div>
+
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    
+        <div class="toc-widget">
+        
+            <div class="toc-title" ><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="hidden">
+                <div id="toc-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. --><!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large ">    
+        <i class="fa fa-th-large"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2'
+        });
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            i++;
+            $(this).attr('href', '#' + tocHeading + (i));
+            $(this).attr('navTo',  tocHeading + (i));    
+        });
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(0);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(100);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+</main>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+       <div class="col s12 m8 l8 copy-right">
+             
+               &copy;2018-2020 ALaDing
+               &nbsp;
+             Author:  <a href="https://purethought.cn/">陈德强 &nbsp  Email: 928277452@qq.com</a>
+
+            
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                       
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?147475454185ebcf440a27cc35e793ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CdqPT" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:928277452@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=928277452" class="tooltipped" data-tooltip="QQ联系我: 928277452" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+ 
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+   
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+
+</html>

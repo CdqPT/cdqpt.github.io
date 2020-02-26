@@ -1,0 +1,1407 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="安装及配置集合, 陈德强 ALaDing 内蒙古工业大学 机器人 东软 东软集团 嵌入式 自动驾驶 ADASIS">
+    <meta name="description" content="Adobe flash PlayerLinuxsudo apt-get install flashplugin-installer
+bashbash是Linux和MAC自带的shell工具。
+文件树安装:
+sudo apt install ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>安装及配置集合 | ALaDing</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+
+
+
+  <link rel="amphtml" href="https://purethought.cn/53757.html/amp/index.html">
+
+    
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+
+
+
+
+<body style="overflow-x:hidden">
+    <header id="navControl" class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ALaDing</span>
+                </a>
+            </div>
+            
+
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/dictionary" class="waves-effect waves-light">
+            
+            <i class="fa fa-book"></i>
+            
+            <span>字典</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>豆瓣</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-leaf"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-commenting"></i>
+            
+            <span>留言</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse">
+  <i class="fa fa-navicon" >
+     <b>导航 </b>
+  </i>
+</a>
+
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/dictionary" class="waves-effect waves-light">
+              
+                <i class="fa fa-book"></i>
+              
+              <span>字典</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/categories" class="waves-effect waves-light">
+                
+                  <i class="fa fa-bookmark"></i>
+                
+                <span>分类</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>编程笔记</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>文史哲理</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>投资理财</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>过程随笔</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>既有优化</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>安装教程</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-heart"></i>
+                
+                <span>豆瓣</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/books" >
+                    
+                      <i class="fa fa-book" style="margin-top: -20px;"></i>
+                    
+                    <span>书单</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/movies" >
+                    
+                      <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>电影</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/games" >
+                    
+                      <i class="fa fa-gamepad" style="margin-top: -20px;"></i>
+                    
+                    <span>游戏</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-leaf"></i>
+                
+                <span>关于</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/about" >
+                    
+                      <i class="fa fa-user" style="margin-top: -20px;"></i>
+                    
+                    <span>简介</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/galleries" >
+                    
+                      <i class="fa fa-camera" style="margin-top: -20px;"></i>
+                    
+                    <span>相册</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/friends" >
+                    
+                      <i class="fa fa-handshake-o" style="margin-top: -20px;"></i>
+                    
+                    <span>友链</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/log" >
+                    
+                      <i class="fa fa-pencil-square-o" style="margin-top: -20px;"></i>
+                    
+                    <span>日志</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/tags" >
+                    
+                      <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/archives" >
+                    
+                      <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fa-commenting"></i>
+              
+              <span>留言</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+
+            <i id="searchIcon" class="fa fa-search" title="搜索" >
+              <b>搜索 </b>
+            </i>
+
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ALaDing</div>
+        <div class="logo-desc">
+            
+            东软集团 | 内蒙古工业大学 | 嵌入式工程师 | ADAS
+            
+        </div>
+    </div>
+
+    
+
+
+ <ul class="menu-list mobile-menu-list">  <li class="m-nav-item">  <a href="/" class="waves-effect waves-light">  <i class="fa fa-fw fa-home"></i>  首页 </a>  </li>  <li class="m-nav-item">  <a href="/dictionary" class="waves-effect waves-light">  <i class="fa fa-fw fa-book"></i>  字典 </a>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-bookmark"></i>  分类 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>编程笔记</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>文史哲理</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>投资理财</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>过程随笔</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>既有优化</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>安装教程</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-heart"></i>  豆瓣 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/books" >  <i class="fa fa-book" style="left: 25px; position: absolute;"></i>  <span>书单</span> </a> </li>  <li> <a href="/movies" >  <i class="fa fa-film" style="left: 25px; position: absolute;"></i>  <span>电影</span> </a> </li>  <li> <a href="/games" >  <i class="fa fa-gamepad" style="left: 25px; position: absolute;"></i>  <span>游戏</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-leaf"></i>  关于 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/about" >  <i class="fa fa-user" style="left: 25px; position: absolute;"></i>  <span>简介</span> </a> </li>  <li> <a href="/galleries" >  <i class="fa fa-camera" style="left: 25px; position: absolute;"></i>  <span>相册</span> </a> </li>  <li> <a href="/friends" >  <i class="fa fa-handshake-o" style="left: 25px; position: absolute;"></i>  <span>友链</span> </a> </li>  <li> <a href="/log" >  <i class="fa fa-pencil-square-o" style="left: 25px; position: absolute;"></i>  <span>日志</span> </a> </li>  <li> <a href="/tags" >  <i class="fa fa-tags" style="left: 25px; position: absolute;"></i>  <span>标签</span> </a> </li>  <li> <a href="/archives" >  <i class="fa fa-archive" style="left: 25px; position: absolute;"></i>  <span>归档</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="/contact" class="waves-effect waves-light">  <i class="fa fa-fw fa-commenting"></i>  留言 </a>  </li>   <li><div class="divider"></div></li> <li> <a href="https://github.com/CdqPT" class="waves-effect waves-light" target="_blank"> <i class="fa fa-github-square fa-fw"></i>Fork Me </a> </li>  </ul>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #000;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/CdqPT" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blogcdq.oss-cn-beijing.aliyuncs.com/image/other/star.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        安装及配置集合
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before  /*,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before */{
+        display: block;
+        content: "🔖";
+        position: absolute;
+        left: 50px;
+        /*color: #EE7942;*/
+        /*color: red;*/
+    }
+        @media only screen and (max-width: 992px) {
+    #articleContent h1::before{
+        display: block;
+        content: " ";
+    }
+}
+
+    /*修改滚动条样式为隐藏*/
+    #toc-content {
+        height: calc(105vh - 250px);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 320px;
+        height: 600px;
+    }
+    #hidden{
+        overflow: hidden;
+        width: 300px;    
+    }  
+
+    #articleContent :focus {
+        outline: none;
+    }
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+    .toc-widget {
+        padding-left: 20px;
+    }
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 40px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    #toc-content ol {
+        padding-left: 10px;
+    }
+    #toc-content ol li {
+        padding-left: 30px;
+    }
+    #toc-content .toc-link:hover {
+        color: black;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+    #toc-content .is-active-link {
+        color: red;
+    }
+    #toc-content .is-active-link::before {
+        background-color: red;
+    }
+    #floating-toc-btn {
+        position: fixed;
+        right: 0.6rem;
+        bottom: 6rem;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+        opacity: 0.5;
+    }
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/原创/" target="_blank">
+                                <span class="chip bg-color">原创</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/字典/" class="post-category" target="_blank">
+                                字典
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+
+               <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-pencil fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-12-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-refresh fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-02-25
+                </div>
+                
+
+                
+
+                
+                
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+            
+        </div>
+
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Adobe-flash-Player"><a href="#Adobe-flash-Player" class="headerlink" title="Adobe flash Player"></a>Adobe flash Player</h1><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> flashplugin-installer<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="bash"><a href="#bash" class="headerlink" title="bash"></a>bash</h1><p>bash是Linux和MAC自带的shell工具。</p>
+<h2 id="文件树"><a href="#文件树" class="headerlink" title="文件树"></a>文件树</h2><p>安装:</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> apt <span class="token function">install</span> tree<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>用法:</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 显示3级目录</span>
+tree -L 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h1 id="Beyond-Compare"><a href="#Beyond-Compare" class="headerlink" title="Beyond Compare"></a>Beyond Compare</h1><p><a href="https://www.scootersoftware.com/" target="_blank" rel="noopener">Beyond Compare</a>是一款文本比较工具。<br>安装方式–一站式安装<br><a href="https://purethought.cn/27694.html">破解方式</a></p>
+<h1 id="Everything"><a href="#Everything" class="headerlink" title="Everything"></a>Everything</h1><p><a href="https://www.voidtools.com/zh-cn/" target="_blank" rel="noopener">Everything</a>是一款Win下的文件搜索工具。<br>安装方式：一站式安装。</p>
+<h1 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h1><p><a href="https://www.firefox.com.cn/" target="_blank" rel="noopener">火狐浏览器</a>的优势在于不用翻墙就能同步！<br>安装方式–一站式安装</p>
+<h2 id="翻译插件"><a href="#翻译插件" class="headerlink" title="翻译插件"></a>翻译插件</h2><p><a href="https://addons.mozilla.org/zh-CN/firefox/addon/edge_translate/?src=search" target="_blank" rel="noopener">侧边翻译</a></p>
+<h2 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h2><p><a href="https://addons.mozilla.org/zh-CN/firefox/addon/hoxx-vpn-proxy/?src=search" target="_blank" rel="noopener">Hoxx</a></p>
+<h2 id="繁简转换"><a href="#繁简转换" class="headerlink" title="繁简转换"></a>繁简转换</h2><p>这个主要针对<a href="https://linux.vbird.org/" target="_blank" rel="noopener">鸟哥网站</a>用的。<br><a href="https://addons.mozilla.org/zh-CN/firefox/addon/%E8%BD%AC%E6%8D%A2%E8%87%B3%E7%AE%80%E4%BD%93/?src=search" target="_blank" rel="noopener">转换至简体</a></p>
+<h2 id="视频下载"><a href="#视频下载" class="headerlink" title="视频下载"></a>视频下载</h2><p><a href="https://addons.mozilla.org/zh-CN/firefox/addon/video-downloadhelper/?src=search" target="_blank" rel="noopener">Video DownloadHelper</a></p>
+<h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><p><a href="https://www.baidu.com/link?url=RPsAjDIRGPcT_LF3rasFtiVL2AHTSZZgOqakmxpByVe&wd=&eqid=e704db970002b4f3000000025df781cd" target="_blank" rel="noopener">hexo</a>是一款构建个人博客的框架。<br><a href="https://purethought.cn/a964939.html">博客搭建方式</a></p>
+<p><a href="https://purethought.cn/c308959f.html">博客配置方式</a></p>
+<h1 id="Keil"><a href="#Keil" class="headerlink" title="Keil"></a>Keil</h1><p><a href="https://www.keil.com/" target="_blank" rel="noopener">Keil</a>是一款单片机开发IDE.<br><a href="https://purethought.cn/bad9c71f.html">安装方式</a></p>
+<h1 id="Matlab2016a"><a href="#Matlab2016a" class="headerlink" title="Matlab2016a"></a>Matlab2016a</h1><p><a href="https://ww2.mathworks.cn/?s_tid=gn_logo" target="_blank" rel="noopener">Matlab</a>是一款科学计算工具，覆盖十多个领域，及其强大。<br><a href="https://purethought.cn/770c77a4.html">安装方式</a></p>
+<h1 id="manico"><a href="#manico" class="headerlink" title="manico"></a>manico</h1><p><a href="https://manico.im/" target="_blank" rel="noopener">manico</a>是一款MAC下快速切换应用的软件。<br>安装方式：appstore下载安装。</p>
+<p>将option设置为呼出键<br>然后就可以将应用设置为快捷方式，如:</p>
+<p><strong>终端:</strong>option+`<br><strong>网易云音乐:</strong>option+tab<br><strong>火狐浏览器:</strong>option+1<br><strong>Sublime:</strong>option+2<br><strong>vs2019:</strong>option+3<br><strong>访达:</strong>option+E</p>
+<p>同时将双击临时禁用选项选上，因为有时候会和其他快捷键冲突。</p>
+<h1 id="MobaXterm"><a href="#MobaXterm" class="headerlink" title="MobaXterm"></a>MobaXterm</h1><p><a href="https://mobaxterm.mobatek.net/" target="_blank" rel="noopener">MobaXterm</a>是一款超好用的SSH客户端神器。<br>安装方式：一站式安装。</p>
+<h1 id="MPlayer"><a href="#MPlayer" class="headerlink" title="MPlayer"></a>MPlayer</h1><p>Linxu下的影音播放软件</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> mplayer
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> smplayer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h1 id="Nomachine"><a href="#Nomachine" class="headerlink" title="Nomachine"></a>Nomachine</h1><p><a href="https://www.nomachine.com/" target="_blank" rel="noopener">Nomachine</a>是一款全平台的远程桌面连接工具。<br>安装方式：<br>WIN和MAC一站式安装。<br>Linux下下载.tar.gz压缩包，然后：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf nomachine_6.9.2_1_x86_64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>使用方法：<br><a href="https://blog.csdn.net/chenjambo/article/details/80946044" target="_blank" rel="noopener">https://blog.csdn.net/chenjambo/article/details/80946044</a></p>
+<h1 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h1><p><a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo</a>是一款图床上传工具，支持平台有：<br>七牛图床 v1.0<br>腾讯云 COS v4\v5版本 v1.1 &amp; v1.5.0<br>又拍云 v1.2.0<br>GitHub v1.5.0<br>SM.MS v1.5.1<br>阿里云 OSS v1.6.0<br>Imgur v1.6.0</p>
+<h2 id="图片裁剪"><a href="#图片裁剪" class="headerlink" title="图片裁剪"></a>图片裁剪</h2><p>设置最高为450，宽度自适应。返回markdown格式。图库为阿里云。</p>
+<pre><code>上传区 -&gt; 链接格式 -&gt; Custom
+PicGo设置 -&gt; 自定义链接格式 -&gt; 点击设置 -&gt; ![]($url?x-oss-process=image/resize,m_lfit,h_450)</code></pre><h1 id="Qt"><a href="#Qt" class="headerlink" title="Qt"></a>Qt</h1><p><a href="https://www.qt.io/" target="_blank" rel="noopener">Qt</a>是一个1991年由Qt Company开发的跨平台C++图形用户界面应用程序开发框架。它既可以开发GUI程序，也可用于开发非GUI程序，比如控制台工具和服务器。<br>安装方式:一站式安装.</p>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p><strong>Ctrl + M</strong>    添加/删除书签（书签也可以添加文字标注）<br><strong>Ctrl + .</strong>  查找并移动到下一个标签<br><strong>ctrl+/</strong>    集体注释<br><strong>F2</strong>        跳转到定义<br><strong>F4</strong>        定义和声明来回跳转<br><strong>F5</strong>        调试<br><strong>F9</strong>        加断点<br><strong>F10</strong>       单步执行<br><strong>Ctrl + I</strong>  格式化代码 </p>
+<h1 id="samrtgit"><a href="#samrtgit" class="headerlink" title="samrtgit"></a>samrtgit</h1><p><a href="https://www.syntevo.com/smartgit/" target="_blank" rel="noopener">samrtgit</a>是一种git可视化工具。<br><code>安装方式:</code><br>勾选 I understand…. -&gt; next -&gt; 填写用户名和邮箱 -&gt; next -&gt; Use system SSH client -&gt; next -&gt; next -&gt; finish<br><a href="https://purethought.cn/b5445f21.html">破解方式</a></p>
+<h2 id="配置beyond-compare作为对比工具"><a href="#配置beyond-compare作为对比工具" class="headerlink" title="配置beyond compare作为对比工具"></a>配置beyond compare作为对比工具</h2><p><a href="https://purethought.cn/4c8024a9.html">https://purethought.cn/4c8024a9.html</a></p>
+<h2 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h2><pre class="line-numbers language-bash"><code class="language-bash">refs/for/master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="Script"><a href="#Script" class="headerlink" title="Script"></a>Script</h1><p>python文件首行信息:</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#!/usr/bin/python</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>bash文件首行信息:</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="synergy"><a href="#synergy" class="headerlink" title="synergy"></a>synergy</h1><p><a href="https://www.baidu.com/link?url=KOG3lGH_blRT8TR3Ex1S-jRtDrRmIX89jqeewnHA8JsFXOqaGtLnMGAeuJoCFiw6&wd=&eqid=9680e4020001db9f000000025df7814d" target="_blank" rel="noopener">synergy</a>是一款运行流畅的键鼠共用软件。<br><a href="https://purethought.cn/16613.html">安装方式</a></p>
+<h2 id="synergy开机自启设置"><a href="#synergy开机自启设置" class="headerlink" title="synergy开机自启设置"></a>synergy开机自启设置</h2><p>打开配置文件：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> vim /etc/lightdm/lightdm.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在[SeatDefaults]下增加默认配置,在第100行可以找到样例：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">display-setup-script<span class="token operator">=</span>/usr/bin/synergyc 192.168.1.8<span class="token punctuation">(</span> server ip<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这样synergy就可以开机自启了</p>
+<h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><p><a href="https://github.com/vim/vim" target="_blank" rel="noopener">vim</a>是一款程序员爱用的文本编辑器。<br>linux下安装：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> apt <span class="token function">install</span> vim<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> vim /etc/vim/vimrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token string">"显示行号"</span>
+<span class="token keyword">set</span> nu
+<span class="token string">"tab宽度"</span>
+<span class="token keyword">set</span> tabstop<span class="token operator">=</span>2   
+<span class="token string">"设置粘贴模式，防止粘贴窜行"</span>
+<span class="token keyword">set</span> <span class="token function">paste</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h1><p>zsh是一款bash工具.<br>zsh的强大之处在于命令补全功能,不仅可以提示并补全所有bash命令,而且也可以补全git命令,据说是可以补全所有命令的。<br>zsh默默无闻的原因是配置繁琐,于是就有了<a href="https://github.com/ohmyzsh/ohmyzsh/" target="_blank" rel="noopener">oh-my-zsh</a>来帮助程序员自动配置zsh.</p>
+<p><a href="https://purethought.cn/4594.html">安装方式</a></p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>1.<strong>[TAB]</strong><br>自动补全.<br>2.<strong>cd [TAB]</strong><br>列出当前所有子目录供选择.<br>3.<strong>d</strong><br>列出最近使用过的三个目录,并在下个命令行选择数字切换到该目录.</p>
+<h2 id="别名配置"><a href="#别名配置" class="headerlink" title="别名配置"></a>别名配置</h2><p>打开配置文件：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span>
+vim .zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>添加配置：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 连接树莓派</span>
+<span class="token function">alias</span> pi<span class="token operator">=</span><span class="token string">'ssh pi@192.168.xx.xxx'</span>
+<span class="token comment" spellcheck="true"># 连接deepin</span>
+<span class="token function">alias</span> deepin<span class="token operator">=</span><span class="token string">'ssh cdq@192.168.xx.xx'</span>
+<span class="token comment" spellcheck="true"># python3别名</span>
+<span class="token function">alias</span> py<span class="token operator">=</span><span class="token string">"python3"</span>
+<span class="token comment" spellcheck="true"># python2别名</span>
+<span class="token function">alias</span> py2<span class="token operator">=</span><span class="token string">"python"</span>
+<span class="token comment" spellcheck="true"># Sublime别名</span>
+<span class="token function">alias</span> subl<span class="token operator">=</span><span class="token string">"/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"</span>
+<span class="token comment" spellcheck="true"># hexo上传命令</span>
+<span class="token function">alias</span> hd<span class="token operator">=</span><span class="token string">"hexo g&amp;&amp;hexo de"</span>
+<span class="token comment" spellcheck="true"># git push</span>
+<span class="token function">alias</span> gp<span class="token operator">=</span><span class="token string">"git add -A &amp;&amp; git commit -m "</span>m<span class="token string">" &amp;&amp; git push origin blog"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="自动补全插件"><a href="#自动补全插件" class="headerlink" title="自动补全插件"></a>自动补全插件</h2><p>新建存放插件的文件夹:</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">mkdir</span> ~/.oh-my-zsh/custom/plugins/incr<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>下载<a href="https://mimosa-pudica.net/src/incr-0.2.zsh" target="_blank" rel="noopener">自动补全插件</a>并放在 <code>~/.oh-my-zsh/custom/plugins/incr/</code> 目录下.</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">echo</span> <span class="token string">'source <span class="token variable">$ZSH</span>/custom/plugins/incr/incr*.zsh'</span><span class="token operator">>></span>~/.zshrc
+<span class="token function">source</span> ~/.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="目录跳转插件"><a href="#目录跳转插件" class="headerlink" title="目录跳转插件"></a>目录跳转插件</h2><p><a href="https://github.com/wting/autojump" target="_blank" rel="noopener">autojump</a>会记录cd路径并配置权重,是通过记录进入过的目录到数据库来实现的, 所以必须是曾经进入过的目录才能跳转.<br><strong>Linux</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> autojump
+<span class="token function">source</span> /usr/share/autojump/autojump.sh on startup
+<span class="token keyword">echo</span> <span class="token string">'. /usr/share/autojump/autojump.sh'</span><span class="token operator">>></span>~/.zshrc
+<span class="token function">source</span> ~/.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Mac</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">brew <span class="token function">install</span> autojump
+<span class="token keyword">echo</span> <span class="token string">'[[ -s <span class="token variable"><span class="token variable">$(</span>brew --prefix<span class="token variable">)</span></span>/etc/profile.d/autojump.sh ]] &amp;&amp; . <span class="token variable"><span class="token variable">$(</span>brew --prefix<span class="token variable">)</span></span>/etc/profile.d/autojump.sh'</span><span class="token operator">>></span>~/.zshrc
+<span class="token function">source</span> ~/.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>使用时直接输入目录名而不必输入全路径:</p>
+<pre class="line-numbers language-bash"><code class="language-bash">j 目录名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>查看权重:</p>
+<pre class="line-numbers language-bash"><code class="language-bash">j -s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>给当前目录增加/减少权重:</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#加权重</span>
+j -i
+<span class="token comment" spellcheck="true">#减权重</span>
+j -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="小键盘支持"><a href="#小键盘支持" class="headerlink" title="小键盘支持"></a>小键盘支持</h2><pre class="line-numbers language-bash"><code class="language-bash">vim ~/.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># key bindings</span>
+bindkey <span class="token string">"\e[1~"</span> beginning-of-line
+bindkey <span class="token string">"\e[4~"</span> end-of-line
+bindkey <span class="token string">"\e[5~"</span> beginning-of-history
+bindkey <span class="token string">"\e[6~"</span> end-of-history
+
+<span class="token comment" spellcheck="true"># for rxvt</span>
+bindkey <span class="token string">"\e[8~"</span> end-of-line
+bindkey <span class="token string">"\e[7~"</span> beginning-of-line
+<span class="token comment" spellcheck="true"># for non RH/Debian xterm, can't hurt for RH/DEbian xterm</span>
+bindkey <span class="token string">"\eOH"</span> beginning-of-line
+bindkey <span class="token string">"\eOF"</span> end-of-line
+<span class="token comment" spellcheck="true"># for freebsd console</span>
+bindkey <span class="token string">"\e[H"</span> beginning-of-line
+bindkey <span class="token string">"\e[F"</span> end-of-line
+<span class="token comment" spellcheck="true"># completion in the middle of a line</span>
+bindkey <span class="token string">'^i'</span> expand-or-complete-prefix
+
+<span class="token comment" spellcheck="true"># Fix numeric keypad  </span>
+<span class="token comment" spellcheck="true"># 0 . Enter  </span>
+bindkey -s <span class="token string">"^[Op"</span> <span class="token string">"0"</span>
+bindkey -s <span class="token string">"^[On"</span> <span class="token string">"."</span>
+bindkey -s <span class="token string">"^[OM"</span> <span class="token string">"^M"</span>
+<span class="token comment" spellcheck="true"># 1 2 3  </span>
+bindkey -s <span class="token string">"^[Oq"</span> <span class="token string">"1"</span>
+bindkey -s <span class="token string">"^[Or"</span> <span class="token string">"2"</span>
+bindkey -s <span class="token string">"^[Os"</span> <span class="token string">"3"</span>
+<span class="token comment" spellcheck="true"># 4 5 6  </span>
+bindkey -s <span class="token string">"^[Ot"</span> <span class="token string">"4"</span>
+bindkey -s <span class="token string">"^[Ou"</span> <span class="token string">"5"</span>
+bindkey -s <span class="token string">"^[Ov"</span> <span class="token string">"6"</span>
+<span class="token comment" spellcheck="true"># 7 8 9  </span>
+bindkey -s <span class="token string">"^[Ow"</span> <span class="token string">"7"</span>
+bindkey -s <span class="token string">"^[Ox"</span> <span class="token string">"8"</span>
+bindkey -s <span class="token string">"^[Oy"</span> <span class="token string">"9"</span>
+<span class="token comment" spellcheck="true"># + - * /  </span>
+bindkey -s <span class="token string">"^[Ol"</span> <span class="token string">"+"</span>
+bindkey -s <span class="token string">"^[Om"</span> <span class="token string">"-"</span>
+bindkey -s <span class="token string">"^[Oj"</span> <span class="token string">"*"</span>
+bindkey -s <span class="token string">"^[Oo"</span> <span class="token string">"/"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">source</span> ~/.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="Visual-Studio"><a href="#Visual-Studio" class="headerlink" title="Visual Studio"></a>Visual Studio</h1><p><a href="https://visualstudio.microsoft.com/zh-hans/vs/" target="_blank" rel="noopener">Visual Studio</a>是一款Win环境下的集成开发环境，特大特卡。</p>
+<h2 id="辅助工具"><a href="#辅助工具" class="headerlink" title="辅助工具"></a>辅助工具</h2><p><strong>visual assistx:</strong>Visual Studio插件,辅助工具</p>
+<h2 id="快捷键-1"><a href="#快捷键-1" class="headerlink" title="快捷键"></a>快捷键</h2><p><strong>Ctrl+K，Ctrl+F</strong>    对齐</p>
+<h1 id="Linux-1"><a href="#Linux-1" class="headerlink" title="Linux"></a>Linux</h1><h2 id="文件开机自启"><a href="#文件开机自启" class="headerlink" title="文件开机自启"></a>文件开机自启</h2><p><a href="https://purethought.cn/49605.html">https://purethought.cn/49605.html</a></p>
+<h2 id="桌面快捷方式"><a href="#桌面快捷方式" class="headerlink" title="桌面快捷方式"></a>桌面快捷方式</h2><p><a href="https://purethought.cn/9dd67234.html">https://purethought.cn/9dd67234.html</a></p>
+<h2 id="开机顺序"><a href="#开机顺序" class="headerlink" title="开机顺序"></a>开机顺序</h2><p><a href="https://purethought.cn/57148f53.html">https://purethought.cn/57148f53.html</a></p>
+<h2 id="文件已损坏无法打开"><a href="#文件已损坏无法打开" class="headerlink" title="文件已损坏无法打开"></a>文件已损坏无法打开</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> spctl --master-disable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="Ubuntu16升级到18"><a href="#Ubuntu16升级到18" class="headerlink" title="Ubuntu16升级到18"></a>Ubuntu16升级到18</h2><p><a href="https://purethought.cn/16794.html">https://purethought.cn/16794.html</a></p>
+<h2 id="banner输出图形字符"><a href="#banner输出图形字符" class="headerlink" title="banner输出图形字符"></a>banner输出图形字符</h2><p>安装</p>
+<pre class="line-numbers language-bash"><code class="language-bash">yum <span class="token function">install</span> -y banner<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>用法<br>banner后接想打印的字符，便会出现图形字符，当然还有其他参数可以使用，可自行探索</p>
+<pre class="line-numbers language-bash"><code class="language-bash">cdq@cdq:~$ banner donot touch<span class="token operator">!</span>
+
+ <span class="token comment" spellcheck="true">#####    ####   #    #   ####    #####</span>
+ <span class="token comment" spellcheck="true">#    #  #    #  ###   #  #    #     #</span>
+ <span class="token comment" spellcheck="true">#    #  #    #  # #  #  #    #     #</span>
+ <span class="token comment" spellcheck="true">#    #  #    #  #  # #  #    #     #</span>
+ <span class="token comment" spellcheck="true">#    #  #    #  #   ###  #    #     #</span>
+ <span class="token comment" spellcheck="true">#####    ####   #    #   ####      #</span>
+
+                                          <span class="token comment" spellcheck="true">###</span>
+  <span class="token comment" spellcheck="true">#####   ####   #    #   ####   #    #   ###</span>
+    <span class="token comment" spellcheck="true">#    #    #  #    #  #    #  #    #   ###</span>
+    <span class="token comment" spellcheck="true">#    #    #  #    #  #       ######    #</span>
+    <span class="token comment" spellcheck="true">#    #    #  #    #  #       #    #</span>
+    <span class="token comment" spellcheck="true">#    #    #  #    #  #    #  #    #   ###</span>
+    <span class="token comment" spellcheck="true">#     ####    ####    ####   #    #   ###</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="数字雨"><a href="#数字雨" class="headerlink" title="数字雨"></a>数字雨</h2><p>安装</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> cmatrix<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>运行</p>
+<pre class="line-numbers language-bash"><code class="language-bash">cmatrix<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>F11</p>
+<h2 id="召唤小火车"><a href="#召唤小火车" class="headerlink" title="召唤小火车"></a>召唤小火车</h2><p>安装</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> apt <span class="token function">install</span> sl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>运行</p>
+<pre class="line-numbers language-bash"><code class="language-bash">sl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="MAC"><a href="#MAC" class="headerlink" title="MAC"></a>MAC</h1><h2 id="快速操作"><a href="#快速操作" class="headerlink" title="快速操作"></a>快速操作</h2><p><a href="https://purethought.cn/93b91ebb.html">https://purethought.cn/93b91ebb.html</a></p>
+<h2 id="右键新建文件"><a href="#右键新建文件" class="headerlink" title="右键新建文件"></a>右键新建文件</h2><p>使用插件：<a href="https://www.macbl.com/app/system/easy-new-file" target="_blank" rel="noopener">Easy New File 4.5</a></p>
+<h2 id="删除键delete"><a href="#删除键delete" class="headerlink" title="删除键delete"></a>删除键delete</h2><p>删除键就是退格键，在加号右边那个。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">delete，删除左边文字
+fn + delete，刪除右邊文字
+Option + delete（Control + delete），一次刪除一個單詞
+Command + delete，删除文件及文件夹等。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="关闭窗口快捷键"><a href="#关闭窗口快捷键" class="headerlink" title="关闭窗口快捷键"></a>关闭窗口快捷键</h2><p>快捷键是command+W</p>
+<h2 id="剪切"><a href="#剪切" class="headerlink" title="剪切"></a>剪切</h2><p>先command+c拷贝文件，<br>然后在目标文件夹右键，然后按option，选择移动到此处，<br>或者直接快捷键option+command+v</p>
+<h2 id="设置截屏快捷键"><a href="#设置截屏快捷键" class="headerlink" title="设置截屏快捷键"></a>设置截屏快捷键</h2><p>左上角苹果图标-系统偏好设置-屏幕快照-将所选区域图片拷贝至剪切板-control+a</p>
+<h2 id="管理状态栏"><a href="#管理状态栏" class="headerlink" title="管理状态栏"></a>管理状态栏</h2><p>方法非常简单：按照Command键，直接就可以用鼠标拖动图标即可完成图标的位置改变，据说只有升级到macOS 10.12 以后的版本才有此功能。</p>
+<h2 id="设置终端透明化"><a href="#设置终端透明化" class="headerlink" title="设置终端透明化"></a>设置终端透明化</h2><p>打开终端-&gt;偏好设置-&gt;描述文件-&gt;背景-&gt;颜色与效果-&gt;不透明度85%-&gt;模糊度0%</p>
+<h2 id="在终端打开当前目录"><a href="#在终端打开当前目录" class="headerlink" title="在终端打开当前目录"></a>在终端打开当前目录</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">open</span> <span class="token keyword">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="Win"><a href="#Win" class="headerlink" title="Win"></a>Win</h1><h2 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h2><p><strong>浏览器：</strong>火狐浏览器,谷歌浏览器<br><strong>office：</strong>破解版wps政府版/Office201X（wps运行更快，胡萝卜周）<br><strong>pdf软件：</strong>破解版Adobe pdf（adobe出品必属精品，胡萝卜周）<br><strong>装机必备软件：</strong>破解版rar（无广告，胡萝卜周），破解版2345看图王（无广告，胡萝卜周）<br><strong>社交软件：</strong>微信；TIM/QQ（官网）<br><strong>远程办公软件：</strong>TeamViewer（远程体验最棒，全平台支持，官网）<br><strong>论文软件：</strong>notefirst写中文论文，endnote写英文论文（推荐notefirst，官网）<br><strong>看书软件：</strong>neat reader（最优秀的epub读书软件，精巧无广告，官网）<br><strong>杀毒软件: *<em>火绒安全（精巧无广告，官网）<br>*</em>输入法：</strong>搜狗输入法（数据全平台同步，官网）/微软拼音（自带，不需要数据同步的可以考虑微软拼音）<br><strong>免费笔记软件：</strong>onenote（数据全平台同步，官网）<br><strong>下载软件：</strong>迅雷免广告版（破解的代价是失去了调用能力所以感觉还行吧，胡萝卜周）<br><strong>影音播放软件：</strong>potplayer（多格式解析，可添加电视台直播源观看直播，无广告极其优秀，直播源自行百度，官网）<br><strong>手机直播软件：</strong>HDP直播  <a href="https://www.hdplive.net/" target="_blank" rel="noopener">https://www.hdplive.net/</a></p>
+<h2 id="批处理"><a href="#批处理" class="headerlink" title="批处理"></a>批处理</h2><p>批处理文件.bat,相当于执行了命令行.</p>
+<h1 id="Raspi"><a href="#Raspi" class="headerlink" title="Raspi"></a>Raspi</h1><p><a href="https://purethought.cn/c2e59f87.html">开机教程</a></p>
+<h1 id="Ros"><a href="#Ros" class="headerlink" title="Ros"></a>Ros</h1><p><a href="https://www.ros.org/" target="_blank" rel="noopener">Ros</a>是一款机器人开发平台，致力于机器人开发标准化。<br><a href="https://purethought.cn/ed24dbf5.html">安装教程</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                 
+                 <hr/>
+                 
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn" rel="external nofollow noreferrer">陈德强</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn/53757.html">https://purethought.cn/53757.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://purethought.cn" target="_blank">陈德强</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+            </div>         
+        </div>
+    </div>
+    
+    <!-- 代码块功能依赖 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>    
+    <!-- 代码语言 -->   
+    <!-- <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script> -->          
+    <!-- 代码块复制 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>      
+    <!-- 代码块收缩 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge ">                  
+                <a href="/28715.html" target="_blank">                 
+                    <font color="#0e263f">
+                        <i class="fa  fa-hand-o-left"></i>
+                        日常英语积累
+                    </font>                    
+                </a>          
+            </div>
+        </div>
+        
+
+
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge " >
+                <a href="/60743.html" target="_blank">
+                    <font color="#0e263f">
+                        python数据可视化
+                        <i class="fa  fa-hand-o-right"></i>
+                    </font>
+                 </a>  
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+    
+        <style>
+    #reward {
+        /*margin: 40px 0;*/
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.6rem;
+      
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+   <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red" >¥</a> 
+  
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-times"></i></a>
+            <h4 class="reward-title">您的赞赏就是我的动力^</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+    
+
+    
+        <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80Njk3Mi8yMzQ3Mw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+    
+   <!-- 
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '6190f09c0ffe658707b5',
+        clientSecret: '2798e16eeba573f49ce06d2da0595188699aac41',
+        repo: 'cdqpt.github.io',
+        owner: 'CdqPT',
+        admin: "CdqPT",
+        id: '2019-12-16T20-01-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+     -->
+
+    
+
+    
+
+    
+
+   <!-- <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script> -->
+
+</div>
+
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    
+        <div class="toc-widget">
+        
+            <div class="toc-title" ><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="hidden">
+                <div id="toc-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. --><!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large ">    
+        <i class="fa fa-th-large"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2'
+        });
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            i++;
+            $(this).attr('href', '#' + tocHeading + (i));
+            $(this).attr('navTo',  tocHeading + (i));    
+        });
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(0);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(100);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+</main>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+       <div class="col s12 m8 l8 copy-right">
+             
+               &copy;2018-2020 ALaDing
+               &nbsp;
+             Author:  <a href="https://purethought.cn/">陈德强 &nbsp  Email: 928277452@qq.com</a>
+
+            
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                       
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?147475454185ebcf440a27cc35e793ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CdqPT" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:928277452@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=928277452" class="tooltipped" data-tooltip="QQ联系我: 928277452" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+ 
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+   
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+
+</html>

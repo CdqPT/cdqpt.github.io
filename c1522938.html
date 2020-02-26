@@ -1,0 +1,1390 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="STL容器, 陈德强 ALaDing 内蒙古工业大学 机器人 东软 东软集团 嵌入式 自动驾驶 ADASIS">
+    <meta name="description" content="顺序容器：是一种各元素之间有顺序关系的线性表，是一种线性结构的可序群集。顺序性容器中的每个元素均有固定的位置，除非用删除或插入的操作改变这个位置。顺序容器的元素排列次序与元素值无关，而是由元素添加到容器里的次序决定。
+顺序容器包括：vect">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>STL容器 | ALaDing</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+
+
+
+  <link rel="amphtml" href="https://purethought.cn/c1522938.html/amp/index.html">
+
+    
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+
+
+
+
+<body style="overflow-x:hidden">
+    <header id="navControl" class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ALaDing</span>
+                </a>
+            </div>
+            
+
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/dictionary" class="waves-effect waves-light">
+            
+            <i class="fa fa-book"></i>
+            
+            <span>字典</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>豆瓣</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-leaf"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-commenting"></i>
+            
+            <span>留言</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse">
+  <i class="fa fa-navicon" >
+     <b>导航 </b>
+  </i>
+</a>
+
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/dictionary" class="waves-effect waves-light">
+              
+                <i class="fa fa-book"></i>
+              
+              <span>字典</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/categories" class="waves-effect waves-light">
+                
+                  <i class="fa fa-bookmark"></i>
+                
+                <span>分类</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>编程笔记</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>文史哲理</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>投资理财</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>过程随笔</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>既有优化</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>安装教程</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-heart"></i>
+                
+                <span>豆瓣</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/books" >
+                    
+                      <i class="fa fa-book" style="margin-top: -20px;"></i>
+                    
+                    <span>书单</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/movies" >
+                    
+                      <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>电影</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/games" >
+                    
+                      <i class="fa fa-gamepad" style="margin-top: -20px;"></i>
+                    
+                    <span>游戏</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-leaf"></i>
+                
+                <span>关于</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/about" >
+                    
+                      <i class="fa fa-user" style="margin-top: -20px;"></i>
+                    
+                    <span>简介</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/galleries" >
+                    
+                      <i class="fa fa-camera" style="margin-top: -20px;"></i>
+                    
+                    <span>相册</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/friends" >
+                    
+                      <i class="fa fa-handshake-o" style="margin-top: -20px;"></i>
+                    
+                    <span>友链</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/log" >
+                    
+                      <i class="fa fa-pencil-square-o" style="margin-top: -20px;"></i>
+                    
+                    <span>日志</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/tags" >
+                    
+                      <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/archives" >
+                    
+                      <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fa-commenting"></i>
+              
+              <span>留言</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+
+            <i id="searchIcon" class="fa fa-search" title="搜索" >
+              <b>搜索 </b>
+            </i>
+
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ALaDing</div>
+        <div class="logo-desc">
+            
+            东软集团 | 内蒙古工业大学 | 嵌入式工程师 | ADAS
+            
+        </div>
+    </div>
+
+    
+
+
+ <ul class="menu-list mobile-menu-list">  <li class="m-nav-item">  <a href="/" class="waves-effect waves-light">  <i class="fa fa-fw fa-home"></i>  首页 </a>  </li>  <li class="m-nav-item">  <a href="/dictionary" class="waves-effect waves-light">  <i class="fa fa-fw fa-book"></i>  字典 </a>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-bookmark"></i>  分类 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>编程笔记</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>文史哲理</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>投资理财</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>过程随笔</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>既有优化</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>安装教程</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-heart"></i>  豆瓣 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/books" >  <i class="fa fa-book" style="left: 25px; position: absolute;"></i>  <span>书单</span> </a> </li>  <li> <a href="/movies" >  <i class="fa fa-film" style="left: 25px; position: absolute;"></i>  <span>电影</span> </a> </li>  <li> <a href="/games" >  <i class="fa fa-gamepad" style="left: 25px; position: absolute;"></i>  <span>游戏</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-leaf"></i>  关于 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/about" >  <i class="fa fa-user" style="left: 25px; position: absolute;"></i>  <span>简介</span> </a> </li>  <li> <a href="/galleries" >  <i class="fa fa-camera" style="left: 25px; position: absolute;"></i>  <span>相册</span> </a> </li>  <li> <a href="/friends" >  <i class="fa fa-handshake-o" style="left: 25px; position: absolute;"></i>  <span>友链</span> </a> </li>  <li> <a href="/log" >  <i class="fa fa-pencil-square-o" style="left: 25px; position: absolute;"></i>  <span>日志</span> </a> </li>  <li> <a href="/tags" >  <i class="fa fa-tags" style="left: 25px; position: absolute;"></i>  <span>标签</span> </a> </li>  <li> <a href="/archives" >  <i class="fa fa-archive" style="left: 25px; position: absolute;"></i>  <span>归档</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="/contact" class="waves-effect waves-light">  <i class="fa fa-fw fa-commenting"></i>  留言 </a>  </li>   <li><div class="divider"></div></li> <li> <a href="https://github.com/CdqPT" class="waves-effect waves-light" target="_blank"> <i class="fa fa-github-square fa-fw"></i>Fork Me </a> </li>  </ul>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #000;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/CdqPT" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blogcdq.oss-cn-beijing.aliyuncs.com/image/other/star.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        STL容器
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before  /*,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before */{
+        display: block;
+        content: "🔖";
+        position: absolute;
+        left: 50px;
+        /*color: #EE7942;*/
+        /*color: red;*/
+    }
+        @media only screen and (max-width: 992px) {
+    #articleContent h1::before{
+        display: block;
+        content: " ";
+    }
+}
+
+    /*修改滚动条样式为隐藏*/
+    #toc-content {
+        height: calc(105vh - 250px);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 320px;
+        height: 600px;
+    }
+    #hidden{
+        overflow: hidden;
+        width: 300px;    
+    }  
+
+    #articleContent :focus {
+        outline: none;
+    }
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+    .toc-widget {
+        padding-left: 20px;
+    }
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 40px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    #toc-content ol {
+        padding-left: 10px;
+    }
+    #toc-content ol li {
+        padding-left: 30px;
+    }
+    #toc-content .toc-link:hover {
+        color: black;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+    #toc-content .is-active-link {
+        color: red;
+    }
+    #toc-content .is-active-link::before {
+        background-color: red;
+    }
+    #floating-toc-btn {
+        position: fixed;
+        right: 0.6rem;
+        bottom: 6rem;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+        opacity: 0.5;
+    }
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CPlus/" target="_blank">
+                                <span class="chip bg-color">CPlus</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/字典/" class="post-category" target="_blank">
+                                字典
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+
+               <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-pencil fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-09-25
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-refresh fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-11-09
+                </div>
+                
+
+                
+
+                
+                
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+            
+        </div>
+
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>顺序容器：是一种各元素之间有顺序关系的线性表，是一种线性结构的可序群集。顺序性容器中的每个元素均有固定的位置，除非用删除或插入的操作改变这个位置。顺序容器的元素排列次序与元素值无关，而是由元素添加到容器里的次序决定。</p>
+<p>顺序容器包括：vector(向量)、list（列表）、deque（队列）。</p>
+<p>容器类自动申请和释放内存，因此无需new和delete操作。</p>
+<h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><p>vector是C++标准模板库中的部分内容，它是一个多功能的，能够操作多种数据结构和算法的模板类和函数库。<br>vector之所以被认为是一个容器，是因为它能够像容器一样存放各种类型的对象，<br>简单地说，vector是一个能够存放任意类型的动态数组，能够增加和压缩数据。<br>使用vector，必须在你的头文件中包含下面的代码：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>属于std命名域的，因此需要通过命名限定，如下完成你的代码：</p>
+<pre class="line-numbers language-c"><code class="language-c">using std<span class="token punctuation">:</span><span class="token punctuation">:</span>vector<span class="token punctuation">;</span>
+vector vInts<span class="token punctuation">;</span>
+或者连在一起，使用全名
+std<span class="token punctuation">:</span><span class="token punctuation">:</span>vector vInts<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><pre class="line-numbers language-c"><code class="language-c">vector                 <span class="token comment" spellcheck="true">// 创建一个空的vector。</span>
+vector <span class="token function">c1</span><span class="token punctuation">(</span>c2<span class="token punctuation">)</span>          <span class="token comment" spellcheck="true">// 复制一个vector</span>
+vector <span class="token function">c</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>            <span class="token comment" spellcheck="true">// 创建一个vector，含有n个数据，数据均已缺省构造产生</span>
+vector <span class="token function">c</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> elem<span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">// 创建一个含有n个elem拷贝的vector</span>
+vector <span class="token function">c</span><span class="token punctuation">(</span>beg<span class="token punctuation">,</span>end<span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">// 创建一个含有n个elem拷贝的vector</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><pre class="line-numbers language-c"><code class="language-c">c<span class="token punctuation">.</span><span class="token operator">~</span><span class="token function">vector</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">// 销毁所有数据，释放内存</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="成员函数"><a href="#成员函数" class="headerlink" title="成员函数"></a>成员函数</h2><pre class="line-numbers language-c"><code class="language-c">c<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>          <span class="token comment" spellcheck="true">// 传回迭代器中的第一个数据地址。</span>
+c<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>            <span class="token comment" spellcheck="true">// 指向迭代器中末端元素的下一个，指向一个不存在元素。</span>
+c<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>elem<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// 在尾部加入一个数据。</span>
+c<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>          <span class="token comment" spellcheck="true">// 移除容器中所有数据。</span>
+c<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>          <span class="token comment" spellcheck="true">// 判断容器是否为空。</span>
+c<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">// 返回容器中实际数据的个数。</span>
+c1<span class="token punctuation">.</span><span class="token function">swap</span><span class="token punctuation">(</span>c2<span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">// 将c1和c2元素互换。</span>
+<span class="token function">swap</span><span class="token punctuation">(</span>c1<span class="token punctuation">,</span>c2<span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">// 将c1和c2元素互换。同上操作。</span>
+c<span class="token punctuation">.</span><span class="token function">capacity</span><span class="token punctuation">(</span><span class="token punctuation">)</span>       <span class="token comment" spellcheck="true">// 返回容器中数据个数。</span>
+operator<span class="token punctuation">[</span><span class="token punctuation">]</span>         <span class="token comment" spellcheck="true">// 返回容器中指定位置的一个引用。</span>
+c<span class="token punctuation">.</span><span class="token function">max_size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>       <span class="token comment" spellcheck="true">// 返回容器中最大数据的数量。</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+c<span class="token punctuation">.</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span>             <span class="token comment" spellcheck="true">// 传回第一个数据。</span>
+c<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span>              <span class="token comment" spellcheck="true">// 传回最后一个数据，不检查这个数据是否存在。</span>
+c<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>beg<span class="token punctuation">,</span>end<span class="token punctuation">)</span>c<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>elem<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//将[beg; end)区间中的数据赋值给c。将n个elem的拷贝赋值给c。</span>
+c<span class="token punctuation">.</span><span class="token function">at</span><span class="token punctuation">(</span>idx<span class="token punctuation">)</span>             <span class="token comment" spellcheck="true">//传回索引idx所指的数据，如果idx越界，抛出out_of_range。</span>
+c<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>pos<span class="token punctuation">)</span>          <span class="token comment" spellcheck="true">// 删除pos位置的数据，传回下一个数据的位置。</span>
+c<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>beg<span class="token punctuation">,</span>end<span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">//删除[beg,end)区间的数据，传回下一个数据的位置。</span>
+get_allocator         <span class="token comment" spellcheck="true">// 使用构造函数返回一个拷贝。</span>
+c<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>pos<span class="token punctuation">,</span>elem<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">// 在pos位置插入一个elem拷贝，传回新数据位置。</span>
+c<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>pos<span class="token punctuation">,</span>n<span class="token punctuation">,</span>elem<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// 在pos位置插入n个elem数据。无返回值。</span>
+c<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>pos<span class="token punctuation">,</span>beg<span class="token punctuation">,</span>end<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 在pos位置插入在[beg,end)区间的数据。无返回值。　</span>
+c<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span>          <span class="token comment" spellcheck="true">// 删除最后一个数据。</span>
+c<span class="token punctuation">.</span><span class="token function">rbegin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>            <span class="token comment" spellcheck="true">// 传回一个逆向队列的第一个数据。</span>
+c<span class="token punctuation">.</span><span class="token function">rend</span><span class="token punctuation">(</span><span class="token punctuation">)</span>              <span class="token comment" spellcheck="true">// 传回一个逆向队列的最后一个数据的下一个位置。</span>
+c<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>         <span class="token comment" spellcheck="true">// 重新指定队列的长度。</span>
+c<span class="token punctuation">.</span><span class="token function">reserve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">// 保留适当的容量。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="list"><a href="#list" class="headerlink" title="list"></a>list</h1><h2 id="List定义"><a href="#List定义" class="headerlink" title="List定义"></a>List定义</h2><p>List是stl实现的双向链表，与向量(vectors)相比, 它允许快速的插入和删除，但是随机访问却比较慢。使用时需要添加头文件</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;list></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="List初始化"><a href="#List初始化" class="headerlink" title="List初始化"></a>List初始化</h2><pre class="line-numbers language-c"><code class="language-c">list<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span>lst1<span class="token punctuation">;</span>                           <span class="token comment" spellcheck="true">//创建空list</span>
+list<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">lst2</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                       <span class="token comment" spellcheck="true">//创建含有5个元素的list</span>
+list<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token function">lst3</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                      <span class="token comment" spellcheck="true">//创建含有3个元素的list</span>
+list<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token function">lst4</span><span class="token punctuation">(</span>lst2<span class="token punctuation">)</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">//使用lst2初始化lst4</span>
+list<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token function">lst5</span><span class="token punctuation">(</span>lst2<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>lst2<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//同lst4</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="List常用操作函数"><a href="#List常用操作函数" class="headerlink" title="List常用操作函数"></a>List常用操作函数</h2><pre class="line-numbers language-c"><code class="language-c">Lst1<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">//在list的末尾添加一个元素 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">push_front</span><span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">//在list的头部添加一个元素 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>          <span class="token comment" spellcheck="true">//删除所有元素 </span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+Lst1<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">)</span>         <span class="token comment" spellcheck="true">//给list赋值 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">//返回最后一个元素 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>          <span class="token comment" spellcheck="true">//返回指向第一个元素的迭代器 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>          <span class="token comment" spellcheck="true">//如果list是空的则返回true </span>
+Lst1<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>            <span class="token comment" spellcheck="true">//返回末尾的迭代器 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>          <span class="token comment" spellcheck="true">//删除一个元素 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span>          <span class="token comment" spellcheck="true">//返回第一个元素 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">get_allocator</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//返回list的配置器 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token punctuation">)</span>         <span class="token comment" spellcheck="true">//插入一个元素到list中 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">max_size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>       <span class="token comment" spellcheck="true">//返回list能容纳的最大元素数量 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span><span class="token punctuation">)</span>          <span class="token comment" spellcheck="true">//合并两个list </span>
+Lst1<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span>       <span class="token comment" spellcheck="true">//删除最后一个元素 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">pop_front</span><span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">//删除第一个元素 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">rbegin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>         <span class="token comment" spellcheck="true">//返回指向第一个元素的逆向迭代器 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span>         <span class="token comment" spellcheck="true">//从list删除元素 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">remove_if</span><span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">//按指定条件删除元素 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">rend</span><span class="token punctuation">(</span><span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">//指向list末尾的逆向迭代器 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>         <span class="token comment" spellcheck="true">//改变list的大小 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">//把list的元素倒转 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">//返回list中的元素个数 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">//给list排序 </span>
+Lst1<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token punctuation">)</span>         <span class="token comment" spellcheck="true">//合并两个list </span>
+Lst1<span class="token punctuation">.</span><span class="token function">swap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">//交换两个list </span>
+Lst1<span class="token punctuation">.</span><span class="token function">unique</span><span class="token punctuation">(</span><span class="token punctuation">)</span>         <span class="token comment" spellcheck="true">//删除list中重复的元素</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h1><pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;deque></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>deque容器类与vector类似，支持随机访问和快速插入删除，它在容器中某一位置上的操作所花费的是线性时间。与vector不同的是，deque还支持从开始端插入数据：push_front()。其余类似vector操作方法的使用。</p>
+<h1 id="顺序容器通用方法"><a href="#顺序容器通用方法" class="headerlink" title="顺序容器通用方法"></a>顺序容器通用方法</h1><h2 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h2><pre class="line-numbers language-c"><code class="language-c">c<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">//在容器c的尾部添加值为t的元素。返回void 类型</span>
+c<span class="token punctuation">.</span><span class="token function">push_front</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">//在容器c的前端添加值为t的元素。返回void 类型只适用于list和deque容器类型。</span>
+c<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span>t<span class="token punctuation">)</span>       <span class="token comment" spellcheck="true">//在迭代器p所指向的元素前面插入值为t的新元素。返回指向新添加元素的迭代器。</span>
+c<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span>n<span class="token punctuation">,</span>t<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">//在迭代器p所指向的元素前面插入n个值为t的新元素。返回void 类型</span>
+c<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span>b<span class="token punctuation">,</span>e<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">//在迭代器p所指向的元素前面插入由迭代器b和e标记的范围内的元素。返回 void 类型</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="容器大小操作"><a href="#容器大小操作" class="headerlink" title="容器大小操作"></a>容器大小操作</h2><pre class="line-numbers language-c"><code class="language-c">c<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>       <span class="token comment" spellcheck="true">//返回容器c中元素个数。返回类型为 c::size_type</span>
+c<span class="token punctuation">.</span><span class="token function">max_size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">//返回容器c可容纳的最多元素个数，返回类型为c::size_type</span>
+c<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">//返回标记容器大小是否为0的布尔值</span>
+c<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//调整容器c的长度大小，使其能容纳n个元素，如果n&lt;c.size()，则删除多出来的元素。</span>
+c<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>t<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//调整容器c的长度大小，使其能容纳n个元素。所有新添加的元素值都为t</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="访问元素"><a href="#访问元素" class="headerlink" title="访问元素"></a>访问元素</h2><pre class="line-numbers language-c"><code class="language-c">c<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">//返回容器 c 的最后一个元素的引用。如果 c 为空，则该操作未定义</span>
+c<span class="token punctuation">.</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span>       <span class="token comment" spellcheck="true">//返回容器 c 的第一个元素的引用。如果 c 为空，则该操作未定义</span>
+c<span class="token punctuation">[</span>n<span class="token punctuation">]</span>            <span class="token comment" spellcheck="true">//返回下标为 n 的元素的引用。如果下标越界，则该操作未定义只适用于 vector 和 deque 容器</span>
+c<span class="token punctuation">.</span><span class="token function">at</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>         <span class="token comment" spellcheck="true">//返回下标为 n 的元素的引用。如果下标越界，则该操作未定义只适用于 vector 和 deque 容器</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h2><pre class="line-numbers language-c"><code class="language-c">c<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//删除迭代器p所指向的元素。返回一个迭代器，它指向被删除元素后面的元素。</span>
+c<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>e<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//删除迭代器b和e所标记的范围内所有的元素。返回一个迭代器，它指向被删除元素段后面的元素。</span>
+c<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">//删除容器c内的所有元素。返回void。</span>
+c<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//删除容器c的最后一个元素。返回void。如果c为空容器，则该函数未定义。</span>
+c<span class="token punctuation">.</span><span class="token function">pop_front</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//删除容器c的第一个元素。返回void。如果c为空容器，则该函数未定义只适用于list或deque容器。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="赋值和交换"><a href="#赋值和交换" class="headerlink" title="赋值和交换"></a>赋值和交换</h2><pre class="line-numbers language-c"><code class="language-c">c1 <span class="token operator">=</span> c2   <span class="token comment" spellcheck="true">//删除容器c1的所有元素，然后将c2的元素复制给c1。c1和c2的类型（包括容器类型和元素类型）必须相同</span>
+c1<span class="token punctuation">.</span>swap   <span class="token comment" spellcheck="true">//(c2)交换c1和c2的内容，比赋值操作速度快。</span>
+c<span class="token punctuation">.</span>assign  <span class="token comment" spellcheck="true">//(b,e)将迭代器b和e标记的范围内所有的元素复制到c中。b和e必须不是指向c中元素的迭代器</span>
+c<span class="token punctuation">.</span>assign  <span class="token comment" spellcheck="true">//(n,t)将容器c重新设置为存储n个值为t的元素</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p>关联式容器是非线性的树结构，更准确的说是二叉树结构。各元素之间没有严格的物理上的顺序关系，也就是说元素在容器中并没有保存元素置入容器时的逻辑顺序。但是关联式容器提供了另一种根据元素特点排序的功能，这样迭代器就能根据元素的特点“顺序地”获取元素。元素是有序的集合，默认在插入的时候按升序排列。</p>
+<p>关联容器包括：map（集合）、set（映射）、multimap（多重集合）、multiset（多重映射）。</p>
+<h1 id="map"><a href="#map" class="headerlink" title="map"></a>map</h1><p>map容器提供一个键值对（key/value）容器，map与multimap差别仅仅在于multiple允许一个键对应多个值。对于迭代器来说，可以修改实值，而不能修改key。Map会根据key自动排序。<br>map 是键－值对的集合。map 类型通常可理解为关联数组：可使用键作为下标来获取一个值，正如内置数组类型一样。而关联的本质在于元素的值与某个特定的键相关联，而并非通过元素在数组中的位置来获取。</p>
+<h2 id="初始化-1"><a href="#初始化-1" class="headerlink" title="初始化"></a>初始化</h2><pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;map></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c">map<span class="token operator">&lt;</span>k<span class="token punctuation">,</span> v<span class="token operator">></span>m        <span class="token comment" spellcheck="true">//创建一个名为m的空map对象，其键和值的类型分别为k和v</span>
+map<span class="token operator">&lt;</span>k<span class="token punctuation">,</span> v<span class="token operator">></span><span class="token function">m</span><span class="token punctuation">(</span>m2<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//创建m2的副本m，m与m2必须有相同的键类型和值类型</span>
+map<span class="token operator">&lt;</span>k<span class="token punctuation">,</span> v<span class="token operator">></span><span class="token function">m</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> e<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//创建map类型的对象m，存储迭代器b和e标记的范围内所有元素的副本,</span>
+                  <span class="token comment" spellcheck="true">//元素的类型必须能转换为pair&lt;const k, v>。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在使用关联容器时，它的键不但有一个类型，而且还有一个相关的比较函数。所用的比较函数必须在键类型上定义严格弱排序（strict weak ordering）：可理解为键类型数据上的“小于”关系，虽然实际上可以选择将比较函数设计得更复杂。对于键类型，唯一的约束就是必须支持 &lt; 操作符，至于是否支持其他的关系或相等运算，则不作要求。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>添加元素有两种方法：1、先用下标操作符获取元素，然后给获取的元素赋值 2、使用insert成员函数实现<br>下标操作添加元素：如果该键已在容器中，则 map 的下标运算与 vector 的下标运算行为相同：返回该键所关联的值。只有在所查找的键不存在时，map 容器才为该键创建一个新的元素，并将它插入到此 map 对象中。此时，所关联的值采用值初始化：类类型的元素用默认构造函数初始化，而内置类型的元素初始化为 0。</p>
+<pre class="line-numbers language-c"><code class="language-c">m <span class="token function">insert</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//e是一个用在m上的value_type 类型的值。如果键（e first不在m中，则插入一个值为e second </span>
+               <span class="token comment" spellcheck="true">//的新元素；如果该键在m中已存在，则保持m不变。该函数返回一个pair类型对象，包含指向键为</span>
+               <span class="token comment" spellcheck="true">//e first的元素的map迭代器，以及一个 bool 类型的对象，表示是否插入了该元素</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+m <span class="token function">insert</span><span class="token punctuation">(</span>beg<span class="token punctuation">,</span>end<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//beg和end是标记元素范围的迭代器，其中的元素必须为m value_type 类型的键－值对。对于</span>
+                 <span class="token comment" spellcheck="true">//该范围内的所有元素，如果它的键在m中不存在，则将该键及其关联的值插入到m。返回void类型</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+m <span class="token function">insert</span><span class="token punctuation">(</span>iter<span class="token punctuation">,</span>e<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//e是一个用在m上的 value_type 类型的值。如果键（e first）不在m中，则创建新元素，并以</span>
+                <span class="token comment" spellcheck="true">//迭代器iter为起点搜索新元素存储的位置。返回一个迭代器，指向m中具有给定键的元素</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><p>map中使用下标存在一个很危险的副作用：如果该键不在 map 容器中，那么下标操作会插入一个具有该键的新元素。所以map 容器提供了两个操作：count 和 find，用于检查某个键是否存在而不会插入该键。</p>
+<pre class="line-numbers language-c"><code class="language-c">m <span class="token function">count</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">//返回 m 中 k 的出现次数</span>
+m <span class="token function">find</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//如果m容器中存在按k索引的元素，则返回指向该元素的迭代器。如果不存在，则返回超出末端迭代器。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><pre class="line-numbers language-c"><code class="language-c">m <span class="token function">erase</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">//删除m中键为k的元素。返回size_type类型的值，表示删除的元素个数</span>
+m <span class="token function">erase</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">//删除p所指向的元素。p必须指向m中确实存在的元素，而且不能等于m end()。返回void</span>
+m <span class="token function">erase</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>e<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//从m中删除一段范围内的元素，该范围由迭代器对b和e标记。b和e必须标记m中的一段有效范围：即b和e都必须指向m中的元素或最后一个元素的下一个位置。而且，b和e要么相等（此时删除的范围为空），要么b所指向的元素必须出在e所指向的元素之前。返回 void 类型</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><p>set的含义是集合，它是一个有序的容器，里面的元素都是排序好的，支持插入，删除，查找等操作，就像一个集合一样。所有的操作的都是严格在logn时间之内完成，效率非常高。set和multiset的区别是：set插入的元素不能相同，但是multiset可以相同。Set默认自动排序。使用方法类似list。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>              <span class="token comment" spellcheck="true">//返回指向第一个元素的迭代器</span>
+<span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>              <span class="token comment" spellcheck="true">//清除所有元素</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span>              <span class="token comment" spellcheck="true">//返回某个值元素的个数</span>
+<span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>              <span class="token comment" spellcheck="true">//如果集合为空，返回true</span>
+<span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>                <span class="token comment" spellcheck="true">//返回指向最后一个元素的迭代器</span>
+<span class="token function">equal_range</span><span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">//返回集合中与给定值相等的上下限的两个迭代器</span>
+<span class="token function">erase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>              <span class="token comment" spellcheck="true">//删除集合中的元素</span>
+<span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true">//返回一个指向被查找到元素的迭代器</span>
+<span class="token function">get_allocator</span><span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">//返回集合的分配器</span>
+<span class="token function">insert</span><span class="token punctuation">(</span><span class="token punctuation">)</span>             <span class="token comment" spellcheck="true">//在集合中插入元素</span>
+<span class="token function">lower_bound</span><span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">//返回指向大于（或等于）某值的第一个元素的迭代器</span>
+<span class="token function">key_comp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">//返回一个用于元素间值比较的函数</span>
+<span class="token function">max_size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">//返回集合能容纳的元素的最大限值</span>
+<span class="token function">rbegin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>             <span class="token comment" spellcheck="true">//返回指向集合中最后一个元素的反向迭代器</span>
+<span class="token function">rend</span><span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true">//返回指向集合中第一个元素的反向迭代器</span>
+<span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true">//集合中元素的数目</span>
+<span class="token function">swap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true">//交换两个集合变量</span>
+<span class="token function">upper_bound</span><span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">//返回大于某个值元素的迭代器</span>
+<span class="token function">value_comp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>         <span class="token comment" spellcheck="true">//返回一个用于比较元素间的值的函数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>举个栗子：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;set></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    set<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">iset</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>arr<span class="token operator">+</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    iset <span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"size:"</span><span class="token operator">&lt;&lt;</span>iset <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"3 count = "</span><span class="token operator">&lt;&lt;</span>iset <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    iset <span class="token function">erase</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    set<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">:</span><span class="token punctuation">:</span>iterator ite1 <span class="token operator">=</span> iset <span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    set<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">:</span><span class="token punctuation">:</span>iterator ite2 <span class="token operator">=</span> iset <span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span>ite1<span class="token operator">!=</span>ite2<span class="token punctuation">;</span>ite1<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token operator">*</span>ite1<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    cout<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+
+    ite1 <span class="token operator">=</span> iset <span class="token function">find</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>ite1<span class="token operator">!=</span>iset <span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token string">"3 found"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+
+    ite1 <span class="token operator">=</span> iset <span class="token function">find</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>ite1<span class="token operator">!=</span>iset <span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token string">"1 not found"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>参考链接：<br><a href="https://www.jianshu.com/p/fe909c102c08" target="_blank" rel="noopener">https://www.jianshu.com/p/fe909c102c08</a><br><a href="https://www.jb51.net/article/115201.htm" target="_blank" rel="noopener">https://www.jb51.net/article/115201.htm</a><br><a href="https://blog.csdn.net/u014465639/article/details/70241850" target="_blank" rel="noopener">https://blog.csdn.net/u014465639/article/details/70241850</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                 
+                 <hr/>
+                 
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn" rel="external nofollow noreferrer">陈德强</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn/c1522938.html">https://purethought.cn/c1522938.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://purethought.cn" target="_blank">陈德强</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+            </div>         
+        </div>
+    </div>
+    
+    <!-- 代码块功能依赖 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>    
+    <!-- 代码语言 -->   
+    <!-- <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script> -->          
+    <!-- 代码块复制 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>      
+    <!-- 代码块收缩 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge ">                  
+                <a href="/9653474a.html" target="_blank">                 
+                    <font color="#0e263f">
+                        <i class="fa  fa-hand-o-left"></i>
+                        C++输入输出和文件
+                    </font>                    
+                </a>          
+            </div>
+        </div>
+        
+
+
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge " >
+                <a href="/e85473.html" target="_blank">
+                    <font color="#0e263f">
+                        VS常见错误
+                        <i class="fa  fa-hand-o-right"></i>
+                    </font>
+                 </a>  
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+    
+        <style>
+    #reward {
+        /*margin: 40px 0;*/
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.6rem;
+      
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+   <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red" >¥</a> 
+  
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-times"></i></a>
+            <h4 class="reward-title">您的赞赏就是我的动力^</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+    
+
+    
+        <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80Njk3Mi8yMzQ3Mw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+    
+   <!-- 
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '6190f09c0ffe658707b5',
+        clientSecret: '2798e16eeba573f49ce06d2da0595188699aac41',
+        repo: 'cdqpt.github.io',
+        owner: 'CdqPT',
+        admin: "CdqPT",
+        id: '2019-09-25T21-25-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+     -->
+
+    
+
+    
+
+    
+
+   <!-- <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script> -->
+
+</div>
+
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    
+        <div class="toc-widget">
+        
+            <div class="toc-title" ><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="hidden">
+                <div id="toc-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. --><!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large ">    
+        <i class="fa fa-th-large"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2'
+        });
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            i++;
+            $(this).attr('href', '#' + tocHeading + (i));
+            $(this).attr('navTo',  tocHeading + (i));    
+        });
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(0);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(100);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+</main>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+       <div class="col s12 m8 l8 copy-right">
+             
+               &copy;2018-2020 ALaDing
+               &nbsp;
+             Author:  <a href="https://purethought.cn/">陈德强 &nbsp  Email: 928277452@qq.com</a>
+
+            
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                       
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?147475454185ebcf440a27cc35e793ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CdqPT" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:928277452@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=928277452" class="tooltipped" data-tooltip="QQ联系我: 928277452" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+ 
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+   
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+
+</html>

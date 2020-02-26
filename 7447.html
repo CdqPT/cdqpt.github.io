@@ -1,0 +1,1828 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="C++面向对象编程, 陈德强 ALaDing 内蒙古工业大学 机器人 东软 东软集团 嵌入式 自动驾驶 ADASIS">
+    <meta name="description" content="面向对象软件开发的阶段1.面向对象分析（OOA）面向对象分析（Object-Oriented Analysis，缩写OOA）涉及从类和对象的角度分析问题，这些类和对象都要从问题领域（problem domain）中找出。本阶段的任务主要是，">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>C++面向对象编程 | ALaDing</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+
+
+
+  <link rel="amphtml" href="https://purethought.cn/7447.html/amp/index.html">
+
+    
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+
+
+
+
+<body style="overflow-x:hidden">
+    <header id="navControl" class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ALaDing</span>
+                </a>
+            </div>
+            
+
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/dictionary" class="waves-effect waves-light">
+            
+            <i class="fa fa-book"></i>
+            
+            <span>字典</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>豆瓣</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-leaf"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-commenting"></i>
+            
+            <span>留言</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse">
+  <i class="fa fa-navicon" >
+     <b>导航 </b>
+  </i>
+</a>
+
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/dictionary" class="waves-effect waves-light">
+              
+                <i class="fa fa-book"></i>
+              
+              <span>字典</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/categories" class="waves-effect waves-light">
+                
+                  <i class="fa fa-bookmark"></i>
+                
+                <span>分类</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>编程笔记</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>文史哲理</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>投资理财</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>过程随笔</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>既有优化</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>安装教程</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-heart"></i>
+                
+                <span>豆瓣</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/books" >
+                    
+                      <i class="fa fa-book" style="margin-top: -20px;"></i>
+                    
+                    <span>书单</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/movies" >
+                    
+                      <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>电影</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/games" >
+                    
+                      <i class="fa fa-gamepad" style="margin-top: -20px;"></i>
+                    
+                    <span>游戏</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-leaf"></i>
+                
+                <span>关于</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/about" >
+                    
+                      <i class="fa fa-user" style="margin-top: -20px;"></i>
+                    
+                    <span>简介</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/galleries" >
+                    
+                      <i class="fa fa-camera" style="margin-top: -20px;"></i>
+                    
+                    <span>相册</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/friends" >
+                    
+                      <i class="fa fa-handshake-o" style="margin-top: -20px;"></i>
+                    
+                    <span>友链</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/log" >
+                    
+                      <i class="fa fa-pencil-square-o" style="margin-top: -20px;"></i>
+                    
+                    <span>日志</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/tags" >
+                    
+                      <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/archives" >
+                    
+                      <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fa-commenting"></i>
+              
+              <span>留言</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+
+            <i id="searchIcon" class="fa fa-search" title="搜索" >
+              <b>搜索 </b>
+            </i>
+
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ALaDing</div>
+        <div class="logo-desc">
+            
+            东软集团 | 内蒙古工业大学 | 嵌入式工程师 | ADAS
+            
+        </div>
+    </div>
+
+    
+
+
+ <ul class="menu-list mobile-menu-list">  <li class="m-nav-item">  <a href="/" class="waves-effect waves-light">  <i class="fa fa-fw fa-home"></i>  首页 </a>  </li>  <li class="m-nav-item">  <a href="/dictionary" class="waves-effect waves-light">  <i class="fa fa-fw fa-book"></i>  字典 </a>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-bookmark"></i>  分类 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>编程笔记</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>文史哲理</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>投资理财</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>过程随笔</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>既有优化</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>安装教程</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-heart"></i>  豆瓣 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/books" >  <i class="fa fa-book" style="left: 25px; position: absolute;"></i>  <span>书单</span> </a> </li>  <li> <a href="/movies" >  <i class="fa fa-film" style="left: 25px; position: absolute;"></i>  <span>电影</span> </a> </li>  <li> <a href="/games" >  <i class="fa fa-gamepad" style="left: 25px; position: absolute;"></i>  <span>游戏</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-leaf"></i>  关于 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/about" >  <i class="fa fa-user" style="left: 25px; position: absolute;"></i>  <span>简介</span> </a> </li>  <li> <a href="/galleries" >  <i class="fa fa-camera" style="left: 25px; position: absolute;"></i>  <span>相册</span> </a> </li>  <li> <a href="/friends" >  <i class="fa fa-handshake-o" style="left: 25px; position: absolute;"></i>  <span>友链</span> </a> </li>  <li> <a href="/log" >  <i class="fa fa-pencil-square-o" style="left: 25px; position: absolute;"></i>  <span>日志</span> </a> </li>  <li> <a href="/tags" >  <i class="fa fa-tags" style="left: 25px; position: absolute;"></i>  <span>标签</span> </a> </li>  <li> <a href="/archives" >  <i class="fa fa-archive" style="left: 25px; position: absolute;"></i>  <span>归档</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="/contact" class="waves-effect waves-light">  <i class="fa fa-fw fa-commenting"></i>  留言 </a>  </li>   <li><div class="divider"></div></li> <li> <a href="https://github.com/CdqPT" class="waves-effect waves-light" target="_blank"> <i class="fa fa-github-square fa-fw"></i>Fork Me </a> </li>  </ul>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #000;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/CdqPT" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blogcdq.oss-cn-beijing.aliyuncs.com/image/other/star.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        C++面向对象编程
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before  /*,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before */{
+        display: block;
+        content: "🔖";
+        position: absolute;
+        left: 50px;
+        /*color: #EE7942;*/
+        /*color: red;*/
+    }
+        @media only screen and (max-width: 992px) {
+    #articleContent h1::before{
+        display: block;
+        content: " ";
+    }
+}
+
+    /*修改滚动条样式为隐藏*/
+    #toc-content {
+        height: calc(105vh - 250px);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 320px;
+        height: 600px;
+    }
+    #hidden{
+        overflow: hidden;
+        width: 300px;    
+    }  
+
+    #articleContent :focus {
+        outline: none;
+    }
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+    .toc-widget {
+        padding-left: 20px;
+    }
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 40px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    #toc-content ol {
+        padding-left: 10px;
+    }
+    #toc-content ol li {
+        padding-left: 30px;
+    }
+    #toc-content .toc-link:hover {
+        color: black;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+    #toc-content .is-active-link {
+        color: red;
+    }
+    #toc-content .is-active-link::before {
+        background-color: red;
+    }
+    #floating-toc-btn {
+        position: fixed;
+        right: 0.6rem;
+        bottom: 6rem;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+        opacity: 0.5;
+    }
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CPlus/" target="_blank">
+                                <span class="chip bg-color">CPlus</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/字典/" class="post-category" target="_blank">
+                                字典
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+
+               <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-pencil fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-01-08
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-refresh fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-01-13
+                </div>
+                
+
+                
+
+                
+                
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+            
+        </div>
+
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="面向对象软件开发的阶段"><a href="#面向对象软件开发的阶段" class="headerlink" title="面向对象软件开发的阶段"></a>面向对象软件开发的阶段</h1><p><strong>1.面向对象分析（OOA）</strong><br>面向对象分析（Object-Oriented Analysis，缩写OOA）涉及从类和对象的角度分析问题，这些类和对象都要从问题领域（problem domain）中找出。<br>本阶段的任务主要是，彻底地分析问题和明确地指定要求。要在客户（真实的客户，人）的问题领域找出类和对象，并用其完整地描述什么方案可行，什么方案不可行。换言之，我们应采用客户能够理解的类和对象来描述问题。这些类和对象都可以直接在问题领域中找到。</p>
+<p><strong>2. 面向对象设计（OOD）</strong><br>OOD（面向对象设计）阶段在OOA（面向对象分析）阶段之后，在本阶段中，我们将在OOA阶段开发的框架中加入细节，待解决的问题将被分解为类和对象用于实现中。本阶段需要完成的任务包括定义类之间的关系、描述对象如何才能适应系统的进程模型、如何跨地址空间划分对象、系统如何完成动态行为等。OOD阶段的成果将更加清楚，而且更容易理解。</p>
+<p>OOA和OOD都不是C++语言所特有的，它们是解决任何面向对象问题的基本方法。事实上，OOA 和 OOD 并不依赖于任何语言。</p>
+<p><strong>3.面向对象编程（OOP）</strong><br>这是面向对象软件开发环节的最后一个阶段。将 OOD 阶段的成果输出，将其输入至OOP 阶段中。这个阶段，将用选定（或根据项目要求指定）的语言编写真正的代码。如前所述，面向对象编程是一种由合作对象（就是类的实例）构成程序的编程方法，可通过继承关系设计出相关联的类。</p>
+<p>面向对象编程的特性有：</p>
+<ul>
+<li>抽象；</li>
+<li>封装和数据隐藏；</li>
+<li>多态；</li>
+<li>继承；</li>
+<li>代码的可重用性。</li>
+</ul>
+<p>面向对象程序设计的优点：<br>1、数据抽象的概念可以在保持外部接口不变的情况下改变内部实现，从而减少甚至避免对外界的干扰；<br>2、通过继承大幅减少冗余的代码，并可以方便地扩展现有代码，提高编码效率，也减低了出错概率，降低软件维护的难度；<br>3、结合面向对象分析、面向对象设计，允许将问题域中的对象直接映射到程序中，减少软件开发过程中中间环节的转换过程；<br>4、通过对对象的辨别、划分可以将软件系统分割为若干相对为独立的部分，在一定程度上更便于控制软件复杂度；<br>5、以对象为中心的设计可以帮助开发人员从静态（属性）和动态（方法）两个方面把握问题，从而更好地实现系统。</p>
+<p><strong>4.对象模型的关键要素</strong><br>数据抽象，封装，层次</p>
+<p>在OOP中普遍存在两种层次：is-a和has-a。<br>is-a关系指子类是父类的特殊类型，即特殊化，如候鸟是一种鸟。<br>has-a关系指被继承类是新类的一部分，如轮胎是汽车的一部分。</p>
+<p>对于 OOP，继承是另一项非常重要的特性。不支持继承的语言不能成为面向对象编程语言。某些语言支持数据抽象和封装，但并不支持任何形式的继承。这样的语言不是面向对象编程语言，它们被称为基于对象语言（object-based language），虽然可以实现对象，但是，却无法通过继承扩展它们（如Ada和Modula-2等都属于这个范畴的语言）。</p>
+<p>继承是区别基于对象语言和面向对象语言的关键特性。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/NeatReader-1578483581160.png?x-oss-process=image/resize,m_lfit,h_450" alt="面向对象语言的要求"></p>
+<p><strong>对象模型的优点：</strong>1.代码复用；2.模块化；3.数据保护等。</p>
+<h1 id="我见之面向对象思想"><a href="#我见之面向对象思想" class="headerlink" title="我见之面向对象思想"></a>我见之面向对象思想</h1><p>面向对象和面向过程思想的区别是:<br>面向过程重在思考使用函数实现功能,思考的重点是函数;<br>面向对象的基础是类,类从结构体发展而来,因此类的本质应该是一组数据的集合,思考的重点是数据.<br>而类内的成员函数(方法)即是处理数据的过程.面向对象的所有过程应该思考为类内数据的组成与变更,而类间交互的过程是数据的io,<br>同时最显著的区别是,面向过程的版面全是函数,面向对象的版面全是类(自定义类型).<br>模板允许传入参数类型,并生成相应类型的类或函数,模板大量用于容器(存储某种类型的数据),除此之外其行为更像是一个面向过程的通用函数,因为它思考的不是对一块数据的处理,而是对一个功能的通用化实现.<br>C++也强调了让编译器参与检查代码部分,例如使用const后就可以不用再考虑这块数据的安全性了,因为这相当于告诉编译器这块由它来检查.<br>另一个思想是将将一切都看做为:输入,输出和权限.函数/对象的输入是参数,输出是返回值,同时如果想使用只读操作,则加const&amp;,如果想执行写操作可使用&amp;操作.指针目前在new和传入c风格字符串外不知道还有什么用,对了指针还有一个独有的特性,可移动(自增自减运算).<br>成员变量即属性,如ps中的属性面板,这是对象的核心含义,方法是为了改变属性,最终还是要返回属性值的.</p>
+<h1 id="数据抽象"><a href="#数据抽象" class="headerlink" title="数据抽象"></a>数据抽象</h1><p>面向对象编程的一项基本任务是创建带有适当功能的类，并隐藏不必要的细节（即抽象数据）。</p>
+<p><code>数据抽象</code>的目的是，提供清晰和充足的接口，在方便且受控的模式下允许用户访问底层实现。接口应满足用户使用对象的基本需求。我们的唯一目标是：牢记客户，为让她们的生活更加舒适而不懈努力。因此，抽象的首要目标是，为客户简化操作。</p>
+<p>如果能理解接口的概念，就很容易理解实现。<code>接口</code>告诉客户可以做什么，<code>实现</code>则负责如何做，所有的工作都在实现中完成。客户无需了解类如何实现接口所提供的操作。因此，实现用于支持由对象表现的接口。</p>
+<p>因此，数据抽象，接口和实现都是为了客户的方便和安全。</p>
+<p>数据抽象引出了相关的概念：<code>数据封装（data encapsulation）</code>。只要存在由实现支持的带接口的对象，就一定存在实现隐藏（implementation hiding）（也称为信息隐藏）。有些信息对实现而言相当重要，但是对使用接口的用户而言却毫无价值，这些信息将被隐藏在实现中。实现由接口封装，而且接口是访问该实现的唯一合法途径。</p>
+<p>对于类来说，接口是Public部分，<br>对于模块来说，接口是虚基类。</p>
+<p>有时，人们谈论的是<code>抽象数据类型（abstract data type）</code>，而不是数据抽象（data abstraction），这可能让学习OOP的人感到困惑。其实，它们的关系非常密切。<br>抽象数据类型是由程序员定义的新类型，附带一组操控新类型的操作。定义新抽象类型将直接应用数据抽象的概念。抽象数据类型也称为程序员定义类型（programmer defined type）。</p>
+<p>利用数据抽象，我们创建了一个新类型，并且为这个新类型提供了一组有用的操作。因为语言没有直接支持这个类型，所以程序员只好利用抽象实现它，因此它是一个抽象数据类型。鉴于此，数据抽象有时也被定义为：定义抽象数据类型以及一组操作并隐藏实现的过程。</p>
+<p>我们希望让抽象数据类型也拥有和语言定义类型相同的特权和责任（也就是说，不应该让新类型的客户发现语言定义类型和抽象数据类型之间有任何区别）。要达到这个目标，必须让语言支持操作符重载。</p>
+<h1 id="C-中的数据抽象"><a href="#C-中的数据抽象" class="headerlink" title="C++中的数据抽象"></a>C++中的数据抽象</h1><p>C++中数据抽象的基本单元是类（class）。<br>每个类都有3个不同的访问区域。在我使用过的所有OOP语言中，只有C++精心设计了这3个区域。<br><code>public</code> 区域是最重要的区域，为类的用户指定了类的接口。任何客户（任何使用类创建对象或通过继承使用类创建另一个类的人）都可以访问public区域。<br>作为public区域的对立面，<code>private</code>区域是任何客户都不能直接访问的区域，只供实现使用。换言之，只有类的实现才能访问private区域。<br>第3个区域是<code>protected</code>区域，用于代码的扩展和复用（继承）。<br>在一个类中，可以声明多个这些区域（public，protected和private），编译器将负责合并。</p>
+<p><strong>构造函数</strong><br>构造函数（constructor）：所有与类名（本例为 TInt）相同的该类成员函数都称为构造函数，它们用于创建和初始化新对象。<br>为什么我们需要构造函数？<br>当然是为了分配内存和初始化默认值。</p>
+<p><strong>析构函数</strong><br>析构函数（destructor）：名称与类名相同，且带前缀～的成员函数称为析构函数。<br>从一个函数（或块）中退出时，编译器将自动销毁在该函数（或块）中创建的对象。但是，对象可能已经聚集了资源（动态内存、磁盘块、网络连接等），这些资源储存在对象的数据成员中，由成员函数操控。由于对象被销毁（退出函数）后不可再用，因此，必须释放该对象储存的资源。<br>为了帮助对象完成这些工作，在退出函数（或块）时，所有在该函数（或块）中静态创建（即不使用 new()操作符创建）的对象都将调用析构函数。析构函数将释放对象储存的所有资源。换言之，析构函数提供了一种机制，即对象在被销毁前可自行处理掉自身储存的资源。</p>
+<p><strong>复制构造函数</strong><br>复制构造函数（copy constructor）：这是一个特殊的构造函数，用于通过现有对象创建新对象，因而称为复制构造函数。<br>当内置数据类型变量（如int和char）从一个函数按值传递至另一个函数时，由编译器负责复制该变量，并将其副本传递给被调函数（called function）。<br>如果类的实现者不提供复制构造函数，编译器将会自动生成一个复制构造函数，当然其中所有数据都是值传递行为，这在动态内存中是不允许的。</p>
+<p>出现下列情况时，将调用复制构造函数：<br>●对象从一个函数按<code>值传递</code>至另一个函数时；<br>●对象从函数按<code>值返回</code>时；<br>●通过现有对象<code>初始化</code>一个新对象时。</p>
+<p><strong>赋值操作符</strong><br>赋值操作符（assignment operator）：复制构造函数用于通过现有对象创建新对象，而赋值操作符用于将现有对象显式赋值给另一现有对象。赋值是用户显式完成的操作。<br>与复制构造函数相同，赋值操作符也是值传递行为。</p>
+<p>对于任何赋值操作符，都应注意以下几点：<br>（1）确保对象没有自我赋值（如a = a）。<br>（2）复用被赋值对象中的资源或销毁它。<br>（3）从源对象中将待复制内容复制到目的对象。<br>（4）最后，返回对目的对象的引用。</p>
+<p><strong>this指针</strong><br>类的每个成员函数都有一个特殊的指针——this。这个this指针内含调用成员函数的对象的地址（即this指针总是指向目标对象）。this指针只在成员函数内部有效，this是C++中的关键字。<br>即this指针指向的是对象地址/对象名。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">a<span class="token punctuation">.</span><span class="token function">Push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>；<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>通过a对象调用Push成员函数。在Push成员函数内部，this指针持有a对象的地址。以这样的方式，成员函数可以访问对象内的任何元素（数据成员和成员函数）。如第2章所述，编译器像实现其他函数那样，实现每个成员函数，但是，每个成员函数应该可以通过某种方法访问调用它的对象。为达到这个目的，this指针将作为隐藏的参数传递给每个成员函数，且 this 指针通常是函数接收的第1个参数（其后是已声明的其他参数）。</p>
+<p>什么时候必须使用 this 指针？当我们希望返回对调用某函数的对象的引用时，必须使用*this;另一种情况是，我们希望获得对象的地址，也必须显式使用this名称。到目前为止，这是显式使用this名称最常见的两种情况;还有一种情况是防止命名冲突时，还有想将对象本身的指针或者引用给别的函数时。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 返回对象本身的指针</span>
+<span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 返回对象本身的引用</span>
+
+<span class="token keyword">void</span> a<span class="token operator">::</span><span class="token function">fun</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>x<span class="token operator">=</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//此处如果不使用this，将无法区分x属于谁</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h1><p>在C++中，类的接口作为函数在该类中列出，这些函数称为成员函数（member function）；在Smalltalk中，称为方法（method）；在Ada中，称为操作（operation）（不要与C++的操作符（operator）混淆）。这些函数提供类的接口，因此也称为接口函数（interface function）。<br>在C++中，不是函数的元素称为数据成员（data member）。良好的抽象（即设计良好的接口）绝不会把任何数据成员置于public区域。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/NeatReader-1578487608567.png?x-oss-process=image/resize,m_lfit,h_450" alt="术语"></p>
+<p><strong>类（class）和类型（type）：</strong><br>类型有基本类型和复合类型（用户自定义类型）；<br>类（class）就是复合类型（用户自定义类型）。</p>
+<p>允许客户设置对象中的数据成员值的方法，通常称为<code>设值方法（setter）</code>。用于返回数据成员值的方法称为<code>获值方法（getter）</code>。</p>
+<h1 id="多线程安全"><a href="#多线程安全" class="headerlink" title="多线程安全"></a>多线程安全</h1><p>传统上，操作系统（OS）只支持进程（也称为任务）。每个进程都有自己的地址空间，且有一个单独的执行线程，进程执行一个包含一系列指令的程序。但是，现在大多数操作系统都支持单进程中的多线程。一个任务可根据需要包含多个线程，单进程中的所有线程共享进程的地址空间，线程可以访问进程中的所有全局数据。</p>
+<p>使用线程有很多优点。首先，创建线程的成本更低（且更效率）。创建一个新进程需要涉及操作系统中的大量工作（设置内存页面、注册、进程上下文等），而线程需要的大多数资源都可以从进程中获得。其次，线程间的通信更加容易。不同的进程位于不同的地址空间中，因此进程之间的通信（IPC）并不容易。但是，在单个进程中，不同的线程共享相同的地址空间，因此线程之间的通信非常容易。另外，在多线程中，可以阻止（block）操作，也可以并行处理操作。操作系统单独调度（schedule）每一个线程。例如，有一个应用程序，允许从一个设备上复制文件到另一个设备上，用户可能要求在中途停止复制操作。如果创建一个仅用于等待用户输入的单独进程，显然很不合理。在这种情况下，创建一个等待用户输入的单独线程更加合适。主应用程序执行复制操作，而辅助线程等待用户输入。如果用户决定终止复制操作，则运行等待用户输入的线程，并通知主应用程序，用户要求中止操作；然后，主应用程序线程中止复制操作。在单个应用程序中使用多线程非常普遍。再举另外一例，文档处理应用程序可以用一个线程打印文档，而另一个线程执行生成索引，同时还有另一个线程用于接收用户提供的文档摘要信息。</p>
+<p>任何使用多线程的应用程序都可称为多线程应用程序。涉及多个线程时，同步（synchronization）和互斥(mutual exclusion)尤为重要。当一个线程正在访问某段数据时（例如，打印文档的线程），必须防止其他线程试图访问相同的数据（为了写入）。根据操作系统，实现可以使用互斥体（mutex）、信号量（semaphore）、临界区（crical section）、自旋锁定（spin-lock）、消息、事件等来达到这个目的。例如，文档中的每一页都由一个互斥体来保护，只允许一个线程访问该页。无论用何种访问控制的方案，实现必须确保不会发生死锁（deadlock）情况。</p>
+<p>应用程序（或系统）在多线程运行的环境中正常运行称为多线程安全（multi-thread safe）。确保多线程安全并不容易，实现必须使用之前提及的某种同步方案来实现互斥。</p>
+<p>我们在这里讨论的并不是新内容，只有在涉及多进程时，同步才是个问题。不管怎样，一个进程不能访问另一个进程地址空间内的内容，这使得同步稍微容易一些。但是，进程中的线程共享进程所拥有的资源。因此，确保适当的同步非常重要。例如，在文档处理的应用程序中，如果打印线程已锁定页面，索引线程在访问相同页面之前必须等待，直到打印线程解锁页面。</p>
+<p>在使用引用计数（reference counting）（也称为使用计数（use count））方案的情况下，多线程安全非常关键。引用计数方案将在后续章节中讨论。修改引用计数必须是一个线程安全的操作。</p>
+<p>在多线程环境中使用对象时，多线程安全更加重要。如果不能确保多线程安全，可能会导致灾难。一个进程内的两个线程可以使用相同的对象。记住，所有对象都共享成员函数代码。当一个线程调用一个成员函数，在成员函数内部完成执行之前，如果（操作系统）调度（schedule）另一个线程运行，且该线程也通过相同的对象调用相同的成员函数，则对象必须保证自身完整和运行良好。如果对象不能做到这一点，这样的类就不是线程安全（thread-safe）的。当然，如果一个类（成员函数和数据成员）没有任何线程安全的特殊要求，维持线程安全就完全不成问题。</p>
+<p>在设计新的类时，注意多线程安全非常重要。如果类的对象即使在多线程环境下都能保持完整，必须在类的文档中予以说明。另一方面，如果类的对象不保证多线程安全，也要在类的头文件和文档中清楚地说明其局限性。不要误认为设计的每个类都必须保证多线程安全，事实并非如此。是否需要线程安全取决于类和客户的要求。还需记住，X类如果使用其他类作为它实现的一部分，为保证 X 类为线程安全，有必要保证它使用的其他类都为线程安全。或者，即使它所依赖的其他类非线程安全，至少必须保证 X 类线程安全（这更加困难）。为达到线程安全，下面列举了一些指导原则：</p>
+<p>（1）如果类声明为线程安全，确保每个成员函数实现也是线程安全的。</p>
+<p>（2）如果类在实现中使用其他的类（对象），确保仍然能保证线程安全。</p>
+<p>（3）如果使用一些类库来实现类，确保正在使用的库函数是线程安全的。</p>
+<p>（4）如果正在使用操作系统调用，检查以确保这些调用都是线程安全的。</p>
+<p>（5）当使用编译器提供的库时，检查它们是否都是线程安全的。</p>
+<p>许多库的供应商提供辅助类，用于帮助达到线程安全。例如，查看提供线程安全引用计数的类十分常见。如果你的项目需要线程安全，它可能会帮助实现一组确保线程安全的低级类。这样的类可以提供引用计数、线程安全指针、线程安全打印实用程序等。如果整个项目小组都在各自的实现中使用这些类，就能保证整个项目的线程安全。</p>
+<h1 id="断言和不变式"><a href="#断言和不变式" class="headerlink" title="断言和不变式"></a>断言和不变式</h1><p><code>断言（assertion）</code>是一个用于评估真假的表达式。如果表达式评估为假，则断言失败。<br>每个类都会在对象中包含一些恒为真的条件，无论对象调用任何成员函数，这些条件都必须为真。这样的条件称为类<code>不变式（class invariant）</code>。类不变式就是在对象的生命期内，必须保证对象状态的语句。<br>在进入和退出每个操作（成员函数）时，都必须检查类不变式。</p>
+<h1 id="const成员函数"><a href="#const成员函数" class="headerlink" title="const成员函数"></a>const成员函数</h1><p>注意，要同时在成员函数的声明和定义中指明const限定符。<br>const成员函数到底有什么优点？回顾关于接口和客户的讨论。const成员函数向它的客户保证它运行良好，并告诉客户调用const成员函数没有危险。这将逐渐建立客户的自信，他们对正在使用的软件会更加有信心。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">unsigned</span> TIntStack<span class="token operator">::</span><span class="token function">HowMany</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span>
+<span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">// 如果添加_sp = 0; 语句会怎样（仅举个例子）</span>
+<span class="token comment" spellcheck="true">// _sp = 0;</span>
+<span class="token keyword">return</span> _count<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上面的代码不会修改对象内的任何数据。它只是读取数据成员_count 的值。我们可以将const成员函数看成只读函数。<br>如果上面带注释的代码行取消注释，编译器就会发现给成员函数_sp赋值的行为，并立即将其作为错误进行标记，因为我们违反了成员函数的常量性（constantness）（即在const成员函数内改变数据成员）。</p>
+<p>如果必须在const成员函数内部修改某些数据，正确的处理方法是：声明这些数据成员时添加前缀<code>mutable</code>限定符（例如，mutable bool _cacheValid）。这样，即使在const成员函数中，也可以修改_cacheValid。</p>
+<h1 id="C-中类和结构的区别"><a href="#C-中类和结构的区别" class="headerlink" title="C++中类和结构的区别"></a>C++中类和结构的区别</h1><p>类和结构之间只有一个微小的差别：如果不予以指定，类中的元素都为private，而结构中的元素都为public。这是C++中，类和结构的唯一区别。</p>
+<h1 id="参数传递模式"><a href="#参数传递模式" class="headerlink" title="参数传递模式"></a>参数传递模式</h1><p>每种方法都应清楚地指明参数的传递模式，参数可以按值、按引用或按指针传递。与const联合使用，参数会更加安全可靠。函数的原型用于向客户传达这些信息。<br>应尽可能的使用const。</p>
+<p>在接下来的示例中，术语<code>主调函数</code>（caller）指的是g()函数（或者main程序），它调用另一个函数f()。在这种情况下，f()就是<code>被调函数</code>（callee），即g()所调用的函数。换言之，主调函数是发起转移控制权的函数，被调函数是接受控制权的函数。</p>
+<p><strong>1.void X::f(T arg)</strong>　 // 第一例，按值传递（pass by value）<br>被调函数可以对arg（原始对象的副本）进行读取和写入。<br>在f()内改动arg不会影响f()的主调函数，因为主调函数已提供原始对象的副本。这也许是参数传递最佳和最安全的模式，主调函数和被调函数互相保护。<br>但是按值传递在复制大型对象非常耗时。</p>
+<p><strong>2.void X::f(const T arg)</strong>　 // 第二例，按值传递<br>只读型按值传递参数，这种形式没人使用。</p>
+<p><strong>3.void X::f(T&amp; arg)</strong>　// 第一例，按引用传递（pass by reference）<br>这种形式意味着被调函数可对参数arg进行读写操作。<br>注意，arg属于主调函数，f()不会销毁它。<br>通常，在这种情况下，arg 是一个未初始化的对象，仅用于返回值（只是一个输出形参）。</p>
+<p><strong>4.void X::f(const T&amp; arg)</strong>　　// 第二例，按引用传递<br>这种形式意味着被调函数对参数arg只具备读权利，不具备写权利。<br>在传递大型对象时，此传递样式为高效之道，强烈推荐使用。</p>
+<p><strong>5.void X::f(T* argp)</strong>　　 // 第一例，按指针传递<br>这种形式在<code>采用语义</code>（adopt semantics）中很有用。它真正的含义是：主调函数将argp所指向的存储区（实际上是资源的生存期）的所有权职责传递给被调函数（即，属于f()的对象）。<br>主调函数创建了一个T类型的动态对象（可能使用new()），但是主调函数并不知道何时delete该动态对象（这种情况经常出现）。这是因为，被调函数可能仍然在使用它（或主调函数无法删除它），也可能是被调函数希望使用主调函数提供的存储区。在这种情况下，主调函数将argp所指向的对象的所有权职责移交给被调函数。换言之，被调函数采用argp指向的存储区。当被调函数不再需要argp所指向的对象时，要负责删除该对象。</p>
+<p><strong>6.void X::f(const T* argp)</strong>　 // 第二例，按指针传递。<br>这种形式意味着被调函数不能修改指针内容，但可以进行指针运算（++或–）。</p>
+<p><strong>7.void X::f(T* const argp)</strong><br>这种形式意味着不能移动指针（即不允许对argp 进行运算）。<br>注意，你也可以删除 argp。虽然无法删除（编译时错误）指向const的指针，但const指针没有这样的限制。</p>
+<p><strong>8.void X::f(const T* const argp)</strong><br>此例为（6）和（7）的组合。被调函数宣称它既不会修改argp所指向的内容，也不会对argp进行任何运算。这意味着，argp是一个只输入形参（in-only parameter）。</p>
+<h2 id="为参数选择正确的模式"><a href="#为参数选择正确的模式" class="headerlink" title="为参数选择正确的模式"></a>为参数选择正确的模式</h2><p>1.需要传递对象时，不要传递指针。</p>
+<p>2.如果被调函数需要将真正的对象作为参数，则传递引用，而不是指针。</p>
+<p>3.如果希望被调函数在对象中写入（输出形参），则传递引用，但不是对const的引用。</p>
+<p>4.当传递基本类型参数时，要坚持使用值参数（value argument）。</p>
+<p>尽量对参数和函数使用const限定符。前面介绍过，编译器能识别const限定符，这样做让编译器也参与其中，使得程序更加强健稳定。</p>
+<h1 id="函数返回值"><a href="#函数返回值" class="headerlink" title="函数返回值"></a>函数返回值</h1><p>许多函数向主调函数返回值、引用或指针。要正确和高效地使用它们，必须先理解它们的含义。有以下几种模式返回：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">T X<span class="token operator">::</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>　　　　　 <span class="token comment" spellcheck="true">// 按值返回T</span>
+T<span class="token operator">*</span> X<span class="token operator">::</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>　　　　　<span class="token comment" spellcheck="true">// 返回T类对象的指针/地址</span>
+<span class="token keyword">const</span> T<span class="token operator">*</span> X<span class="token operator">::</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>　<span class="token comment" spellcheck="true">// 返回指向const T类对象的指针</span>
+T<span class="token operator">&amp;</span> X<span class="token operator">::</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>　　　　 <span class="token comment" spellcheck="true">// 返回对T对象的引用</span>
+<span class="token keyword">const</span> T<span class="token operator">&amp;</span> X<span class="token operator">::</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>　<span class="token comment" spellcheck="true">// 返回对const T类对象的引用</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>1.绝不返回对局部变量的引用（或指向局部变量的指针）。一旦离开函数，局部变量将被销毁，但在此之后，引用（或指针）仍然存在。</p>
+<p>2.如果在函数内部创建新对象，并且希望将该对象的所有权移交给主调函数，那么该函数必须返回一个指针。<br>当被调函数创建了一个新对象（或指向某对象的指针），但却不能控制该对象的生存期时，通常会出现这种情况。为这样的函数使用一种命名约定是个不错的想法（如CreateXXX()）。</p>
+<p>3.如果不允许主调函数修改返回的指针所指向的字符（或者对象），则返回指向const的指针。<br>记住：绝不返回指向某个数据成员的非 const 指针。否则，不仅会为你带来不必要的麻烦，而且，还会把实现数据暴露给客户，从而削弱了抽象，破坏了数据封装。<br>空指针能指出函数本应返回的值出现问题或不存在（如上面示例中的GetNameOfPerson）。这就是为什么从函数返回指针很常见的原因之一。</p>
+<p>4.如果要返回一个基本类型（char、int、long等），那么，按值返回和按引用或指针返回效率相同。但是，按值返回较为安全和容易，而且易于理解。</p>
+<p>5.要尽可能避免从函数返回引用。</p>
+<p>6.如果希望从函数多态返回，唯一的选择就是返回引用或者指针。</p>
+<h1 id="性能改善"><a href="#性能改善" class="headerlink" title="性能改善"></a>性能改善</h1><p>避免制作对象的副本。复制对象的开销很大（在内存和CPU时间方面）。</p>
+<p>避免创建新对象，设法复用现有对象。创建（和销毁）对象开销很大。</p>
+<p>在适当的时候使用const引用形参。</p>
+<p>使用const成员函数。</p>
+<p>尽可能地使用初始化语义（而非赋值）。</p>
+<p>优先使用指针而不是引用作为数据成员。指针允许惰性求值（lazy evaluation），而引用不允许。</p>
+<p>避免在默认构造函数中分配存储区。要将分配延迟到访问成员时，通过指针数据成员（pointer data member）可轻松完成。</p>
+<p>用指针数据成员而不是引用和值成员。</p>
+<p>尽可能地使用引用计数（在其他章节深入讨论）。</p>
+<p>通过重新安排表达式和复用对象减少临时对象。</p>
+<p>在编写代码的最初阶段中避免使用技巧。</p>
+<p>在现实世界中，通常认为任何软件都是以速度作为最终评定的标准。</p>
+<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>初始化是在创建变量（或常量）时，向变量储存已知值的过程。这意味着该变量在被创建（无论以何种方式）时即获得一个值。<br>如果在创建变量时未进行初始化：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> i<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>根据C++（和C）中的定义，i中的值是未定义的。该值就是在创建i的内存区域中所包含的值（在运行时栈上），没人知道是什么。</p>
+<p>一定要记住，用合适的值初始化对象的所有数据成员。</p>
+<p>默认情况下，C++编译器不会初始化对象的任何数据成员。即使是类的默认构造函数，也不会为对象的数据成员储存任何预定义的值。</p>
+<p>使用初始化语法是初始化内嵌对象和const变量的唯一方法，同时初始化语法也可以用于初始化普通变量。</p>
+<h1 id="无用单元收集问题"><a href="#无用单元收集问题" class="headerlink" title="无用单元收集问题"></a>无用单元收集问题</h1><p>所谓<code>无用单元（garbage）</code>，是一块存储区（或资源），该存储区虽然是程序（或进程）的一部分，但是在程序中却不可再对其引用。按照 C++的规定，我们可以说，无用单元是程序中没有指针指向的某些资源。以下是一个示例：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">{</span>
+
+<span class="token keyword">char</span><span class="token operator">*</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token number">1000</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 分配一个包含1000个字符的动态数组</span>
+
+<span class="token keyword">char</span><span class="token operator">*</span> q <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token number">1000</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 另一块动态内存</span>
+
+<span class="token comment" spellcheck="true">// 使用p和q进行一些操作的代码</span>
+
+p <span class="token operator">=</span> q<span class="token punctuation">;</span>　　　<span class="token comment" spellcheck="true">// 将q赋值给p，覆盖p中的地址</span>
+
+<span class="token comment" spellcheck="true">/* p所指向的1000个字符的存储区会发生什么？此时，p和q指向相同的区域，
+
+没有指针指向之前p指向的旧存储区！该储存区还在，仍然占用着空间，
+
+但程序却不可访问（使用）该区域。这样的区域则称为无用单元。*/</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>现在，在main()中为p分配的内存便是无用单元，因为它仍然是正在运行程序的一部分，但是，所有对它的引用都被销毁了。<br>无用单元不会立即对程序造成损害，但它将逐渐消耗内存，最终耗尽内存导致系统中止运行。</p>
+<p>当指针所指向的内存被删除，但程序员认为被删除内存的地址仍有效时，就会产生<code>悬挂引用（dangling reference）</code>。例如：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">char</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
+<span class="token keyword">char</span> <span class="token operator">*</span>q<span class="token punctuation">;</span>
+p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token number">1024</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 分配1k字符的动态数组</span>
+<span class="token comment" spellcheck="true">// ... 使用它</span>
+q <span class="token operator">=</span> p<span class="token punctuation">;</span>　<span class="token comment" spellcheck="true">// 指针别名（pointer aliasing）</span>
+<span class="token keyword">delete</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> p<span class="token punctuation">;</span>
+p <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 现在q是一个悬挂引用，如果试图 *q = ‘A’，将导致程序崩溃。</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果试图访问q所指向的内存，将引发严重的问题。在该例中，指针q称为悬挂引用。指针别名（即多个指针持有相同的地址）通常会导致悬挂引用。与无用单元相比，悬挂引用对于程序而言是致命的，因为它必定导致严重破坏（大多数可能是运行时崩溃）。</p>
+<h1 id="对象的标识"><a href="#对象的标识" class="headerlink" title="对象的标识"></a>对象的标识</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+TPerson <span class="token function">person0</span><span class="token punctuation">(</span>“Albert Einstein”<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> “<span class="token number">12</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">1879</span>”<span class="token punctuation">)</span><span class="token punctuation">;</span>
+TPerson <span class="token function">person1</span><span class="token punctuation">(</span>“<span class="token number">12</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">1879</span>”<span class="token punctuation">)</span><span class="token punctuation">;</span>
+TPerson<span class="token operator">*</span> person2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">TPerson</span><span class="token punctuation">(</span>“<span class="token number">10</span><span class="token operator">-</span><span class="token number">11</span><span class="token operator">-</span><span class="token number">95</span>”<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 动态对象</span>
+TPerson<span class="token operator">*</span> person3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">TPerson</span><span class="token punctuation">(</span>“<span class="token number">6</span><span class="token operator">-</span><span class="token number">27</span><span class="token operator">-</span><span class="token number">87</span>”<span class="token punctuation">)</span><span class="token punctuation">;</span>
+TPerson<span class="token operator">*</span> person4 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 未指向person</span>
+TPerson<span class="token operator">*</span> person5 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 未指向person</span>
+person1<span class="token punctuation">.</span><span class="token function">SetName</span><span class="token punctuation">(</span>“Albert Einstein”<span class="token punctuation">)</span><span class="token punctuation">;</span>
+person2<span class="token operator">-</span><span class="token operator">></span><span class="token function">SetName</span><span class="token punctuation">(</span>“Foo Bar”<span class="token punctuation">)</span><span class="token punctuation">;</span>
+person4 <span class="token operator">=</span> person3<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 参见下图</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://pagepig.oss-cn-hangzhou.aliyuncs.com/NeatReader-1578661502894.png?x-oss-process=image/resize,m_lfit,h_450" alt="对象的标识"></p>
+<p>显然，对象person1是一个独立的对象，它的名称为person1。但是，person2不是对象真正的名称，它表示内存中另外创建的一个无名称的对象。类似地，person3也表示内存中无名称的另一个对象。在涉及 person2 所表示的对象名时，我们可以通过 *person2 间接地表示的该对象名。<br>在该例中，识别对象很容易，但并不是通过它们的名称来识别。严格来说，只有person0和person1是对象的名称。而person2、person3是指向内存中匿名对象的指针，person4和person3都表示相同的对象。<br>记住，person3指定了一个唯一的对象。此时，该对象获得了一个名为person4的别名。现在，如果我们操作person3或person4所表示的对象，实际上是在操作同一个对象。实际上，我们现在已经在两个名称之间共享了一个对象，即共享了对象的结构（因此也共享了状态）。</p>
+<h1 id="深复制"><a href="#深复制" class="headerlink" title="深复制"></a>深复制</h1><p>术语<code>浅复制</code>和<code>深复制</code>源自Smalltalk，这些术语通常用于描述复制语义。一般而言，深复制操作意味着递归地复制整个对象，而浅复制则意味着在复制对象的过程中，源对象和副本之间只共享状态（只传递值）。<br>如果对象不包含任何指针和引用，浅复制完全满足需要。<br>对于指针，浅复制只是复制了指针（地址），即创建了指针别名，而我们希望在复制操作完成后，源对象和目的对象之间不会共享任何东西。<br>每个类都需要提供具有深复制的复制构造函数和赋值运算符。</p>
+<p>深复制样例：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">CA</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+  <span class="token keyword">int</span> a<span class="token punctuation">;</span>
+  <span class="token keyword">char</span> <span class="token operator">*</span>str<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+  <span class="token function">CA</span><span class="token punctuation">(</span><span class="token keyword">int</span> b<span class="token punctuation">,</span><span class="token keyword">char</span><span class="token operator">*</span> cstr<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+      a<span class="token operator">=</span>b<span class="token punctuation">;</span>
+      str<span class="token operator">=</span><span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//深复制--分配内存</span>
+      <span class="token function">strcpy</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span>cstr<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//深复制--转移内容</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>写时复制（copy-on-write）:</code>在对资源进行写入之前，资源（在该例中就是字符）是共享的。当某共享资源的对象试图在资源中写入时，就制作一个副本。</p>
+<p>注意：</p>
+<p>一定要完全初始化对象。所有构造函数都应确保用合适的值初始化所有数据成员。</p>
+<p>一定要为所有的类都实现复制构造函数、赋值操作符和析构函数。由编译器生成的默认版本在实际的商业级程序中几乎没用。</p>
+<p>充分理解无用单元收集和悬挂引用的概念，确保设计的类不会发生内存泄漏。</p>
+<p>正确理解对象的标识，不要混淆指向对象的指针和真正的对象。</p>
+<p>为类提供复制和赋值（如果有意义的话）。在类不允许复制和赋值语义的地方，关闭（或控制）复制和赋值。</p>
+<p>如果设计的实现将用于多线程系统中，应确保引用计数是多线程安全的。</p>
+<p>为了让实现更加高效，使用“写时复制”的方案。</p>
+<p>用复制构造函数操作代替使用默认构造函数后立即使用赋值的操作。</p>
+<h1 id="new-delete"><a href="#new-delete" class="headerlink" title="new/delete"></a>new/delete</h1><p>指针真正的用武之地在于，在运行阶段分配未命名的内存以存储值。在这种情况下，只能通过指针来访问内存。在C++中可以使用<code>new</code>操作符来实现。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">Test<span class="token operator">*</span> pTest <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>程序员需要告诉new需要分配多大的空间，即数据类型Test，然后new去自动寻找Test大小的内存，并返回内存首地址。<br>pTest指针获取了内存首地址，又知道内存大小（Test），所以就可以锁定数据了。</p>
+<p>new的好处是：1.主动管理变量的生命周期；2.运行时申请内存。即动态分配和手动管理内存。</p>
+<p><strong>因此使用new的场景有：</strong><br>1.创建动态数组；<br>2.对于大型数据类型（一般为自定义类型和字符串），在静态存储区上分配内存。</p>
+<p>通常，对于大型数据（如数组、字符串和结构），应使用new，这正是new的用武之地。例如，假设要编写一个程序，它是否需要数组取决于运行时用户提供的信息。如果通过声明来创建数组，则在程序被编译时将为它分配内存空间。不管程序最终是否使用数组，数组都在那里，它占用了内存。在编译时给数组分配内存被称为<strong>静态联编（static binding）</strong>，意味着数组是在编译时加入到程序中的。<br>但使用new时，如果在运行阶段需要数组，则创建它；如果不需要，则不创建。还可以在程序运行时选择数组的长度。这被称为<strong>动态联编（dynamic binding）</strong>，意味着数组是在程序运行时创建的。这种数组叫作动<code>态数组（dynamic array）</code>。</p>
+<p>main.cpp</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstring></span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">char</span><span class="token operator">*</span>  <span class="token function">getname</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">char</span><span class="token operator">*</span> name<span class="token punctuation">;</span>
+  name<span class="token operator">=</span><span class="token function">getname</span><span class="token punctuation">(</span><span class="token string">"Boss Chen"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//pn与name共享内存地址，但函数退出后，pn会被销毁，所以只有name在管理内存，因此需要detele[] name</span>
+  cout<span class="token operator">&lt;&lt;</span><span class="token string">"you entered:"</span><span class="token operator">&lt;&lt;</span>name<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+  <span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span> name<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">char</span><span class="token operator">*</span> <span class="token function">getname</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> s<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">char</span><span class="token operator">*</span> pn <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token function">strlen</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token function">strcpy</span><span class="token punctuation">(</span>pn<span class="token punctuation">,</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> pn<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//函数退出后指针pn将被销毁，但其内存是保存在静态存储区，所以内存不会被销毁。</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">g++ main.cpp
+./a.out<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>you entered:Boss Chen</code></pre><p><strong>个人理解：</strong><br>为什么要delete释放资源呢？<br>因为在使用内置类型和new时系统把被申请的地址加锁了，这样当有新内存被申请时，编译器才不会去访问被申请过（加锁）的内存，<br>而如果不使用delete，这块内存将永远不会被搜索到。。。</p>
+<h1 id="编译器生成的成员函数"><a href="#编译器生成的成员函数" class="headerlink" title="编译器生成的成员函数"></a>编译器生成的成员函数</h1><p>当您使用一个对象来初始化另一个对象时，编译器将自动生成上述构造函数（称为复制构造函数，因为它创建对象的一个副本）。<br>具体地说，C++自动提供了下面这些成员函数：</p>
+<ul>
+<li>默认构造函数，如果没有定义构造函数；</li>
+<li>默认析构函数，如果没有定义；</li>
+<li>复制构造函数，如果没有定义；</li>
+<li>赋值运算符，如果没有定义；</li>
+<li>地址运算符，如果没有定义。</li>
+</ul>
+<p>更准确地说，编译器将生成上述最后三个函数的定义——如果程序使用对象的方式要求这样做。例如，如果您将一个对象赋给另一个对象，编译器将提供赋值运算符的定义。</p>
+<h2 id="默认构造函数"><a href="#默认构造函数" class="headerlink" title="默认构造函数"></a>默认构造函数</h2><p>如果没有提供任何构造函数，C++将创建默认构造函数。<br>例如，假如定义了一个Klunk类，但没有提供任何构造函数，则编译器将提供下述默认构造函数：</p>
+<pre class="line-numbers language-c"><code class="language-c">Klunk<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Klunk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//上述默认构造函数使Lunk类似于一个常规的自动变量，也就是说，它的值在初始化时是未知的。</span>
+Klunk Lunk；<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>因此为了防止这种现象，必须显示写出默认构造函数，如：</p>
+<pre class="line-numbers language-c"><code class="language-c">Klunk<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Klunk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  klunk_ct<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>带参数的构造函数也可以是默认构造函数，只要所有参数都有默认值。例如，Klunk类可以包含下述内联构造函数:</p>
+<pre class="line-numbers language-c"><code class="language-c">Klunk<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Klunk</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  klunk_ct<span class="token operator">=</span>n<span class="token punctuation">;</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>因此不要同时声明两种形式的默认构造函数，否则编译器不知道将参数传给谁，会报错！</p>
+<p><code>什么时候会调用默认构造函数呢？</code><br>答案是对于未被初始化的对象，程序将使用默认构造函数来创建,也就是说默认构造函数将用于<code>初始化</code>过程中。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//使用默认构造函数</span>
+Animal cat<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//使用默认构造函数</span>
+Animal <span class="token operator">*</span>dog<span class="token operator">=</span>new Animal<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="复制构造函数"><a href="#复制构造函数" class="headerlink" title="复制构造函数"></a>复制构造函数</h2><p>复制构造函数用于将一个对象复制到新创建的对象中。也就是说，它用于<code>初始化</code>过程中（包括按值传递参数），而不是常规的赋值过程中。类的复制构造函数原型通常如下：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">Class_name</span><span class="token punctuation">(</span><span class="token keyword">const</span> Class_name <span class="token operator">&amp;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><code>什么时候会调用复制构造函数呢？</code><br>1、新建一个对象并将其初始化为同类现有对象时，复制构造函数都将被调用。<br>例如，假设motto是一个StringBad对象，则下面4种声明都将调用复制构造函数:</p>
+<pre class="line-numbers language-c"><code class="language-c">StringBad <span class="token function">ditto</span><span class="token punctuation">(</span>motto<span class="token punctuation">)</span><span class="token punctuation">;</span>
+StringBad metoo<span class="token operator">=</span>motto<span class="token punctuation">;</span>
+StringBad also<span class="token operator">=</span><span class="token function">StringBad</span><span class="token punctuation">(</span>motto<span class="token punctuation">)</span><span class="token punctuation">;</span>
+StringBad <span class="token operator">*</span> pStringBad<span class="token operator">=</span>new <span class="token function">StringBad</span><span class="token punctuation">(</span>motto<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其中中间的2种声明可能会使用复制构造函数直接创建metoo和also，也可能使用复制构造函数生成一个临时对象，然后将临时对象的内容赋给metoo和also，这取决于具体的实现。最后一种声明使用motto初始化一个匿名对象，并将新对象的地址赋给pstring指针。</p>
+<p>2、每当程序生成了对象副本时，编译器都将使用复制构造函数。<br>具体地说，当函数按值传递对象或函数返回对象时，都将使用复制构造函数。记住，按值传递意味着创建原始变量的一个副本。<br>编译器生成临时对象时，也将使用复制构造函数。例如，将3个Vector对象相加时，编译器可能生成临时的Vector对象来保存中间结果。何时生成临时对象随编译器而异，但无论是哪种编译器，当按值传递和返回对象时，都将调用复制构造函数。</p>
+<div class="uk-alert uk-alert-success"><i class="fa fa-check-circle"></i> &nbsp;&nbsp;由于按值传递对象将调用复制构造函数，因此应该按引用传递对象。这样可以节省调用构造函数的时间以及存储新对象的空间。</div>
+
+<p><code>浅复制和深复制</code><br>默认的复制构造函数逐个复制非静态成员（成员复制也称为浅复制），复制的是成员的值。<br>例如，sports是StringBad的实体对象，那么：</p>
+<pre class="line-numbers language-c"><code class="language-c">StringBad sailor<span class="token operator">=</span>sports<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>将与下面代码等效：</p>
+<pre class="line-numbers language-c"><code class="language-c">StringBad sailor<span class="token punctuation">;</span>
+sailor<span class="token punctuation">.</span>str<span class="token operator">=</span>sports<span class="token punctuation">.</span>str<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//@1</span>
+sailor<span class="token punctuation">.</span>len<span class="token operator">=</span>sports<span class="token punctuation">.</span>len<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//@2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>需要注意的是，@2的复制是正常的，但@1这里复制的并不是字符串，而是一个指向字符串的指针。也就是说，将sailor初始化为sports后，得到的是两个指向同一个字符串的指针。<br>当析构函数被调用时，将导致同一块内存被释放两次，即释放已经释放的内存，这将导致不确定后果！另一个症状是，试图释放内存两次可能导致程序异常终止。<br>因此必须定义一个<code>显示复制构造函数</code>,以进行<code>深复制</code>.</p>
+<blockquote>
+<p>如果类中包含了使用new初始化的指针成员，应当定义一个复制构造函数，以复制指向的数据，而不是指针，这被称为深度复制。复制的另一种形式（成员复制或浅复制）只是复制指针值。浅复制仅浅浅地复制指针信息，而不会深入“挖掘”以复制指针引用的结构.</p>
+</blockquote>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><p>将已有的对象赋给另一个对象时，将使用重载的赋值运算符。<br>初始化对象时，并不一定会使用赋值运算符：</p>
+<pre class="line-numbers language-c"><code class="language-c">StringBad metoo<span class="token operator">=</span>motto<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这里，metoo是一个新创建的对象，被初始化为knot的值，因此使用复制构造函数。然而，正如前面指出的，实现时也可能分两步来处理这条语句：使用复制构造函数创建一个临时对象，然后通过赋值将临时对象的值复制到新对象中。这就是说，初始化总是会调用复制构造函数，而使用=运算符时也可能调用赋值运算符。</p>
+<p>与复制构造函数相似，赋值运算符的隐式实现也对成员进行逐个复制。如果成员本身就是类对象，则程序将使用为这个类定义的赋值运算符来复制该成员，但静态数据成员不受影响.</p>
+<p>赋值运算符会导致和浅复制一样的效果，将两个指针指向同一块地址！</p>
+<p>因此必须显示提供赋值运算符以进行深复制！<br>但是赋值运算符和复制构造函数有些不同，复制构造函数只存在于初始化过程中，而赋值运算符在初始化和赋值过程中都可能存在。<br>因此为了处理<code>赋值</code>过程，需要做一些调整：</p>
+<ul>
+<li>由于目标对象可能引用了以前分配的数据，所以函数应使用delete[ ]来释放这些数据。</li>
+<li>函数应当避免将对象赋给自身；否则，给对象重新赋值前，释放内存操作可能删除对象的内容。</li>
+<li>函数返回一个指向调用对象的引用。</li>
+</ul>
+<pre class="line-numbers language-c"><code class="language-c">StringBad <span class="token operator">&amp;</span> StringBad<span class="token punctuation">:</span><span class="token punctuation">:</span>operator<span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> StringBad <span class="token operator">&amp;</span> st<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>this<span class="token operator">==</span><span class="token operator">&amp;</span>st<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//自检，避免给自己赋值</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">*</span>this<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    delete <span class="token punctuation">[</span><span class="token punctuation">]</span> str<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//释放旧字符串</span>
+    len<span class="token operator">=</span>st<span class="token punctuation">.</span>len<span class="token punctuation">;</span>
+    str<span class="token operator">=</span>new <span class="token keyword">char</span><span class="token punctuation">[</span>len<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    std<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">strcpy</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span>st<span class="token punctuation">.</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token operator">*</span>this<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回指向调用对象的引用</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果地址不同，函数将释放str指向的内存，这是因为稍后将把一个新字符串的地址赋给str。如果不首先使用delete运算符，则上述字符串将保留在内存中。由于程序中不再包含指向该字符串的指针，因此这些内存被浪费掉。</p>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>面向对象编程的主要目的之一就是提供可重用的代码。<br>尽管复制源码进行修改也可以实现代码重用，但是C++提供了更好的方法–继承，可以不用复制源码便可进行扩展和修改。</p>
+<p>最原始的类叫做基类，继承基类的类叫做派生类。</p>
+<p>要正确地使用继承，必须充分理解继承（或is-a）关系的含义。<code>is-a</code>关系意味着基类与派生类之间的一般/特殊的关系。<br>基类是一般类，派生类可以扩展基类或者覆写基类方法。</p>
+<h2 id="基类"><a href="#基类" class="headerlink" title="基类"></a>基类</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Person</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+  <span class="token function">Person</span><span class="token punctuation">(</span>string name<span class="token punctuation">,</span><span class="token keyword">int</span> age<span class="token punctuation">)</span><span class="token operator">:</span>
+    <span class="token function">m_name</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>，m_age（age）
+  <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">speak</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span> <span class="token string">"My name is:"</span> <span class="token operator">&lt;&lt;</span> m_name <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  string <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> m_name<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">int</span> <span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> m_age<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+  string m_name<span class="token punctuation">;</span>
+  <span class="token keyword">int</span>    m_age<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="派生类"><a href="#派生类" class="headerlink" title="派生类"></a>派生类</h2><p>创建派生类对象时，程序首先调用基类构造函数，然后再调用派生类构造函数。基类构造函数负责初始化继承的数据成员；派生类构造函数主要用于初始化新增的数据成员。派生类的构造函数总是调用一个基类构造函数。可以使用初始化器列表语法指明要使用的基类构造函数，否则将使用默认的基类构造函数。</p>
+<p>派生类对象过期时，程序将首先调用派生类析构函数，然后再调用基类析构函数。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token operator">:</span> <span class="token keyword">public</span> Person
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+  <span class="token function">Student</span><span class="token punctuation">(</span><span class="token keyword">int</span> stuid<span class="token punctuation">)</span><span class="token operator">:</span>
+    <span class="token function">Person</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">m_stuid</span><span class="token punctuation">(</span>stuid<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">void</span> <span class="token function">write</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"My id is:"</span><span class="token operator">&lt;&lt;</span> m_stuid <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> m_stuid<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//学号</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上述代码完成了哪些工作呢？</p>
+<ul>
+<li>派生类对象存储了基类的数据成员（派生类继承了基类的实现）；</li>
+<li>派生类对象可以使用基类的方法（派生类继承了基类的接口）。</li>
+</ul>
+<p>需要在继承特性中添加什么呢?</p>
+<ul>
+<li>派生类需要自己的构造函数。</li>
+<li>派生类可以根据需要添加额外的数据成员和成员函数.</li>
+</ul>
+<p>构造函数处使用了初始化列表方式，初始化列表语法相比赋值语句可减少一个步骤，因此执行更快。</p>
+<p><strong>访问权限</strong><br>派生类不能直接访问基类的私有成员，而必须通过基类方法进行访问。如上述的 getName（）和 getAge() 。<br>派生类构造函数必须使用基类构造函数。如果不调用基类构造函数，程序将使用默认的基类构造函数。如 Student(int stuid) 。</p>
+<p><strong>成员初始化列表</strong><br>派生类构造函数可以使用初始化器列表机制将值传递给基类构造函数。请看下面的例子：<br>derived::derived(type1,type2):base(x,y)<br>{<br>  …<br>}<br>其中derived是派生类，base是基类，x和y是基类构造函数使用的变量。例如，如果派生类构造函数接收到参数10和12，则这种机制将把10和12传递给被定义为接受这些类型的参数的基类构造函数。除虚基类外，类只能将值传递回相邻的基类，但后者可以使用相同的机制将信息传递给相邻的基类，依此类推。如果没有在成员初始化列表中提供基类构造函数，程序将使用默认的基类构造函数。成员初始化列表只能用于构造函数。</p>
+<p><strong>什么不能被继承？</strong><br>构造函数和析构函数不能被继承。</p>
+<h2 id="基类和派生类的关系"><a href="#基类和派生类的关系" class="headerlink" title="基类和派生类的关系"></a>基类和派生类的关系</h2><p>1.派生类与基类之间有一些特殊关系。其中之一是派生类对象可以使用基类的方法，条件是方法不是私有的。<br>2.基类指针/引用可以在不进行显式类型转换的情况下指向/引用派生类对象。（即派生类可以转化为基类，但基类指针或引用只能用于调用基类方法。）</p>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>有时我们希望同一个方法在派生类和基类中的行为是不同的，即派生类对基类的方法进行修改，这种行为就是多态。有两种重要的机制可用于实现多态公有继承：<br>1.在派生类中重新定义基类的方法。<br>2.使用虚方法。</p>
+<p>如果要在派生类中重新定义基类的方法，通常应将基类方法声明为虚的。这样，程序将根据对象类型而不是引用或指针的类型来选择方法版本。为基类声明一个虚析构函数也是一种惯例。<br>通常应给基类提供一个虚析构函数，即使它并不需要析构函数。</p>
+<h2 id="静态联编和动态联编"><a href="#静态联编和动态联编" class="headerlink" title="静态联编和动态联编"></a>静态联编和动态联编</h2><p>程序调用函数时，将使用哪个可执行代码块呢？编译器负责回答这个问题。将源代码中的函数调用解释为执行特定的函数代码块被称为函数名联编（binding）。在C语言中，这非常简单，因为每个函数名都对应一个不同的函数。在C++中，由于函数重载的缘故，这项任务更复杂。编译器必须查看函数参数以及函数名才能确定使用哪个函数。然而，C/C++编译器可以在编译过程完成这种联编。在编译过程中进行联编被称为静态联编（static binding），又称为早期联编（early binding）。然而，虚函数使这项工作变得更困难。正如在程序清单13.10所示的那样，使用哪一个函数是不能在编译时确定的，因为编译器不知道用户将选择哪种类型的对象。所以，编译器必须生成能够在程序运行时选择正确的虚方法的代码，这被称为动态联编（dynamic binding），又称为晚期联编（late binding）。</p>
+<p>如果动态联编让您能够重新定义类方法，而静态联编在这方面很差，为何不摒弃静态联编呢？原因有两个——效率和概念模型。<br>首先来看效率。为使程序能够在运行阶段进行决策，必须采取一些方法来跟踪基类指针或引用指向的对象类型，这增加了额外的处理开销（稍后将介绍一种动态联编方法）。例如，如果类不会用作基类，则不需要动态联编。同样，如果派生类（如RatedPlayer）不重新定义基类的任何方法，也不需要使用动态联编。在这些情况下，使用静态联编更合理，效率也更高。由于静态联编的效率更高，因此被设置为C++的默认选择。Strousstrup说，C++的指导原则之一是，不要为不使用的特性付出代价（内存或者处理时间）。仅当程序设计确实需要虚函数时，才使用它们。<br>接下来看概念模型。在设计类时，可能包含一些不在派生类重新定义的成员函数。例如，Brass::Balance( )函数返回账户结余，不应该重新定义。不将该函数设置为虚函数，有两方面的好处：首先效率更高；其次，指出不要重新定义该函数。这表明，仅将那些预期将被重新定义的方法声明为虚的。</p>
+<h2 id="访问控制：protected"><a href="#访问控制：protected" class="headerlink" title="访问控制：protected"></a>访问控制：protected</h2><p>关键字protected与private相似，在类外只能用公有类成员来访问protected部分中的类成员。private和protected之间的区别只有在基类派生的类中才会表现出来。派生类的成员可以直接访问基类的保护成员，但不能直接访问基类的私有成员。因此，对于外部世界来说，保护成员的行为与私有成员相似；但对于派生类来说，保护成员的行为与公有成员相似。</p>
+<p>最好对类数据成员采用私有访问控制，不要使用保护访问控制；同时通过基类方法使派生类能够访问基类数据。</p>
+<h2 id="抽象基类"><a href="#抽象基类" class="headerlink" title="抽象基类"></a>抽象基类</h2><p>抽象基类（abstract base class，ABC）。<br>ABC描述的是至少使用一个纯虚函数的接口，从ABC派生出的类将根据派生类的具体特征，使用常规虚函数来实现这种接口。<br>要成为真正的ABC，必须至少包含一个纯虚函数。原型中的=0使虚函数成为纯虚函数。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>可以将ABC看作是一种必须实施的接口。ABC要求具体派生类覆盖其纯虚函数——迫使派生类遵循ABC设置的接口规则。这种模型在基于组件的编程模式中很常见，在这种情况下，使用ABC使得组件设计人员能够制定“接口约定”，这样确保了从ABC派生的所有组件都至少支持ABC指定的功能。</p>
+<h1 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h1><p>C++的一个主要目标是促进代码重用。公有继承是实现这种目标的机制之一，但并不是唯一的机制。<br>MI描述的是有多个直接基类的类。与单继承一样，公有MI表示的也是is-a关系。<br>请注意，必须使用关键字public来限定每一个基类。这是因为，除非特别指出，否则编译器将认为是私有派生。</p>
+<p>假设Worker是基类，</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Singer</span><span class="token operator">:</span><span class="token keyword">public</span> Worker<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Waiter</span><span class="token operator">:</span><span class="token keyword">public</span> Worker<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">SingingWaiter</span> <span class="token operator">:</span> <span class="token keyword">public</span> Singer<span class="token punctuation">,</span><span class="token keyword">public</span> Waiter<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>那么将派生类对象的地址赋给基类指针，但现在将出现二义性。<br>通常，这种赋值将把基类指针设置为派生对象中的基类对象的地址。但ed中包含两个Worker对象，有两个地址可供选择，所以应使用类型转换来指定对象：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">SingingWaiter ed<span class="token punctuation">;</span>
+Worker <span class="token operator">*</span> pw1<span class="token operator">=</span><span class="token punctuation">(</span>Singer <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>ed<span class="token punctuation">;</span>
+Waiter <span class="token operator">*</span> pw1<span class="token operator">=</span><span class="token punctuation">(</span>Singer <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>ed<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h1 id="is-a-has-a-包含类和嵌套类"><a href="#is-a-has-a-包含类和嵌套类" class="headerlink" title="is-a,has-a,包含类和嵌套类"></a>is-a,has-a,包含类和嵌套类</h1><p>is-a即继承关系，子类是父类的特化，如特斯拉是一种车,另外多重继承也是is-a关系；<br>has-a，子类是父类的组成部分，如轮胎是车的一部分，包含关系通常使用包含和私有继承来实现；<br>包含类是指类以对象的方式存在于另一个类内，如string temp，有时也会作为成员变量来使用；<br>嵌套类是指在类内定义类，这时嵌套类只在类内有效，不同于包含关系，嵌套类在类内定义并在类内实例化使用。</p>
+<h1 id="RTTI运行时类型识别"><a href="#RTTI运行时类型识别" class="headerlink" title="RTTI运行时类型识别"></a>RTTI运行时类型识别</h1><p>RTTI是运行阶段类型识别（Runtime Type Identification）的简称。<br>C++有3个支持RTTI的元素。<br>1.如果可能的话，dynamic_cast运算符将使用一个指向基类的指针来生成一个指向派生类的指针；否则，该运算符返回0——空指针。<br>2.typeid运算符返回一个指出对象的类型的值。<br>3.type_info结构存储了有关特定类型的信息。</p>
+<h2 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a>dynamic_cast</h2><p>dynamic_cast运算符是最常用的RTTI组件，它不能回答“指针指向的是哪类对象”这样的问题，但能够回答“是否可以安全地将对象的地址赋给特定类型的指针”这样的问题。</p>
+<p>通常，如果指向的对象（*pt）的类型为Type或者是从Type直接或间接派生而来的类型，则下面的表达式将指针pt转换为Type类型的指针：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">dynamic_cast</span><span class="token operator">&lt;</span>Type <span class="token operator">*</span><span class="token operator">></span><span class="token punctuation">(</span>pt<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>否则，结果为0，即空指针。</p>
+<h2 id="typeid"><a href="#typeid" class="headerlink" title="typeid"></a>typeid</h2><p>在c++中，typeid用于返回指针或引用所指对象的实际类型。<br>注意：typeid是操作符，不是函数！<br>运行时获知变量类型名称，可以使用 typeid(变量).name()，需要注意不是所有编译器都输出”int”、”float”等之类的名称，对于这类的编译器可以这样使用：float f = 1.1f; if( typeid(f) == typeid(0.0f) ) ……<br>补充：对非引用类型，typeid是在编译时期识别的，只有引用类型才会在运行时识别。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;typeinfo></span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">test</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token keyword">typeid</span><span class="token punctuation">(</span><span class="token number">1.1f</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> 
+    test abc<span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token keyword">typeid</span><span class="token punctuation">(</span>abc<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>f
+Z4mainE4test</code></pre><h1 id="函数模版-简介"><a href="#函数模版-简介" class="headerlink" title="函数模版-简介"></a>函数模版-简介</h1><p><code>泛型编程（Generic Programming）</code>最初提出时的动机很简单直接：发明一种语言机制，能够帮助实现一个通用的标准容器库。所谓通用的标准容器库，就是要能够做到，比如用一个List类存放所有可能类型的对象这样的事；泛型编程让你编写完全一般化并可重复使用的算法，其效率与针对某特定数据类型而设计的算法相同。泛型即是指具有在多种数据类型上皆可操作的含义，与模板有些相似。STL巨大，而且可以扩充，它包含很多计算机基本算法和数据结构，而且将算法与数据结构完全分离，其中算法是泛型的，不与任何特定数据结构或对象类型系在一起。</p>
+<p>泛型编程最初诞生于C++中，由Alexander Stepanov和David Musser创立。目的是为了实现C++的STL（标准模板库）。其语言支持机制就是模板（Templates）。模板的精神其实很简单：参数化类型。换句话说，把一个原本特定于某个类型的算法或类当中的类型信息抽掉，抽出来做成模板参数T。</p>
+<h1 id="函数模版-一般模版"><a href="#函数模版-一般模版" class="headerlink" title="函数模版-一般模版"></a>函数模版-一般模版</h1><p>模板函数定义的一般形式如下所示：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">type</span><span class="token operator">></span> ret<span class="token operator">-</span>type func<span class="token operator">-</span><span class="token function">name</span><span class="token punctuation">(</span>parameter list<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">// 函数的主体</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>例如：</p>
+<pre class="line-numbers language-c"><code class="language-c">template <span class="token operator">&lt;</span>typename AnyType<span class="token operator">></span>
+<span class="token keyword">void</span> <span class="token function">Swap</span><span class="token punctuation">(</span>AnyType <span class="token operator">&amp;</span>a<span class="token punctuation">,</span>AnyType <span class="token operator">&amp;</span>b<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    AnyType temp<span class="token punctuation">;</span>
+    temp <span class="token operator">=</span>a<span class="token punctuation">;</span>
+    a<span class="token operator">=</span>b<span class="token punctuation">;</span>
+    b<span class="token operator">=</span>temp<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>函数模板有两种类型的参数。<br>1.模板参数：位于函数模板名称的前面，在一对尖括号内部进行声明：<br>template <typename t>　　　　　　 //T是模板参数</typename></p>
+<p>2.调用参数：位于函数模板名称之后，在一对圆括号内部进行声明：<br>…max (T const&amp; a, T const&amp; b)　　 //a和b都是调用参数</p>
+<p>使用模板:</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">b</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Swap<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">temp</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h1 id="函数模版-重载模版"><a href="#函数模版-重载模版" class="headerlink" title="函数模版-重载模版"></a>函数模版-重载模版</h1><p>可以像重载常规函数定义那样重载模板定义。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//常规模版</span>
+template <span class="token operator">&lt;</span>typename AnyType<span class="token operator">></span>
+<span class="token keyword">void</span> <span class="token function">Swap</span><span class="token punctuation">(</span>AnyType <span class="token operator">&amp;</span>a<span class="token punctuation">,</span>AnyType <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//重载模版</span>
+template <span class="token operator">&lt;</span>typename AnyType<span class="token operator">></span>
+<span class="token keyword">void</span> <span class="token function">Swap</span><span class="token punctuation">(</span>AnyType <span class="token operator">&amp;</span>a<span class="token punctuation">,</span>AnyType <span class="token operator">&amp;</span>b<span class="token punctuation">,</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="函数模版-具体化和实例化"><a href="#函数模版-具体化和实例化" class="headerlink" title="函数模版-具体化和实例化"></a>函数模版-具体化和实例化</h1><p>模板的实例化指函数模板（类模板）生成模板函数（模板类）的过程。对于函数模板而言，模板实例化之后，会生成一个真正的函数。而类模板经过实例化之后，只是完成了类的定义，模板类的成员函数需要到调用时才会被初始化。模板的实例化分为隐式实例化和显示实例化。</p>
+<h2 id="隐式实例化"><a href="#隐式实例化" class="headerlink" title="隐式实例化"></a>隐式实例化</h2><p>为进一步了解模板，必须理解术语实例化和具体化。记住，在代码中包含函数模板本身并不会生成函数定义，它只是一个用于生成函数定义的方案。<br>编译器使用模板为特定类型生成函数定义时，这些编译器生成的版本通常被成为<code>模板实例（instantiation）</code>。例如，函数调用Swap(i, j)导致编译器生成一个int型参数的Swap( )函数定义。<br>这种实例化方式被称为<code>隐式实例化</code>（implicit instantiation），因为编译器之所以知道需要进行定义，是由于程序调用Swap( )函数时提供了int参数。<br>其实这一步应该是先生成函数定义，然后再完成了初始化。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">Swap</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="显式实例化"><a href="#显式实例化" class="headerlink" title="显式实例化"></a>显式实例化</h2><p>当模板参数和调用参数没有发生关联，或者不能由调用参数来决定模板参数的时候，你在调用时就必须显式指定模板实参。<br>最初，编译器只能通过隐式实例化，来使用模板生成函数定义，但现在C++还允许<code>显式实例化</code>（explicit instantiation）。这意味着可以直接命令编译器创建特定的实例，如Swap<int>( )。其语法是，声明所需的种类——用&lt;&gt;符号指示类型，并在声明前加上关键字template：</int></p>
+<pre class="line-numbers language-c"><code class="language-c">template <span class="token keyword">void</span> Swap<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">&amp;</span><span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>实现了这种特性的编译器看到上述声明后，将使用Swap( )模板生成一个使用int类型的实例。也就是说该声明的意思是：使用Swap( )模板生成int类型的<code>函数定义</code>。</p>
+<p>查看如下例子：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+using namespace std<span class="token punctuation">;</span>
+template <span class="token operator">&lt;</span>typename T<span class="token operator">></span> T <span class="token function">Max</span><span class="token punctuation">(</span><span class="token keyword">const</span> T<span class="token operator">&amp;</span> t1<span class="token punctuation">,</span><span class="token keyword">const</span> T<span class="token operator">&amp;</span> t2<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>t1<span class="token operator">></span>t2<span class="token punctuation">)</span><span class="token operator">?</span>t1<span class="token punctuation">:</span>t2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//cout&lt;&lt;Max(i,'a')&lt;&lt;endl; //无法通过编译</span>
+    cout<span class="token operator">&lt;&lt;</span>Max<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//显示调用，通过编译</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>直接采用函数调用Max(i,’a’)会产生编译错误，因为i和’a’具有不同的数据类型，无法从这两个参数中进行类型推演。而采用Max&lt; int&gt;(i,’a’)调用后，函数模板的实例化不需要经过参数推演，而函数的第二个实参也可以由char转换为int型，从而成功完成函数调用。<br>编程过程中，建议采用显示模板实参的方式调用函数模板，这样提高了代码的可读性，便于代码的理解和维护。</p>
+<h2 id="显示具体化"><a href="#显示具体化" class="headerlink" title="显示具体化"></a>显示具体化</h2><p>具体化，specialization，即特殊化！<br>模版应该允许所有类型的输入。编程的健壮性就是如此。<br>但是有时类型的行为表现会不同，就无法用通用模版来表达。<br>如a+b,对于int 型是数值的加法运算，对于string是字符串的拼接，这样就无法用通用模版来表示，因此需要提供一个具体化函数定义——称为显式具体化（explicit specialization），其中包含所需的代码。当编译器找到与函数调用匹配的具体化定义时，将使用该定义，而不再寻找模板。</p>
+<p>显式具体化：</p>
+<ul>
+<li>对于给定的函数名，可以有非模板函数、模板函数和显式具体化模板函数以及它们的重载版本。</li>
+<li>显式具体化的原型和定义应以template&lt;&gt;打头，并通过名称来指出类型。</li>
+<li>具体化优先于常规模板，而非模板函数优先于具体化和常规模板。</li>
+</ul>
+<p>相对于通用模版的通用型，显式具体化的作用是为了特殊化！即不使用通用实现方法，而是特殊实现方法。<br>与显式实例化不同的是，显式具体化使用下面两个等价的声明之一：</p>
+<pre class="line-numbers language-c"><code class="language-c">template <span class="token operator">&lt;</span><span class="token operator">></span> <span class="token keyword">void</span> Swap<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">&amp;</span><span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+template <span class="token operator">&lt;</span><span class="token operator">></span> <span class="token keyword">void</span> <span class="token function">Swap</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">&amp;</span><span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>template &lt;&gt; 已经证明了这是个模版，而不是函数定义。<br>区别在于，这些声明的意思是“不要使用Swap( )模板来生成函数定义，而应使用专门为int类型显式地定义的函数定义”。这些原型必须有自己的函数定义。显式具体化声明在关键字template后包含&lt;&gt;，而显式实例化没有.</p>
+<div class="uk-alert uk-alert-danger"><i class="fa fa-warning"></i> &nbsp;&nbsp;试图在同一个文件（或转换单元）中使用同一种类型的显式实例和显式具体化将出错。</div>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>隐式实例化、显式实例化和显式具体化统称为具体化（specialization）。它们的相同之处在于，它们表示的都是使用具体类型的函数定义，而不是通用描述。</p>
+<p>隐式实例化指的是：在使用模板之前，编译器不生成模板的声明和定义实例。只有当使用模板时，编译器才根据模板定义生成相应类型的实例。如：int i=0, j=1;swap(i, j);  //编译器根据参数i，j的类型隐式地生成swap<int>(int &amp;a, int &amp;b)的函数定义。Array<int> arVal;//编译器根据类型参数隐式地生成Array<int>类声明和类函数定义。</int></int></int></p>
+<p>显式实例化：当显式实例化模板时，在使用模板之前，编译器根据显式实例化指定的类型生成模板实例。如前面显示实例化（explicit instantiation）模板函数和模板类。其格式为：template typename function<typename>(argulist);template class classname<typename>;显式实例化只需声明，不需要重新定义。编译器根据模板实现实例声明和实例定义。</typename></typename></p>
+<p>显示具体化：显示具体化,指定模板函数中类型，意思是不要使用swap模板来生成函数定义，而是要使用专门为job类型显示定义的函数定义。因为job是一个结构体，所以swap不可能是直接的利用临时变量做赋值，因此需要在这个函数中重新定义swap的方法，在调用的时候需要使用显示具体化，不要用swap模板来生成函数定义，而是使用我们自己写的方法。<br>tempalte &lt;&gt; void swap<job>(job &amp;m1,job &amp;m2);</job></p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+template<span class="token operator">&lt;</span>typename T<span class="token operator">></span>
+<span class="token keyword">void</span> <span class="token function">Swap</span><span class="token punctuation">(</span>T <span class="token operator">&amp;</span><span class="token punctuation">,</span>T <span class="token operator">&amp;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//模版原型</span>
+
+template <span class="token operator">&lt;</span><span class="token operator">></span> <span class="token keyword">void</span> Swap<span class="token operator">&lt;</span>job<span class="token operator">></span><span class="token punctuation">(</span>job <span class="token operator">&amp;</span><span class="token punctuation">,</span>job <span class="token operator">&amp;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//显式具体化</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">short</span> a<span class="token punctuation">,</span>b<span class="token punctuation">;</span>
+    <span class="token function">Swap</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//short型隐式模版实例化</span>
+
+    job n<span class="token punctuation">,</span>m<span class="token punctuation">;</span>
+    <span class="token function">Swap</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//使用job型显式具体化</span>
+
+    template <span class="token keyword">void</span> Swap<span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">&amp;</span><span class="token punctuation">,</span><span class="token keyword">char</span> <span class="token operator">&amp;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//char型显式实例化</span>
+    <span class="token keyword">char</span> g<span class="token punctuation">,</span>h<span class="token punctuation">;</span>
+    <span class="token function">Swap</span><span class="token punctuation">(</span>g<span class="token punctuation">,</span>h<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//使用char型显示模版实例化</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="类模版-一般类模版"><a href="#类模版-一般类模版" class="headerlink" title="类模版-一般类模版"></a>类模版-一般类模版</h1><p>与函数相似，类也可以被一种或多种类型参数化。容器类就是一个具有这种特性的典型例子，它通常被用于管理某种特定类型的元素。只要使用类模板，你就可以实现容器类，而不需要确定容器中元素的类型。</p>
+<p>在没有类模版之前，可以使用typedef进行通用型的实现，然而，这种方法有两个缺点：首先，每次修改类型时都需要编辑头文件；其次，在每个程序中只能使用这种技术生成一种栈，即不能让typedef同时代表两种不同的类型，因此不能使用这种方法在同一个程序中同时定义int栈和string栈。如：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">unsigned</span> <span class="token keyword">long</span> Item<span class="token punctuation">;</span>
+
+class Stack
+<span class="token punctuation">{</span>
+private<span class="token punctuation">:</span>
+    <span class="token keyword">enum</span><span class="token punctuation">{</span>MAX<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    Item items<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> top<span class="token punctuation">;</span>
+public<span class="token punctuation">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>现在C++支持模版使用模版类。</p>
+<p>模版也是代码重用的一种方式。<br>类模板，可以定义相同的操作，拥有不同数据类型的成员属性。</p>
+<p>类模版是一种泛型编程/元编程方法，其目的是用来生成数据类型的。<br>由于模板不是函数，它们不能单独编译。模板必须与特定的模板实例化请求一起使用。为此，最简单的方法是将所有模板信息放在一个头文件中，并在要使用这些模板的文件中包含该头文件。</p>
+<p>仅在程序包含模板并不能生成模板类，而必须请求实例化。为此，需要声明一个类型为模板类的对象，方法是使用所需的具体类型替换泛型名。<br>通常使用template来声明。告诉编译器，碰到T不要报错，表示一种泛型.typename代表类型。<br>main.cpp</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> T<span class="token operator">></span>
+<span class="token keyword">class</span> <span class="token class-name">Complex</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token comment" spellcheck="true">//构造函数</span>
+    <span class="token function">Complex</span><span class="token punctuation">(</span>T a<span class="token punctuation">,</span> T b<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">m_a</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">m_b</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//运算符重载</span>
+    Complex<span class="token operator">&lt;</span>T<span class="token operator">></span> <span class="token keyword">operator</span><span class="token operator">+</span><span class="token punctuation">(</span>Complex <span class="token operator">&amp;</span>c<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Complex<span class="token operator">&lt;</span>T<span class="token operator">></span> <span class="token function">tmp</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>a<span class="token operator">+</span>c<span class="token punctuation">.</span>a<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>b<span class="token operator">+</span>c<span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> tmp<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    T <span class="token function">get_a</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> m_a<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
+<span class="token keyword">private</span><span class="token operator">:</span>
+    T m_a<span class="token punctuation">;</span>
+    T m_b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//对象的定义，必须声明模板类型，因为要分配内容</span>
+    Complex<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    Complex<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Complex<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> c <span class="token operator">=</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+
+    cout<span class="token operator">&lt;&lt;</span>c<span class="token punctuation">.</span><span class="token function">get_a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>30</code></pre><h1 id="类模版-表达式参数"><a href="#类模版-表达式参数" class="headerlink" title="类模版-表达式参数"></a>类模版-表达式参数</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> T<span class="token punctuation">,</span><span class="token keyword">int</span> n<span class="token operator">></span>
+<span class="token keyword">class</span> <span class="token class-name">ArrayTP</span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>关键字class（或在这种上下文中等价的关键字typename）指出T为类型参数，int指出n的类型为int。这种参数（指定特殊的类型而不是用作泛型名）称为非类型（non-type）或表达式（expression）参数。假设有下面的声明：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">ArrayTP<span class="token operator">&lt;</span><span class="token keyword">double</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这将导致编译器定义名为ArrayTP&lt;double, 12&gt;的类，并创建一个类型为ArrayTP&lt;double, 12&gt;的eggweight对象。定义类时，编译器将使用double替换T，使用12替换n。</p>
+<p>表达式参数有一些限制。表达式参数可以是整型、枚举、引用或指针。因此，double m是不合法的，但double * rm和double * pm是合法的。另外，模板代码不能修改参数的值，也不能使用参数的地址。所以，在ArrayTP模板中不能使用诸如n++和&amp;n等表达式。另外，实例化模板时，用作表达式参数的值必须是常量表达式。</p>
+<p>这种方式的优点是执行速度快，缺点是会生成多个副本,因为每种类型都生成一个副本。而使用构造函数的方法将只生成一个副本：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">Stack<span class="token operator">&lt;</span><span class="token keyword">double</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>另一个区别是，构造函数方法更通用，这是因为数组大小是作为类成员（而不是硬编码）存储在定义中的。这样可以将一种尺寸的数组赋给另一种尺寸的数组，也可以创建允许数组大小可变的类。</p>
+<h1 id="类模版-部分具体化"><a href="#类模版-部分具体化" class="headerlink" title="类模版-部分具体化"></a>类模版-部分具体化</h1><p>C++还允许部分具体化（partial specialization），即部分限制模板的通用性。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> T1<span class="token operator">></span> 
+<span class="token keyword">class</span> <span class="token class-name">Pair</span><span class="token operator">&lt;</span>T1<span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span>
+<span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="类模版-成员模板"><a href="#类模版-成员模板" class="headerlink" title="类模版-成员模板"></a>类模版-成员模板</h1><p>模板可用作结构、类或模板类的成员。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">DebugDelete</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token comment" spellcheck="true">//构造函数，用于初始化输出流</span>
+    <span class="token function">DebugDelete</span><span class="token punctuation">(</span>std<span class="token operator">::</span>ostream <span class="token operator">&amp;</span>s <span class="token operator">=</span> std<span class="token operator">::</span>cerr<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">os</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//T的类型由编译器推断</span>
+    <span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> T<span class="token operator">></span> <span class="token keyword">void</span> <span class="token keyword">operator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span>T<span class="token operator">*</span> p<span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">{</span>
+        os<span class="token operator">&lt;&lt;</span><span class="token string">"deleteing p"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+        <span class="token keyword">delete</span> p<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    std<span class="token operator">::</span>ostream <span class="token operator">&amp;</span>os<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//代替delete操作</span>
+<span class="token keyword">double</span><span class="token operator">*</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">double</span><span class="token punctuation">;</span>
+DebugDelete d<span class="token punctuation">;</span>
+<span class="token function">d</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>               <span class="token comment" spellcheck="true">//释放p</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="类模版-将模板用作参数"><a href="#类模版-将模板用作参数" class="headerlink" title="类模版-将模板用作参数"></a>类模版-将模板用作参数</h1><p>模板可以包含类型参数（如typename T）和非类型参数（如int n）。模板还可以包含本身就是模板的参数，这种参数是模板新增的特性，用于实现STL。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//模板除了可以包括类型参数(class T)和非类型参数(int n)之外，还要台将模板作为参数包括进去</span>
+<span class="token comment" spellcheck="true">//tempalte&lt;calss T></span>
+<span class="token comment" spellcheck="true">//template&lt;template&lt;class T>class T1></span>
+<span class="token comment" spellcheck="true">//这个T1类型有局限性，它要求我们在使用该模板时传递的参数必须是个模板类</span>
+
+<span class="token comment" spellcheck="true">//people&lt;human>Jack;</span>
+<span class="token comment" spellcheck="true">//其中的human是用a模板声明的模板类，而people则是用b模板声明的模板类, Jack是用people这个模板类定义的一个对像</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T</span><span class="token operator">></span>
+<span class="token keyword">class</span> <span class="token class-name">human</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">human</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    T <span class="token function">GetAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> age<span class="token punctuation">;</span><span class="token punctuation">}</span>
+    T <span class="token function">GetStr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> name<span class="token punctuation">;</span><span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">SetAge</span><span class="token punctuation">(</span>T <span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">{</span> age <span class="token operator">=</span> a<span class="token punctuation">;</span><span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">SetStr</span><span class="token punctuation">(</span>T <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">{</span> name <span class="token operator">=</span> b<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    T name<span class="token punctuation">;</span>
+    T age<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T</span><span class="token operator">></span><span class="token keyword">class</span> <span class="token class-name">T1</span><span class="token operator">></span>
+<span class="token keyword">class</span> <span class="token class-name">people</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">people</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">int</span> <span class="token function">GetAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> s1<span class="token punctuation">.</span><span class="token function">GetAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">SetAge</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> s1<span class="token punctuation">.</span><span class="token function">SetAge</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    string <span class="token function">GetStr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> s2<span class="token punctuation">.</span><span class="token function">GetStr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">SetStr</span><span class="token punctuation">(</span>string <span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">{</span> s2<span class="token punctuation">.</span><span class="token function">SetStr</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    T1<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> s1<span class="token punctuation">;</span>
+    T1<span class="token operator">&lt;</span>string<span class="token operator">></span> s2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    people<span class="token operator">&lt;</span>human<span class="token operator">></span>Jack<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">;</span>
+    string str<span class="token operator">=</span><span class="token string">"hello"</span><span class="token punctuation">;</span>
+    Jack<span class="token punctuation">.</span><span class="token function">SetAge</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>Jack<span class="token punctuation">.</span><span class="token function">GetAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    Jack<span class="token punctuation">.</span><span class="token function">SetStr</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>Jack<span class="token punctuation">.</span><span class="token function">GetStr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>8
+hello</code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                 
+                 <hr/>
+                 
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn" rel="external nofollow noreferrer">陈德强</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn/7447.html">https://purethought.cn/7447.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://purethought.cn" target="_blank">陈德强</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+            </div>         
+        </div>
+    </div>
+    
+    <!-- 代码块功能依赖 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>    
+    <!-- 代码语言 -->   
+    <!-- <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script> -->          
+    <!-- 代码块复制 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>      
+    <!-- 代码块收缩 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge ">                  
+                <a href="/5409.html" target="_blank">                 
+                    <font color="#0e263f">
+                        <i class="fa  fa-hand-o-left"></i>
+                        Linux 配置VNC进行远程桌面连接
+                    </font>                    
+                </a>          
+            </div>
+        </div>
+        
+
+
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge " >
+                <a href="/27958.html" target="_blank">
+                    <font color="#0e263f">
+                        dpkg error processing package XXX (--configure) 解决方法 (ubuntu右上角红色警告）
+                        <i class="fa  fa-hand-o-right"></i>
+                    </font>
+                 </a>  
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+    
+        <style>
+    #reward {
+        /*margin: 40px 0;*/
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.6rem;
+      
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+   <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red" >¥</a> 
+  
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-times"></i></a>
+            <h4 class="reward-title">您的赞赏就是我的动力^</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+    
+
+    
+        <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80Njk3Mi8yMzQ3Mw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+    
+   <!-- 
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '6190f09c0ffe658707b5',
+        clientSecret: '2798e16eeba573f49ce06d2da0595188699aac41',
+        repo: 'cdqpt.github.io',
+        owner: 'CdqPT',
+        admin: "CdqPT",
+        id: '2020-01-08T19-27-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+     -->
+
+    
+
+    
+
+    
+
+   <!-- <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script> -->
+
+</div>
+
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    
+        <div class="toc-widget">
+        
+            <div class="toc-title" ><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="hidden">
+                <div id="toc-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. --><!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large ">    
+        <i class="fa fa-th-large"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2'
+        });
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            i++;
+            $(this).attr('href', '#' + tocHeading + (i));
+            $(this).attr('navTo',  tocHeading + (i));    
+        });
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(0);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(100);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+</main>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+       <div class="col s12 m8 l8 copy-right">
+             
+               &copy;2018-2020 ALaDing
+               &nbsp;
+             Author:  <a href="https://purethought.cn/">陈德强 &nbsp  Email: 928277452@qq.com</a>
+
+            
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                       
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?147475454185ebcf440a27cc35e793ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CdqPT" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:928277452@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=928277452" class="tooltipped" data-tooltip="QQ联系我: 928277452" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+ 
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+   
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+
+</html>

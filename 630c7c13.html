@@ -1,0 +1,1942 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Algorithm算法库, 陈德强 ALaDing 内蒙古工业大学 机器人 东软 东软集团 嵌入式 自动驾驶 ADASIS">
+    <meta name="description" content="algorithm 是C++标准程式库中的一个头文件，定义了C++ STL标准中的基础性的算法（均为函数模板）。在C++98中，共计有70个算法模板函数；在C++11中，增加了20个算法模板函数。其中有5个算法模板函数定义在头文件numer">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Algorithm算法库 | ALaDing</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+
+
+
+  <link rel="amphtml" href="https://purethought.cn/630c7c13.html/amp/index.html">
+
+    
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+
+
+
+
+<body style="overflow-x:hidden">
+    <header id="navControl" class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ALaDing</span>
+                </a>
+            </div>
+            
+
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/dictionary" class="waves-effect waves-light">
+            
+            <i class="fa fa-book"></i>
+            
+            <span>字典</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>豆瓣</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-leaf"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-commenting"></i>
+            
+            <span>留言</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse">
+  <i class="fa fa-navicon" >
+     <b>导航 </b>
+  </i>
+</a>
+
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/dictionary" class="waves-effect waves-light">
+              
+                <i class="fa fa-book"></i>
+              
+              <span>字典</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/categories" class="waves-effect waves-light">
+                
+                  <i class="fa fa-bookmark"></i>
+                
+                <span>分类</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>编程笔记</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>文史哲理</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>投资理财</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>过程随笔</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>既有优化</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >
+                    
+                      <i class="fa fa-bookmark" style="margin-top: -20px;"></i>
+                    
+                    <span>安装教程</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-heart"></i>
+                
+                <span>豆瓣</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/books" >
+                    
+                      <i class="fa fa-book" style="margin-top: -20px;"></i>
+                    
+                    <span>书单</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/movies" >
+                    
+                      <i class="fa fa-film" style="margin-top: -20px;"></i>
+                    
+                    <span>电影</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/games" >
+                    
+                      <i class="fa fa-gamepad" style="margin-top: -20px;"></i>
+                    
+                    <span>游戏</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+              <a href="/" class="waves-effect waves-light">
+                
+                  <i class="fa fa-leaf"></i>
+                
+                <span>关于</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+
+            <ul class="sub-nav menus_item_child ">
+              
+                <li> 
+                  <a href="/about" >
+                    
+                      <i class="fa fa-user" style="margin-top: -20px;"></i>
+                    
+                    <span>简介</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/galleries" >
+                    
+                      <i class="fa fa-camera" style="margin-top: -20px;"></i>
+                    
+                    <span>相册</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/friends" >
+                    
+                      <i class="fa fa-handshake-o" style="margin-top: -20px;"></i>
+                    
+                    <span>友链</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/log" >
+                    
+                      <i class="fa fa-pencil-square-o" style="margin-top: -20px;"></i>
+                    
+                    <span>日志</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/tags" >
+                    
+                      <i class="fa fa-tags" style="margin-top: -20px;"></i>
+                    
+                    <span>标签</span>
+                  </a>
+                </li>
+              
+                <li> 
+                  <a href="/archives" >
+                    
+                      <i class="fa fa-archive" style="margin-top: -20px;"></i>
+                    
+                    <span>归档</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fa-commenting"></i>
+              
+              <span>留言</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+
+            <i id="searchIcon" class="fa fa-search" title="搜索" >
+              <b>搜索 </b>
+            </i>
+
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ALaDing</div>
+        <div class="logo-desc">
+            
+            东软集团 | 内蒙古工业大学 | 嵌入式工程师 | ADAS
+            
+        </div>
+    </div>
+
+    
+
+
+ <ul class="menu-list mobile-menu-list">  <li class="m-nav-item">  <a href="/" class="waves-effect waves-light">  <i class="fa fa-fw fa-home"></i>  首页 </a>  </li>  <li class="m-nav-item">  <a href="/dictionary" class="waves-effect waves-light">  <i class="fa fa-fw fa-book"></i>  字典 </a>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-bookmark"></i>  分类 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="https://purethought.cn/categories/%E7%AC%94%E8%AE%B0/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>编程笔记</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%96%87%E5%8F%B2%E5%93%B2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>文史哲理</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>投资理财</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E9%9A%8F%E7%AC%94/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>过程随笔</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E4%BC%98%E5%8C%96/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>既有优化</span> </a> </li>  <li> <a href="https://purethought.cn/categories/%E6%95%99%E7%A8%8B/" >  <i class="fa fa-bookmark" style="left: 25px; position: absolute;"></i>  <span>安装教程</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-heart"></i>  豆瓣 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/books" >  <i class="fa fa-book" style="left: 25px; position: absolute;"></i>  <span>书单</span> </a> </li>  <li> <a href="/movies" >  <i class="fa fa-film" style="left: 25px; position: absolute;"></i>  <span>电影</span> </a> </li>  <li> <a href="/games" >  <i class="fa fa-gamepad" style="left: 25px; position: absolute;"></i>  <span>游戏</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="javascript:;">  <i class="fa fa-fw fa-leaf"></i>  关于 <span class="m-icon"><i class="fa fa-chevron-right"></i></span> </a> <ul>  <li> <a href="/about" >  <i class="fa fa-user" style="left: 25px; position: absolute;"></i>  <span>简介</span> </a> </li>  <li> <a href="/galleries" >  <i class="fa fa-camera" style="left: 25px; position: absolute;"></i>  <span>相册</span> </a> </li>  <li> <a href="/friends" >  <i class="fa fa-handshake-o" style="left: 25px; position: absolute;"></i>  <span>友链</span> </a> </li>  <li> <a href="/log" >  <i class="fa fa-pencil-square-o" style="left: 25px; position: absolute;"></i>  <span>日志</span> </a> </li>  <li> <a href="/tags" >  <i class="fa fa-tags" style="left: 25px; position: absolute;"></i>  <span>标签</span> </a> </li>  <li> <a href="/archives" >  <i class="fa fa-archive" style="left: 25px; position: absolute;"></i>  <span>归档</span> </a> </li>  </ul>  </li>  <li class="m-nav-item">  <a href="/contact" class="waves-effect waves-light">  <i class="fa fa-fw fa-commenting"></i>  留言 </a>  </li>   <li><div class="divider"></div></li> <li> <a href="https://github.com/CdqPT" class="waves-effect waves-light" target="_blank"> <i class="fa fa-github-square fa-fw"></i>Fork Me </a> </li>  </ul>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #000;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/CdqPT" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blogcdq.oss-cn-beijing.aliyuncs.com/image/other/star.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Algorithm算法库
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before  /*,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before */{
+        display: block;
+        content: "🔖";
+        position: absolute;
+        left: 50px;
+        /*color: #EE7942;*/
+        /*color: red;*/
+    }
+        @media only screen and (max-width: 992px) {
+    #articleContent h1::before{
+        display: block;
+        content: " ";
+    }
+}
+
+    /*修改滚动条样式为隐藏*/
+    #toc-content {
+        height: calc(105vh - 250px);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 320px;
+        height: 600px;
+    }
+    #hidden{
+        overflow: hidden;
+        width: 300px;    
+    }  
+
+    #articleContent :focus {
+        outline: none;
+    }
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+    .toc-widget {
+        padding-left: 20px;
+    }
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 40px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    #toc-content ol {
+        padding-left: 10px;
+    }
+    #toc-content ol li {
+        padding-left: 30px;
+    }
+    #toc-content .toc-link:hover {
+        color: black;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+    #toc-content .is-active-link {
+        color: red;
+    }
+    #toc-content .is-active-link::before {
+        background-color: red;
+    }
+    #floating-toc-btn {
+        position: fixed;
+        right: 0.6rem;
+        bottom: 6rem;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+        opacity: 0.5;
+    }
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CPlus/" target="_blank">
+                                <span class="chip bg-color">CPlus</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/字典/" class="post-category" target="_blank">
+                                字典
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+
+               <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-pencil fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-09-28
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-refresh fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-11-17
+                </div>
+                
+
+                
+
+                
+                
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+            
+        </div>
+
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>algorithm 是C++标准程式库中的一个头文件，定义了C++ STL标准中的基础性的算法（均为函数模板）。在C++98中，共计有70个算法模板函数；在C++11中，增加了20个算法模板函数。其中有5个算法模板函数定义在头文件numeric中。</p>
+<p><strong>下文所称的“序列”（sequence），是指可以用迭代器顺序访问的容器。</strong></p>
+<p>有返回值的函数,返回值都是迭代器,因此判断是否为空,需要判断超尾元素。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="一、对序列的每个元素执行函数调用"><a href="#一、对序列的每个元素执行函数调用" class="headerlink" title="一、对序列的每个元素执行函数调用"></a>一、对序列的每个元素执行函数调用</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">for_each(inIterBegin, inIterEnd,ufunc)</td>
+<td align="center">用函数对象ufunc调用容器中每一项元素。</td>
+</tr>
+<tr>
+<td align="left">transform (InputIterator first1, InputIterator last1, OutputIterator result, UnaryOperation op)</td>
+<td align="center">对容器中每一个元素，执行一元操作op，结果写入另一容器中。</td>
+</tr>
+<tr>
+<td align="left">transform (InputIterator1 first1, InputIterator1 last1,InputIterator2 first2, OutputIterator result,BinaryOperation binary_op)</td>
+<td align="center">对两个容器中对应的每一对元素，执行二元操作binary_op，结果写入另一容器中。</td>
+</tr>
+</tbody></table>
+<h1 id="二、测试序列的性质"><a href="#二、测试序列的性质" class="headerlink" title="二、测试序列的性质"></a>二、测试序列的性质</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">all_of (InputIterator first, InputIterator last, UnaryPredicate pred)</td>
+<td align="center">C11算法。如果序列所有元素均满足谓词pred，则返回true</td>
+</tr>
+<tr>
+<td align="left">any_of (InputIterator first, InputIterator last, UnaryPredicate pred)</td>
+<td align="center">C11算法。如果序列存在元素满足谓词pred，则返回true</td>
+</tr>
+<tr>
+<td align="left">none_of (InputIterator first, InputIterator last, UnaryPredicate pred)</td>
+<td align="center">C11版。如果容器中所有元素不满足为此pred，则返回true</td>
+</tr>
+</tbody></table>
+<h1 id="三、有序容器中的边界查找"><a href="#三、有序容器中的边界查找" class="headerlink" title="三、有序容器中的边界查找"></a>三、有序容器中的边界查找</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">equal_range(forIterBegin, forIterEnd, targetVal)</td>
+<td align="center">在已排序的容器中查找目标值的位置范围；返回范围的下界与上界。对于随机迭代器，用二分查找；否则线性查找。返回pair&lt;ForwardIterator,ForwardIterator&gt;</td>
+</tr>
+<tr>
+<td align="left">equal_range(forIterBegin, forIterEnd, targetVal, binPred)</td>
+<td align="center">重载版本，其中binPred是给定的序关系函数。</td>
+</tr>
+<tr>
+<td align="left">lower_bound(forIterBegin, forIterEnd, targetVal)</td>
+<td align="center">在升序的容器中查找第一个不小于targetVal的元素。实际上是二分查找。</td>
+</tr>
+<tr>
+<td align="left">lower_bound(forIterBegin, forIterEnd, targetVal, binPred)</td>
+<td align="center">重载版本，其中binPred是给定的序关系函数。</td>
+</tr>
+<tr>
+<td align="left">upper_bound(forIterBegin, forIterEnd, val)</td>
+<td align="center">在已排序的容器中查找目标值val出现的上界（即第一个大于目标值val的元素的位置）。</td>
+</tr>
+<tr>
+<td align="left">upper_bound(forIterBegin, forIterEnd, val, binPred)</td>
+<td align="center">重载版本，其中binPred是给定的序关系函数。</td>
+</tr>
+</tbody></table>
+<h1 id="四、比较"><a href="#四、比较" class="headerlink" title="四、比较"></a>四、比较</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">equal(inIter1Begin, inIter1End, inIter2Begin)</td>
+<td align="center">比较两个序列的对应元素是否相等</td>
+</tr>
+<tr>
+<td align="left">equal(inIter1Begin, inIter1End, inIter2Begin, binPred)</td>
+<td align="center">重载版本，其中binPred是给定的相等比较函数。</td>
+</tr>
+<tr>
+<td align="left">lexicographical_compare(inIter1Begin, inIter1End, inIter2Begin, inIter2End)</td>
+<td align="center">对两个序列做词典比较。两个序列的对应元素用 &lt; 运算符比较。如果第一个序列在词典序下小于第二个序列，返回true</td>
+</tr>
+<tr>
+<td align="left">lexicographical_compare(inIter1Begin, inIter1End, inIter2Begin, inIter2End, binPred)</td>
+<td align="center">重载版本，其中binPred是给定的“小于”比较函数。</td>
+</tr>
+<tr>
+<td align="left">mismatch (InputIterator1 first1, InputIterator1 last1,InputIterator2 first2)</td>
+<td align="center">比较两个序列的对应元素，返回用std::pair表示的第一处不匹配在两个序列的位置，比较时使用==运算符。</td>
+</tr>
+<tr>
+<td align="left">mismatch (InputIterator1 first1, InputIterator1 last1,InputIterator2 first2, BinaryPredicate pred)</td>
+<td align="center">重载版本，其中binPred是给定的“相等”比较函数。</td>
+</tr>
+</tbody></table>
+<h1 id="五、复制"><a href="#五、复制" class="headerlink" title="五、复制"></a>五、复制</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">copy (InputIterator first, InputIterator last, OutputIterator result)</td>
+<td align="center">复制一个序列到另一个序列</td>
+</tr>
+<tr>
+<td align="left">copy_backward (BidirectionalIterator1 first,BidirectionalIterator1 last,BidirectionalIterator2 result)</td>
+<td align="center">把一个序列复制到另一个序列，按照由尾到头顺序依次复制元素。</td>
+</tr>
+<tr>
+<td align="left">copy_if (InputIterator first, InputIterator last,OutputIterator result, UnaryPredicate pred)</td>
+<td align="center">C11算法。复制容器中所有满足谓词pred的元素</td>
+</tr>
+<tr>
+<td align="left">copy_n (InputIterator first, Size n, OutputIterator result)</td>
+<td align="center">C11算法。复制容器中前n个元素</td>
+</tr>
+</tbody></table>
+<h1 id="六、计数"><a href="#六、计数" class="headerlink" title="六、计数"></a>六、计数</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">count (InputIterator first, InputIterator last, const T&amp; val)</td>
+<td align="center">容器中等于给定值的元素的计数</td>
+</tr>
+<tr>
+<td align="left">count_if (InputIterator first, InputIterator last, UnaryPredicate pred)</td>
+<td align="center">容器中满足给定谓词的元素的计数</td>
+</tr>
+</tbody></table>
+<h1 id="七、填充"><a href="#七、填充" class="headerlink" title="七、填充"></a>七、填充</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">fill (ForwardIterator first, ForwardIterator last, const T&amp; val)</td>
+<td align="center">用给定值填充容器中每个元素</td>
+</tr>
+<tr>
+<td align="left">fill_n (OutputIterator first, Size n, const T&amp; val)</td>
+<td align="center">用给定值填充序列的n个元素</td>
+</tr>
+</tbody></table>
+<h1 id="八、单值过滤"><a href="#八、单值过滤" class="headerlink" title="八、单值过滤"></a>八、单值过滤</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">unique (ForwardIterator first, ForwardIterator last)</td>
+<td align="center">对容器中一群连续的相等的元素，仅保留第一个元素，该群其他元素被这群元素之后的其他值的元素替换。该函数不改变这些值的相互顺序，不改变容器的size。函数返回值为最后一个保留元素的下一个位置（past-the-end element）。建议函数返回后resize容器对象。</td>
+</tr>
+<tr>
+<td align="left">unique (ForwardIterator first, ForwardIterator last,BinaryPredicate pred)</td>
+<td align="center">重载版本，用二元谓词pred替换operator==算符。</td>
+</tr>
+<tr>
+<td align="left">unique_copy (InputIterator first, InputIterator last,OutputIterator result)</td>
+<td align="center">把一个容器中的元素拷贝到另一个序列；对于一群连续的相等的元素，仅拷贝第一个元素。</td>
+</tr>
+<tr>
+<td align="left">unique_copy (InputIterator first, InputIterator last,OutputIterator result, BinaryPredicate pred)</td>
+<td align="center">重载版本，用二元谓词pred替换operator==算符。</td>
+</tr>
+</tbody></table>
+<h1 id="九、生成"><a href="#九、生成" class="headerlink" title="九、生成"></a>九、生成</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">generate (ForwardIterator first, ForwardIterator last, Generator gen)</td>
+<td align="center">对容器中每个元素，依次调用函数gen的返回值赋值。</td>
+</tr>
+<tr>
+<td align="left">generate_n (OutputIterator first, Size n, Generator gen)</td>
+<td align="center">对容器中的n个元素，依次调用指定函数的返回值赋值。</td>
+</tr>
+</tbody></table>
+<h1 id="十、堆操作"><a href="#十、堆操作" class="headerlink" title="十、堆操作"></a>十、堆操作</h1><p>这里的堆是指b:二叉堆，默认为b:最大堆。用数组或std::vector等顺序结构按照广度优先顺序存储堆的元素。数组的第一个元素是堆的根节点元素。元素的比较使用operator&lt; 或者comp函数（对于重载版本）。</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">is_heap (RandomAccessIterator first, RandomAccessIterator last)</td>
+<td align="center">C11版，判断序列是否为二叉堆</td>
+</tr>
+<tr>
+<td align="left">is_heap_until (RandomAccessIterator first, RandomAccessIterator last,Compare comp)</td>
+<td align="center">C11版，重载版本</td>
+</tr>
+<tr>
+<td align="left">is_heap_until (RandomAccessIterator first, RandomAccessIterator last)</td>
+<td align="center">C11版，返回有效二叉堆的最末范围</td>
+</tr>
+<tr>
+<td align="left">is_heap (RandomAccessIterator first, RandomAccessIterator last,Compare comp)</td>
+<td align="center">C11版，重载版本</td>
+</tr>
+<tr>
+<td align="left">make_heap (RandomAccessIterator first, RandomAccessIterator last)</td>
+<td align="center">对于一个序列，其元素任意放置，原地(in-place)构造一颗最大树。</td>
+</tr>
+<tr>
+<td align="left">make_heap (RandomAccessIterator first, RandomAccessIterator last,Compare comp )</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">pop_heap (RandomAccessIterator first, RandomAccessIterator last)</td>
+<td align="center">堆的根节点被移除到last-1位置，堆的元素数目减1并保持堆性质。</td>
+</tr>
+<tr>
+<td align="left">pop_heap (RandomAccessIterator first, RandomAccessIterator last,Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">push_heap (RandomAccessIterator first, RandomAccessIterator last)</td>
+<td align="center">对一个范围为[first,last-1)的堆，增加一个新元素。新元素最初保存在last-1位置。</td>
+</tr>
+<tr>
+<td align="left">push_heap(r,r,bpred)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">sort_heap (RandomAccessIterator first, RandomAccessIterator last)</td>
+<td align="center">对一个堆，执行原地堆排序，得到一个升序结果。</td>
+</tr>
+<tr>
+<td align="left">sort_heap (RandomAccessIterator first, RandomAccessIterator last,Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+</tbody></table>
+<h1 id="十一、合并"><a href="#十一、合并" class="headerlink" title="十一、合并"></a>十一、合并</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">inplace_merge (BidirectionalIterator first, BidirectionalIterator middle,BidirectionalIterator last)</td>
+<td align="center">对两个升序的序列[first,middle) 与[middle,last)，执行原地合并，合并后的序列仍保持升序。空间复杂度O(1)，时间复杂度O(N)</td>
+</tr>
+<tr>
+<td align="left">inplace_merge (BidirectionalIterator first, BidirectionalIterator middle,BidirectionalIterator last, Compare comp)</td>
+<td align="center">重载版本,operator&lt; 被函数对象comp代替。</td>
+</tr>
+<tr>
+<td align="left">merge (InputIterator1 first1, InputIterator1 last1,InputIterator2 first2, InputIterator2 last2,OutputIterator result)</td>
+<td align="center">两个升序的序列合并，结果序列保持升序。</td>
+</tr>
+<tr>
+<td align="left">merge (InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, InputIterator2 last2, OutputIterator result, Compare comp)</td>
+<td align="center">重载版本。operator&lt; 被函数对象comp代替。</td>
+</tr>
+</tbody></table>
+<h1 id="十二、最小最大"><a href="#十二、最小最大" class="headerlink" title="十二、最小最大"></a>十二、最小最大</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">min (const T&amp; a, const T&amp; b)</td>
+<td align="center">两个值中的最小值。</td>
+</tr>
+<tr>
+<td align="left">min (const T&amp; a, const T&amp; b, Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">max (const T&amp; a, const T&amp; b)</td>
+<td align="center">两个值中的最大值。</td>
+</tr>
+<tr>
+<td align="left">max (const T&amp; a, const T&amp; b, Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">min_element (ForwardIterator first, ForwardIterator last)</td>
+<td align="center">返回容器中最小值的迭代器</td>
+</tr>
+<tr>
+<td align="left">min_element (ForwardIterator first, ForwardIterator last,Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">max_element (ForwardIterator first, ForwardIterator last)</td>
+<td align="center">返回容器中最大值的迭代器</td>
+</tr>
+<tr>
+<td align="left">max_element (ForwardIterator first, ForwardIterator last,Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">max (initializer_list<t> il, Compare comp)</t></td>
+<td align="center">C11版本</td>
+</tr>
+<tr>
+<td align="left">minmax (const T&amp; a, const T&amp; b)</td>
+<td align="center">C11版，返回由最小值与最大值构成的std:pair</td>
+</tr>
+<tr>
+<td align="left">minmax (const T&amp; a, const T&amp; b, Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">minmax (initializer_list<t> il)</t></td>
+<td align="center">C11版，返回由初始化列表中最小元素与最大元素构成的std:pair</td>
+</tr>
+<tr>
+<td align="left">minmax (initializer_list<t> il, Compare comp)</t></td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">minmax_element (ForwardIterator first, ForwardIterator last)</td>
+<td align="center">C11版，返回由容器中最小元素与最大元素构成的std:pair</td>
+</tr>
+<tr>
+<td align="left">minmax_element (ForwardIterator first, ForwardIterator last, Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+</tbody></table>
+<h1 id="十三、移动语义"><a href="#十三、移动语义" class="headerlink" title="十三、移动语义"></a>十三、移动语义</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">move (InputIterator first, InputIterator last, OutputIterator result)</td>
+<td align="center">C11版，把输入容器中的逐个元素移动到结果序列。需要注意的是，把一个对象移动给另一个对象的std::move定义在头文件<code>&lt;utility&gt;</code>中。</td>
+</tr>
+<tr>
+<td align="left">move_backward (BidirectionalIterator1 first,BidirectionalIterator1 last,BidirectionalIterator2 result)</td>
+<td align="center">C11版，把输入容器中的逐个元素自尾到头移动到结果序列</td>
+</tr>
+</tbody></table>
+<h1 id="十四、划分"><a href="#十四、划分" class="headerlink" title="十四、划分"></a>十四、划分</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">nth_element (RandomAccessIterator first, RandomAccessIterator nth,RandomAccessIterator last)</td>
+<td align="center">对序列重排，使得指定的位置出现的元素就是有序情况下应该在该位置出现的那个元素，且在指定位置之前的元素都小于指定位置元素，在指定位置之后的元素都大于指定位置元素。</td>
+</tr>
+<tr>
+<td align="left">nth_element (RandomAccessIterator first, RandomAccessIterator nth,RandomAccessIterator last, Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">is_partitioned (InputIterator first, InputIterator last, UnaryPredicate pred)</td>
+<td align="center">C11版，判断容器中满足为此pred的元素是否都在头部</td>
+</tr>
+<tr>
+<td align="left">partition (ForwardIterator first,ForwardIterator last, UnaryPredicate pred)</td>
+<td align="center">对序列重排，使得满足谓词pred的元素位于最前，返回值为指向不满足谓词pred的第一个元素的迭代器。</td>
+</tr>
+<tr>
+<td align="left">stable_partition (BidirectionalIterator first,BidirectionalIterator last,UnaryPredicate pred)</td>
+<td align="center">对序列重排，使得满足谓词pred的元素在前，不满足谓词pred的元素在后，且两组元素内部的相对顺序不变。一般是用临时缓冲区实现本函数。</td>
+</tr>
+<tr>
+<td align="left">partition_copy (InputIterator first, InputIterator last, OutputIterator1 result_true, OutputIterator2 result_false, UnaryPredicate pred)</td>
+<td align="center">C11版，输入容器中满足谓词pred的元素复制到result_true，其他元素复制到result_false</td>
+</tr>
+<tr>
+<td align="left">partition_point (ForwardIterator first, ForwardIterator last, UnaryPredicate pred)</td>
+<td align="center">C11版，输入队列已经是partition，折半查找到分界点。</td>
+</tr>
+</tbody></table>
+<h1 id="十五、排列"><a href="#十五、排列" class="headerlink" title="十五、排列"></a>十五、排列</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">is_permutation (ForwardIterator1 first1, ForwardIterator1 last1,ForwardIterator2 first2)</td>
+<td align="center">C11版本，判断两个序列是否为同一元素集的两个排列</td>
+</tr>
+<tr>
+<td align="left">is_permutation (ForwardIterator1 first1, ForwardIterator1 last1, ForwardIterator2 first2, BinaryPredicate pred)</td>
+<td align="center">C11版本，重载版本</td>
+</tr>
+<tr>
+<td align="left">next_permutation (BidirectionalIterator first, BidirectionalIterator last)</td>
+<td align="center">n个元素有n!种排列。这些排列中，规定升序序列为最小排列，降序序列为最大的排列，任意两个排列按照字典序分出大小。该函数返回当前序列作为一个排列按字典序的下一个排列。</td>
+</tr>
+<tr>
+<td align="left">next_permutation (BidirectionalIterator first, BidirectionalIterator last, Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">prev_permutation (BidirectionalIterator first, BidirectionalIterator last )</td>
+<td align="center">返回当前序列作为一个排列按字典序的上一个排列</td>
+</tr>
+<tr>
+<td align="left">prev_permutation (BidirectionalIterator first, BidirectionalIterator last, Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+</tbody></table>
+<h1 id="十六、随机洗牌"><a href="#十六、随机洗牌" class="headerlink" title="十六、随机洗牌"></a>十六、随机洗牌</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">random_shuffle (RandomAccessIterator first, RandomAccessIterator last)</td>
+<td align="center">n个元素有n!个排列。该函数给出随机选择的一个排列。</td>
+</tr>
+<tr>
+<td align="left">random_shuffle (RandomAccessIterator first, RandomAccessIterator last, RandomNumberGenerator&amp; gen)</td>
+<td align="center">使用给定的随机数发生器来产生随机选择的一个排列。</td>
+</tr>
+<tr>
+<td align="left">shuffle (RandomAccessIterator first, RandomAccessIterator last, URNG&amp;&amp; g)</td>
+<td align="center">C11版，其中参数g为随机数发生器（uniform random number generator），如在<random>中定义的标准随机数发生器。</random></td>
+</tr>
+</tbody></table>
+<h1 id="十七、删除"><a href="#十七、删除" class="headerlink" title="十七、删除"></a>十七、删除</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">remove (ForwardIterator first, ForwardIterator last, const T&amp; val)</td>
+<td align="center">删除容器中等于给定值的所有元素，保留的元素存放在容器的前部且相对次序不变。容器的size不变。</td>
+</tr>
+<tr>
+<td align="left">remove_if (ForwardIterator first, ForwardIterator last,UnaryPredicate pred)</td>
+<td align="center">删除容器中满足给定谓词pred的元素，保留的元素存放在容器的前部且相对次序不变。容器的size不变。</td>
+</tr>
+<tr>
+<td align="left">remove_copy (InputIterator first, InputIterator last, OutputIterator result, const T&amp; val)</td>
+<td align="center">把一个容器中不等于给定值的元素复制到另一个容器中。</td>
+</tr>
+<tr>
+<td align="left">remove_copy_if (InputIterator first, InputIterator last, OutputIterator result, UnaryPredicate pred)</td>
+<td align="center">把一个容器中不满足给定谓词pred的元素复制到另一个容器中。</td>
+</tr>
+</tbody></table>
+<h1 id="十八、替换"><a href="#十八、替换" class="headerlink" title="十八、替换"></a>十八、替换</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">replace (ForwardIterator first, ForwardIterator last, const T&amp; old_value, const T&amp; new_value)</td>
+<td align="center">把容器中为给定值的元素替换为新值</td>
+</tr>
+<tr>
+<td align="left">replace_if (ForwardIterator first, ForwardIterator last, UnaryPredicate pred, const T&amp; new_value )</td>
+<td align="center">把容器中满足给定谓词pred的元素替换为新值</td>
+</tr>
+<tr>
+<td align="left">replace_copy (InputIterator first, InputIterator last, OutputIterator result, const T&amp; old_value, const T&amp; new_value)</td>
+<td align="center">复制序列，对于等于老值的元素复制时使用新值</td>
+</tr>
+<tr>
+<td align="left">replace_copy_if (InputIterator first, InputIterator last, OutputIterator result, UnaryPredicate pred, const T&amp; new_value)</td>
+<td align="center">复制序列，对于满足给定谓词pred的元素复制新值。</td>
+</tr>
+</tbody></table>
+<h1 id="十九、逆序"><a href="#十九、逆序" class="headerlink" title="十九、逆序"></a>十九、逆序</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">reverse (BidirectionalIterator first, BidirectionalIterator last)</td>
+<td align="center">把容器中的元素逆序</td>
+</tr>
+<tr>
+<td align="left">reverse_copy (BidirectionalIterator first, BidirectionalIterator last, OutputIterator result)</td>
+<td align="center">复制序列的逆序</td>
+</tr>
+</tbody></table>
+<h1 id="二十、旋转"><a href="#二十、旋转" class="headerlink" title="二十、旋转"></a>二十、旋转</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">rotate (ForwardIterator first, ForwardIterator middle,ForwardIterator last)</td>
+<td align="center">等效于循环左移序列，使得迭代器middle所指的元素成为首元素。</td>
+</tr>
+<tr>
+<td align="left">rotate_copy (ForwardIterator first, ForwardIterator middle, ForwardIterator last, OutputIterator result)</td>
+<td align="center">等效于循环左移序列并复制到新的存储空间，使得迭代器middle所指的元素成为首元素。</td>
+</tr>
+</tbody></table>
+<h1 id="二十一、搜索"><a href="#二十一、搜索" class="headerlink" title="二十一、搜索"></a>二十一、搜索</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ForwardIterator adjacent_find (ForwardIterator first, ForwardIterator last)</td>
+<td align="center">在容器中发现第一对相邻且值相等的元素</td>
+</tr>
+<tr>
+<td align="left">ForwardIterator adjacent_find (ForwardIterator first, ForwardIterator last, BinaryPredicate pred)</td>
+<td align="center">重载版本。用给定谓词pred代替了operator ==</td>
+</tr>
+<tr>
+<td align="left">binary_search (ForwardIterator first, ForwardIterator last,const T&amp; val)</td>
+<td align="center">对一个升序序列做b:二分搜索，判定容器中是否有给定值val。</td>
+</tr>
+<tr>
+<td align="left">binary_search (ForwardIterator first, ForwardIterator last,const T&amp; val, Compare comp)</td>
+<td align="center">重载版本。用给定谓词pred代替了operator ==</td>
+</tr>
+<tr>
+<td align="left">find (InputIterator first, InputIterator last, const T&amp; val)</td>
+<td align="center">对一个输入序列，找到第一个等于给定值的元素</td>
+</tr>
+<tr>
+<td align="left">ForwardIterator1 find_end (ForwardIterator1 first1, ForwardIterator1 last1, ForwardIterator2 first2, ForwardIterator2 last2)</td>
+<td align="center">在序列[first1,last1)中，找到序列[first2,last2)最后出现的位置</td>
+</tr>
+<tr>
+<td align="left">ForwardIterator1 find_end (ForwardIterator1 first1, ForwardIterator1 last1, ForwardIterator2 first2, ForwardIterator2 last2, BinaryPredicate pred)</td>
+<td align="center">重载版本，用给定谓词pred代替operator==</td>
+</tr>
+<tr>
+<td align="left">find_first_of (InputIterator first1, InputIterator last1, ForwardIterator first2, ForwardIterator last2)</td>
+<td align="center">返回字符第一次出现的位置</td>
+</tr>
+<tr>
+<td align="left">find_first_of (InputIterator first1, InputIterator last1, ForwardIterator first2, ForwardIterator last2, BinaryPredicate pred)</td>
+<td align="center">重载版本，用给定谓词pred代替operator==</td>
+</tr>
+<tr>
+<td align="left">find_if (InputIterator first, InputIterator last, UnaryPredicate pred)</td>
+<td align="center">在容器中返回满足谓词pred的第一个元素</td>
+</tr>
+<tr>
+<td align="left">find_if_not (InputIterator first, InputIterator last, UnaryPredicate pred)</td>
+<td align="center">C11算法，在容器中返回不满足谓词pred的第一个元素</td>
+</tr>
+<tr>
+<td align="left">search (ForwardIterator1 first1, ForwardIterator1 last1, ForwardIterator2 first2, ForwardIterator2 last2)</td>
+<td align="center">在序列[first1,last1)中，找到序列[first2,last2)首次出现的位置</td>
+</tr>
+<tr>
+<td align="left">search (ForwardIterator1 first1, ForwardIterator1 last1, ForwardIterator2 first2, ForwardIterator2 last2, BinaryPredicate pred)</td>
+<td align="center">重载版本，用给定谓词pred代替operator==</td>
+</tr>
+<tr>
+<td align="left">search_n (ForwardIterator first, ForwardIterator last, Size count, const T&amp; val)</td>
+<td align="center">给定容器中，搜索给定值val连续出现n次的位置</td>
+</tr>
+<tr>
+<td align="left">search_n ( ForwardIterator first, ForwardIterator last, Size count, const T&amp; val, BinaryPredicate pred )</td>
+<td align="center">重载版本，用给定谓词pred代替operator==</td>
+</tr>
+</tbody></table>
+<h1 id="二十二、集合操作"><a href="#二十二、集合操作" class="headerlink" title="二十二、集合操作"></a>二十二、集合操作</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">includes ( InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, InputIterator2 last2 )</td>
+<td align="center">判断第2个已为升序的序列的元素是否都出现在第1个升序容器中</td>
+</tr>
+<tr>
+<td align="left">includes ( InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, InputIterator2 last2, Compare comp )</td>
+<td align="center">重载版本，用给定谓词pred代替operator&lt;</td>
+</tr>
+<tr>
+<td align="left">set_difference (InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, InputIterator2 last2, OutputIterator result)</td>
+<td align="center">两个升序序列之差</td>
+</tr>
+<tr>
+<td align="left">set_difference (InputIterator1 first1, InputIterator1 last1,InputIterator2 first2, InputIterator2 last2,OutputIterator result, Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">set_intersection (InputIterator1 first1, InputIterator1 last1,InputIterator2 first2, InputIterator2 last2,OutputIterator result)</td>
+<td align="center">两个升序序列（集合）的交</td>
+</tr>
+<tr>
+<td align="left">set_intersection (InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, InputIterator2 last2, OutputIterator result, Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">set_symmetric_difference (InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, InputIterator2 last2, OutputIterator result)</td>
+<td align="center">两个升序序列的b:对称差</td>
+</tr>
+<tr>
+<td align="left">set_symmetric_difference (InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, InputIterator2 last2, OutputIterator result, Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">set_union (InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, InputIterator2 last2, OutputIterator result)</td>
+<td align="center">两个升序序列的并</td>
+</tr>
+<tr>
+<td align="left">set_union (InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, InputIterator2 last2, OutputIterator result, Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+</tbody></table>
+<h1 id="二十三、排序"><a href="#二十三、排序" class="headerlink" title="二十三、排序"></a>二十三、排序</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">partial_sort (RandomAccessIterator first, RandomAccessIterator middle,RandomAccessIterator last)</td>
+<td align="center">使得[first, middle)为整个容器中最小的那些元素并为升序。[middle,last)的元素任意安排。</td>
+</tr>
+<tr>
+<td align="left">partial_sort (RandomAccessIterator first, RandomAccessIterator middle,RandomAccessIterator last, Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">partial_sort_copy (InputIterator first,InputIterator last, RandomAccessIterator result_first, RandomAccessIterator result_last)</td>
+<td align="center">从输入序列复制最小的一批元素到结果容器中，并按升序排列</td>
+</tr>
+<tr>
+<td align="left">partial_sort_copy (InputIterator first,InputIterator last, RandomAccessIterator result_first, RandomAccessIterator result_last, Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">is_sorted (ForwardIterator first, ForwardIterator last)</td>
+<td align="center">C11版本，判断序列是否为升序</td>
+</tr>
+<tr>
+<td align="left">is_sorted (ForwardIterator first, ForwardIterator last, Compare comp)</td>
+<td align="center">C11版本，重载版本</td>
+</tr>
+<tr>
+<td align="left">is_sorted_until (ForwardIterator first, ForwardIterator last)</td>
+<td align="center">C11版本，返回序列从头部开始为升序的子序列的结束处</td>
+</tr>
+<tr>
+<td align="left">is_sorted_until (ForwardIterator first, ForwardIterator last, Compare comp)</td>
+<td align="center">C11版本，重载版本</td>
+</tr>
+<tr>
+<td align="left">sort (RandomAccessIterator first, RandomAccessIterator last)</td>
+<td align="center">排序</td>
+</tr>
+<tr>
+<td align="left">sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp)</td>
+<td align="center">重载版本</td>
+</tr>
+<tr>
+<td align="left">stable_sort ( RandomAccessIterator first, RandomAccessIterator last )</td>
+<td align="center">稳定排序</td>
+</tr>
+<tr>
+<td align="left">stable_sort ( RandomAccessIterator first, RandomAccessIterator last,Compare comp )</td>
+<td align="center">重载版本</td>
+</tr>
+</tbody></table>
+<h1 id="二十四、交换"><a href="#二十四、交换" class="headerlink" title="二十四、交换"></a>二十四、交换</h1><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">iter_swap (ForwardIterator1 a, ForwardIterator2 b)</td>
+<td align="center">交换两个迭代器所指的元素对象</td>
+</tr>
+<tr>
+<td align="left">swap (T&amp; a, T&amp; b)</td>
+<td align="center">交换两个对象。优先使用移动语义</td>
+</tr>
+<tr>
+<td align="left">swap(T (&amp;a)[N], T (&amp;b)[N])</td>
+<td align="center">交换两个对象数组</td>
+</tr>
+<tr>
+<td align="left">swap_ranges (ForwardIterator1 first1, ForwardIterator1 last1,ForwardIterator2 first2)</td>
+<td align="center">交换两个容器中对应元素</td>
+</tr>
+</tbody></table>
+<p>参考链接：<br><a href="https://zh.wikibooks.org/wiki/C%2B%2B/STL/Algorithm" target="_blank" rel="noopener">https://zh.wikibooks.org/wiki/C%2B%2B/STL/Algorithm</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                 
+                 <hr/>
+                 
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn" rel="external nofollow noreferrer">陈德强</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://purethought.cn/630c7c13.html">https://purethought.cn/630c7c13.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://purethought.cn" target="_blank">陈德强</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+            </div>         
+        </div>
+    </div>
+    
+    <!-- 代码块功能依赖 -->
+    <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>    
+    <!-- 代码语言 -->   
+    <!-- <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script> -->          
+    <!-- 代码块复制 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    <script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>      
+    <!-- 代码块收缩 -->   
+    <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge ">                  
+                <a href="/c4a6d7df.html" target="_blank">                 
+                    <font color="#0e263f">
+                        <i class="fa  fa-hand-o-left"></i>
+                        cctype库
+                    </font>                    
+                </a>          
+            </div>
+        </div>
+        
+
+
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge " >
+                <a href="/89432ca2.html" target="_blank">
+                    <font color="#0e263f">
+                        Boost库简介
+                        <i class="fa  fa-hand-o-right"></i>
+                    </font>
+                 </a>  
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+    
+        <style>
+    #reward {
+        /*margin: 40px 0;*/
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.6rem;
+      
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+   <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red" >¥</a> 
+  
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-times"></i></a>
+            <h4 class="reward-title">您的赞赏就是我的动力^</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+    
+
+    
+        <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80Njk3Mi8yMzQ3Mw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+    
+   <!-- 
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '6190f09c0ffe658707b5',
+        clientSecret: '2798e16eeba573f49ce06d2da0595188699aac41',
+        repo: 'cdqpt.github.io',
+        owner: 'CdqPT',
+        admin: "CdqPT",
+        id: '2019-09-28T14-49-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+     -->
+
+    
+
+    
+
+    
+
+   <!-- <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script> -->
+
+</div>
+
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    
+        <div class="toc-widget">
+        
+            <div class="toc-title" ><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="hidden">
+                <div id="toc-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. --><!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large ">    
+        <i class="fa fa-th-large"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2'
+        });
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            i++;
+            $(this).attr('href', '#' + tocHeading + (i));
+            $(this).attr('navTo',  tocHeading + (i));    
+        });
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(0);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(100);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+</main>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+       <div class="col s12 m8 l8 copy-right">
+             
+               &copy;2018-2020 ALaDing
+               &nbsp;
+             Author:  <a href="https://purethought.cn/">陈德强 &nbsp  Email: 928277452@qq.com</a>
+
+            
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                       
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?147475454185ebcf440a27cc35e793ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CdqPT" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:928277452@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=928277452" class="tooltipped" data-tooltip="QQ联系我: 928277452" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+ 
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+   
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+
+</html>
