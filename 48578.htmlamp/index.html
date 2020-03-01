@@ -53,7 +53,7 @@
 			    "@id":"https://purethought.cn/48578.html"
 			},
 			"datePublished": "2020-02-29T04:22:00.000Z",
-			"dateModified": "2020-02-29T11:59:49.437Z",
+			"dateModified": "2020-02-29T23:52:07.162Z",
 			
 			"image": {
 				"@type": "ImageObject",
@@ -4024,6 +4024,57 @@ A column <span class="token keyword">is</span> appended to the tree<span class="
 
 tree<span class="token punctuation">.</span>Model <span class="token operator">=</span> treestore<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Finally, we set a data model for the tree widget.</p>
+<h2 id="Aother-example"><a href="#Aother-example" class="headerlink" title="Aother example"></a>Aother example</h2><pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> Gtk<span class="token punctuation">;</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SharpApp</span> <span class="token punctuation">:</span> Window
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token function">SharpApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">base</span><span class="token punctuation">(</span><span class="token string">&quot;Tree&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">SetDefaultSize</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">SetPosition</span><span class="token punctuation">(</span>WindowPosition<span class="token punctuation">.</span>Center<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        DeleteEvent <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">delegate</span> <span class="token punctuation">{</span> Application<span class="token punctuation">.</span><span class="token function">Quit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+        TreeView tree <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        TreeViewColumn languages <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeViewColumn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        languages<span class="token punctuation">.</span>Title <span class="token operator">=</span> <span class="token string">&quot;Programming languages&quot;</span><span class="token punctuation">;</span>
+
+        CellRendererText cell <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CellRendererText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        languages<span class="token punctuation">.</span><span class="token function">PackStart</span><span class="token punctuation">(</span>cell<span class="token punctuation">,</span> <span class="token keyword">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        languages<span class="token punctuation">.</span><span class="token function">AddAttribute</span><span class="token punctuation">(</span>cell<span class="token punctuation">,</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        TreeStore treestore <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeStore</span><span class="token punctuation">(</span><span class="token keyword">typeof</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">typeof</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        TreeIter iter <span class="token operator">=</span> treestore<span class="token punctuation">.</span><span class="token function">AppendValues</span><span class="token punctuation">(</span><span class="token string">&quot;Scripting languages&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        treestore<span class="token punctuation">.</span><span class="token function">AppendValues</span><span class="token punctuation">(</span>iter<span class="token punctuation">,</span> <span class="token string">&quot;Python&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;23&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        treestore<span class="token punctuation">.</span><span class="token function">AppendValues</span><span class="token punctuation">(</span>iter<span class="token punctuation">,</span> <span class="token string">&quot;PHP&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        treestore<span class="token punctuation">.</span><span class="token function">AppendValues</span><span class="token punctuation">(</span>iter<span class="token punctuation">,</span> <span class="token string">&quot;Perl&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        treestore<span class="token punctuation">.</span><span class="token function">AppendValues</span><span class="token punctuation">(</span>iter<span class="token punctuation">,</span> <span class="token string">&quot;Ruby&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        iter <span class="token operator">=</span> treestore<span class="token punctuation">.</span><span class="token function">AppendValues</span><span class="token punctuation">(</span><span class="token string">&quot;Compiling languages&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        treestore<span class="token punctuation">.</span><span class="token function">AppendValues</span><span class="token punctuation">(</span>iter<span class="token punctuation">,</span> <span class="token string">&quot;C#&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        treestore<span class="token punctuation">.</span><span class="token function">AppendValues</span><span class="token punctuation">(</span>iter<span class="token punctuation">,</span> <span class="token string">&quot;C++&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        treestore<span class="token punctuation">.</span><span class="token function">AppendValues</span><span class="token punctuation">(</span>iter<span class="token punctuation">,</span> <span class="token string">&quot;C&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        treestore<span class="token punctuation">.</span><span class="token function">AppendValues</span><span class="token punctuation">(</span>iter<span class="token punctuation">,</span> <span class="token string">&quot;Java&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        tree<span class="token punctuation">.</span><span class="token function">AppendColumn</span><span class="token punctuation">(</span>languages<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        tree<span class="token punctuation">.</span><span class="token function">AppendColumn</span><span class="token punctuation">(</span><span class="token string">&quot;Data&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">CellRendererText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        tree<span class="token punctuation">.</span>Model <span class="token operator">=</span> treestore<span class="token punctuation">;</span>
+
+        <span class="token function">Add</span><span class="token punctuation">(</span>tree<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">ShowAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Gtk<span class="token punctuation">.</span>Application<span class="token punctuation">.</span><span class="token function">Init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">SharpApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Gtk<span class="token punctuation">.</span>Application<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="amp-img-wrapper"><amp-img src="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200229225053.png?x-oss-process=image/resize,m_lfit,h_450" width="559" height="450" layout="responsive"></amp-img></div>
 <p>In this chapter, we were talking about advanced GTK# widgets.</p>
 <h1 id="Dialogs-in-GTK"><a href="#Dialogs-in-GTK" class="headerlink" title="Dialogs in GTK#"></a>Dialogs in GTK#</h1><p>In this part of the GTK# programming tutorial, we will introduce dialogs.</p>
 <p>Dialog windows or dialogs are an indispensable part of most modern GUI applications. A dialog is defined as a conversation between two or more persons. In a computer application a dialog is a window which is used to &#x201C;talk&#x201D; to the application. A dialog is used to input data, modify data, change the application settings etc. Dialogs are important means of communication between a user and a computer program.</p>
@@ -4619,7 +4670,8 @@ renderer<span class="token punctuation">.</span>Gc <span class="token operator">
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <div class="amp-img-wrapper"><amp-img src="https://pagepig.oss-cn-hangzhou.aliyuncs.com/20200229192500.png?x-oss-process=image/resize,m_lfit,h_450" width="460" height="344" layout="responsive"></amp-img></div>
 <p>In our example, we will draw a circle and will it with a solid color.</p>
-<p>gmcs -pkg:gtk-sharp-2.0 -r:/usr/lib/mono/2.0/Mono.Cairo.dll  simple.cs<br>Here is how we compile the example.</p>
+<pre class="line-numbers language-bash"><code class="language-bash">gmcs -pkg:gtk-sharp-2.0 -r:/usr/lib/mono/2.0/Mono.Cairo.dll  simple.cs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Here is how we compile the example.</p>
 <pre class="line-numbers language-csharp"><code class="language-csharp">DrawingArea darea <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DrawingArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>We will be doing our drawing operations on the DrawingArea widget.</p>
 <pre class="line-numbers language-csharp"><code class="language-csharp">darea<span class="token punctuation">.</span>ExposeEvent <span class="token operator">+</span><span class="token operator">=</span> OnExpose<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
