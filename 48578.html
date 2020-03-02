@@ -638,7 +638,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="fa fa-refresh fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-01
+                    2020-03-02
                 </div>
                 
 
@@ -3468,10 +3468,10 @@ renderer<span class="token punctuation">.</span>Gc <span class="token operator">
 
         cr<span class="token punctuation">.</span><span class="token function">Translate</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         cr<span class="token punctuation">.</span><span class="token function">Arc</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>width <span class="token operator">&lt;</span> height <span class="token operator">?</span> width <span class="token punctuation">:</span> height<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">*</span>Math<span class="token punctuation">.</span>PI<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        cr<span class="token punctuation">.</span><span class="token function">StrokePreserve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cr<span class="token punctuation">.</span><span class="token function">StrokePreserve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//调用画笔画边线</span>
 
         cr<span class="token punctuation">.</span><span class="token function">SetSourceRGB</span><span class="token punctuation">(</span><span class="token number">0.3</span><span class="token punctuation">,</span> <span class="token number">0.4</span><span class="token punctuation">,</span> <span class="token number">0.6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        cr<span class="token punctuation">.</span><span class="token function">Fill</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cr<span class="token punctuation">.</span><span class="token function">Fill</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//调用填充画内部</span>
 
         <span class="token punctuation">(</span><span class="token punctuation">(</span>IDisposable<span class="token punctuation">)</span> cr<span class="token punctuation">.</span>Target<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                                      
         <span class="token punctuation">(</span><span class="token punctuation">(</span>IDisposable<span class="token punctuation">)</span> cr<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -4437,7 +4437,101 @@ cr<span class="token punctuation">.</span><span class="token function">Stroke</s
     burning<span class="token punctuation">.</span><span class="token function">QueueDraw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>We get the value from the scale widget, store it in the cur_value variable for later use. We redraw the burning widget.</p>
-<p>参考链接：<br><a href="https://zetcode.com/gui/gtksharp/drawing/" target="_blank" rel="noopener">https://zetcode.com/gui/gtksharp/drawing/</a></p>
+<h1 id="Cairo入门"><a href="#Cairo入门" class="headerlink" title="Cairo入门"></a>Cairo入门</h1><h2 id="关于Cairo"><a href="#关于Cairo" class="headerlink" title="关于Cairo"></a>关于Cairo</h2><p>Cairo是非常流行的开源2D图形渲染引擎库，它支持包括X-Windos，Win32，图像，pdf在内的各种输出设备。目前，Cairo已被广泛的使用在多个平台上来渲染图形界面，包括Firefox/Webkit-EFL/GTK+/Poppler等等</p>
+<h2 id="编译安装Cairo"><a href="#编译安装Cairo" class="headerlink" title="编译安装Cairo"></a>编译安装Cairo</h2><p>我们可以直接从Ubuntu的上下载cairo的稳定版：<br>sudo apt-get install libcairo2-dev<br>这里，为了使用Cairo的最新版，我们选择从git上下载源代码，并编译安装。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> clone git://anongit.freedesktop.org/git/cairo
+<span class="token function">cd</span> cairo
+<span class="token function">mkdir</span> cairobuild
+./autogen.sh <span class="token comment" spellcheck="true">#这里可以加上配置选项</span>
+<span class="token function">make</span> 
+<span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Cairo的基本绘图模型与概念"><a href="#Cairo的基本绘图模型与概念" class="headerlink" title="Cairo的基本绘图模型与概念"></a>Cairo的基本绘图模型与概念</h2><p>在使用Cairo编程前，我们应该对于Cairo的基本绘图模型做一了解。这些模包括：表面（surfac），源（source)，遮盖(mask)，路径(path),上下文(context)和函数(verb)。</p>
+<h3 id="表面-surface"><a href="#表面-surface" class="headerlink" title="表面(surface)"></a>表面(surface)</h3><p>Surface是Cair绘图的目标区域，在Cairo中使用cairo_surface_t表示。前面讲到Cair支持多种输出设备，因此我们绘图的目标区域可能是一张png图象也可能是一个pdf文件。不同目标的绘制的底层实现各不相同，而surfac对这些绘图的目标进行了一个抽象。因此，我们在创建了相应的surface后，只需要调用统一的函数对surface进行绘制，而不需要关心其后端(backend)的具体实现。<br>源(source)</p>
+<h3 id="源（source"><a href="#源（source" class="headerlink" title="源（source)"></a>源（source)</h3><p>Source指的是我们绘图是的具体的材料与格式，它包括画笔的粗细、颜色等等。在Cairo中，source不光可以是笔的颜色，也可以是一种图案（patter）比如渐变色，甚至可以是一个表面（surface)。</p>
+<h3 id="遮盖（mask）"><a href="#遮盖（mask）" class="headerlink" title="遮盖（mask）"></a>遮盖（mask）</h3><p>Mask相当于我们在绘图过程，用一张挖空了某些部分的纸遮挡在画布上。这样，在绘图过程中，只有挖空的部分会被我们所使用的源影响到，其余部分不受影响。</p>
+<h3 id="路径（path）"><a href="#路径（path）" class="headerlink" title="路径（path）"></a>路径（path）</h3><p>Path是指Cairo的绘制表面上一些虚拟的路径，它可能是一条线段，一个闭合的四边形，也可能是更加复杂的曲线。Path可以由Cairo的函数（在Cairo中被称为verb）所创建。但是，由于Path只是虚拟的路径，所以对Path的创建并不代表对表面绘制。接下来，我们还需要使用绘制函数（Cairo里称为drawing verb)进行绘制。比如，我们可以通过cairo_rectangle函数创建一个闭合的长方形的路径，然后通过cairo_fill函数填充这个长方形。</p>
+<h3 id="上下文-context"><a href="#上下文-context" class="headerlink" title="上下文(context)"></a>上下文(context)</h3><p>Context是Cairo的核心结构，在Cairo中使用cairo_t来表示。它记录了当前状态下，与绘制有关的各种信息，包括之前介绍过的表面、源、遮盖、字体等等。 在任何绘制之前，我们都必须先创建一个cair_t结构，同时将它绑定到一个绘制表面上(surface)。下面的代码段创建了一个cairo_t，并将其绑定到一个640x480的png图象上。</p>
+<pre class="line-numbers language-c"><code class="language-c">cairo_surface_t <span class="token operator">*</span>surface<span class="token punctuation">;</span>
+cairo_t <span class="token operator">*</span>cr<span class="token punctuation">;</span>
+
+
+surface <span class="token operator">=</span> <span class="token function">cairo_image_surface_create</span> <span class="token punctuation">(</span>CAIRO_FORMAT_ARGB32<span class="token punctuation">,</span> <span class="token number">640</span><span class="token punctuation">,</span> <span class="token number">480</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+cr <span class="token operator">=</span> <span class="token function">cairo_create</span> <span class="token punctuation">(</span>surface<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="函数-verb"><a href="#函数-verb" class="headerlink" title="函数(verb)"></a>函数(verb)</h3><p>Cairo中与绘制相关的函数被称为verb。目前Cairo支持五种drawing verb，分别是stroke(画线/描边)， fill(填充)，text（文字），paint（滤镜），mask（遮盖/蒙板）。</p>
+<p><strong>描边（Stroke）</strong><br>cairo_stroke() 操作就是一个虚拟画笔沿着特定的路径（path）描边，代表的是区域边线。<br>画笔所过之处使得源（Source）通过一个空心或实心的路径线蒙板（mask）传输到目标, 路径线取决于画笔的 线宽（line width）, 表现样式（dash style）, 和 线头（line caps）.</p>
+<p><strong>填充(fill):</strong><br>和Stroke相对应，代表的是区域内部。</p>
+<p><strong>文字(text):</strong><br>cairo_show_text() 操作使用文本来形成蒙板. 把 cairo_show_text()当做是使用 cairo_text_path()创建路径然后使用 cairo_fill() 来传送（源到目标）应该比较容易理解一下. 如果你有大量文本要处理,那么使用 cairo_show_text() 缓存字形更为有效.</p>
+<p><strong>滤镜(paint):</strong><br>paint相当于是整个源进行了一次操作，比如cairo_paint_with_alpha函数可以设置一个alpha值，来对整个图象进行灰度的减少。</p>
+<p><strong>蒙板(mask):</strong><br>蒙版就是选框的外部（选框的内部就是选区）。蒙版一词本身即来自生活应用，也就是“蒙在上面的板子”的含义。</p>
+<h3 id="变换-transformation"><a href="#变换-transformation" class="headerlink" title="变换(transformation)"></a>变换(transformation)</h3><p>Cairo还提供类似OpenGL的坐标变换操作。变换操作包括：平移(cairo_translate)，伸缩(cairo_scale)，旋转(cairo_rotate)。我们也可以通过cairo_transform函数来指定一个复杂的变换。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>1.绘制一个矩形到rectangle.png图片上。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cairo.h></span></span>
+
+<span class="token keyword">int</span>
+<span class="token function">main</span> <span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cairo_surface_t <span class="token operator">*</span>surface<span class="token punctuation">;</span>
+    cairo_t <span class="token operator">*</span>cr<span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> width <span class="token operator">=</span> <span class="token number">640</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> height <span class="token operator">=</span> <span class="token number">480</span><span class="token punctuation">;</span>
+    surface <span class="token operator">=</span> <span class="token function">cairo_image_surface_create</span> <span class="token punctuation">(</span>CAIRO_FORMAT_ARGB32<span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cr <span class="token operator">=</span> <span class="token function">cairo_create</span> <span class="token punctuation">(</span>surface<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/* Drawing code goes here */</span>
+    <span class="token function">cairo_set_line_width</span> <span class="token punctuation">(</span>cr<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//设置绘画宽度</span>
+    <span class="token function">cairo_set_source_rgb</span> <span class="token punctuation">(</span>cr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//设置绘画颜色</span>
+    <span class="token function">cairo_rectangle</span> <span class="token punctuation">(</span>cr<span class="token punctuation">,</span> width<span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">,</span> width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//设置绘画区域</span>
+    <span class="token function">cairo_stroke</span> <span class="token punctuation">(</span>cr<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//画边线</span>
+
+    <span class="token comment" spellcheck="true">/* Write output and clean up */</span>
+    <span class="token function">cairo_surface_write_to_png</span> <span class="token punctuation">(</span>surface<span class="token punctuation">,</span> <span class="token string">"rectangle.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">cairo_destroy</span> <span class="token punctuation">(</span>cr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">cairo_surface_destroy</span> <span class="token punctuation">(</span>surface<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>2.绘制helloworld到helloworld.pdf上。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cairo.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cairo-pdf.h></span></span>
+<span class="token keyword">int</span>
+<span class="token function">main</span> <span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cairo_surface_t <span class="token operator">*</span>surface<span class="token punctuation">;</span>
+    cairo_t <span class="token operator">*</span>cr<span class="token punctuation">;</span>
+    cairo_text_extents_t te<span class="token punctuation">;</span>
+
+
+   <span class="token comment" spellcheck="true">/* Prepare drawing area */</span>
+    <span class="token keyword">int</span> width <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> height <span class="token operator">=</span> <span class="token number">120</span><span class="token punctuation">;</span>
+
+    surface <span class="token operator">=</span> <span class="token function">cairo_pdf_surface_create</span> <span class="token punctuation">(</span><span class="token string">"helloworld.pdf"</span><span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cr <span class="token operator">=</span> <span class="token function">cairo_create</span> <span class="token punctuation">(</span>surface<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token comment" spellcheck="true">/* Drawing code goes here */</span>
+    <span class="token function">cairo_set_source_rgb</span> <span class="token punctuation">(</span>cr<span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">cairo_select_font_face</span> <span class="token punctuation">(</span>cr<span class="token punctuation">,</span> <span class="token string">"Georgia"</span><span class="token punctuation">,</span>
+        CAIRO_FONT_SLANT_NORMAL<span class="token punctuation">,</span> CAIRO_FONT_WEIGHT_BOLD<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">cairo_set_font_size</span> <span class="token punctuation">(</span>cr<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">cairo_text_extents</span> <span class="token punctuation">(</span>cr<span class="token punctuation">,</span> <span class="token string">"helloworld"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>te<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">cairo_move_to</span> <span class="token punctuation">(</span>cr<span class="token punctuation">,</span> width<span class="token operator">/</span><span class="token number">2</span> <span class="token operator">-</span> te<span class="token punctuation">.</span>width <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">-</span> te<span class="token punctuation">.</span>x_bearing<span class="token punctuation">,</span>
+          height<span class="token operator">/</span><span class="token number">2</span> <span class="token operator">-</span> te<span class="token punctuation">.</span>height <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">-</span> te<span class="token punctuation">.</span>y_bearing<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">cairo_show_text</span> <span class="token punctuation">(</span>cr<span class="token punctuation">,</span> <span class="token string">"helloworld"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token function">cairo_destroy</span> <span class="token punctuation">(</span>cr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">cairo_surface_destroy</span> <span class="token punctuation">(</span>surface<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="gcc编译"><a href="#gcc编译" class="headerlink" title="gcc编译"></a>gcc编译</h2><p>使用gcc编译调用了cairo的源文件时，应指定cairo的头文件目录和库文件所在目录。假设源文件文件名为cairotest.c，cairo.h等头文件所在目录为/usr/include/cairo，cairo库文件所在目录为/usr/local/lib，则可以使用以下命令编译：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">gcc cairotest.c -o cairotest -I/usr/include/cairo -L/usr/local/lib/ -lcairo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>我们也可以使用pkg-config来配置cairo的目录，然后使用如下命令来编译：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">gcc -o cairotest <span class="token variable"><span class="token variable">$(</span>pkg-config --cflags --libs cairo<span class="token variable">)</span></span> cairotest.c<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>参考链接：<br><a href="https://zetcode.com/gui/gtksharp/drawing/" target="_blank" rel="noopener">https://zetcode.com/gui/gtksharp/drawing/</a><br><a href="https://blog.csdn.net/flexwang_/article/details/38000401" target="_blank" rel="noopener">https://blog.csdn.net/flexwang_/article/details/38000401</a></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                  
                  <hr/>
